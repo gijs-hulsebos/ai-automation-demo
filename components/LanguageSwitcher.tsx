@@ -9,7 +9,7 @@ export function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex gap-1 p-1 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
+    <div className="hidden md:flex fixed bottom-6 left-6 z-50 gap-1 p-1 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
       {LANGUAGES.map((l) => (
         <button
           key={l}

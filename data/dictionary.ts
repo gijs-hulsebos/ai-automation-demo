@@ -20,6 +20,8 @@ export const DICTIONARY = {
         status: 'System Status'
       },
       metrics: {
+        model: 'Model',
+        engine: 'Engine',
         latency: 'API Latency',
         successRate: 'Success Rate',
         cpuUsage: 'CPU Usage',
@@ -38,7 +40,7 @@ export const DICTIONARY = {
       },
       nodes: {
         webhook: 'Webhook Step',
-        llm: 'LLM Processor Step',
+        llm: 'LLM Processor',
         context: 'Context Retrieval',
         logic: 'Automation Logic',
         response: 'Response Output',
@@ -51,6 +53,23 @@ export const DICTIONARY = {
         content: 'Content Generator',
         formatter: 'Email Formatter',
         dispatch: 'Newsletter Dispatch'
+      },
+      workflows: {
+        chatbot: {
+          name: 'AI Chatbot Automation',
+          user: "What's the status of my order #12345?",
+          system: "Your order #12345 is currently out for delivery and will arrive by 5 PM today."
+        },
+        calendar: {
+          name: 'Calendar Booking Automation',
+          user: "Plan a call on Wednesday at 09:00.",
+          system: "Your call has been scheduled for Wednesday at 09:00."
+        },
+        newsletter: {
+          name: 'AI Newsletter Generator',
+          user: "Generate and send the weekly AI news summary.",
+          system: "Newsletter generated with 5 articles and dispatched to 1,200 subscribers."
+        }
       },
       workflowLogs: {
         chatbot: [
@@ -144,6 +163,50 @@ export const DICTIONARY = {
         { title: 'Database', desc: 'State & record management (Supabase)' },
         { title: 'Response', desc: 'Formatted output back to user' }
       ]
+    },
+    contact: {
+      title: 'Get in Touch',
+      subtitle: 'Interested in AI automation, integrations or consulting? Feel free to reach out.',
+      detailsTitle: 'Contact Details',
+      email: 'Email',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      openTo: 'I’m currently open to AI automation, integration and consulting opportunities.',
+      formTitle: 'Send a Message',
+      nameLabel: 'Name',
+      emailLabel: 'Email',
+      messageLabel: 'Message',
+      sendButton: 'Send Message'
+    },
+    consultancy: {
+      title: 'AI Automation & AI Systems Engineering',
+      subtitle: 'I design and build production AI systems that connect language models, APIs and automation engines and modern AI tools to automate real business workflows.',
+      description: 'From AI assistants and automation pipelines to AI avatars, content generation systems and workflow orchestration.',
+      systemsTitle: 'AI Systems I Build',
+      systems: [
+        { title: 'AI Workflow Automation', desc: 'Design automation pipelines using LLMs, APIs and workflow engines such as n8n, Zapier or custom integrations.' },
+        { title: 'AI Chatbots & AI Assistants', desc: 'Build AI assistants that automate support, research, scheduling and internal workflows.' },
+        { title: 'AI Voice & Text-to-Speech Systems', desc: 'Integrate modern voice models and text-to-speech systems to create voice agents, voice assistants and automated communication tools.' },
+        { title: 'AI Avatars & Video Generation', desc: 'Integrate AI avatar systems and video generation tools to build automated video content pipelines and interactive digital agents.' },
+        { title: 'AI Content Generation Pipelines', desc: 'Automate content generation using modern AI models for text, images and video (including tools like Nano Banana, Veo or similar systems).' },
+        { title: 'AI API Integrations', desc: 'Connect AI models with real software systems such as CRMs, databases, messaging platforms, internal tools and business APIs.' }
+      ],
+      toolsTitle: 'AI Models & Tools I Work With',
+      tools: [
+        { category: 'Language Models', items: ['OpenAI', 'Gemini', 'OpenRouter'] },
+        { category: 'Voice & Speech', items: ['ElevenLabs', 'Deepgram'] },
+        { category: 'Video / Avatars', items: ['HeyGen', 'Synthesia'] },
+        { category: 'Automation', items: ['n8n', 'Zapier', 'Supabase', 'Vercel'] }
+      ],
+      processTitle: 'How I Build AI Systems',
+      process: [
+        { title: 'Analyze the workflow', desc: 'Identify repetitive processes, integration points and automation opportunities.' },
+        { title: 'Design the AI architecture', desc: 'Design the system architecture connecting LLMs, APIs, databases and automation workflows.' },
+        { title: 'Implement and deploy', desc: 'Build and deploy the AI system so it runs reliably inside real production environments.' }
+      ],
+      ctaTitle: 'Interested in building AI automation systems?',
+      ctaDesc: 'Let’s discuss how AI integrations and automation pipelines can improve your workflows.',
+      ctaButton: 'Contact Me'
     }
   },
   NL: {
@@ -167,6 +230,8 @@ export const DICTIONARY = {
         status: 'Systeemstatus'
       },
       metrics: {
+        model: 'Model',
+        engine: 'Engine',
         latency: 'API-latentie',
         successRate: 'Succespercentage',
         cpuUsage: 'CPU-gebruik',
@@ -185,7 +250,7 @@ export const DICTIONARY = {
       },
       nodes: {
         webhook: 'Webhook Stap',
-        llm: 'LLM Processor Stap',
+        llm: 'LLM Processor',
         context: 'Context Ophalen',
         logic: 'Automatiseringslogica',
         response: 'Respons Output',
@@ -198,6 +263,23 @@ export const DICTIONARY = {
         content: 'Content Generator',
         formatter: 'E-mail Formatter',
         dispatch: 'Nieuwsbrief Verzenden'
+      },
+      workflows: {
+        chatbot: {
+          name: 'AI Chatbot Automatisering',
+          user: "Wat is de status van mijn bestelling #12345?",
+          system: "Uw bestelling #12345 is momenteel onderweg en wordt vandaag voor 17:00 uur bezorgd."
+        },
+        calendar: {
+          name: 'Agenda Boekingsautomatisering',
+          user: "Plan een gesprek in op woensdag om 09:00.",
+          system: "Uw gesprek is ingepland voor woensdag om 09:00."
+        },
+        newsletter: {
+          name: 'AI Nieuwsbrief Generator',
+          user: "Genereer en verzend de wekelijkse AI-nieuwssamenvatting.",
+          system: "Nieuwsbrief gegenereerd met 5 artikelen en verzonden naar 1.200 abonnees."
+        }
       },
       workflowLogs: {
         chatbot: [
@@ -291,6 +373,50 @@ export const DICTIONARY = {
         { title: 'Database', desc: 'State & recordbeheer (Supabase)' },
         { title: 'Respons', desc: 'Geformatteerde output terug naar gebruiker' }
       ]
+    },
+    contact: {
+      title: 'Neem Contact Op',
+      subtitle: 'Geïnteresseerd in AI-automatisering, integraties of consultancy? Neem gerust contact op.',
+      detailsTitle: 'Contactgegevens',
+      email: 'E-mail',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      openTo: 'Ik sta momenteel open voor mogelijkheden op het gebied van AI-automatisering, integratie en consultancy.',
+      formTitle: 'Stuur een Bericht',
+      nameLabel: 'Naam',
+      emailLabel: 'E-mail',
+      messageLabel: 'Bericht',
+      sendButton: 'Bericht Verzenden'
+    },
+    consultancy: {
+      title: 'AI Automatisering & AI Systems Engineering',
+      subtitle: 'Ik ontwerp en bouw enterprise-grade AI-systemen die taalmodellen, API\'s, automatiseringsengines en moderne AI-tools verbinden om bedrijfsprocessen te stroomlijnen.',
+      description: 'Van AI-assistenten en automatiseringspipelines tot AI-avatars, contentgeneratiesystemen en workflow-orkestratie.',
+      systemsTitle: 'AI-systemen die ik ontwikkel',
+      systems: [
+        { title: 'AI Workflow Automatisering', desc: 'Ontwerp en implementeer geavanceerde automatiseringspipelines met behulp van LLM\'s, API\'s en workflow-engines zoals n8n, Zapier of maatwerk integraties.' },
+        { title: 'AI Chatbots & AI Assistenten', desc: 'Ontwikkel intelligente AI-assistenten die klantenservice, onderzoek, planning en interne workflows automatiseren.' },
+        { title: 'AI Voice & Text-to-Speech Systemen', desc: 'Integreer moderne spraakmodellen en text-to-speech systemen voor de creatie van voice agents, spraakassistenten en geautomatiseerde communicatietools.' },
+        { title: 'AI Avatars & Videogeneratie', desc: 'Implementeer AI-avatarsystemen en videogeneratietools om geautomatiseerde videocontentpipelines en interactieve digitale agenten te bouwen.' },
+        { title: 'AI Contentgeneratie Pipelines', desc: 'Automatiseer contentcreatie met behulp van state-of-the-art AI-modellen voor tekst, afbeeldingen en video (inclusief tools zoals Nano Banana, Veo of vergelijkbare systemen).' },
+        { title: 'AI API Integraties', desc: 'Koppel AI-modellen naadloos aan bestaande softwaresystemen zoals CRM\'s, databases, communicatieplatforms, interne tools en zakelijke API\'s.' }
+      ],
+      toolsTitle: 'AI-modellen & Tools waarmee ik werk',
+      tools: [
+        { category: 'Taalmodellen', items: ['OpenAI', 'Gemini', 'OpenRouter'] },
+        { category: 'Spraak & Stem', items: ['ElevenLabs', 'Deepgram'] },
+        { category: 'Video / Avatars', items: ['HeyGen', 'Synthesia'] },
+        { category: 'Automatisering', items: ['n8n', 'Zapier', 'Supabase', 'Vercel'] }
+      ],
+      processTitle: 'Mijn aanpak voor AI-systemen',
+      process: [
+        { title: 'Workflow Analyse', desc: 'Identificeer repetitieve processen, integratiepunten en strategische automatiseringsmogelijkheden.' },
+        { title: 'AI-architectuur Ontwerp', desc: 'Ontwerp een robuuste systeemarchitectuur die LLM\'s, API\'s, databases en automatiseringsworkflows efficiënt verbindt.' },
+        { title: 'Implementatie & Deployment', desc: 'Bouw en implementeer het AI-systeem zodat het betrouwbaar en schaalbaar draait in productieomgevingen.' }
+      ],
+      ctaTitle: 'Geïnteresseerd in het bouwen van AI-automatiseringssystemen?',
+      ctaDesc: 'Laten we bespreken hoe AI-integraties en automatiseringspipelines uw bedrijfsprocessen kunnen optimaliseren.',
+      ctaButton: 'Neem Contact Op'
     }
   },
   DE: {
@@ -314,6 +440,8 @@ export const DICTIONARY = {
         status: 'Systemstatus'
       },
       metrics: {
+        model: 'Modell',
+        engine: 'Engine',
         latency: 'API-Latenz',
         successRate: 'Erfolgsquote',
         cpuUsage: 'CPU-Auslastung',
@@ -332,10 +460,10 @@ export const DICTIONARY = {
       },
       nodes: {
         webhook: 'Webhook-Schritt',
-        llm: 'LLM-Prozessor-Schritt',
-        context: 'Kontextabruf',
+        llm: 'LLM-Prozessor',
+        context: 'Kontext abrufen',
         logic: 'Automatisierungslogik',
-        response: 'Antwortausgabe',
+        response: 'Antwort-Ausgabe',
         intent: 'Absichtserkennung',
         calendar: 'Kalender-API',
         event: 'Ereignis erstellen',
@@ -346,10 +474,27 @@ export const DICTIONARY = {
         formatter: 'E-Mail-Formatierer',
         dispatch: 'Newsletter-Versand'
       },
+      workflows: {
+        chatbot: {
+          name: 'KI-Chatbot-Automatisierung',
+          user: "Wie ist der Status meiner Bestellung #12345?",
+          system: "Ihre Bestellung #12345 ist derzeit in Zustellung und wird heute bis 17:00 Uhr eintreffen."
+        },
+        calendar: {
+          name: 'Kalender-Buchungsautomatisierung',
+          user: "Planen Sie einen Anruf am Mittwoch um 09:00 Uhr.",
+          system: "Ihr Anruf wurde für Mittwoch um 09:00 Uhr geplant."
+        },
+        newsletter: {
+          name: 'KI-Newsletter-Generator',
+          user: "Generieren und versenden Sie die wöchentliche KI-News-Zusammenfassung.",
+          system: "Newsletter mit 5 Artikeln generiert und an 1.200 Abonnenten versendet."
+        }
+      },
       workflowLogs: {
         chatbot: [
           "Eingehende Nachricht über Webhook",
-          "Sende Prompt an LLM",
+          "Prompt an LLM senden",
           "Kontext aus Datenbank abrufen",
           "Antwort generieren",
           "Antwort an Benutzer gesendet"
@@ -438,6 +583,50 @@ export const DICTIONARY = {
         { title: 'Datenbank', desc: 'Zustands- & Datensatzverwaltung (Supabase)' },
         { title: 'Antwort', desc: 'Formatierte Ausgabe zurück an den Benutzer' }
       ]
+    },
+    contact: {
+      title: 'Kontakt aufnehmen',
+      subtitle: 'Interessiert an KI-Automatisierung, Integrationen oder Beratung? Melden Sie sich gerne.',
+      detailsTitle: 'Kontaktdaten',
+      email: 'E-Mail',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      openTo: 'Ich bin derzeit offen für Möglichkeiten in den Bereichen KI-Automatisierung, Integration und Beratung.',
+      formTitle: 'Eine Nachricht senden',
+      nameLabel: 'Name',
+      emailLabel: 'E-Mail',
+      messageLabel: 'Nachricht',
+      sendButton: 'Nachricht Senden'
+    },
+    consultancy: {
+      title: 'KI-Automatisierung & KI-Systemtechnik',
+      subtitle: 'Ich entwerfe und entwickle Enterprise-KI-Systeme, die Sprachmodelle, APIs, Automatisierungs-Engines und moderne KI-Tools verbinden, um Geschäftsprozesse zu optimieren.',
+      description: 'Von KI-Assistenten und Automatisierungs-Pipelines bis hin zu KI-Avataren, Content-Generierungssystemen und Workflow-Orchestrierung.',
+      systemsTitle: 'KI-Systeme, die ich entwickle',
+      systems: [
+        { title: 'KI-Workflow-Automatisierung', desc: 'Entwerfen und implementieren Sie fortschrittliche Automatisierungs-Pipelines mithilfe von LLMs, APIs und Workflow-Engines wie n8n, Zapier oder maßgeschneiderten Integrationen.' },
+        { title: 'KI-Chatbots & KI-Assistenten', desc: 'Entwickeln Sie intelligente KI-Assistenten, die Kundenservice, Recherche, Terminplanung und interne Workflows automatisieren.' },
+        { title: 'KI-Voice & Text-to-Speech-Systeme', desc: 'Integrieren Sie moderne Sprachmodelle und Text-to-Speech-Systeme zur Erstellung von Voice Agents, Sprachassistenten und automatisierten Kommunikationstools.' },
+        { title: 'KI-Avatare & Videogenerierung', desc: 'Implementieren Sie KI-Avatar-Systeme und Videogenerierungstools, um automatisierte Video-Content-Pipelines und interaktive digitale Agenten aufzubauen.' },
+        { title: 'KI-Content-Generierungs-Pipelines', desc: 'Automatisieren Sie die Content-Erstellung mithilfe modernster KI-Modelle für Text, Bilder und Videos (einschließlich Tools wie Nano Banana, Veo oder ähnlicher Systeme).' },
+        { title: 'KI-API-Integrationen', desc: 'Verbinden Sie KI-Modelle nahtlos mit bestehenden Softwaresystemen wie CRMs, Datenbanken, Kommunikationsplattformen, internen Tools und Geschäfts-APIs.' }
+      ],
+      toolsTitle: 'KI-Modelle & Tools, mit denen ich arbeite',
+      tools: [
+        { category: 'Sprachmodelle', items: ['OpenAI', 'Gemini', 'OpenRouter'] },
+        { category: 'Sprache & Stimme', items: ['ElevenLabs', 'Deepgram'] },
+        { category: 'Video / Avatare', items: ['HeyGen', 'Synthesia'] },
+        { category: 'Automatisierung', items: ['n8n', 'Zapier', 'Supabase', 'Vercel'] }
+      ],
+      processTitle: 'Mein Ansatz für KI-Systeme',
+      process: [
+        { title: 'Workflow-Analyse', desc: 'Identifizieren Sie repetitive Prozesse, Integrationspunkte und strategische Automatisierungsmöglichkeiten.' },
+        { title: 'KI-Architekturdesign', desc: 'Entwerfen Sie eine robuste Systemarchitektur, die LLMs, APIs, Datenbanken und Automatisierungs-Workflows effizient verbindet.' },
+        { title: 'Implementierung & Deployment', desc: 'Entwickeln und implementieren Sie das KI-System so, dass es zuverlässig und skalierbar in Produktionsumgebungen läuft.' }
+      ],
+      ctaTitle: 'Interessiert an der Entwicklung von KI-Automatisierungssystemen?',
+      ctaDesc: 'Lassen Sie uns besprechen, wie KI-Integrationen und Automatisierungs-Pipelines Ihre Geschäftsprozesse optimieren können.',
+      ctaButton: 'Kontaktieren Sie mich'
     }
   }
 };

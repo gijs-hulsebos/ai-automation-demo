@@ -54,7 +54,7 @@ export function Integrations() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {integrations.map((item, index) => (
             <motion.div
               key={item.name}
@@ -62,13 +62,16 @@ export function Integrations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-zinc-900/30 border border-white/5 rounded-2xl p-8 hover:bg-zinc-900/80 hover:border-white/10 transition-all group shadow-sm"
+              className="relative bg-zinc-900/30 border border-white/5 rounded-2xl p-4 md:p-8 hover:bg-zinc-900/80 hover:border-white/10 transition-all group shadow-sm overflow-hidden"
             >
-              <div className="w-12 h-12 rounded-xl bg-zinc-800/50 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm">
-                <item.icon className="text-zinc-300" size={24} />
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-zinc-800/50 border border-white/5 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-sm relative z-10">
+                <item.icon className="text-zinc-300 w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <h3 className="text-lg font-medium text-white mb-2">{item.name}</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="text-sm md:text-lg font-medium text-white mb-1 md:mb-2 relative z-10">{item.name}</h3>
+              <p className="text-zinc-400 text-[11px] md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none relative z-10">{item.desc}</p>
             </motion.div>
           ))}
         </div>

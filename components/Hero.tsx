@@ -14,7 +14,7 @@ export function Hero() {
   const WORKFLOWS = [
     {
       id: 'chatbot',
-      name: 'AI Chatbot Automation',
+      name: tDemo.workflows.chatbot.name,
       nodes: [
         { icon: Webhook, label: tDemo.nodes.webhook },
         { icon: BrainCircuit, label: tDemo.nodes.llm },
@@ -25,13 +25,13 @@ export function Hero() {
       logs: tDemo.workflowLogs.chatbot,
       integrations: ['OpenAI / Gemini', 'Supabase', 'n8n', 'Webhooks'],
       interaction: {
-        user: "What's the status of my order #12345?",
-        system: "Your order #12345 is currently out for delivery and will arrive by 5 PM today."
+        user: tDemo.workflows.chatbot.user,
+        system: tDemo.workflows.chatbot.system
       }
     },
     {
       id: 'calendar',
-      name: 'Calendar Booking Automation',
+      name: tDemo.workflows.calendar.name,
       nodes: [
         { icon: Webhook, label: tDemo.nodes.webhook },
         { icon: BrainCircuit, label: tDemo.nodes.intent },
@@ -42,13 +42,13 @@ export function Hero() {
       logs: tDemo.workflowLogs.calendar,
       integrations: ['Google Calendar API', 'Zapier', 'LLM', 'Webhook'],
       interaction: {
-        user: "Plan a call on Wednesday at 09:00.",
-        system: "Your call has been scheduled for Wednesday at 09:00."
+        user: tDemo.workflows.calendar.user,
+        system: tDemo.workflows.calendar.system
       }
     },
     {
       id: 'newsletter',
-      name: 'AI Newsletter Generator',
+      name: tDemo.workflows.newsletter.name,
       nodes: [
         { icon: Rss, label: tDemo.nodes.rss },
         { icon: BrainCircuit, label: tDemo.nodes.summarization },
@@ -59,8 +59,8 @@ export function Hero() {
       logs: tDemo.workflowLogs.newsletter,
       integrations: ['RSS', 'OpenAI / Gemini', 'Email API', 'Database'],
       interaction: {
-        user: "Generate and send the weekly AI news summary.",
-        system: "Newsletter generated with 5 articles and dispatched to 1,200 subscribers."
+        user: tDemo.workflows.newsletter.user,
+        system: tDemo.workflows.newsletter.system
       }
     }
   ];
@@ -69,9 +69,10 @@ export function Hero() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeNode, setActiveNode] = useState(-1);
   const [currentStep, setCurrentStep] = useState(0);
-  const [logs, setLogs] = useState<{id: number, keyId: string, msg: string, time: string}[]>([]);
+  const [logs, setLogs] = useState<{id: number, keyId: string, msgIndex: number | 'completed', time: string}[]>([]);
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState('workflows');
+  const [isLogExpanded, setIsLogExpanded] = useState(false);
   const logCounter = useRef(0);
 
   const activeWorkflow = WORKFLOWS[activeWorkflowIndex];
@@ -102,7 +103,7 @@ export function Hero() {
           const newLogs = [...prev, { 
             id: step, 
             keyId: `log-entry-${logCounter.current}`,
-            msg: activeWorkflow.logs[cycleStep - 1],
+            msgIndex: cycleStep - 1,
             time: timeString
           }];
           return newLogs.slice(-10);
@@ -114,7 +115,7 @@ export function Hero() {
           const newLogs = [...prev, { 
             id: step, 
             keyId: `log-entry-${logCounter.current}`,
-            msg: tDemo.logs.completed,
+            msgIndex: 'completed' as const,
             time: timeString
           }];
           return newLogs.slice(-10);
@@ -125,7 +126,7 @@ export function Hero() {
     }, 800); // 800ms per step for a smooth, realistic pipeline feel
 
     return () => clearInterval(interval);
-  }, [activeWorkflowIndex, activeWorkflow.logs, tDemo.logs.completed]);
+  }, [activeWorkflowIndex]);
 
   const handleOpenChat = () => {
     document.dispatchEvent(new CustomEvent('open-chat'));
@@ -150,7 +151,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="font-display text-5xl md:text-6xl lg:text-[4.5rem] font-medium tracking-tight text-white mb-5 leading-[1.1]"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-medium tracking-tight text-white mb-5 leading-[1.15] md:leading-[1.1]"
         >
           {t.title.split('&').map((part, i) => (
             <span key={i}>
@@ -165,7 +166,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="text-lg text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-base md:text-lg text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed px-4"
         >
           {t.subtitle}
         </motion.p>
@@ -175,22 +176,23 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.15 }}
-          className="mb-24 flex flex-col items-center"
+          className="mb-24 flex flex-col items-center w-full px-4"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-row items-center justify-center gap-3 w-full max-w-sm sm:max-w-none sm:w-auto">
             <a
               href="#walkthrough"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-zinc-950 bg-white rounded-full hover:bg-zinc-200 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/10 transition-all duration-300"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 text-sm font-medium text-zinc-950 bg-white rounded-full hover:bg-zinc-200 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/10 transition-all duration-300"
             >
               {t.cta}
               <ArrowRight size={16} />
             </a>
             <button
               onClick={handleOpenChat}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-white/10 rounded-full hover:bg-white/5 hover:border-white/20 hover:text-white hover:-translate-y-[2px] transition-all duration-300 shadow-sm"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-white/10 rounded-full hover:bg-white/5 hover:border-white/20 hover:text-white hover:-translate-y-[2px] transition-all duration-300 shadow-sm"
             >
               <Sparkles size={16} className="text-zinc-400" />
-              {t.chat}
+              <span className="hidden sm:inline">{t.chat}</span>
+              <span className="sm:hidden">Try AI</span>
             </button>
           </div>
         </motion.div>
@@ -238,7 +240,7 @@ export function Hero() {
                           setActiveWorkflowIndex(idx);
                           setIsDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2.5 text-xs transition-colors flex items-center gap-2 ${idx === activeWorkflowIndex ? 'bg-zinc-800 text-zinc-200' : 'text-zinc-400 hover:bg-white/5 hover:text-zinc-200'}`}
+                        className={`w-full text-left px-4 py-3 text-sm transition-colors flex items-center gap-2 ${idx === activeWorkflowIndex ? 'bg-zinc-800 text-zinc-200' : 'text-zinc-400 hover:bg-white/5 hover:text-zinc-200'}`}
                       >
                         {idx === activeWorkflowIndex && <div className="w-1.5 h-1.5 rounded-full bg-zinc-400" />}
                         <span className={idx === activeWorkflowIndex ? '' : 'ml-3'}>{wf.name}</span>
@@ -266,7 +268,7 @@ export function Hero() {
               ))}
               
               <div className="mt-auto pt-4 border-t border-white/5">
-                <div className="text-[10px] font-mono text-zinc-500 mb-3 uppercase tracking-wider">Active Integrations</div>
+                <div className="text-[10px] font-mono text-zinc-500 mb-3 uppercase tracking-wider">{tDemo.integrations.title}</div>
                 <div className="flex flex-wrap gap-2">
                   {activeWorkflow.integrations.map((integration) => (
                     <span key={`${activeWorkflow.id}-integration-${integration.replace(/\s+/g, '-').toLowerCase()}`} className="px-2 py-1 rounded bg-zinc-800/50 text-[10px] text-zinc-400 border border-white/5 hover:bg-zinc-700/50 hover:text-zinc-300 transition-colors cursor-default">
@@ -281,13 +283,27 @@ export function Hero() {
             <div className="flex-1 flex flex-col min-w-0 bg-transparent">
               {/* Status Bar */}
               <div className="h-10 border-b border-white/5 flex items-center px-4 gap-4 md:gap-6 text-[10px] md:text-xs font-mono text-zinc-500 overflow-x-auto whitespace-nowrap shrink-0 bg-zinc-900/20">
-                <span className="flex items-center gap-1.5"><span className="text-zinc-600">Model</span> <span className="text-zinc-300">Gemini / OpenAI</span></span>
-                <span className="flex items-center gap-1.5"><span className="text-zinc-600">Engine</span> <span className="text-zinc-300">n8n</span></span>
+                <span className="flex items-center gap-1.5"><span className="text-zinc-600">{tDemo.metrics.model}</span> <span className="text-zinc-300">Gemini / OpenAI</span></span>
+                <span className="flex items-center gap-1.5"><span className="text-zinc-600">{tDemo.metrics.engine}</span> <span className="text-zinc-300">n8n</span></span>
                 <span className="flex items-center gap-1.5"><span className="text-zinc-600">{tDemo.metrics.latency}</span> <span className="text-zinc-300">~2.1s</span></span>
                 <span className={`flex items-center gap-1.5 ml-auto ${currentStep === 0 || currentStep >= 11 ? 'text-zinc-500' : currentStep >= 6 ? 'text-emerald-500' : 'text-amber-500'}`}>
                   <div className={`w-1.5 h-1.5 rounded-full ${currentStep === 0 || currentStep >= 11 ? 'bg-zinc-600' : currentStep >= 6 ? 'bg-emerald-500' : 'bg-amber-500 animate-pulse'}`}/>
                   {currentStep === 0 || currentStep >= 11 ? tDemo.metrics.idle : currentStep >= 6 ? tDemo.metrics.online : tDemo.metrics.processing}
                 </span>
+              </div>
+
+              {/* Mobile Tab Bar */}
+              <div className="md:hidden flex items-center overflow-x-auto border-b border-white/5 bg-zinc-900/30 shrink-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                {sidebarItems.map((item) => (
+                  <button 
+                    key={item.id} 
+                    onClick={() => setActiveTab(item.id)}
+                    className={`flex items-center gap-2 px-4 py-3 text-xs font-medium whitespace-nowrap transition-colors border-b-2 ${activeTab === item.id ? 'border-zinc-300 text-zinc-200 bg-white/5' : 'border-transparent text-zinc-500 hover:text-zinc-300 hover:bg-white/5'}`}
+                  >
+                    <item.icon size={14} className={activeTab === item.id ? 'text-zinc-300' : 'text-zinc-500'} />
+                    {item.label}
+                  </button>
+                ))}
               </div>
 
               {activeTab === 'workflows' && (
@@ -391,7 +407,7 @@ export function Hero() {
                               const isActive = activeNode === i;
                               const isPast = activeNode > i;
                               return (
-                                <div key={`${activeWorkflow.id}-node-${node.label.replace(/\s+/g, '-').toLowerCase()}`} className="relative flex flex-col items-center group cursor-default">
+                                <div key={`${activeWorkflow.id}-node-${node.label.replace(/\s+/g, '-').toLowerCase()}`} className="relative flex flex-col items-center group cursor-default" tabIndex={0}>
                                   <motion.div
                                     animate={{
                                       borderColor: isActive ? 'rgba(255, 255, 255, 0.2)' : isPast ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.05)',
@@ -418,14 +434,14 @@ export function Hero() {
 
                                     <node.icon size={18} className={isActive ? 'text-zinc-200' : isPast ? 'text-zinc-400' : 'text-zinc-600'} />
                                   </motion.div>
-                                  <span className={`text-[9px] md:text-[11px] font-medium absolute top-full mt-2 text-center w-16 md:w-24 -ml-4 md:-ml-5 ${isActive ? 'text-zinc-300' : isPast ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                                  <span className={`text-[9px] md:text-[11px] font-medium absolute top-full mt-2 text-center w-16 md:w-24 -ml-4 md:-ml-5 transition-opacity duration-200 opacity-0 group-hover:opacity-100 group-focus:opacity-100 ${isActive ? 'text-zinc-300' : isPast ? 'text-zinc-400' : 'text-zinc-600'}`}>
                                     {node.label}
                                   </span>
 
                                   {/* Tooltip */}
                                   <div className="absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                     <div className="bg-zinc-800 border border-white/10 text-zinc-200 text-[10px] px-2.5 py-1.5 rounded-md shadow-xl whitespace-nowrap">
-                                      {node.label} Step
+                                      {node.label}
                                     </div>
                                     <div className="w-2 h-2 bg-zinc-800 border-r border-b border-white/10 rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
                                   </div>
@@ -439,15 +455,28 @@ export function Hero() {
                   </div>
 
                   {/* Activity Log Panel */}
-                  <div className="h-40 md:h-44 border-t border-white/5 bg-zinc-950/50 p-4 font-mono text-[10px] md:text-xs flex flex-col relative overflow-hidden shrink-0">
-                    <div className="text-zinc-500 mb-2 flex items-center gap-2 z-10">
-                      <Terminal size={12} />
-                      {tDemo.logs.title}
+                  <motion.div 
+                    animate={{ height: isLogExpanded ? 176 : 80 }}
+                    className="md:!h-44 border-t border-white/5 bg-zinc-950/50 p-4 font-mono text-[10px] md:text-xs flex flex-col relative overflow-hidden shrink-0 transition-all duration-300"
+                  >
+                    <div className="text-zinc-500 mb-2 flex items-center justify-between z-10">
+                      <div className="flex items-center gap-2">
+                        <Terminal size={12} />
+                        {tDemo.logs.title}
+                      </div>
+                      <button 
+                        onClick={() => setIsLogExpanded(!isLogExpanded)}
+                        className="md:hidden text-zinc-400 hover:text-zinc-200 flex items-center gap-1 bg-white/5 px-3 py-2 -mr-2 rounded-md text-[9px] uppercase tracking-wider"
+                        aria-label={isLogExpanded ? 'Collapse logs' : 'Expand logs'}
+                      >
+                        {isLogExpanded ? 'Collapse' : 'Expand'}
+                      </button>
                     </div>
                     <div className="flex-1 flex flex-col justify-end gap-1.5 z-10">
                       <AnimatePresence mode="popLayout">
-                        {mounted && logs.slice(-5).map((log, i, arr) => {
-                          const isCompleted = log.msg === "Process completed successfully" || i < arr.length - 1 || currentStep >= 11;
+                        {mounted && logs.slice(isLogExpanded ? -5 : -2).map((log, i, arr) => {
+                          const msg = log.msgIndex === 'completed' ? tDemo.logs.completed : activeWorkflow.logs[log.msgIndex as number];
+                          const isCompleted = msg === tDemo.logs.completed || i < arr.length - 1 || currentStep >= 11;
                           return (
                             <motion.div
                               key={log.keyId}
@@ -463,7 +492,7 @@ export function Hero() {
                               ) : (
                                 <span className="text-amber-500/80 shrink-0 animate-pulse">⟳</span>
                               )}
-                              <span className={isCompleted ? 'text-zinc-400' : 'text-zinc-200'}>{log.msg}</span>
+                              <span className={`truncate ${isCompleted ? 'text-zinc-400' : 'text-zinc-200'}`}>{msg}</span>
                             </motion.div>
                           );
                         })}
@@ -471,22 +500,22 @@ export function Hero() {
                     </div>
                     {/* Fade out top logs */}
                     <div className="absolute top-8 left-0 right-0 h-10 bg-gradient-to-b from-zinc-950/90 to-transparent pointer-events-none z-20" />
-                  </div>
+                  </motion.div>
                 </>
               )}
 
               {activeTab === 'integrations' && (
                 <div className="flex-1 p-6 overflow-y-auto">
                   <h3 className="text-sm font-medium text-zinc-200 mb-6">{tDemo.integrations.title}</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     {activeWorkflow.integrations.map((integration) => (
-                      <div key={integration} className="p-4 rounded-lg border border-white/5 bg-zinc-900/50 flex items-center gap-4 hover:bg-zinc-800/80 hover:border-white/10 transition-colors cursor-default">
-                        <div className="w-10 h-10 rounded-md bg-zinc-800 flex items-center justify-center shrink-0">
-                          <Network size={18} className="text-zinc-400" />
+                      <div key={integration} className="p-3 sm:p-4 rounded-lg border border-white/5 bg-zinc-900/50 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 hover:bg-zinc-800/80 hover:border-white/10 transition-colors cursor-default">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-zinc-800 flex items-center justify-center shrink-0">
+                          <Network className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-zinc-400" />
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-zinc-200">{integration}</div>
-                          <div className="text-xs text-emerald-400/80 flex items-center gap-1.5 mt-1">
+                          <div className="text-xs sm:text-sm font-medium text-zinc-200">{integration}</div>
+                          <div className="text-[10px] sm:text-xs text-emerald-400/80 flex items-center gap-1.5 mt-1">
                             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                             {tDemo.integrations.status}
                           </div>
@@ -506,7 +535,8 @@ export function Hero() {
                   <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-end gap-1.5">
                     <AnimatePresence mode="popLayout">
                       {logs.map((log, i, arr) => {
-                        const isCompleted = log.msg === "Process completed successfully" || i < arr.length - 1 || currentStep >= 11;
+                        const msg = log.msgIndex === 'completed' ? tDemo.logs.completed : activeWorkflow.logs[log.msgIndex as number];
+                        const isCompleted = msg === tDemo.logs.completed || i < arr.length - 1 || currentStep >= 11;
                         return (
                           <motion.div 
                             key={log.keyId} 
@@ -520,7 +550,7 @@ export function Hero() {
                             ) : (
                               <span className="text-amber-500/80 shrink-0 animate-pulse">⟳</span>
                             )}
-                            <span className={isCompleted ? 'text-zinc-400' : 'text-zinc-200'}>{log.msg}</span>
+                            <span className={isCompleted ? 'text-zinc-400' : 'text-zinc-200'}>{msg}</span>
                           </motion.div>
                         );
                       })}
@@ -535,7 +565,7 @@ export function Hero() {
                   <div className="space-y-6 max-w-xl">
                     <div className="p-5 rounded-lg border border-white/5 bg-zinc-900/50">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm text-zinc-400">API Latency</span>
+                        <span className="text-sm text-zinc-400">{tDemo.metrics.latency}</span>
                         <span className="text-sm text-emerald-400 font-mono">~2.1s</span>
                       </div>
                       <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
@@ -544,7 +574,7 @@ export function Hero() {
                     </div>
                     <div className="p-5 rounded-lg border border-white/5 bg-zinc-900/50">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm text-zinc-400">Success Rate</span>
+                        <span className="text-sm text-zinc-400">{tDemo.metrics.successRate}</span>
                         <span className="text-sm text-emerald-400 font-mono">99.9%</span>
                       </div>
                       <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
@@ -553,7 +583,7 @@ export function Hero() {
                     </div>
                     <div className="p-5 rounded-lg border border-white/5 bg-zinc-900/50">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm text-zinc-400">CPU Usage</span>
+                        <span className="text-sm text-zinc-400">{tDemo.metrics.cpuUsage}</span>
                         <span className="text-sm text-zinc-400 font-mono">42%</span>
                       </div>
                       <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
