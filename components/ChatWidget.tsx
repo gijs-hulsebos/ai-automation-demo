@@ -14,6 +14,8 @@ export function ChatWidget() {
     { role: 'assistant', content: t.initial }
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [sessionId] = useState(() => crypto.randomUUID());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,19 +30,46 @@ export function ChatWidget() {
     }
   }, [messages, isOpen]);
 
-  const handleSend = (text: string) => {
+  const handleSend = async (text: string) => {
     if (!text.trim()) return;
     
     setMessages(prev => [...prev, { role: 'user', content: text }]);
     setInput('');
+    setIsLoading(true);
     
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://gijshulsebos.app.n8n.cloud/webhook/Gijs-Chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: text,
+          sessionId: sessionId,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('n8n Webhook Error:', response.status, errorText);
+        throw new Error(`Network response was not ok: ${response.status} ${errorText}`);
+      }
+
+      const data = await response.json();
+      
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: t.simulatedResponse
+        content: data.output || 'No response from agent.'
       }]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: 'I\'m sorry, I\'m having trouble connecting right now. Please try again in a few seconds or refresh the page.'
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -136,14 +165,23 @@ export function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={t.placeholder}
-                  className="w-full bg-zinc-950/50 border border-white/10 rounded-full pl-5 pr-12 py-3.5 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-white/20 focus:bg-zinc-900 transition-all shadow-inner"
+                  disabled={isLoading}
+                  className="w-full bg-zinc-950/50 border border-white/10 rounded-full pl-5 pr-12 py-3.5 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-white/20 focus:bg-zinc-900 transition-all shadow-inner disabled:opacity-50"
                 />
                 <button
                   type="submit"
-                  disabled={!input.trim()}
+                  disabled={!input.trim() || isLoading}
                   className="absolute right-2 w-9 h-9 bg-white text-zinc-950 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:bg-zinc-200"
                 >
-                  <Send size={14} className="ml-0.5" />
+                  {isLoading ? (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full"
+                    />
+                  ) : (
+                    <Send size={14} className="ml-0.5" />
+                  )}
                 </button>
               </form>
             </div>

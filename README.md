@@ -1,49 +1,20 @@
-AI Automation & Integration Platform
-A high-performance, multi-language portfolio and service platform designed to showcase autonomous AI agents, complex workflow integrations, and production-ready AI infrastructure.
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Live at: gijshulsebos.com
+# Run and deploy your AI Studio app
 
-🚀 The Mission
-To bridge the gap between "standard" business operations and autonomous efficiency by designing systems that connect Large Language Models (LLMs) with real-world APIs and enterprise workflow engines.
+This contains everything you need to run your app locally.
 
-🛠️ Tech Stack
-Frontend: Next.js 14 (App Router), Tailwind CSS, Framer Motion
+View your app in AI Studio: https://ai.studio/apps/65459ed9-f167-4793-b8bb-62e8e08315ea
 
-AI Engine: OpenAI (GPT-4o) & Google Gemini 1.5 Pro
+## Run Locally
 
-Orchestration: n8n (Workflow Automation)
+**Prerequisites:**  Node.js
 
-Backend & DB: Supabase (PostgreSQL)
 
-Deployment: Vercel (CI/CD)
-
-i18n: Custom context-based translation system (EN, NL, DE)
-
-✨ Key Features
-Interactive AI Demo: A real-time simulated environment showing how an AI agent processes requests, triggers webhooks, and interacts with external tools.
-
-Multi-language Support: Full localization across all pages for international consultancy reach.
-
-Architecture Visualization: Dynamic UI components showcasing the underlying logic of AI integrations.
-
-Responsive Dashboard: Mobile-optimized "System Activity Logs" and engineering credibility sections.
-
-📂 Project Structure
-/app: Next.js App Router for core pages (Consultancy, Contact, Home).
-
-/components: Modular UI library including the ArchitectureDiagram and EngineeringCredibility blocks.
-
-/context: Global state management for language and user preferences.
-
-/data: Centralized dictionary for multi-language support.
-
-🛠️ Development & Deployment
-Install dependencies: npm install
-
-Run locally: npm run dev
-
-Build for production: npm run build
-
-The project is configured for automatic deployment via Vercel on every push to the main branch.
-
-Created by Gijs Hulsebos - AI Automation & Integration Engineer
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
