@@ -145,9 +145,9 @@ export const DICTIONARY = {
       online: 'Online',
       placeholder: 'Ask me anything...',
       suggested: [
-        "How does the automation workflow work?",
-        "What integrations are used?",
-        "Explain the architecture."
+        "How does the chatbot automation work?",
+        "What architecture is used for this website?",
+        "Can I book a call with Gijs?"
       ],
       initial: "Hi! I'm Gijs' AI Assistant. How can I help you today?",
       simulatedResponse: "Thanks for your message! This is a simulated response for the portfolio demo. In a real implementation, this would connect to an AI model via API."
