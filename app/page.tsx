@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { EngineeringCredibility } from '@/components/EngineeringCredibility';
+import { TechStackCarousel } from '@/components/TechStackCarousel';
 import { ArchitectureDiagram } from '@/components/ArchitectureDiagram';
 import { Integrations } from '@/components/Integrations';
 import { Footer } from '@/components/Footer';
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="flex-1">
         <Hero />
         <EngineeringCredibility />
+        <TechStackCarousel />
         <ArchitectureDiagram />
         <Integrations />
       </div>

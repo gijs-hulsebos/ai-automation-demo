@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, Terminal, Database, Workflow, Webhook, BrainCircuit, Activity, Network, LayoutTemplate, ChevronDown, Calendar, Rss, Mail, MessageSquare } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { DICTIONARY } from '@/data/dictionary';
 
@@ -657,18 +658,45 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="w-full max-w-4xl mx-auto mt-24 md:mt-32 flex flex-col items-center border-t border-white/5 pt-12"
         >
-          <p className="text-[10px] md:text-xs font-mono text-zinc-500 uppercase tracking-widest mb-8 text-center">
+          <p className="text-xs md:text-sm font-mono text-zinc-500 uppercase tracking-widest mb-8 text-center">
             Built with production AI infrastructure
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16 opacity-40 hover:opacity-70 transition-opacity duration-500">
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white flex items-center gap-2.5"><Sparkles size={22} /> OpenAI</span>
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white flex items-center gap-2.5"><BrainCircuit size={22} /> Gemini</span>
-            <span className="text-xl md:text-2xl font-bold tracking-tighter text-white">n8n</span>
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white flex items-center gap-2.5"><Database size={22} /> Supabase</span>
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white flex items-center gap-2.5">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L24 22H0L12 2Z" /></svg>
-              Vercel
-            </span>
+          <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] group">
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex items-center gap-x-16 pr-16 shrink-0">
+                  {[
+                    { name: 'OpenAI', src: '/logo/OpenAI.svg' },
+                    { name: 'Claude', src: '/logo/Claude.svg' },
+                    { name: 'Gemini', src: '/logo/Gemini.svg', scaleClass: 'scale-150' },
+                    { name: 'n8n', src: '/logo/n8n.svg', scaleClass: 'scale-125' },
+                    { name: 'Supabase', src: '/logo/supabase.svg' },
+                    { name: 'Vercel', src: '/logo/Vercel.svg' },
+                    { name: 'Python', src: '/logo/Python.svg' },
+                    { name: 'Next.js', src: '/logo/nextjs.svg' },
+                    { name: 'GitHub', src: '/logo/Github.svg' },
+                    { name: 'Remotion', src: '/logo/remotion.svg' },
+                  ].map((logo) => (
+                    <div key={logo.name} className="flex items-center justify-center gap-3 max-w-[120px]">
+                      <Image 
+                        src={logo.src} 
+                        alt={`${logo.name} logo`} 
+                        width={0}
+                        height={32}
+                        className={`h-8 w-auto object-contain ${logo.scaleClass || ''}`}
+                        style={{ width: 'auto', height: '32px' }}
+                        priority
+                        unoptimized
+                        crossOrigin="anonymous"
+                      />
+                      <span className="text-lg font-medium text-zinc-400 whitespace-nowrap">
+                        {logo.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
