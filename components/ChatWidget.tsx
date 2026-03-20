@@ -2,15 +2,22 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, ExternalLink } from 'lucide-react'; // ExternalLink icoon toevoegen
 import { useLanguage } from '@/context/LanguageContext';
 import { DICTIONARY } from '@/data/dictionary';
+
+// Define the Message type explicitly for clarity
+type Message = { 
+  role: 'user' | 'assistant'; 
+  content: string; 
+  buttons?: { label: string; url: string }[] 
+};
 
 export function ChatWidget() {
   const { lang } = useLanguage();
   const t = DICTIONARY[lang].chat;
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
+  const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: t.initial }
   ]);
   const [input, setInput] = useState('');
@@ -50,16 +57,17 @@ export function ChatWidget() {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('n8n Webhook Error:', response.status, errorText);
-        throw new Error(`Network response was not ok: ${response.status} ${errorText}`);
+        throw new Error(`Network response was not ok: ${response.status}`);
       }
 
       const data = await response.json();
       
+      // THIS IS THE CLEAN, METADATA-READING WAY
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: data.output || 'No response from agent.'
+        content: data.output || 'No response from agent.',
+        // Extract the buttons array directly from the metadata sent by n8n
+        buttons: data.metadata?.buttons || []
       }]);
     } catch (error) {
       console.error('Error sending message:', error);
@@ -133,6 +141,24 @@ export function ChatWidget() {
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
                     {msg.content}
+
+                    {/* RENDER DYNAMIC BUTTONS HERE */}
+                    {msg.role === 'assistant' && msg.buttons && msg.buttons.length > 0 && (
+                      <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-white/5">
+                        {msg.buttons.map((btn, j) => (
+                          <a
+                            key={j}
+                            href={btn.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between px-3 py-2 bg-zinc-800/50 border border-white/5 rounded-lg text-xs font-medium text-zinc-300 hover:bg-zinc-700 hover:text-white transition-all group active:scale-95"
+                          >
+                            {btn.label}
+                            <ExternalLink size={12} className="text-zinc-500 group-hover:text-white transition-colors" />
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
