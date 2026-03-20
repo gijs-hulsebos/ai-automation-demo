@@ -666,25 +666,26 @@ export function Hero() {
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex items-center gap-x-16 pr-16 shrink-0">
                   {[
-                    { name: 'OpenAI', src: '/logo/OpenAI.svg' },
-                    { name: 'Claude', src: '/logo/Claude.svg' },
-                    { name: 'Gemini', src: '/logo/Gemini.svg', scaleClass: 'scale-150' },
-                    { name: 'n8n', src: '/logo/n8n.svg', scaleClass: 'scale-125' },
-                    { name: 'Supabase', src: '/logo/supabase.svg' },
-                    { name: 'Vercel', src: '/logo/Vercel.svg' },
-                    { name: 'Python', src: '/logo/Python.svg' },
-                    { name: 'Next.js', src: '/logo/nextjs.svg' },
-                    { name: 'GitHub', src: '/logo/Github.svg' },
-                    { name: 'Remotion', src: '/logo/remotion.svg' },
+                    { name: 'OpenAI', src: '/logo/OpenAI.svg', height: 32 },
+                    { name: 'Claude', src: '/logo/Claude.svg', height: 24 },
+                    { name: 'Gemini', src: '/logo/Gemini.svg', height: 36 },
+                    { name: 'n8n', src: '/logo/n8n.svg', height: 36 },
+                    { name: 'Supabase', src: '/logo/supabase.svg', height: 24 },
+                    { name: 'Vercel', src: '/logo/Vercel.svg', height: 24 },
+                    { name: 'Python', src: '/logo/Python.svg', height: 24 },
+                    { name: 'Next.js', src: '/logo/nextjs.svg', height: 24 },
+                    { name: 'GitHub', src: '/logo/Github.svg', height: 24 },
+                    { name: 'Remotion', src: '/logo/remotion.svg', height: 24 },
                   ].map((logo) => (
-                    <div key={logo.name} className="flex items-center justify-center gap-3 max-w-[120px]">
+                    <div key={logo.name} className="flex items-center justify-center gap-2 shrink-0">
                       <Image 
                         src={logo.src} 
                         alt={`${logo.name} logo`} 
                         width={0}
-                        height={32}
-                        className={`h-8 w-auto object-contain ${logo.scaleClass || ''}`}
-                        style={{ width: 'auto', height: '32px' }}
+                        height={logo.height}
+                        sizes="100vw"
+                        className="w-auto object-contain"
+                        style={{ width: 'auto', height: `${logo.height}px` }}
                         priority
                         unoptimized
                         crossOrigin="anonymous"
