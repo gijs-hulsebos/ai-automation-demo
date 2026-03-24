@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
 import { DICTIONARY } from '@/data/dictionary';
@@ -12,6 +12,15 @@ export function Header() {
   const t = DICTIONARY[lang].nav;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => document.body.classList.remove('menu-open');
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +64,36 @@ export function Header() {
                 </Link>
               ))}
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-zinc-950 bg-white rounded-full hover:bg-zinc-200 hover:-translate-y-0.5 transition-all shadow-sm"
-            >
-              {t.contact}
-            </Link>
+            
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <a 
+                  href="https://github.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+              
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-zinc-950 bg-white rounded-full hover:bg-zinc-200 hover:-translate-y-0.5 transition-all shadow-sm"
+              >
+                {t.contact}
+              </Link>
+            </div>
           </nav>
 
           {/* Mobile Toggle */}
@@ -95,7 +128,7 @@ export function Header() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-900/90 backdrop-blur-xl border-t border-white/10 p-6 pb-8 md:hidden flex flex-col gap-6 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)]"
+            className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-900/90 backdrop-blur-xl border-t border-white/10 p-6 pb-8 md:hidden flex flex-col gap-6 rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] min-h-[500px] max-h-[90vh]"
           >
             <div className="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-2" />
             <div className="flex flex-col gap-2">
@@ -109,6 +142,30 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
+            </div>
+
+            <div className="flex-1" />
+
+            {/* Mobile Socials */}
+            <div className="flex items-center justify-center gap-6 py-2">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
+                aria-label="GitHub"
+              >
+                <Github className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
             </div>
             
             {/* Mobile Language Switcher */}

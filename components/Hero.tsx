@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Sparkles, Terminal, Database, Workflow, Webhook, BrainCircuit, Activity, Network, LayoutTemplate, ChevronDown, Calendar, Rss, Mail, MessageSquare } from 'lucide-react';
+import { ArrowRight, Sparkles, Terminal, Database, Workflow, Webhook, BrainCircuit, Activity, Network, LayoutTemplate, ChevronDown, Calendar, Rss, Mail, MessageSquare, Video, Github } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { DICTIONARY } from '@/data/dictionary';
@@ -75,6 +75,16 @@ export function Hero() {
   const [activeTab, setActiveTab] = useState('workflows');
   const [isLogExpanded, setIsLogExpanded] = useState(false);
   const logCounter = useRef(0);
+
+  const [isVideoDropdownOpen, setIsVideoDropdownOpen] = useState(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const VIDEO_OPTIONS = [
+    'General',
+    'Chatbot',
+    'AI newsletter',
+    'LeadGen',
+    'AI-Tool_Search'
+  ];
 
   const activeWorkflow = WORKFLOWS[activeWorkflowIndex];
 
@@ -179,7 +189,7 @@ export function Hero() {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="mb-24 flex flex-col items-center w-full px-4"
         >
-          <div className="flex flex-row items-center justify-center gap-3 w-full max-w-sm sm:max-w-none sm:w-auto">
+          <div className="flex flex-row items-center justify-center gap-3 w-full max-w-sm sm:max-w-none sm:w-auto flex-wrap">
             <a
               href="#walkthrough"
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 text-sm font-medium text-zinc-950 bg-white rounded-full hover:bg-zinc-200 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-white/10 transition-all duration-300"
@@ -195,6 +205,13 @@ export function Hero() {
               <span className="hidden sm:inline">{t.chat}</span>
               <span className="sm:hidden">Try AI</span>
             </button>
+            <a
+              href="/ai-search"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-white/10 rounded-full hover:bg-white/5 hover:border-white/20 hover:text-white hover:-translate-y-[2px] transition-all duration-300 shadow-sm"
+            >
+              <BrainCircuit size={16} className="text-zinc-400" />
+              <span>AI-Search Tool</span>
+            </a>
           </div>
         </motion.div>
 
@@ -215,7 +232,7 @@ export function Hero() {
             </div>
             
             {/* Workflow Selector */}
-            <div className="mx-auto relative">
+            <div className="relative ml-16 sm:mx-auto">
               <button 
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-800/50 border border-white/5 text-xs text-zinc-300 font-medium hover:bg-zinc-700/50 transition-colors"
@@ -633,20 +650,90 @@ export function Hero() {
             </p>
           </div>
           
-          <div className="relative w-full max-w-5xl aspect-video rounded-2xl border border-white/10 bg-zinc-900/50 shadow-2xl shadow-black/40 overflow-hidden group cursor-pointer flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent z-10" />
-            <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-zinc-950/40 transition-colors z-10" />
-            
-            {/* Play Button Overlay */}
-            <div className="relative z-20 w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-white/20 transition-all shadow-xl">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="ml-1">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
+          <div className="relative w-full max-w-5xl rounded-2xl border border-white/10 bg-zinc-950/80 shadow-2xl shadow-black/60 overflow-hidden group cursor-pointer flex flex-col">
+            {/* Window Chrome */}
+            <div className="flex items-center px-4 py-3 border-b border-white/5 bg-zinc-900/30 shrink-0 relative z-30">
+              <div className="flex gap-2 absolute left-4">
+                <div className="w-3 h-3 rounded-full bg-zinc-700/50" />
+                <div className="w-3 h-3 rounded-full bg-zinc-700/50" />
+                <div className="w-3 h-3 rounded-full bg-zinc-700/50" />
+              </div>
+              
+              {/* Video Selector */}
+              <div className="relative ml-16 sm:mx-auto">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsVideoDropdownOpen(!isVideoDropdownOpen);
+                  }}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-800/50 border border-white/5 text-xs text-zinc-300 font-medium hover:bg-zinc-700/50 transition-colors"
+                >
+                  <Video size={14} className="text-zinc-400" />
+                  <span>{VIDEO_OPTIONS[activeVideoIndex]}</span>
+                  <ChevronDown size={14} className={`text-zinc-500 transition-transform ${isVideoDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <AnimatePresence>
+                  {isVideoDropdownOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 max-h-[160px] overflow-y-auto bg-zinc-900 border border-white/10 rounded-lg shadow-xl z-50"
+                    >
+                      <div className="p-1 flex flex-col">
+                        {VIDEO_OPTIONS.map((option, idx) => (
+                          <button
+                            key={option}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveVideoIndex(idx);
+                              setIsVideoDropdownOpen(false);
+                            }}
+                            className={`w-full text-left px-3 py-2 rounded-md text-xs transition-colors flex items-center gap-2 ${idx === activeVideoIndex ? 'bg-zinc-800/80 text-zinc-200' : 'text-zinc-400 hover:bg-white/5 hover:text-zinc-200'}`}
+                          >
+                            <div className="w-2 flex justify-center shrink-0">
+                              {idx === activeVideoIndex && <div className="w-1.5 h-1.5 rounded-full bg-zinc-400" />}
+                            </div>
+                            <span className="truncate">{option}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
-            
-            {/* Placeholder for actual video thumbnail */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-zinc-900 to-zinc-800 opacity-50" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+            {/* Video Area */}
+            <div className="relative w-full aspect-video flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent z-10" />
+              <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-zinc-950/40 transition-colors z-10" />
+              
+              {/* Play Button Overlay */}
+              <div className="relative z-20 w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-white/20 transition-all shadow-xl">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="ml-1">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+              
+              {/* Placeholder for actual video thumbnail */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-zinc-900 to-zinc-800 opacity-50" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+            </div>
+          </div>
+
+          {/* Video Action Buttons */}
+          <div className="mt-8 flex flex-row items-center justify-center gap-3 w-full flex-wrap px-4">
+            <button className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-zinc-800 border border-white/10 rounded-full hover:bg-zinc-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-black/20 transition-all duration-300">
+              <Video size={16} className="text-zinc-400" />
+              Watch Full Series
+            </button>
+            <a href="https://github.com/gijshulsebos" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-zinc-300 bg-transparent border border-white/10 rounded-full hover:bg-white/5 hover:text-white hover:-translate-y-[2px] transition-all duration-300">
+              <Github size={16} className="text-zinc-400" />
+              GitHub
+            </a>
           </div>
         </motion.div>
 
