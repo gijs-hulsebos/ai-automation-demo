@@ -1,7 +1,6 @@
 'use client';
 
 import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { Mail, Linkedin, Github } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { DICTIONARY } from '@/data/dictionary';
@@ -13,7 +12,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-50">
       <Header />
-      <main className="pt-32 pb-20 px-6">
+      <main className="pt-40 pb-20 px-6">
         {/* Hero */}
         <section className="text-center mb-24">
           <h1 className="font-display text-5xl md:text-6xl font-medium tracking-tight text-white mb-5 leading-[1.1]">
@@ -79,7 +78,6 @@ export default function ContactPage() {
           </section>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

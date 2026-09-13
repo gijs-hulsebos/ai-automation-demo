@@ -2,19 +2,19 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# Gijs Hulsebos — Portfolio
 
-This contains everything you need to run your app locally.
+Portfolio met een interactief bento-grid, gebogen carousel en ondersteuning voor Nederlands, Engels en Duits.
 
-View your app in AI Studio: https://ai.studio/apps/65459ed9-f167-4793-b8bb-62e8e08315ea
+## Lokaal starten
 
-## Run Locally
+Vereist: Node.js.
 
-**Prerequisites:**  Node.js
+```sh
+npm install
+npm run dev
+```
 
+Open http://localhost:3000. Er zijn geen API-sleutels nodig.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+De chatbot is alleen een lokale interface en verstuurt geen berichten naar een backend.

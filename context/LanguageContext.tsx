@@ -16,7 +16,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const storedLang = localStorage.getItem('app_lang') as Lang;
+    let storedLang: Lang | null = null;
+    try { storedLang = localStorage.getItem('app_lang') as Lang; } catch { /* Storage may be disabled. */ }
     if (storedLang && ['EN', 'NL', 'DE'].includes(storedLang)) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLangState(storedLang);
@@ -24,9 +25,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = lang.toLowerCase();
+  }, [lang]);
+
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
-    localStorage.setItem('app_lang', newLang);
+    try { localStorage.setItem('app_lang', newLang); } catch { /* In-memory language selection still works. */ }
   };
 
   return (

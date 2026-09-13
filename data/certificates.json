@@ -1,0 +1,348 @@
+{
+  "repository": "gijs-hulsebos/Certificates",
+  "commit": "ae258bf8a4134fae3252e487563b71928b3abe6f",
+  "rendererVersion": 1,
+  "certificates": [
+    {
+      "id": "7fffb42b78408c166ce79cf1ba52d0101d7363711ef6aa9b6ecce3571773bb33",
+      "blob": "a10ad1662b09e41baddd26ebe5a9af87bed0cd63",
+      "path": "Anthropic/Introduction to Model Context Protocol/Coursera 0T1UB7FHM21J.pdf",
+      "title": "Introduction to Model Context Protocol",
+      "issuer": "Anthropic",
+      "image": "/certificates/7fffb42b78408c166ce79cf1ba52d0101d7363711ef6aa9b6ecce3571773bb33-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Coursera%200T1UB7FHM21J.pdf"
+    },
+    {
+      "id": "0a69c2422de7db7845a25839f2271c55d5bf97b5d04ff687610f3ab62c826226",
+      "blob": "1ef5608f28ac5bc98f919096e5f464e16a45b1c9",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Create Engaging Video with Google Vids/Google Cloud Create Engaging Video with Google Vids Coursera 1EI6S38PUKSM.pdf",
+      "title": "Create Engaging Video with Google Vids",
+      "issuer": "Google Cloud",
+      "image": "/certificates/0a69c2422de7db7845a25839f2271c55d5bf97b5d04ff687610f3ab62c826226-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Create%20Engaging%20Video%20with%20Google%20Vids/Google%20Cloud%20Create%20Engaging%20Video%20with%20Google%20Vids%20Coursera%201EI6S38PUKSM.pdf"
+    },
+    {
+      "id": "7bee67c574e63bcc02ff9702f15ba11eea680519d5f4ab16480b9943c03d3a23",
+      "blob": "bb98dd974ee67be956b8d50247f35bdb798dfd3e",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Gmail/Google Cloud Gemini in Gmail Coursera BW236SBRBY31.pdf",
+      "title": "Gemini in Gmail",
+      "issuer": "Google Cloud",
+      "image": "/certificates/7bee67c574e63bcc02ff9702f15ba11eea680519d5f4ab16480b9943c03d3a23-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Gmail/Google%20Cloud%20Gemini%20in%20Gmail%20Coursera%20BW236SBRBY31.pdf"
+    },
+    {
+      "id": "c6151d770dedfef0597c4e625e226807b6e040d833e46a9b4c998b33855d18a9",
+      "blob": "7461859bb334e75a8d7f7c8302c16bd5a1b3154e",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Google Docs/Google Cloud Gemini in Google Docs Coursera ZKRGIO4T70KX.pdf",
+      "title": "Gemini in Google Docs",
+      "issuer": "Google Cloud",
+      "image": "/certificates/c6151d770dedfef0597c4e625e226807b6e040d833e46a9b4c998b33855d18a9-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Google%20Docs/Google%20Cloud%20Gemini%20in%20Google%20Docs%20Coursera%20ZKRGIO4T70KX.pdf"
+    },
+    {
+      "id": "2eab65d7dfbfc5011a1ad4e6bcfa8f2f69aeb2bdd96c8e56f5b48cea8fa0d6a6",
+      "blob": "b2076c10f93144e234b2401deafb1d9b41946b7f",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Google Drive/Google Cloud Gemini in Google Drive Coursera 1J9LNOSBAYUB.pdf",
+      "title": "Gemini in Google Drive",
+      "issuer": "Google Cloud",
+      "image": "/certificates/2eab65d7dfbfc5011a1ad4e6bcfa8f2f69aeb2bdd96c8e56f5b48cea8fa0d6a6-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Google%20Drive/Google%20Cloud%20Gemini%20in%20Google%20Drive%20Coursera%201J9LNOSBAYUB.pdf"
+    },
+    {
+      "id": "78c5cfea2a758c887ffea4a1f2a52f18e86a7d45076e379d06ee472a27a3d6ca",
+      "blob": "1468bc98e0140e82698612da5bdb0cce95369386",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Google Meet/Google Cloud Gemini in Google Meet Coursera J3XWSC4VEDDG.pdf",
+      "title": "Gemini in Google Meet",
+      "issuer": "Google Cloud",
+      "image": "/certificates/78c5cfea2a758c887ffea4a1f2a52f18e86a7d45076e379d06ee472a27a3d6ca-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Google%20Meet/Google%20Cloud%20Gemini%20in%20Google%20Meet%20Coursera%20J3XWSC4VEDDG.pdf"
+    },
+    {
+      "id": "f59179cba42c43e4cc5e4176ea682de5639ba7653b37cda33b38ab6b10d86dd6",
+      "blob": "e2275795606e4785110729e426733750e9dbab23",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Google Sheets/Google Cloud Gemini in Google Sheets Coursera YDG03S612K7V.pdf",
+      "title": "Gemini in Google Sheets",
+      "issuer": "Google Cloud",
+      "image": "/certificates/f59179cba42c43e4cc5e4176ea682de5639ba7653b37cda33b38ab6b10d86dd6-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Google%20Sheets/Google%20Cloud%20Gemini%20in%20Google%20Sheets%20Coursera%20YDG03S612K7V.pdf"
+    },
+    {
+      "id": "c2e7340921b5b5bc00b1fe1817a5f5bbacbc103ff4c891cc4f6c39cdeef9d41d",
+      "blob": "0c7326c28afbfed12a6bc604e55f0de9b3e7a7fb",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Gemini in Google Slides/Google Cloud Gemini in Google Slides Coursera U6HCQSHQTFH4.pdf",
+      "title": "Gemini in Google Slides",
+      "issuer": "Google Cloud",
+      "image": "/certificates/c2e7340921b5b5bc00b1fe1817a5f5bbacbc103ff4c891cc4f6c39cdeef9d41d-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Gemini%20in%20Google%20Slides/Google%20Cloud%20Gemini%20in%20Google%20Slides%20Coursera%20U6HCQSHQTFH4.pdf"
+    },
+    {
+      "id": "e5a9e6ec668aa9cc6d97ed11fb03929786179c232d569fec12e6184aa2d37efa",
+      "blob": "c9a3ee23386c49a9d7b747469b4f3f4ae6de3b92",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Google Workspace with Gemini Coursera 6A9GRRBW81WM.pdf",
+      "title": "Gemini for the Google Workspace Specialisation",
+      "issuer": "Google Cloud",
+      "image": "/certificates/e5a9e6ec668aa9cc6d97ed11fb03929786179c232d569fec12e6184aa2d37efa-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Google%20Workspace%20with%20Gemini%20Coursera%206A9GRRBW81WM.pdf"
+    },
+    {
+      "id": "986202514ff2677fd62b1b69d0cbc3dbcfda1704e196a55d8f217f076e22ea11",
+      "blob": "e2d12ba05f73462929fe99a506b2c5a2d19d7711",
+      "path": "Google Cloud/Gemini for the Google Workspace Specialisation/Introduction to Google Workspace with Gemini/Google Cloud Introduction to Google Workspace with Gemini Coursera JUJWOA355KZB.pdf",
+      "title": "Introduction to Google Workspace with Gemini",
+      "issuer": "Google Cloud",
+      "image": "/certificates/986202514ff2677fd62b1b69d0cbc3dbcfda1704e196a55d8f217f076e22ea11-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Gemini%20for%20the%20Google%20Workspace%20Specialisation/Introduction%20to%20Google%20Workspace%20with%20Gemini/Google%20Cloud%20Introduction%20to%20Google%20Workspace%20with%20Gemini%20Coursera%20JUJWOA355KZB.pdf"
+    },
+    {
+      "id": "c7a0c347b75ea6144a056bd4d550a3b993778dd045f2b081ae832706175dcc45",
+      "blob": "1bec602b93911582d0fa3e986f5388680e255494",
+      "path": "Google Cloud/Introduction to Generative AI Learning Path Specialisation/ Responsible AI: Applying AI Principles with Google Cloud/Google Cloud Responsible AI- Applying AI Principles with Google Cloud Coursera 1NC867P849EN.pdf",
+      "title": "Responsible AI: Applying AI Principles with Google Cloud",
+      "issuer": "Google Cloud",
+      "image": "/certificates/c7a0c347b75ea6144a056bd4d550a3b993778dd045f2b081ae832706175dcc45-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialisation/%20Responsible%20AI%3A%20Applying%20AI%20Principles%20with%20Google%20Cloud/Google%20Cloud%20Responsible%20AI-%20Applying%20AI%20Principles%20with%20Google%20Cloud%20Coursera%201NC867P849EN.pdf"
+    },
+    {
+      "id": "c7aafafb7bb2cdcacc7642e861f65db269db36cbab6fab51af5c4aa18bd3e512",
+      "blob": "08edf437f7c5115e4c506c6ac5ffdd574cb31805",
+      "path": "Google Cloud/Introduction to Generative AI Learning Path Specialisation/Google Cloud Introduction to Generative AI Learning Path Coursera ATFILWOEJURF.pdf",
+      "title": "Introduction to Generative AI Learning Path Specialisation",
+      "issuer": "Google Cloud",
+      "image": "/certificates/c7aafafb7bb2cdcacc7642e861f65db269db36cbab6fab51af5c4aa18bd3e512-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialisation/Google%20Cloud%20Introduction%20to%20Generative%20AI%20Learning%20Path%20Coursera%20ATFILWOEJURF.pdf"
+    },
+    {
+      "id": "3e9c31445e31c4806fe1164be1efc39ce56eca042b0cd719d678c0aec5ff5277",
+      "blob": "a6b7188c2a44a472a6ee2b0cb6990ac56af95c32",
+      "path": "Google Cloud/Introduction to Generative AI Learning Path Specialisation/Introduction to Generative AI/Google Cloud Introduction to Generative AI Coursera 2EZC5LHKU9KA.pdf",
+      "title": "Introduction to Generative AI",
+      "issuer": "Google Cloud",
+      "image": "/certificates/3e9c31445e31c4806fe1164be1efc39ce56eca042b0cd719d678c0aec5ff5277-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialisation/Introduction%20to%20Generative%20AI/Google%20Cloud%20Introduction%20to%20Generative%20AI%20Coursera%202EZC5LHKU9KA.pdf"
+    },
+    {
+      "id": "460eecb3b51beb6a4916b231565dd4b651d34ac6fbc3cd40a1d53590c2d3252f",
+      "blob": "dfb6c4312a87a5087a35f2c25317367b70e4425e",
+      "path": "Google Cloud/Introduction to Generative AI Learning Path Specialisation/Introduction to Large Language Models/Google Cloud Introduction to Large Language Models Coursera DKFPN0J87QIC.pdf",
+      "title": "Introduction to Large Language Models",
+      "issuer": "Google Cloud",
+      "image": "/certificates/460eecb3b51beb6a4916b231565dd4b651d34ac6fbc3cd40a1d53590c2d3252f-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialisation/Introduction%20to%20Large%20Language%20Models/Google%20Cloud%20Introduction%20to%20Large%20Language%20Models%20Coursera%20DKFPN0J87QIC.pdf"
+    },
+    {
+      "id": "35155ac1269e7b907dd2008e73a0d4905c3e503d97f3ea8186c39fac7d77ab7e",
+      "blob": "04432b642687309eb061e61a44d546d91368f154",
+      "path": "Google Cloud/Introduction to Generative AI Learning Path Specialisation/Introduction to Responsible AI/Google Cloud Introduction to Responsible AI Coursera ZI74DZ55V74T.pdf",
+      "title": "Introduction to Responsible AI",
+      "issuer": "Google Cloud",
+      "image": "/certificates/35155ac1269e7b907dd2008e73a0d4905c3e503d97f3ea8186c39fac7d77ab7e-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialisation/Introduction%20to%20Responsible%20AI/Google%20Cloud%20Introduction%20to%20Responsible%20AI%20Coursera%20ZI74DZ55V74T.pdf"
+    },
+    {
+      "id": "708ed05d7d5ae1a7dae150a8f92adcd8bdf745739de860978a341fd526adf3b3",
+      "blob": "b0588f88cc578d3e2032b6381ed29ab1d97e4534",
+      "path": "Google/AI-Professional Specialisation/AI Fundamentals/Google AI Fundamentals Coursera QQAQ6JQVLYV2.pdf",
+      "title": "AI Fundamentals",
+      "issuer": "Google",
+      "image": "/certificates/708ed05d7d5ae1a7dae150a8f92adcd8bdf745739de860978a341fd526adf3b3-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20Fundamentals/Google%20AI%20Fundamentals%20Coursera%20QQAQ6JQVLYV2.pdf"
+    },
+    {
+      "id": "dc8b5adbfde971c3a24e3935e415b149789dacec3147b22587aa780ca3fa8424",
+      "blob": "173275c2d5611e3a4c4e6a7ee952d7c516ced30b",
+      "path": "Google/AI-Professional Specialisation/AI for App Building/Google AI for App Building Coursera M8BOQZU7MW0V.pdf",
+      "title": "AI for App Building",
+      "issuer": "Google",
+      "image": "/certificates/dc8b5adbfde971c3a24e3935e415b149789dacec3147b22587aa780ca3fa8424-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20App%20Building/Google%20AI%20for%20App%20Building%20Coursera%20M8BOQZU7MW0V.pdf"
+    },
+    {
+      "id": "a6837c740fa4964c87b94991dd73ba5d33f78dadf7f78cd45970c27016c1ec6e",
+      "blob": "358180b28f0745d31fed90d77d969bff50846875",
+      "path": "Google/AI-Professional Specialisation/AI for Brainstorming and Planning/Google AI for Brainstorming and Planning Coursera PLICJTET51SZ.pdf",
+      "title": "AI for Brainstorming and Planning",
+      "issuer": "Google",
+      "image": "/certificates/a6837c740fa4964c87b94991dd73ba5d33f78dadf7f78cd45970c27016c1ec6e-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20Brainstorming%20and%20Planning/Google%20AI%20for%20Brainstorming%20and%20Planning%20Coursera%20PLICJTET51SZ.pdf"
+    },
+    {
+      "id": "3ff546aa60e10bae8b2f6138f318e62b4c092db6d113b25fb3ca7e731a20076f",
+      "blob": "cf6f4b75d6482290050c4e75f4f7b12d8d9e4d9c",
+      "path": "Google/AI-Professional Specialisation/AI for Content Creation/Google AI for Content Creation - Coursera SSGFR6E2QNWB.pdf",
+      "title": "AI for Content Creation",
+      "issuer": "Google",
+      "image": "/certificates/3ff546aa60e10bae8b2f6138f318e62b4c092db6d113b25fb3ca7e731a20076f-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20Content%20Creation/Google%20AI%20for%20Content%20Creation%20-%20Coursera%20SSGFR6E2QNWB.pdf"
+    },
+    {
+      "id": "ade6d2dbabfbdc01d3061cab4825f69f9be1b1d69efdaf4b81b3c9ea65fc8222",
+      "blob": "06d3d6f26ecacf471ee79a4614e781c9e8316348",
+      "path": "Google/AI-Professional Specialisation/AI for Data Analysis/Google AI for Data Analysis Coursera C0SG38AZ9WVX.pdf",
+      "title": "AI for Data Analysis",
+      "issuer": "Google",
+      "image": "/certificates/ade6d2dbabfbdc01d3061cab4825f69f9be1b1d69efdaf4b81b3c9ea65fc8222-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20Data%20Analysis/Google%20AI%20for%20Data%20Analysis%20Coursera%20C0SG38AZ9WVX.pdf"
+    },
+    {
+      "id": "54615440d57921beb97e03e833ffc6a88c3409b30ed103ca98c49eed9482d2a8",
+      "blob": "9e3c367c47237f6f9231a3f8c1ab1302617be5b5",
+      "path": "Google/AI-Professional Specialisation/AI for Research and Insights/Google AI for Research and Insight Coursera 94B506GPM8GH.pdf",
+      "title": "AI for Research and Insights",
+      "issuer": "Google",
+      "image": "/certificates/54615440d57921beb97e03e833ffc6a88c3409b30ed103ca98c49eed9482d2a8-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20Research%20and%20Insights/Google%20AI%20for%20Research%20and%20Insight%20Coursera%2094B506GPM8GH.pdf"
+    },
+    {
+      "id": "6736505edd0fc068e97ae4fda5d30d026ffc9a0e56ce652883a52caed3c48cb3",
+      "blob": "b33a82c400005e75d947ad979b635ae467e49156",
+      "path": "Google/AI-Professional Specialisation/AI for Writing and Communicating/Google AI for Writing and Communicating Coursera 5Q8HA8YG8WME.pdf",
+      "title": "AI for Writing and Communicating",
+      "issuer": "Google",
+      "image": "/certificates/6736505edd0fc068e97ae4fda5d30d026ffc9a0e56ce652883a52caed3c48cb3-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/AI%20for%20Writing%20and%20Communicating/Google%20AI%20for%20Writing%20and%20Communicating%20Coursera%205Q8HA8YG8WME.pdf"
+    },
+    {
+      "id": "7fb7300334d5c04e74c10f9abe7df0ca556a7801ec448f03aeaaae53696fd4c5",
+      "blob": "641259407c6bd13e70661a6cc9dfa742135d5655",
+      "path": "Google/AI-Professional Specialisation/Google AI Coursera AJT88YN6XUS4.pdf",
+      "title": "AI-Professional Specialisation",
+      "issuer": "Google",
+      "image": "/certificates/7fb7300334d5c04e74c10f9abe7df0ca556a7801ec448f03aeaaae53696fd4c5-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/AI-Professional%20Specialisation/Google%20AI%20Coursera%20AJT88YN6XUS4.pdf"
+    },
+    {
+      "id": "262d9a5db3a9d4653abaa6a78b34541e9e532fab6b022cfc9a4b846c7dc09f9e",
+      "blob": "fabd793d039f9bf4508ef80c2db16a56d218cf28",
+      "path": "Google/Google Prompting Essentials Specialization/Design Prompts for Everyday Work Tasks/Google Design Prompts for Everyday Work Tasks Coursera UW436PTF8EEO.pdf",
+      "title": "Design Prompts for Everyday Work Tasks",
+      "issuer": "Google",
+      "image": "/certificates/262d9a5db3a9d4653abaa6a78b34541e9e532fab6b022cfc9a4b846c7dc09f9e-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Google%20Prompting%20Essentials%20Specialization/Design%20Prompts%20for%20Everyday%20Work%20Tasks/Google%20Design%20Prompts%20for%20Everyday%20Work%20Tasks%20Coursera%20UW436PTF8EEO.pdf"
+    },
+    {
+      "id": "2e60211ab42029ff128ccb075012fc8b7405d21c06a20fb8cb1ba3c039c41011",
+      "blob": "2687c619ea57efeef8b92dd6d6a35abde306227e",
+      "path": "Google/Google Prompting Essentials Specialization/Google Prompting Essentials Coursera 98XKSYTBB3GX.pdf",
+      "title": "Google Prompting Essentials Specialization",
+      "issuer": "Google",
+      "image": "/certificates/2e60211ab42029ff128ccb075012fc8b7405d21c06a20fb8cb1ba3c039c41011-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Google%20Prompting%20Essentials%20Specialization/Google%20Prompting%20Essentials%20Coursera%2098XKSYTBB3GX.pdf"
+    },
+    {
+      "id": "48337f391d205b2cd6671924d5044f200eecf354399e622595df2e006e0c2a48",
+      "blob": "994fe645f6279580a22eca3da327e4befaefc81f",
+      "path": "Google/Google Prompting Essentials Specialization/Speed Up Data Analysis and Presentation Building/Google Speed Up Data Analysis and Presentation Building Coursera LM51RJ1A5A7D.pdf",
+      "title": "Speed Up Data Analysis and Presentation Building",
+      "issuer": "Google",
+      "image": "/certificates/48337f391d205b2cd6671924d5044f200eecf354399e622595df2e006e0c2a48-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Google%20Prompting%20Essentials%20Specialization/Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building/Google%20Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building%20Coursera%20LM51RJ1A5A7D.pdf"
+    },
+    {
+      "id": "f590c77d69623d33dcea74b52f28c0fbec3fdd216f69b6145e61442e86204bf0",
+      "blob": "9535b146665ab94e46321d67d1f689856b42a169",
+      "path": "Google/Google Prompting Essentials Specialization/Start Writing Prompts like a Pro/Google Start Writing Prompts like a Pro Coursera YFER20XG6RI6.pdf",
+      "title": "Start Writing Prompts like a Pro",
+      "issuer": "Google",
+      "image": "/certificates/f590c77d69623d33dcea74b52f28c0fbec3fdd216f69b6145e61442e86204bf0-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Google%20Prompting%20Essentials%20Specialization/Start%20Writing%20Prompts%20like%20a%20Pro/Google%20Start%20Writing%20Prompts%20like%20a%20Pro%20Coursera%20YFER20XG6RI6.pdf"
+    },
+    {
+      "id": "d5b59b08b50768decdc2b902ff8c9120bde334faa66df12a9d195f72f6b27846",
+      "blob": "240de8cca87533f53b7f29bcb7df7743a183dcfa",
+      "path": "Google/Google Prompting Essentials Specialization/Use AI as a Creative or Expert Partner/Google Use AI as a Creative or Expert Partner Coursera 7S5FDZXJEUPN.pdf",
+      "title": "Use AI as a Creative or Expert Partner",
+      "issuer": "Google",
+      "image": "/certificates/d5b59b08b50768decdc2b902ff8c9120bde334faa66df12a9d195f72f6b27846-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Google%20Prompting%20Essentials%20Specialization/Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner/Google%20Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner%20Coursera%207S5FDZXJEUPN.pdf"
+    },
+    {
+      "id": "863a9bf04a0a87d5b823d5b49030920f1e27f0efba44acf5e426b4d78a5d71cb",
+      "blob": "643d6773365d442e65087749c891e65c6ed121ee",
+      "path": "Google/Misc Certificates/Accelerate Your Job Search with AI/Coursera KDOXAUGRNMPH.pdf",
+      "title": "Accelerate Your Job Search with AI",
+      "issuer": "Google",
+      "image": "/certificates/863a9bf04a0a87d5b823d5b49030920f1e27f0efba44acf5e426b4d78a5d71cb-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Misc%20Certificates/Accelerate%20Your%20Job%20Search%20with%20AI/Coursera%20KDOXAUGRNMPH.pdf"
+    },
+    {
+      "id": "bc6ba08df8e12b566a8780f1784a9889d9942cce1b393e1c03611a9f5fdfc52e",
+      "blob": "49cd5e12a2128d1abf0ddcb2cd9e6077dc31312e",
+      "path": "Google/Misc Certificates/Stay Ahead in the AI curve/Stay Ahead of the AI Curve Coursera 07DJMIRTM1J6.pdf",
+      "title": "Stay Ahead in the AI curve",
+      "issuer": "Google",
+      "image": "/certificates/bc6ba08df8e12b566a8780f1784a9889d9942cce1b393e1c03611a9f5fdfc52e-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/Google/Misc%20Certificates/Stay%20Ahead%20in%20the%20AI%20curve/Stay%20Ahead%20of%20the%20AI%20Curve%20Coursera%2007DJMIRTM1J6.pdf"
+    },
+    {
+      "id": "1e24854a2e980a120ee4546cd0ae9917546813e1278f79897de48b47451e14db",
+      "blob": "d2639f86d98e5c2b90ad5608d37da10226a5a03b",
+      "path": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management/Wharton AI Applications in People Management Coursera B2FF6S83H35I.pdf",
+      "title": "AI Application in People Management",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "image": "/certificates/1e24854a2e980a120ee4546cd0ae9917546813e1278f79897de48b47451e14db-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Wharton%20AI%20Applications%20in%20People%20Management%20Coursera%20B2FF6S83H35I.pdf"
+    },
+    {
+      "id": "5ab09ba36a116c09666608f02d02dba1e8dd7d568b71ff162cc0d54af648b72e",
+      "blob": "edd36ea98657469ccb7adc166f887232a88898fe",
+      "path": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance/Wharton AI Applications in Marketing and Finance Coursera 70ZDPRIR6241.pdf",
+      "title": "AI Applications in Marketing and Finance",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "image": "/certificates/5ab09ba36a116c09666608f02d02dba1e8dd7d568b71ff162cc0d54af648b72e-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Wharton%20AI%20Applications%20in%20Marketing%20and%20Finance%20Coursera%2070ZDPRIR6241.pdf"
+    },
+    {
+      "id": "e2e2d0414815824735b7cdc4a89e5e8b32fdb6d73bd59483cd9c873f80edba8f",
+      "blob": "8e5d00740deedaba4a6c8a08ec1ff9e038804297",
+      "path": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance/Wharton AI Strategy and Governance Coursera CRS7ZY7HN0PS.pdf",
+      "title": "AI Strategy and Governance",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "image": "/certificates/e2e2d0414815824735b7cdc4a89e5e8b32fdb6d73bd59483cd9c873f80edba8f-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Wharton%20AI%20Strategy%20and%20Governance%20Coursera%20CRS7ZY7HN0PS.pdf"
+    },
+    {
+      "id": "6c5e87f569bb3976351df650b0cc96a1b01adb50a7d0bba59917516baa333fef",
+      "blob": "4f05500c62b418a0ddce118562eff3407855064b",
+      "path": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Wharton AI Fundamentals for Non-Data Scientists Coursera RPZ081YR3H0C.pdf",
+      "title": "AI for non-Data Scientists",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "image": "/certificates/6c5e87f569bb3976351df650b0cc96a1b01adb50a7d0bba59917516baa333fef-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Wharton%20AI%20Fundamentals%20for%20Non-Data%20Scientists%20Coursera%20RPZ081YR3H0C.pdf"
+    },
+    {
+      "id": "26fdf3e80bcd60c3055b066399ecceacbb55ac68bb64957d3d3adc5d6bf207f8",
+      "blob": "663bea0cea29ad4ab6a954913308600558959f93",
+      "path": "University of Pennsylvania (Wharton)/AI For Business Specialization/Wharton AI For Business Coursera 0OW7RWDG2DMO.pdf",
+      "title": "AI For Business Specialization",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "image": "/certificates/26fdf3e80bcd60c3055b066399ecceacbb55ac68bb64957d3d3adc5d6bf207f8-v1.webp",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/ae258bf8a4134fae3252e487563b71928b3abe6f/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/Wharton%20AI%20For%20Business%20Coursera%200OW7RWDG2DMO.pdf"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialisation/Digital Transformation with Google Cloud/Certificate.pdf",
+      "reason": "Missing PDF signature"
+    },
+    {
+      "path": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialisation/Modernise Infrastructure and Applications with Google Cloud/Certificate.pdf",
+      "reason": "Missing PDF signature"
+    },
+    {
+      "path": "Lund University/AI & Law/Module 1: AI & Law/Certificate.pdf",
+      "reason": "Empty file or missing provider/course folders"
+    },
+    {
+      "path": "Lund University/AI & Law/Module 2: Legal AI in the Public Sector/Certificate.pdf",
+      "reason": "Missing PDF signature"
+    },
+    {
+      "path": "Lund University/AI & Law/Module 3: Legal AI in the Private Sector/Certificate.pdf",
+      "reason": "Missing PDF signature"
+    },
+    {
+      "path": "Lund University/AI & Law/Module 4: Selected Challenges/Certificate.pdf",
+      "reason": "Missing PDF signature"
+    }
+  ]
+}

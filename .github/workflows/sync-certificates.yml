@@ -1,0 +1,80 @@
+name: Sync certificate previews
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [certificates-updated]
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: certificate-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: pip install -r scripts/requirements-certificates.txt
+      - run: python -m unittest discover -s scripts -p 'test_*.py'
+      - run: python scripts/sync_certificates.py
+        env:
+          CERTIFICATES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: changes
+        run: |
+          git add data/certificates.json public/certificates
+          if ! git diff --cached --quiet; then echo 'changed=true' >> "$GITHUB_OUTPUT"; fi
+      - run: npm ci
+        if: steps.changes.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+      - run: npm run build
+        if: steps.changes.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+      - name: Publish validated generated assets
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          expected=$(node -p "require('./data/certificates.json').commit")
+          actual=$(gh api repos/gijs-hulsebos/Certificates/commits/main --jq .sha)
+          test "$expected" = "$actual" || { echo 'Source advanced during build; queued next run will handle latest snapshot'; exit 1; }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update generated certificate previews'
+          git push origin HEAD:main
+      - name: Request Vercel deployment
+        if: steps.changes.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          expected=$(node -p "require('./data/certificates.json').commit")
+          actual=$(gh api repos/gijs-hulsebos/Certificates/commits/main --jq .sha)
+          test "$expected" = "$actual" || { echo 'Source advanced before deployment; waiting for next run'; exit 1; }
+          if [ -n "$DEPLOY_HOOK" ]; then
+            curl --fail --silent --show-error --request POST "$DEPLOY_HOOK"
+          else
+            echo 'Using the existing Vercel Git integration for the published commit'
+          fi
+      - name: Install production verification browser
+        if: steps.changes.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Verify actual production carousel
+        if: steps.changes.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        run: node scripts/verify-live-certificates.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-certificate-proof
+          path: verification/
+          if-no-files-found: ignore

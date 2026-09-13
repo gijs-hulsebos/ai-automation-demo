@@ -1,0 +1,24 @@
+# Install in gijs-hulsebos/Certificates/.github/workflows/notify-portfolio.yml
+name: Notify portfolio
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.pdf'
+      - '**.PDF'
+      - '.github/workflows/notify-portfolio.yml'
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: notify-portfolio
+  cancel-in-progress: false
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch certificate update
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}
+        run: >-
+          gh api --method POST repos/gijs-hulsebos/ai-automation-demo/dispatches
+          -f event_type=certificates-updated

@@ -14,6 +14,7 @@ export function LanguageSwitcher() {
         <button
           key={l}
           onClick={() => setLang(l)}
+          aria-pressed={lang === l}
           className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
             lang === l ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
           }`}

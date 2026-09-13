@@ -2,14 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
+import { INTERFACE } from '@/data/interface-translations';
 import { DICTIONARY } from '@/data/dictionary';
 
 export function Header() {
+  const pathname = usePathname();
   const { lang, setLang } = useLanguage();
   const t = DICTIONARY[lang].nav;
+  const ui = INTERFACE[lang];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -31,10 +36,9 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { name: t.overview, href: '/#demo' },
-    { name: t.walkthrough, href: '/#walkthrough' },
-    { name: t.integrations, href: '/#integrations' },
-    { name: t.consultancy, href: '/consultancy' },
+    { name: ui.projects, href: '/projects' },
+    { name: ui.certificates, href: '/certificates' },
+    { name: ui.learning, href: '/learning-trajectory' },
   ];
 
   return (
@@ -46,18 +50,19 @@ export function Header() {
             : 'bg-transparent border-transparent py-5'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="relative max-w-[1328px] mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="font-display font-medium text-lg tracking-tight text-white hover:text-zinc-300 transition-colors">
             Gijs Hulsebos
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
-            <div className="flex items-center gap-8">
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-4 lg:gap-8 whitespace-nowrap">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={pathname === link.href ? 'page' : undefined}
                   className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
                 >
                   {link.name}
@@ -68,7 +73,7 @@ export function Header() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-4">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/gijs-hulsebos" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
@@ -100,10 +105,52 @@ export function Header() {
           <button
             className="md:hidden p-3 -mr-3 text-zinc-400 hover:text-white transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={ui.menu}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+        </div>
+        <div aria-label={ui.technologies} className="absolute top-full inset-x-0 border-y border-white/5 bg-zinc-950/95 py-3">
+          <div className="max-w-6xl mx-auto px-6">
+          <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] group">
+            <div className="flex w-max animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused]">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex items-center gap-x-10 pr-10 shrink-0">
+                  {[
+                    { name: 'OpenAI', src: '/logo/OpenAI.svg', height: 32 },
+                    { name: 'Claude', src: '/logo/Claude.svg', height: 24 },
+                    { name: 'Gemini', src: '/logo/Gemini.svg', height: 36 },
+                    { name: 'n8n', src: '/logo/n8n.svg', height: 36 },
+                    { name: 'Supabase', src: '/logo/supabase.svg', height: 24 },
+                    { name: 'Vercel', src: '/logo/Vercel.svg', height: 24 },
+                    { name: 'Python', src: '/logo/Python.svg', height: 24 },
+                    { name: 'Next.js', src: '/logo/nextjs.svg', height: 24 },
+                    { name: 'GitHub', src: '/logo/Github.svg', height: 24 },
+                    { name: 'Remotion', src: '/logo/remotion.svg', height: 24 },
+                  ].map((logo) => (
+                    <div key={logo.name} className="flex items-center justify-center gap-2 shrink-0">
+                      <Image
+                        src={logo.src}
+                        alt={`${logo.name} logo`}
+                        width={0}
+                        height={20}
+                        sizes="100vw"
+                        className="w-auto object-contain"
+                        style={{ width: 'auto', height: '20px' }}
+                        priority
+                        unoptimized
+                        crossOrigin="anonymous"
+                      />
+                      <span className="text-xs font-medium text-zinc-400 whitespace-nowrap">
+                        {logo.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          </div>
         </div>
       </header>
 
@@ -136,6 +183,7 @@ export function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  aria-current={pathname === link.href ? 'page' : undefined}
                   className="text-lg font-medium text-zinc-200 hover:text-white transition-colors py-3 border-b border-white/5"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -149,7 +197,7 @@ export function Header() {
             {/* Mobile Socials */}
             <div className="flex items-center justify-center gap-6 py-2">
               <a 
-                href="https://github.com" 
+                href="https://github.com/gijs-hulsebos" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
@@ -170,12 +218,13 @@ export function Header() {
             
             {/* Mobile Language Switcher */}
             <div className="flex items-center justify-between py-2 border-b border-white/5">
-              <span className="text-sm font-medium text-zinc-400">Language</span>
+              <span className="text-sm font-medium text-zinc-400">{ui.language}</span>
               <div className="flex gap-1 p-1 bg-zinc-950/50 rounded-full border border-white/5">
                 {['EN', 'NL', 'DE'].map((l) => (
                   <button
                     key={l}
-                    onClick={() => setLang(l as any)}
+                    onClick={() => setLang(l as 'EN' | 'NL' | 'DE')}
+                    aria-pressed={lang === l}
                     className={`relative px-4 py-2 text-xs font-medium rounded-full transition-colors ${
                       lang === l ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
                     }`}
