@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import { providerLogos } from '@/data/provider-logos';
 
@@ -8,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 
 export type CertificateFanItem = {
+  id: string;
   image: string;
   title: string;
   issuer?: string;
@@ -24,17 +24,11 @@ type Props = {
   onDeactivate: () => void;
 };
 
-export function CertificateFanCard({ card, active, locked, onActivate, onLock, onClose, onDeactivate }: Props) {
-  const pointerType = useRef('mouse');
+export function CertificateFanCard({ card, active, locked, onActivate, onClose, onDeactivate }: Props) {
   const { lang } = useLanguage();
   const ui = INTERFACE[lang];
+  const destination = `/certificates?certificate=${encodeURIComponent(card.id)}`;
   const provider = providerLogos[card.issuer || ''];
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pointerType.current === 'touch' || window.matchMedia('(hover: none)').matches) {
-      event.preventDefault();
-      onLock(true);
-    }
-  };
   return (
     <div className="circular-card certificate-hit-area"
       onPointerEnter={event => { if (event.pointerType === 'mouse') onActivate(false); }}
@@ -45,14 +39,12 @@ export function CertificateFanCard({ card, active, locked, onActivate, onLock, o
       onBlur={event => {
         if (!event.currentTarget.contains(event.relatedTarget) && !(event.relatedTarget as Element | null)?.closest('.certificate-mobile-details')) onDeactivate();
       }}>
-      <a className="certificate-hit-link" href={card.credential} target="_blank" rel="noopener noreferrer"
+      <a className="certificate-hit-link" href={destination}
         aria-label={`${card.title} — ${card.issuer || ''}`}
-        onPointerDown={event => { pointerType.current = event.pointerType; }}
-        onClick={handleClick} />
+         />
       <div className="certificate-lift-surface">
-        <a className="certificate-preview" href={card.credential} target="_blank" rel="noopener noreferrer"
-          tabIndex={-1} aria-hidden="true"
-          onPointerDown={event => { pointerType.current = event.pointerType; }} onClick={handleClick}>
+        <a className="certificate-preview" href={destination}
+          tabIndex={-1} aria-hidden="true" >
           <Image src={card.image} alt="" fill sizes="300px" unoptimized className="object-contain" />
         </a>
         <div className="certificate-provider">
@@ -60,10 +52,9 @@ export function CertificateFanCard({ card, active, locked, onActivate, onLock, o
             : <span>{provider?.name || card.issuer}</span>}
         </div>
         <div className="certificate-card-caption">
-          <a href={card.credential} target="_blank" rel="noopener noreferrer"
-            onPointerDown={event => { pointerType.current = event.pointerType; }} onClick={handleClick}><strong>{card.title}</strong></a>
+          <a href={destination} ><strong>{card.title}</strong></a>
           <span>{card.issuer || ui.issuer}</span>
-          {card.credential && <a href={card.credential} target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>{ui.viewCertificate}</a>}
+          {card.credential && <a href={destination} onClick={event => event.stopPropagation()}>{ui.viewCertificate}</a>}
         </div>
         {active && locked && <button type="button" className="card-close" aria-label={ui.closeCard}
           onClick={event => { event.stopPropagation(); onClose(); }}>×</button>}

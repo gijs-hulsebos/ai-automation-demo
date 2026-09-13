@@ -1,0 +1,421 @@
+[
+  {
+    "slot": "i",
+    "id": "acquisition",
+    "name": "Acquisition Gap Analyzer",
+    "displayName": "Acquisition Gap Analyzer",
+    "size": "large",
+    "tagline": "Evidence-based acquisition analysis",
+    "repository": "https://github.com/gijs-hulsebos/acquisition-gap-analyzer",
+    "summary": "A website-analysis MVP that ranks acquisition gaps using observable evidence from public pages.",
+    "problem": "SMEs need specific, traceable website improvements rather than an unexplained AI score.",
+    "implementation": "Built the analysis dashboard, bounded crawl pipeline, deterministic scoring and evidence-backed findings.",
+    "highlights": [
+      "Firecrawl maps a domain and selects up to eight representative pages.",
+      "Six weighted categories produce three priority findings.",
+      "Competitor evidence is kept separate from the readiness score.",
+      "Optional OpenRouter rewriting cannot change scores or evidence."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Firecrawl",
+      "OpenRouter"
+    ],
+    "sources": [
+      "README.md",
+      "lib/analyzer.ts",
+      "lib/competitors.ts",
+      "app/api/analyze/route.ts"
+    ],
+    "live": "https://acquisition-gap-analyzer.vercel.app",
+    "image": "/projects/acquisition-preview.png",
+    "private": false
+  },
+  {
+    "slot": "k",
+    "id": "stayai",
+    "name": "StayAI",
+    "displayName": "StayAI",
+    "size": "large",
+    "tagline": "Conversational hotel discovery",
+    "repository": "https://github.com/gijs-hulsebos/stayai",
+    "summary": "A conversational hotel-discovery app with saved stays and explicitly simulated reservations.",
+    "problem": "Hotel search, saved choices and reservation planning are usually split across separate interfaces.",
+    "implementation": "Connected the conversation and hotel-data services to the interface, authentication, bookmarks and reservation records.",
+    "highlights": [
+      "OpenRouter handles the conversation; Xotelo supplies hotel and rate data.",
+      "Owner-only database policies protect bookmarks and reservations.",
+      "A fixed demo account uses Supabase Auth.",
+      "Reservations are demonstrations: no payment, inventory hold or hotel confirmation."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "OpenRouter",
+      "Xotelo",
+      "Supabase"
+    ],
+    "sources": [
+      "README.md",
+      "lib/xotelo.ts",
+      "app/api/stayai/chat/route.ts",
+      "supabase/migrations/20260817122818_stayai_reservations_and_bookmarks.sql"
+    ],
+    "live": null,
+    "image": "/projects/stayai-preview.png",
+    "private": false
+  },
+  {
+    "slot": "e",
+    "id": "insurance",
+    "name": "Insurance Triage System",
+    "displayName": "Insurance Triage System",
+    "size": "wide",
+    "tagline": "AI-assisted insurance processing",
+    "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/Insurance-Demo",
+    "summary": "An n8n workflow for visual and textual insurance-claim assessment, triage and human review.",
+    "problem": "Claim intake needs structured processing while sensitive personal data and consequential decisions require care.",
+    "implementation": "Designed the webhook intake, sensitive-data separation, AI assessment, structured output and review routing in n8n.",
+    "highlights": [
+      "Separates personal data into a Google Sheets vault before AI assessment.",
+      "Uses GPT-5-mini with Gemini 2.5 Flash as a fallback.",
+      "Parses structured JSON and routes low-confidence or high-urgency claims to human review.",
+      "Coordinates claim logging, Gmail notifications and portal status updates.",
+      "A separate error path logs failures and alerts engineers."
+    ],
+    "stack": [
+      "n8n",
+      "OpenAI",
+      "Google Gemini",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "sources": [
+      "README.md",
+      "Setup.md",
+      "Insurance demo (5).json"
+    ],
+    "live": null,
+    "image": "/projects/insurance-workflow.jpeg",
+    "private": false
+  },
+  {
+    "slot": "c",
+    "id": "calendar",
+    "name": "AI Calendar Assistant",
+    "displayName": "AI Calendar Assistant",
+    "size": "tall",
+    "tagline": "Conversational scheduling agent",
+    "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/chatbot-calendar",
+    "summary": "An n8n assistant that uses conversational tool calls for scheduling and email.",
+    "problem": "Scheduling requires context, availability checks and coordinated follow-up across calendar and email tools.",
+    "implementation": "Designed the agent workflow, calendar tools, conversation memory, model fallback and response post-processing.",
+    "highlights": [
+      "Google Calendar tools search, create and update events.",
+      "Window-buffer memory retains conversational context.",
+      "A prompt-level identity-first rule requests email verification.",
+      "Google Sheets lookup and Gmail tools support contextual responses and confirmations."
+    ],
+    "stack": [
+      "n8n",
+      "OpenRouter",
+      "Google Calendar",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "sources": [
+      "readme.md",
+      "workflow.json"
+    ],
+    "live": null,
+    "image": "/projects/calendar-preview.jpeg",
+    "private": false
+  },
+  {
+    "slot": "n",
+    "id": "newsletter",
+    "name": "AI Newsletter Engine",
+    "displayName": "AI Newsletter Engine",
+    "size": "wide",
+    "tagline": "Autonomous intelligence delivery",
+    "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/AI-Newsletter",
+    "summary": "A scheduled workflow that curates AI news and distributes a document or email summary.",
+    "problem": "Turning a stream of AI news into a consistent, readable newsletter involves repetitive filtering and formatting.",
+    "implementation": "Built the RSS aggregation, deduplication, model synthesis, document generation and delivery routing workflow.",
+    "highlights": [
+      "Scheduled RSS intake merges feeds and removes duplicate items.",
+      "Gemini and GPT model nodes support content synthesis.",
+      "Google Docs and Drive prepare downloadable documents.",
+      "Gmail and MailerLite support separate delivery paths."
+    ],
+    "stack": [
+      "n8n",
+      "OpenRouter",
+      "Google Docs",
+      "Google Drive",
+      "Gmail",
+      "MailerLite"
+    ],
+    "sources": [
+      "README.md",
+      "AI Newsletter.json"
+    ],
+    "live": null,
+    "image": null,
+    "private": false
+  },
+  {
+    "slot": "p",
+    "id": "security",
+    "name": "Security Audit Checker",
+    "displayName": "Security Audit Checker",
+    "size": "wide",
+    "tagline": "Automated application security analysis",
+    "repository": "https://github.com/gijs-hulsebos/Security-Audit-Checker",
+    "summary": "A web application that scans publicly accessible application assets for security findings.",
+    "problem": "Potential secret exposure and weak application settings need structured evidence and prioritisation.",
+    "implementation": "Built the scanner, classification utilities, audit endpoint and reporting dashboard.",
+    "highlights": [
+      "Recursive crawling inspects HTML and JavaScript assets.",
+      "Pattern matching and entropy analysis flag possible secrets.",
+      "Findings use CWE classification and CVSS severity fields.",
+      "JSON and Markdown reports distinguish validated and unverified findings."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Cheerio",
+      "Tailwind CSS"
+    ],
+    "sources": [
+      "README.md",
+      "lib/scanner.ts",
+      "lib/scanner-utils.ts",
+      "app/api/audit/route.ts"
+    ],
+    "live": "https://security-audit-checker.vercel.app",
+    "image": "/projects/security-preview.png",
+    "private": false
+  },
+  {
+    "slot": "m",
+    "id": "donation",
+    "name": "Custom Donation Alerts",
+    "displayName": "Custom Donation Alerts",
+    "size": "tall",
+    "tagline": "Custom donation alerts for OBS",
+    "repository": null,
+    "summary": "A private client project that turns donations on an unsupported donation website into OBS streaming alerts.",
+    "problem": "The client needed OBS alerts for website donations that standard services such as Streamlabs and StreamYard did not support.",
+    "implementation": "Built a custom connection between the donation flow and streaming alerts for the client’s OBS setup.",
+    "highlights": [
+      "Connects donations from the client’s donation website to streaming alerts.",
+      "Supports the client’s OBS setup where standard donation integrations were unavailable.",
+      "Developed as private client work; no public demo or source-code access."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Express",
+      "Solana web3.js",
+      "Vite"
+    ],
+    "sources": [
+      "src/components/DonationForm.tsx",
+      "src/utils/api.ts",
+      "server.ts"
+    ],
+    "live": null,
+    "image": null,
+    "private": true
+  },
+  {
+    "slot": "q",
+    "id": "mediagen",
+    "name": "MediaGen Orchestrator",
+    "displayName": "MediaGen Orchestrator",
+    "size": "wide",
+    "tagline": "AI media workflow orchestration",
+    "repository": "https://github.com/gijs-hulsebos/Media-Generation-Demo",
+    "summary": "A conceptual media-workflow demo that connects a creative brief to research, creation and review stages.",
+    "problem": "AI media workflows need a coherent interface for intake, progress and human feedback.",
+    "implementation": "Built the briefing interface, workflow views and review screens around an n8n orchestration example.",
+    "highlights": [
+      "The brief form can submit to a configured n8n trigger.",
+      "The included workflow separates research, creative and review agents.",
+      "Dedicated screens cover planning and human-in-the-loop review.",
+      "Simulation paths support demonstrating the interface without a connected backend."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "n8n",
+      "React Flow"
+    ],
+    "sources": [
+      "components/views/AboutView.tsx",
+      "components/views/FormView.tsx",
+      "public/workflows/workflow.json"
+    ],
+    "live": null,
+    "image": null,
+    "private": false
+  },
+  {
+    "slot": "b",
+    "id": "pr",
+    "name": "GitHub PR Changes Extractor",
+    "displayName": "PR Extractor",
+    "size": "small",
+    "tagline": "",
+    "repository": "https://github.com/gijs-hulsebos/GitHub-PR-Changes-Extractor",
+    "summary": "A utility that turns a public GitHub pull request into a downloadable JSON changeset.",
+    "problem": "Raw diff files can be cumbersome to pass into an AI-assisted code-review workflow.",
+    "implementation": "Built the PR URL interface, server-side GitHub extraction route and JSON download flow.",
+    "highlights": [
+      "Parses a pull-request URL into repository and PR identifiers.",
+      "Fetches changed-file information through the GitHub API.",
+      "Exports structured changes as JSON for further analysis."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "GitHub REST API",
+      "Tailwind CSS"
+    ],
+    "sources": [
+      "README.md",
+      "app/api/fetch-pr/route.ts"
+    ],
+    "live": "https://git-hub-pr-changes-extractor.vercel.app",
+    "image": "/projects/pr-preview.png",
+    "private": false
+  },
+  {
+    "slot": "f",
+    "id": "audio",
+    "name": "Video-Audio Extractor",
+    "displayName": "Audio Extractor",
+    "size": "small",
+    "tagline": "",
+    "repository": "https://github.com/gijs-hulsebos/Video-Audio-Extractor",
+    "summary": "A browser-based tool that extracts audio from a selected video using WebAssembly.",
+    "problem": "A simple audio extraction should not require an ad-heavy conversion site or a media upload.",
+    "implementation": "Built the file drop zone, FFmpeg loading, format selection, progress feedback and local download flow.",
+    "highlights": [
+      "FFmpeg runs in the browser through WebAssembly.",
+      "MP3, WAV and AAC use explicit conversion arguments.",
+      "Progress events drive the conversion indicator.",
+      "The result is downloaded through a browser Blob URL."
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "FFmpeg.wasm",
+      "Tailwind CSS"
+    ],
+    "sources": [
+      "app/page.tsx",
+      "package.json"
+    ],
+    "live": "https://video-audio-extractor.vercel.app",
+    "image": "/projects/audio-preview.png",
+    "private": false
+  },
+  {
+    "slot": "t",
+    "id": "compliance",
+    "name": "AI Compliance Navigator",
+    "displayName": "AI Compliance",
+    "size": "small",
+    "tagline": "",
+    "repository": "https://github.com/gijs-hulsebos/AI-Compliance-Navigator-GDPR-EU.AI.ACT",
+    "summary": "A NotebookLM research environment for exploring the EU AI Act and GDPR against a curated source collection.",
+    "problem": "Developers need a way to locate and compare regulatory source material during AI research.",
+    "implementation": "Curated the knowledge base and example questions for a source-backed NotebookLM research environment.",
+    "highlights": [
+      "The source collection includes EU AI Act and GDPR texts.",
+      "EDPB guidance covers automated decision-making.",
+      "Example queries explore risk categories and documentation requirements.",
+      "This is a research environment, not a custom compliance engine or legal advice."
+    ],
+    "stack": [
+      "NotebookLM",
+      "Curated regulatory sources"
+    ],
+    "sources": [
+      "README.md"
+    ],
+    "live": "https://notebooklm.google.com/notebook/92b6e6e4-31db-49ee-83d4-abcb776a31e0",
+    "image": null,
+    "private": false
+  },
+  {
+    "slot": "v",
+    "id": "repo",
+    "name": "GitHub Repo Explorer",
+    "displayName": "Repo Explorer",
+    "size": "small",
+    "tagline": "",
+    "repository": "https://github.com/gijs-hulsebos/Github-Repo-Explorer",
+    "summary": "A utility for browsing a public GitHub repository tree and exporting its structure as JSON.",
+    "problem": "Understanding an unfamiliar repository requires a clear overview of its files and nested folders.",
+    "implementation": "Built the repository URL validation, recursive tree transformation, expandable browser and JSON export.",
+    "highlights": [
+      "Resolves the default branch through the GitHub API.",
+      "Builds a nested tree from the recursive Git Trees response.",
+      "Counts descendant files and folders.",
+      "Exports the resulting structure as JSON."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "GitHub REST API"
+    ],
+    "sources": [
+      "app/page.tsx"
+    ],
+    "live": "https://gitrepo-explorer.vercel.app/",
+    "image": "/projects/repo-preview.png",
+    "private": false
+  },
+  {
+    "slot": "r",
+    "id": "portfolio",
+    "name": "gijshulsebos.com",
+    "displayName": "gijshulsebos.com",
+    "size": "small",
+    "tagline": "",
+    "repository": "https://github.com/gijs-hulsebos/ai-automation-demo",
+    "summary": "A multilingual portfolio bringing projects, demos and certificates together in one interactive website.",
+    "problem": "A varied collection of projects and learning achievements needs a clear, accessible presentation with room for technical detail.",
+    "implementation": "Built the responsive bento grid, project expansion animations, certificate carousel and library, language switching and PDF preview processing.",
+    "highlights": [
+      "Position-aware project expansion rearranges nearby cards while keeping Tarvos as the central project.",
+      "English, Dutch and German project content follows the selected language.",
+      "A fixed-slot certificate carousel links to specific certificates in a searchable library.",
+      "A Python pipeline validates GitHub PDFs, deduplicates files and generates WebP previews and a manifest.",
+      "Keyboard interactions and reduced-motion support complement hover and touch controls."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion",
+      "Python"
+    ],
+    "sources": [
+      "components/ProjectBento.tsx",
+      "components/CertificateLibrary.tsx",
+      "scripts/sync_certificates.py",
+      "context/LanguageContext.tsx"
+    ],
+    "live": "https://gijshulsebos.com",
+    "image": null,
+    "private": false
+  }
+]

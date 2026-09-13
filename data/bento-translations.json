@@ -1,0 +1,340 @@
+{
+  "acquisition": {
+    "NL": {
+      "tagline": "Acquisitieanalyse op basis van bewijs",
+      "summary": "Een MVP dat acquisitieknelpunten rangschikt op basis van waarneembaar bewijs op openbare webpagina’s.",
+      "problem": "Mkb-bedrijven hebben concrete, herleidbare websiteverbeteringen nodig in plaats van een onverklaarde AI-score.",
+      "implementation": "Het analysedashboard, de begrensde crawlverwerking, deterministische scoring en onderbouwde bevindingen gebouwd.",
+      "highlights": [
+        "Firecrawl brengt een domein in kaart en selecteert maximaal acht representatieve pagina’s.",
+        "Zes gewogen categorieën leveren drie prioritaire bevindingen op.",
+        "Concurrentiegegevens blijven gescheiden van de gereedheidsscore.",
+        "Optionele herschrijving met OpenRouter kan scores of bewijs niet veranderen."
+      ]
+    },
+    "DE": {
+      "tagline": "Evidenzbasierte Akquisitionsanalyse",
+      "summary": "Ein MVP, das Akquisitionslücken anhand beobachtbarer Belege auf öffentlichen Webseiten priorisiert.",
+      "problem": "Kleine und mittlere Unternehmen benötigen konkrete, nachvollziehbare Websiteverbesserungen statt eines unerklärten KI-Scores.",
+      "implementation": "Das Analyse-Dashboard, die begrenzte Crawling-Pipeline, deterministische Bewertung und beleggestützte Ergebnisse entwickelt.",
+      "highlights": [
+        "Firecrawl erfasst eine Domain und wählt bis zu acht repräsentative Seiten aus.",
+        "Sechs gewichtete Kategorien ergeben drei priorisierte Befunde.",
+        "Wettbewerbsdaten bleiben vom Bereitschaftsscore getrennt.",
+        "Optionales Umschreiben mit OpenRouter kann weder Scores noch Belege verändern."
+      ]
+    }
+  },
+  "stayai": {
+    "NL": {
+      "tagline": "Hotels ontdekken via een gesprek",
+      "summary": "Een conversationele hotelapp met opgeslagen verblijven en expliciet gesimuleerde reserveringen.",
+      "problem": "Hotels zoeken, keuzes bewaren en reserveringen plannen gebeurt vaak in afzonderlijke interfaces.",
+      "implementation": "De gespreks- en hoteldatadiensten verbonden met de interface, authenticatie, favorieten en reserveringsgegevens.",
+      "highlights": [
+        "OpenRouter verzorgt het gesprek; Xotelo levert hotel- en prijsgegevens.",
+        "Databasebeleid beperkt toegang tot favorieten en reserveringen tot de eigenaar.",
+        "Een vast demoaccount gebruikt Supabase Auth.",
+        "Reserveringen zijn demonstraties: geen betaling, vastgehouden beschikbaarheid of hotelbevestiging."
+      ]
+    },
+    "DE": {
+      "tagline": "Hotels im Gespräch entdecken",
+      "summary": "Eine dialogbasierte Hotel-App mit gespeicherten Aufenthalten und ausdrücklich simulierten Reservierungen.",
+      "problem": "Hotelsuche, gespeicherte Auswahl und Reservierungsplanung verteilen sich häufig auf getrennte Oberflächen.",
+      "implementation": "Gesprächs- und Hoteldatendienste mit der Oberfläche, Authentifizierung, Favoriten und Reservierungsdaten verbunden.",
+      "highlights": [
+        "OpenRouter führt das Gespräch; Xotelo liefert Hotel- und Preisdaten.",
+        "Datenbankrichtlinien beschränken den Zugriff auf Favoriten und Reservierungen auf den Eigentümer.",
+        "Ein festes Demokonto verwendet Supabase Auth.",
+        "Reservierungen dienen der Demonstration: keine Zahlung, Bestandsreservierung oder Hotelbestätigung."
+      ]
+    }
+  },
+  "insurance": {
+    "NL": {
+      "tagline": "AI-ondersteunde schadeverwerking",
+      "summary": "Een n8n-workflow voor visuele en tekstuele schadebeoordeling, triage en menselijke controle.",
+      "problem": "Schademeldingen vragen om gestructureerde verwerking en zorgvuldige omgang met persoonsgegevens en ingrijpende beslissingen.",
+      "implementation": "Webhookinvoer, scheiding van gevoelige gegevens, AI-beoordeling, gestructureerde uitvoer en beoordelingsroutes in n8n ontworpen.",
+      "highlights": [
+        "Scheidt persoonsgegevens af naar een Google Sheets-kluis vóór de AI-beoordeling.",
+        "Gebruikt GPT-5-mini met Gemini 2.5 Flash als terugvalmodel.",
+        "Verwerkt gestructureerde JSON en stuurt onzekere of urgente claims door naar menselijke beoordeling.",
+        "Coördineert claimregistratie, Gmail-meldingen en portaalupdates.",
+        "Een afzonderlijk foutpad registreert fouten en waarschuwt ontwikkelaars."
+      ]
+    },
+    "DE": {
+      "tagline": "KI-gestützte Schadenbearbeitung",
+      "summary": "Ein n8n-Workflow für visuelle und textuelle Schadenbewertung, Triage und menschliche Prüfung.",
+      "problem": "Schadenmeldungen erfordern strukturierte Verarbeitung sowie einen sorgfältigen Umgang mit personenbezogenen Daten und folgenreichen Entscheidungen.",
+      "implementation": "Webhook-Eingang, Trennung sensibler Daten, KI-Bewertung, strukturierte Ausgabe und Prüfpfade in n8n entworfen.",
+      "highlights": [
+        "Trennt personenbezogene Daten vor der KI-Bewertung in einen Google-Sheets-Datentresor ab.",
+        "Verwendet GPT-5-mini mit Gemini 2.5 Flash als Ersatzmodell.",
+        "Verarbeitet strukturiertes JSON und leitet unsichere oder dringende Fälle zur menschlichen Prüfung weiter.",
+        "Koordiniert Schadenprotokolle, Gmail-Benachrichtigungen und Portalupdates.",
+        "Ein separater Fehlerpfad protokolliert Fehler und benachrichtigt Entwickler."
+      ]
+    }
+  },
+  "calendar": {
+    "NL": {
+      "tagline": "Agenda beheren via een gesprek",
+      "summary": "Een n8n-assistent die agenda en e-mail bedient met gereedschapsaanroepen vanuit gesprekken.",
+      "problem": "Afspraken plannen vereist context, beschikbaarheidscontroles en afgestemde opvolging via agenda en e-mail.",
+      "implementation": "De agentworkflow, agendafuncties, het gespreksgeheugen, modelterugval en de nabewerking van antwoorden ontworpen.",
+      "highlights": [
+        "Google Calendar-functies zoeken, maken en wijzigen afspraken.",
+        "Een venstergeheugen bewaart de gesprekscontext.",
+        "Een identiteitsregel in de prompt vraagt om e-mailverificatie.",
+        "Google Sheets en Gmail ondersteunen contextuele antwoorden en bevestigingen."
+      ]
+    },
+    "DE": {
+      "tagline": "Terminplanung im Gespräch",
+      "summary": "Ein n8n-Assistent, der Kalender und E-Mail durch dialogbasierte Werkzeugaufrufe bedient.",
+      "problem": "Terminplanung benötigt Kontext, Verfügbarkeitsprüfungen und abgestimmte Nachbereitung über Kalender und E-Mail.",
+      "implementation": "Agentenworkflow, Kalenderwerkzeuge, Gesprächsspeicher, Ersatzmodell und Antwortnachbearbeitung entworfen.",
+      "highlights": [
+        "Google-Calendar-Werkzeuge suchen, erstellen und ändern Termine.",
+        "Ein Fensterspeicher bewahrt den Gesprächskontext.",
+        "Eine Identitätsregel im Prompt fordert eine E-Mail-Verifizierung an.",
+        "Google Sheets und Gmail unterstützen kontextbezogene Antworten und Bestätigungen."
+      ]
+    }
+  },
+  "newsletter": {
+    "NL": {
+      "tagline": "Automatische nieuwsvoorziening",
+      "summary": "Een geplande workflow die AI-nieuws selecteert en verspreidt als document of e-mailsamenvatting.",
+      "problem": "Een stroom AI-nieuws omzetten in een consistente, leesbare nieuwsbrief vraagt herhaaldelijk filteren en opmaken.",
+      "implementation": "De workflow voor RSS-verzameling, ontdubbeling, modelsynthese, documentgeneratie en distributie gebouwd.",
+      "highlights": [
+        "Geplande RSS-invoer voegt bronnen samen en verwijdert dubbele items.",
+        "Gemini- en GPT-modelstappen ondersteunen de inhoudelijke samenvatting.",
+        "Google Docs en Drive bereiden downloadbare documenten voor.",
+        "Gmail en MailerLite ondersteunen afzonderlijke distributieroutes."
+      ]
+    },
+    "DE": {
+      "tagline": "Automatische Nachrichtenversorgung",
+      "summary": "Ein zeitgesteuerter Workflow, der KI-Nachrichten auswählt und als Dokument oder E-Mail-Zusammenfassung verteilt.",
+      "problem": "Aus laufenden KI-Nachrichten einen einheitlichen, lesbaren Newsletter zu erstellen erfordert wiederholtes Filtern und Formatieren.",
+      "implementation": "RSS-Sammlung, Duplikatbereinigung, Modellsynthese, Dokumenterstellung und Verteilung entwickelt.",
+      "highlights": [
+        "Zeitgesteuerter RSS-Eingang führt Quellen zusammen und entfernt Duplikate.",
+        "Gemini- und GPT-Modellschritte unterstützen die Zusammenfassung.",
+        "Google Docs und Drive bereiten herunterladbare Dokumente vor.",
+        "Gmail und MailerLite unterstützen getrennte Verteilungswege."
+      ]
+    }
+  },
+  "security": {
+    "NL": {
+      "tagline": "Automatische analyse van applicatiebeveiliging",
+      "summary": "Een webapplicatie die openbaar toegankelijke applicatiebestanden controleert op beveiligingsbevindingen.",
+      "problem": "Mogelijk gelekte geheimen en zwakke instellingen moeten met gestructureerd bewijs worden geprioriteerd.",
+      "implementation": "De scanner, classificatiefuncties, het audit-eindpunt en rapportagedashboard gebouwd.",
+      "highlights": [
+        "Recursief crawlen onderzoekt HTML- en JavaScript-bestanden.",
+        "Patroonherkenning en entropieanalyse signaleren mogelijke geheimen.",
+        "Bevindingen gebruiken CWE-classificatie en CVSS-ernstvelden.",
+        "JSON- en Markdown-rapporten onderscheiden gevalideerde en onbevestigde bevindingen."
+      ]
+    },
+    "DE": {
+      "tagline": "Automatische Analyse der Anwendungssicherheit",
+      "summary": "Eine Webanwendung, die öffentlich zugängliche Anwendungsdateien auf Sicherheitsbefunde untersucht.",
+      "problem": "Möglicherweise offengelegte Geheimnisse und schwache Einstellungen müssen anhand strukturierter Belege priorisiert werden.",
+      "implementation": "Scanner, Klassifizierungsfunktionen, Audit-Endpunkt und Berichts-Dashboard entwickelt.",
+      "highlights": [
+        "Rekursives Crawling untersucht HTML- und JavaScript-Dateien.",
+        "Mustererkennung und Entropieanalyse markieren mögliche Geheimnisse.",
+        "Befunde verwenden CWE-Klassifizierung und CVSS-Schweregradfelder.",
+        "JSON- und Markdown-Berichte unterscheiden bestätigte und ungeprüfte Befunde."
+      ]
+    }
+  },
+  "donation": {
+    "NL": {
+      "tagline": "Donatiealerts op maat voor OBS",
+      "summary": "Een privéklantproject dat donaties via een niet-ondersteunde donatiewebsite omzet in streamingalerts voor OBS.",
+      "problem": "De klant had OBS-alerts nodig voor websitedonaties die standaarddiensten zoals Streamlabs en StreamYard niet ondersteunden.",
+      "implementation": "Een koppeling op maat gebouwd tussen de donatiestroom en streamingalerts voor de OBS-opstelling van de klant.",
+      "highlights": [
+        "Verbindt donaties via de donatiewebsite van de klant met streamingalerts.",
+        "Ondersteunt de OBS-opstelling van de klant waar standaarddonatie-integraties ontbraken.",
+        "Ontwikkeld voor een klant; geen openbare demo of toegang tot de broncode."
+      ]
+    },
+    "DE": {
+      "tagline": "Individuelle Spendenalerts für OBS",
+      "summary": "Ein privates Kundenprojekt, das Spenden über eine nicht unterstützte Spendenwebsite in OBS-Streamingalerts umwandelt.",
+      "problem": "Der Kunde benötigte OBS-Alerts für Website-Spenden, die Standarddienste wie Streamlabs und StreamYard nicht unterstützten.",
+      "implementation": "Eine individuelle Verbindung zwischen dem Spendenablauf und Streamingalerts für die OBS-Einrichtung des Kunden entwickelt.",
+      "highlights": [
+        "Verbindet Spenden über die Spendenwebsite des Kunden mit Streamingalerts.",
+        "Unterstützt die OBS-Einrichtung des Kunden, für die Standard-Spendenintegrationen fehlten.",
+        "Als Kundenprojekt entwickelt; keine öffentliche Demo und kein Zugriff auf den Quellcode."
+      ]
+    }
+  },
+  "mediagen": {
+    "NL": {
+      "tagline": "Orkestratie van AI-mediaworkflows",
+      "summary": "Een conceptuele mediaworkflowdemo die een creatieve briefing verbindt met onderzoek, creatie en beoordeling.",
+      "problem": "AI-mediaworkflows hebben een samenhangende interface nodig voor invoer, voortgang en menselijke feedback.",
+      "implementation": "De briefinginterface, workflowweergaven en beoordelingsschermen rond een n8n-voorbeeld gebouwd.",
+      "highlights": [
+        "Het briefingformulier kan gegevens naar een ingestelde n8n-trigger sturen.",
+        "De meegeleverde workflow scheidt onderzoeks-, creatieve en beoordelingsagenten.",
+        "Afzonderlijke schermen ondersteunen planning en menselijke beoordeling.",
+        "Simulatiepaden maken demonstratie zonder gekoppelde backend mogelijk."
+      ]
+    },
+    "DE": {
+      "tagline": "Orchestrierung von KI-Medienworkflows",
+      "summary": "Eine konzeptionelle Medienworkflow-Demo, die ein Kreativbriefing mit Recherche, Erstellung und Prüfung verbindet.",
+      "problem": "KI-Medienworkflows benötigen eine zusammenhängende Oberfläche für Eingaben, Fortschritt und menschliches Feedback.",
+      "implementation": "Briefing-Oberfläche, Workflow-Ansichten und Prüfbildschirme um ein n8n-Beispiel entwickelt.",
+      "highlights": [
+        "Das Briefingformular kann Daten an einen konfigurierten n8n-Trigger senden.",
+        "Der enthaltene Workflow trennt Recherche-, Kreativ- und Prüfagenten.",
+        "Eigene Ansichten unterstützen Planung und menschliche Prüfung.",
+        "Simulationspfade ermöglichen eine Demonstration ohne angebundenes Backend."
+      ]
+    }
+  },
+  "pr": {
+    "NL": {
+      "tagline": "",
+      "summary": "Een hulpmiddel dat een openbare GitHub-pullrequest omzet in downloadbare JSON met wijzigingen.",
+      "problem": "Ruwe diffbestanden zijn lastig door te geven aan een AI-ondersteunde codebeoordeling.",
+      "implementation": "De interface voor pullrequest-URL’s, GitHub-extractieroute op de server en JSON-download gebouwd.",
+      "highlights": [
+        "Ontleedt een pullrequest-URL in repository- en pullrequestgegevens.",
+        "Haalt gewijzigde bestanden op via de GitHub API.",
+        "Exporteert gestructureerde wijzigingen als JSON voor verdere analyse."
+      ]
+    },
+    "DE": {
+      "tagline": "",
+      "summary": "Ein Werkzeug, das einen öffentlichen GitHub-Pull-Request in herunterladbare JSON-Änderungsdaten umwandelt.",
+      "problem": "Rohe Diff-Dateien lassen sich nur umständlich in eine KI-gestützte Codeprüfung übergeben.",
+      "implementation": "Die Oberfläche für Pull-Request-URLs, serverseitige GitHub-Extraktion und den JSON-Download entwickelt.",
+      "highlights": [
+        "Zerlegt eine Pull-Request-URL in Repository- und Pull-Request-Kennungen.",
+        "Ruft geänderte Dateien über die GitHub API ab.",
+        "Exportiert strukturierte Änderungen als JSON zur weiteren Analyse."
+      ]
+    }
+  },
+  "audio": {
+    "NL": {
+      "tagline": "",
+      "summary": "Een browserhulpmiddel dat met WebAssembly audio uit een geselecteerde video haalt.",
+      "problem": "Eenvoudige audio-extractie zou geen conversiesite vol advertenties of media-upload moeten vereisen.",
+      "implementation": "Bestandsinvoer, FFmpeg-laden, formaatkeuze, voortgangsweergave en lokale download gebouwd.",
+      "highlights": [
+        "FFmpeg draait via WebAssembly in de browser.",
+        "MP3, WAV en AAC gebruiken expliciete conversie-instellingen.",
+        "Voortgangsgebeurtenissen sturen de conversie-indicator aan.",
+        "Het resultaat wordt gedownload via een Blob-URL in de browser."
+      ]
+    },
+    "DE": {
+      "tagline": "",
+      "summary": "Ein Browserwerkzeug, das mit WebAssembly Audio aus einem ausgewählten Video extrahiert.",
+      "problem": "Einfache Audioextraktion sollte weder eine werbelastige Konvertierungsseite noch einen Medienupload erfordern.",
+      "implementation": "Dateieingabe, FFmpeg-Ladevorgang, Formatwahl, Fortschrittsanzeige und lokalen Download entwickelt.",
+      "highlights": [
+        "FFmpeg läuft über WebAssembly im Browser.",
+        "MP3, WAV und AAC verwenden ausdrückliche Konvertierungseinstellungen.",
+        "Fortschrittsereignisse steuern die Konvertierungsanzeige.",
+        "Das Ergebnis wird über eine Blob-URL im Browser heruntergeladen."
+      ]
+    }
+  },
+  "compliance": {
+    "NL": {
+      "tagline": "",
+      "summary": "Een NotebookLM-onderzoeksomgeving om de EU AI Act en AVG te verkennen met een samengestelde bronnencollectie.",
+      "problem": "Ontwikkelaars moeten tijdens AI-onderzoek relevante regelgeving kunnen vinden en vergelijken.",
+      "implementation": "De kennisbank en voorbeeldvragen voor een brononderbouwde NotebookLM-onderzoeksomgeving samengesteld.",
+      "highlights": [
+        "De collectie bevat de EU AI Act en AVG-teksten.",
+        "EDPB-richtlijnen behandelen geautomatiseerde besluitvorming.",
+        "Voorbeeldvragen verkennen risicocategorieën en documentatievereisten.",
+        "Dit is een onderzoeksomgeving, geen eigen nalevingsengine of juridisch advies."
+      ]
+    },
+    "DE": {
+      "tagline": "",
+      "summary": "Eine NotebookLM-Rechercheumgebung zur Erkundung des EU AI Act und der DSGVO anhand einer kuratierten Quellensammlung.",
+      "problem": "Entwickler müssen während der KI-Recherche regulatorische Quellen finden und vergleichen können.",
+      "implementation": "Die Wissensbasis und Beispielfragen für eine quellengestützte NotebookLM-Rechercheumgebung zusammengestellt.",
+      "highlights": [
+        "Die Sammlung enthält den EU AI Act und DSGVO-Texte.",
+        "EDPB-Leitlinien behandeln automatisierte Entscheidungen.",
+        "Beispielfragen untersuchen Risikokategorien und Dokumentationsanforderungen.",
+        "Dies ist eine Rechercheumgebung, keine eigene Compliance-Engine oder Rechtsberatung."
+      ]
+    }
+  },
+  "repo": {
+    "NL": {
+      "tagline": "",
+      "summary": "Een hulpmiddel om de bestandsstructuur van een openbare GitHub-repository te bekijken en als JSON te exporteren.",
+      "problem": "Een onbekende repository begrijpen vraagt om een helder overzicht van bestanden en submappen.",
+      "implementation": "URL-validatie, recursieve boomtransformatie, uitklapbare bestandsweergave en JSON-export gebouwd.",
+      "highlights": [
+        "Bepaalt de standaardbranch via de GitHub API.",
+        "Bouwt een geneste boom uit het recursieve Git Trees-antwoord.",
+        "Telt onderliggende bestanden en mappen.",
+        "Exporteert de resulterende structuur als JSON."
+      ]
+    },
+    "DE": {
+      "tagline": "",
+      "summary": "Ein Werkzeug zum Durchsuchen der Dateistruktur eines öffentlichen GitHub-Repositories und zum JSON-Export.",
+      "problem": "Ein unbekanntes Repository zu verstehen erfordert einen klaren Überblick über Dateien und Unterordner.",
+      "implementation": "URL-Prüfung, rekursive Baumumwandlung, aufklappbare Dateiansicht und JSON-Export entwickelt.",
+      "highlights": [
+        "Ermittelt den Standardbranch über die GitHub API.",
+        "Erstellt einen verschachtelten Baum aus der rekursiven Git-Trees-Antwort.",
+        "Zählt untergeordnete Dateien und Ordner.",
+        "Exportiert die resultierende Struktur als JSON."
+      ]
+    }
+  },
+  "portfolio": {
+    "NL": {
+      "tagline": "",
+      "summary": "Een meertalige portfolio die projecten, demo’s en certificaten samenbrengt in één interactieve website.",
+      "problem": "Een brede verzameling projecten en leerresultaten vraagt om een duidelijke, toegankelijke presentatie met ruimte voor technische verdieping.",
+      "implementation": "Het responsieve bento-grid, uitklapanimaties, de certificaatcarousel en -bibliotheek, taalwissel en PDF-previewverwerking gebouwd.",
+      "highlights": [
+        "Positieafhankelijk uitklappen herschikt omliggende kaarten, met Tarvos als centraal project.",
+        "Engelse, Nederlandse en Duitse projectteksten volgen de geselecteerde taal.",
+        "Een certificaatcarousel met vaste posities linkt naar specifieke certificaten in een doorzoekbare bibliotheek.",
+        "Een Python-pipeline valideert GitHub-PDF’s, verwijdert duplicaten en genereert WebP-previews en een manifest.",
+        "Toetsenbordbediening en ondersteuning voor verminderde beweging vullen hover- en aanraakbediening aan."
+      ]
+    },
+    "DE": {
+      "tagline": "",
+      "summary": "Ein mehrsprachiges Portfolio, das Projekte, Demos und Zertifikate in einer interaktiven Website vereint.",
+      "problem": "Eine vielfältige Sammlung von Projekten und Lernergebnissen benötigt eine klare, zugängliche Darstellung mit Raum für technische Details.",
+      "implementation": "Das responsive Bento-Grid, Erweiterungsanimationen, Zertifikatskarussell und Bibliothek, Sprachwechsel und PDF-Vorschauverarbeitung entwickelt.",
+      "highlights": [
+        "Positionsabhängiges Erweitern ordnet benachbarte Karten neu an und behält Tarvos als zentrales Projekt.",
+        "Englische, niederländische und deutsche Projekttexte folgen der ausgewählten Sprache.",
+        "Ein Zertifikatskarussell mit festen Positionen verlinkt einzelne Zertifikate in einer durchsuchbaren Bibliothek.",
+        "Eine Python-Pipeline validiert GitHub-PDFs, entfernt Duplikate und erzeugt WebP-Vorschauen und ein Manifest.",
+        "Tastaturbedienung und Unterstützung für reduzierte Bewegung ergänzen Hover- und Touch-Bedienung."
+      ]
+    }
+  }
+}

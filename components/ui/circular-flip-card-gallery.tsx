@@ -246,7 +246,7 @@ export default function CircularGallery() {
           <strong>{pairedCards[selection.index].title}</strong>
           <span>{pairedCards[selection.index].issuer || ui.issuer}</span>
           {pairedCards[selection.index].credential
-            ? <a href={pairedCards[selection.index].credential} target="_blank" rel="noopener noreferrer">{ui.viewCertificate}</a>
+            ? <a href={`/certificates?certificate=${encodeURIComponent(pairedCards[selection.index].id)}`}>{ui.viewCertificate}</a>
             : <button type="button" disabled>{ui.viewCertificate}</button>}
           <button type="button" onClick={deactivate} aria-label={ui.closeCard}>×</button>
         </div>

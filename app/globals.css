@@ -141,6 +141,32 @@ body.menu-open .chat-widget-button {
 .bento-open:focus-visible { outline: 2px solid #a1a1aa; outline-offset: -5px; }
 .bento-detail-region { position: relative; z-index: 2; margin: 52px 20px 20px; max-height: calc(100% - 72px); overflow: auto; pointer-events: none; }
 .bento-detail-content { pointer-events: auto; }
+.tarvos-project-block[data-open="true"] .bento-detail-region { position: absolute; inset: 20px; margin: 0; max-height: none; }
+.tarvos-project-block .bento-detail-content { height: 100%; }
+.tarvos-project-details { position: relative; container-type: size; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 10px; height: 100%; text-align: center; }
+.tarvos-project-video-heading { position: relative; width: min(100%, calc((100cqh - 42px) * 16 / 9)); justify-self: center; height: 32px; }
+.tarvos-video-switch { position: absolute; right: 0; top: 0; }
+.tarvos-project-media { display: flex; justify-content: center; min-height: 0; min-width: 0; }
+.tarvos-project-video { display: block; height: 100%; width: auto; max-width: 100%; min-height: 0; aspect-ratio: 16 / 9; object-fit: contain; background: #000; border-radius: 12px; }
+.tarvos-project-information { position: absolute; inset: auto 0 0; min-width: 0; pointer-events: none; }
+.tarvos-project-information > div { justify-content: space-between; }
+.tarvos-project-information a { pointer-events: auto; }
+.tarvos-project-information a, .tarvos-video-switch { border-radius: 12px; }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .tarvos-project-details { grid-template-rows: auto minmax(0, 1fr) auto; }
+  .tarvos-project-video-heading { width: min(100%, calc((100cqh - 90px) * 16 / 9)); }
+  .tarvos-project-information { position: static; }
+  .tarvos-project-information > div { justify-content: center; }
+}
+@media (max-width: 700px) {
+  .tarvos-project-block[data-open="true"] .bento-detail-region { inset: 12px; }
+  .tarvos-project-video-heading { width: 100%; }
+  .tarvos-project-video-heading h2 { text-align: left; }
+  .tarvos-project-details { grid-template-rows: auto auto auto; align-content: center; gap: 12px; }
+  .tarvos-project-video { width: 100%; height: auto; }
+  .tarvos-project-information { position: static; padding-block: 0; }
+  .tarvos-project-information > div { justify-content: center; }
+}
 @media (max-width: 600px) {
   .bento-detail-region { margin-inline: 16px; }
 }
@@ -180,11 +206,11 @@ body.menu-open .chat-widget-button {
 .center-card-lift { display: block; width: 100%; height: 100%; pointer-events: none; border-radius: 12px; transform: translate3d(0,0,0) scale(1); transition: transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms ease; }
 .circular-gallery-center-card[data-lifted="true"] .center-card-lift { transform: translate3d(var(--center-lift-x),var(--center-lift-y),0) scale(var(--center-lift-scale)); box-shadow: 0 20px 60px #0009, 0 0 0 1px #ffffff30; }
 .circular-gallery-center-card .circular-card:hover .circular-card-inner:not([data-flipped="true"]) { transform: none; }
-.certificate-hit-area { left: 0; top: 0; transform: translate(-50%, -50%); overflow: visible; }
+.certificate-hit-area { perspective: none; left: 0; top: 0; transform: translate(-50%, -50%); overflow: visible; }
 .certificate-hit-link { position: absolute; inset: 0; z-index: 2; border-radius: 12px; }
 .certificate-hit-link:focus-visible { outline: none; }
-.certificate-lift-surface { position: absolute; inset: 0; overflow: hidden; border-radius: 12px; border: 1px solid #3f3f46; background: #18181b; pointer-events: none; transform: rotate(0deg) translate3d(0, 0, 0) scale(1); transition: transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms cubic-bezier(.2,.8,.2,1); }
-.circular-gallery-orbit[data-lifted="true"] .certificate-lift-surface { transform: rotate(var(--lift-angle)) translate3d(var(--lift-x), var(--lift-y), 0) scale(1.25); box-shadow: 0 12px 30px rgb(0 0 0 / 45%), 0 0 0 1px rgb(255 255 255 / 20%); }
+.certificate-lift-surface { position: absolute; inset: auto; left: 50%; top: 50%; width: 100%; height: 100%; overflow: hidden; border-radius: 12px; border: 1px solid #3f3f46; background: #18181b; pointer-events: none; transform: translate(-50%, -50%) rotate(0deg) translate(0, 0); transition: width 300ms cubic-bezier(.2,.8,.2,1), height 300ms cubic-bezier(.2,.8,.2,1), transform 300ms cubic-bezier(.2,.8,.2,1), box-shadow 300ms cubic-bezier(.2,.8,.2,1); }
+.circular-gallery-orbit[data-lifted="true"] .certificate-lift-surface { width: 125%; height: 125%; transform: translate(-50%, -50%) rotate(var(--lift-angle)) translate(var(--lift-x), var(--lift-y)); box-shadow: 0 12px 30px rgb(0 0 0 / 45%), 0 0 0 1px rgb(255 255 255 / 20%); }
 .certificate-hit-area:has(:focus-visible) .certificate-lift-surface { outline: 2px solid #818cf8; outline-offset: 3px; }
 .certificate-card-caption { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 10%; background: linear-gradient(transparent, rgb(9 9 11 / 92%) 45%); opacity: 0; transition: opacity 250ms ease; }
 .certificate-card-caption strong { color: #fff; font-size: clamp(10px, 1.3cqw, 15px); line-height: 1.2; overflow-wrap: anywhere; }
@@ -229,3 +255,145 @@ body.menu-open .chat-widget-button {
 .certificate-card-caption > span { display: none; }
 .gallery-next-certificates { position: absolute; top: calc(100% + 36px); left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; padding: 8px; }
 .gallery-next-certificates:focus-visible { outline: 2px solid #818cf8; }
+
+.certificate-destination { scroll-margin-block: 150px 24px; }
+.certificate-destination:focus { outline: 2px solid #a78bfa; outline-offset: 5px; }
+
+@media (min-width: 1101px) {
+  .tarvos-project-block[data-open="true"] .bento-detail-region { inset: 10px 20px; }
+  .tarvos-project-details { gap: 6px; }
+  .tarvos-project-video-heading { width: min(100%, calc((100cqh - 38px) * 16 / 9)); }
+}
+
+.tarvos-hackathon-badge { position: absolute; top: 24px; right: 20px; z-index: 5; }
+.tarvos-hackathon-badge > button { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; color: #d4d4d8; cursor: pointer; }
+.tarvos-hackathon-badge > button:hover, .tarvos-hackathon-badge > button[aria-expanded="true"] { background: #ffffff0d; }
+.tarvos-hackathon-badge > button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+.tarvos-hackathon-badge img { filter: invert(1); opacity: .85; }
+.tarvos-hackathon-info { position: absolute; right: 0; top: 36px; width: 260px; max-width: calc(100vw - 100px); padding: 16px; border: 1px solid #ffffff26; border-radius: 12px; background: #18181b; box-shadow: 0 8px 24px #0006; font-size: 13px; line-height: 1.5; }
+.tarvos-hackathon-info p { margin-top: 6px; color: #a1a1aa; }
+@media (max-width: 700px) {
+  .tarvos-hackathon-badge { top: 10px; right: 10px; }
+  .tarvos-hackathon-info { width: 160px; }
+}
+
+/* The supplied logo's black canvas blends into the tile; crop its embedded
+   wordmark so the project name uses the site's typography. */
+.tarvos-collapsed-brand { position: absolute; inset: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; text-align: center; }
+.tarvos-collapsed-logo { display: block; flex: 0 0 100px; width: 220px; background: #fafaf9; mask-image: url('/projects/tarvos-brand.png'); mask-mode: luminance; mask-size: 220px auto; mask-position: center -44px; mask-repeat: no-repeat; transition: transform 200ms ease; }
+.tarvos-collapsed-brand h2 { margin-top: 20px; color: #fafaf9; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.15; font-weight: 500; letter-spacing: -.025em; }
+.tarvos-collapsed-brand p { margin-top: 12px; font-size: clamp(12px, 1vw, 14px); line-height: 1.5; color: #a1a1aa; }
+.tarvos-project-block:not([data-open="true"]):hover .tarvos-collapsed-logo,
+.tarvos-project-block:not([data-open="true"]):has(.bento-open:focus-visible) .tarvos-collapsed-logo { transform: translateY(-2px); }
+.tarvos-project-block:not([data-open="true"]) { transition: border-color 200ms ease, box-shadow 200ms ease; }
+.tarvos-project-block:not([data-open="true"]):hover,
+.tarvos-project-block:not([data-open="true"]):has(.bento-open:focus-visible) { border-color: #a78bfa66; box-shadow: inset 0 0 0 1px #34d39926; }
+@media (prefers-reduced-motion: reduce) {
+  .tarvos-collapsed-logo, .tarvos-project-block:not([data-open="true"]) { transition: none; }
+  .tarvos-project-block:not([data-open="true"]):hover .tarvos-collapsed-logo,
+  .tarvos-project-block:not([data-open="true"]):has(.bento-open:focus-visible) .tarvos-collapsed-logo { transform: none; }
+}
+
+/* Allow the hackathon information to extend beyond the tile without clipping. */
+.tarvos-project-block:has(.tarvos-hackathon-badge > button[aria-expanded="true"]) { overflow: visible; z-index: 10; }
+
+.landing-project-grid-frame { position: relative; max-width: 1280px; margin: 64px auto 0; }
+.landing-project-grid-frame .landing-project-grid { margin-top: 0; }
+.landing-project-section-label { margin: 0 0 20px; font-size: 16px; line-height: 1.2; font-weight: 500; letter-spacing: .1em; color: #71717a; }
+@media (min-width: 1480px) {
+  .landing-project-section-label { position: absolute; left: calc(100% + 62px); top: calc(1280px / 1.82 / 2); margin: 0; font-size: 36px; letter-spacing: .08em; white-space: nowrap; transform: translate(-50%, -50%) rotate(90deg); }
+}
+@media (max-width: 600px) {
+  .landing-project-grid-frame { margin-top: 40px; }
+}
+
+.landing-gallery-position { position: relative; }
+@media (min-width: 1480px) {
+  .landing-certificate-section-label { left: calc(50% - 702px); top: 50%; transform: translate(-50%, -50%) rotate(-90deg); }
+}
+
+.landing-project-section-label { text-transform: uppercase; }
+.landing-project-section-label a { display: inline-block; border-radius: 4px; transition: color 200ms ease, text-shadow 200ms ease; }
+.landing-project-section-label a:hover, .landing-project-section-label a:focus-visible { color: #e4e4e7; text-shadow: 0 0 18px #a78bfa30; }
+.landing-project-section-label a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-project-section-label a { transition: none; }
+}
+
+/* One collapsed visual system, adapting to actual available tile space. */
+.project-grid-space[data-project-id] { container-type: size; }
+.bento-project-brand { position: absolute; inset: 16px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 12px; pointer-events: none; }
+.bento-project-mark { flex-shrink: 0; color: #a1a1aa; transition: transform 200ms ease, color 200ms ease; }
+.bento-project-brand h2 { font-size: 16px; line-height: 1.25; font-weight: 500; letter-spacing: -.02em; color: #f4f4f5; overflow-wrap: anywhere; }
+.bento-project-brand p { margin-top: 8px; font-size: 12px; line-height: 1.45; color: #71717a; }
+.bento-tile:not([data-open="true"]):hover .bento-project-mark,
+.bento-tile:not([data-open="true"]):has(.bento-open:focus-visible) .bento-project-mark { transform: translateY(-2px); color: #d4d4d8; }
+@container (max-height: 125px) {
+  .bento-project-brand { inset: 12px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; }
+  .bento-project-brand h2 { font-size: 14px; }
+  .bento-project-brand p { display: none; }
+  .bento-project-mark { width: 18px; height: 18px; }
+}
+@container (max-width: 150px) {
+  .bento-project-brand { inset: 12px; gap: 8px; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .bento-project-brand h2 { font-size: 13px; }
+  .bento-project-brand p { display: none; }
+}
+@container (max-width: 90px) {
+  .bento-project-brand { inset: 8px; gap: 5px; }
+  .bento-project-brand h2 { font-size: 11px; }
+  .bento-project-mark { width: 16px; height: 16px; }
+}
+.project-grid-space[data-open="true"] .bento-detail-region { position: absolute; inset: 16px; margin: 0; max-height: none; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #52525b transparent; }
+.bento-project-details { min-width: 0; font-size: 13px; line-height: 1.6; color: #a1a1aa; overflow-wrap: anywhere; padding-bottom: 8px; }
+.bento-project-details header { display: flex; align-items: center; gap: 10px; color: #f4f4f5; }
+.bento-project-details h2 { font-size: 20px; line-height: 1.2; font-weight: 500; }
+.bento-project-summary { margin-top: 12px; }
+.bento-project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 16px; }
+.bento-project-links a { display: inline-flex; gap: 6px; align-items: center; padding: 6px 10px; border: 1px solid #ffffff26; border-radius: 8px; font-size: 12px; color: #e4e4e7; }
+.bento-project-links a:hover { background: #ffffff0d; }
+.bento-project-details a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+.bento-project-visual { display: block; margin-block: 16px; border-radius: 10px; overflow: hidden; }
+.bento-project-visual img { width: 100%; height: auto; }
+.bento-project-details section { margin-top: 18px; }
+.bento-project-details h3 { color: #e4e4e7; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+.bento-project-details ul { list-style: disc; padding-left: 18px; }
+.bento-project-details li + li { margin-top: 5px; }
+@media (prefers-reduced-motion: reduce) {
+  .bento-project-mark { transition: none; }
+  .bento-tile:not([data-open="true"]):hover .bento-project-mark,
+  .bento-tile:not([data-open="true"]):has(.bento-open:focus-visible) .bento-project-mark { transform: none; }
+}
+
+@container (min-width: 240px) and (min-height: 85px) and (max-height: 125px) {
+  .bento-project-brand p { display: block; margin-top: 4px; font-size: 11px; line-height: 1.35; }
+}
+
+@container (max-width: 75px) {
+  .bento-project-brand { align-items: center; }
+  .bento-project-brand > div { display: none; }
+}
+
+.bento-tech-tooltip { position: fixed; z-index: 80; pointer-events: none; padding: 12px 14px; border: 1px solid #3f3f46; border-radius: 12px; background: #18181bf5; color: #d4d4d8; box-shadow: 0 8px 28px #0006; animation: tech-appear 160ms ease-out; }
+.bento-tech-title { display: block; margin-bottom: 10px; font-size: 11px; color: #a1a1aa; }
+.bento-tech-tooltip ul { display: flex; flex-wrap: wrap; gap: 12px 16px; }
+.bento-tech-tooltip li { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.bento-tech-logo { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 24px; }
+.bento-tech-tooltip .bento-tech-logo img { display: block; width: 24px; height: 24px; max-width: none; object-fit: contain; filter: grayscale(1) brightness(0) invert(.7); }
+.bento-tech-tooltip svg { flex-shrink: 0; }
+@keyframes tech-appear { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .bento-tech-tooltip { animation: none; } }
+
+.bento-tech-tooltip .bento-tech-logo img.bento-tech-multitone { filter: grayscale(1); opacity: .7; }
+
+/* Keep the first video viewport unchanged; project details follow inside the card. */
+.tarvos-project-block[data-open="true"] .bento-detail-region { overflow-y: auto; overflow-x: hidden; overscroll-behavior-y: contain; pointer-events: auto; scrollbar-width: thin; scrollbar-color: #52525b transparent; }
+.tarvos-project-block .tarvos-project-details { flex-shrink: 0; }
+.tarvos-project-info { padding: 28px 12px 24px; margin-top: 20px; border-top: 1px solid #ffffff14; text-align: left; }
+.tarvos-project-block .bento-detail-region:focus-visible { outline: 1px solid #a78bfa; outline-offset: -1px; border-radius: 8px; }
+
+/* Offset the scroll track while retaining the original content width. */
+.tarvos-project-block[data-open="true"] .bento-detail-region { right: 8px; padding-right: 12px; }
+@media (max-width: 700px) {
+  .tarvos-project-block[data-open="true"] .bento-detail-region { right: 4px; padding-right: 8px; }
+}

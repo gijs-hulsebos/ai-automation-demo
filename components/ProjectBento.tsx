@@ -5,6 +5,10 @@ import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import { BorderBeamPanel } from '@/components/ui/border-beam-panel';
+import { TarvosProjectInfo } from './TarvosProjectInfo';
+import { TarvosHackathonBadge } from './TarvosHackathonBadge';
+import { BentoProjectDetails, ProjectMark, projectsBySlot, localizeProject } from './BentoProjectContent';
+import { ProjectTechStack } from './ProjectTechStack';
 import { expandedLayout } from './bento-layouts';
 
 // IDs follow the existing sketch. Empty positions retain their identity.
@@ -38,8 +42,11 @@ export default function ProjectBento() {
   const mobile = useSyncExternalStore(subscribeMobile, getMobile, getServerMobile);
   const tablet = useSyncExternalStore(subscribeTablet, getTablet, getServerMobile);
   const transition = { layout: { duration: reducedMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] as const } };
+  const [hackathonOpen, setHackathonOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [details, setDetails] = useState<string | null>(null);
+  const [tarvosVideo, setTarvosVideo] = useState(0);
   const openingButtons = useRef<Record<string, HTMLButtonElement | null>>({});
   const tiles = useRef<Record<string, HTMLElement | null>>({});
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -66,6 +73,7 @@ export default function ProjectBento() {
 
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setHovered(null);
       if (event.key === 'Escape' && active.current) {
         event.preventDefault();
         close();
@@ -86,6 +94,8 @@ export default function ProjectBento() {
       openingButtons.current[id]?.focus({ preventScroll: true });
     }
     active.current = id;
+    const region = tiles.current[id]?.querySelector('.bento-detail-region');
+    if (region) region.scrollTop = 0;
     setDetails(null);
     setExpanded(id);
     timers.current.push(setTimeout(() => {
@@ -114,17 +124,27 @@ export default function ProjectBento() {
       <div id="projects" className="landing-project-grid interactive-bento" data-expanded={expanded ?? undefined} style={expanded ? expandedLayout(expanded, mobile ? 'mobile' : tablet ? 'tablet' : 'desktop') : undefined} aria-label={ui.projects}>
         {slots.map(id => {
           const isExpanded = expanded === id;
+          const sourceProject = projectsBySlot[id];
+          const project = sourceProject ? localizeProject(sourceProject, lang) : undefined;
+          const interactive = id === 'tarvos' || !!project;
           return (
             <motion.article
               key={id}
               ref={node => { tiles.current[id] = node; }}
+              onMouseEnter={() => setHovered(id)}
+              onMouseLeave={() => setHovered(null)}
+              onFocusCapture={() => setHovered(id)}
+              onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHovered(null); }}
               layout={!reducedMotion}
               data-tile-id={id}
+              data-project-id={project?.id || (id === 'tarvos' ? 'tarvos' : undefined)}
+              data-project-size={project?.size}
               data-open={isExpanded || undefined}
               className={`${id === 'tarvos' ? 'tarvos-project-block' : `project-grid-space project-space-${id}`} bento-tile`}
               style={{ borderRadius: mobile ? 14 : 22 }}
               transition={transition}
               onClick={event => {
+                if (!interactive) return;
                 if (event.defaultPrevented || !(event.target instanceof Element)) return;
                 // The full-surface button has its own handler. Native media,
                 // links and embedded controls must never toggle the tile.
@@ -140,17 +160,40 @@ export default function ProjectBento() {
                       reducedMotion={reducedMotion}
                     />
                   )}
+                  {id === 'tarvos' && (
+                    <motion.div className="tarvos-collapsed-brand" aria-hidden={isExpanded}
+                      initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
+                      transition={{ duration: reducedMotion ? 0 : 0.2, delay: isExpanded || reducedMotion ? 0 : 0.2 }}>
+                      <span className="tarvos-collapsed-logo" aria-hidden="true" />
+                      <h2 className="font-display">Tarvos</h2>
+                      <p>{lang === 'NL' ? 'Solana-integraties voor n8n' : lang === 'DE' ? 'Solana-Integrationen für n8n' : 'Solana integrations for n8n'}</p>
+                    </motion.div>
+                  )}
+                  {project && (
+                    <motion.div className="bento-project-brand" aria-hidden={isExpanded}
+                      initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
+                      transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
+                      <ProjectMark project={project} />
+                      <div><h2 className="font-display">{project.displayName}</h2>
+                        {project.size !== 'small' && <p>{project.tagline}</p>}
+                      </div>
+                    </motion.div>
+                  )}
+                  {interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n']} tileId={id} id={`tech-${id}`} />}
+                  {id === 'tarvos' && <TarvosHackathonBadge open={hackathonOpen} onOpenChange={setHackathonOpen} />}
                   <motion.div layout={reducedMotion ? false : 'position'} transition={transition} className="bento-tile-heading">
-                    <button
+                    {interactive && <button
                       ref={node => { openingButtons.current[id] = node; }}
                       className="bento-open"
-                      aria-label={`${ui.project}${id === 'tarvos' ? ' Tarvos' : ` ${id.toUpperCase()}`} ${isExpanded ? ui.close : ui.open}`}
+                      title={id === 'tarvos' ? 'Tarvos' : project?.name}
+                      aria-label={`${id === 'tarvos' ? 'Tarvos' : project?.name} ${isExpanded ? ui.close : ui.open}`}
+                      aria-describedby={hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
                       aria-expanded={isExpanded}
                       aria-controls={`bento-details-${id}`}
                       onClick={() => toggle(id)}
-                    />
+                    />}
                   </motion.div>
-                  <motion.div layout={reducedMotion ? false : 'position'} transition={transition} id={`bento-details-${id}`} className="bento-detail-region" inert={details !== id}>
+                  <motion.div layout={reducedMotion ? false : 'position'} transition={transition} id={`bento-details-${id}`} className="bento-detail-region" tabIndex={id === 'tarvos' && details === id ? 0 : undefined} aria-label={id === 'tarvos' ? (lang === 'NL' ? 'Tarvos-projectdetails' : lang === 'DE' ? 'Tarvos-Projektdetails' : 'Tarvos project details') : undefined} inert={details !== id}>
                     <AnimatePresence>
                       {details === id && (
                         <motion.div
@@ -158,7 +201,47 @@ export default function ProjectBento() {
                           className="bento-detail-content"
                           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                           transition={{ duration: reducedMotion ? 0 : 0.1 }}
-                        />
+                        >
+                          {project && <BentoProjectDetails project={project} />}
+                          {id === 'tarvos' && (
+                            <>
+                            <div className="tarvos-project-details">
+                              <div className="tarvos-project-video-heading">
+                                <h2 className="font-display text-xl sm:text-2xl font-medium">Tarvos</h2>
+                                <button
+                                  type="button"
+                                  onClick={() => setTarvosVideo(index => (index + 1) % 2)}
+                                  aria-label={tarvosVideo === 0
+                                    ? (lang === 'NL' ? 'Volgende video' : lang === 'DE' ? 'Nächstes Video' : 'Next video')
+                                    : (lang === 'NL' ? 'Vorige video' : lang === 'DE' ? 'Vorheriges Video' : 'Previous video')}
+                                  className="tarvos-video-switch inline-flex h-8 items-center justify-center rounded-full px-2 text-sm tabular-nums text-zinc-300 hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
+                                >
+                                  <span aria-live="polite">{tarvosVideo === 0 ? '(1/2) >' : '< (2/2)'}</span>
+                                </button>
+                              </div>
+                              <div className="tarvos-project-media">
+                                <video
+                                  key={tarvosVideo}
+                                  className="tarvos-project-video"
+                                  src={tarvosVideo === 0 ? '/projects/tarvos-introduction.mp4' : '/projects/tarvos-product-film.mp4'}
+                                  controls
+                                  playsInline
+                                  preload="metadata"
+                                  aria-label={tarvosVideo === 0 ? (lang === 'NL' ? 'Wat is Tarvos?' : lang === 'DE' ? 'Was ist Tarvos?' : 'What is Tarvos?') : (lang === 'NL' ? 'Tarvos-productfilm' : lang === 'DE' ? 'Tarvos-Produktfilm' : 'Tarvos Product Film')}
+                                />
+                              </div>
+                              <div className="tarvos-project-information">
+
+                                <div className="flex flex-wrap justify-center gap-3">
+                                  <a href="https://tarvos.tools/" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-4 py-2 text-sm text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400">Website ↗</a>
+                                  <a href="https://github.com/TarvosTools/n8n-nodes-Tarvos-x402" target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/20 px-4 py-2 text-sm text-zinc-200 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400">GitHub ↗</a>
+                                </div>
+                              </div>
+                            </div>
+                            <TarvosProjectInfo />
+                            </>
+                          )}
+                        </motion.div>
                       )}
                     </AnimatePresence>
                   </motion.div>

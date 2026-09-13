@@ -1,5 +1,5 @@
-import { PortfolioSubpage } from '@/components/PortfolioSubpage';
+import { CertificateLibrary } from '@/components/CertificateLibrary';
 
 export default function CertificatesPage() {
-  return <PortfolioSubpage section="certificates" />;
+  return <CertificateLibrary />;
 }
