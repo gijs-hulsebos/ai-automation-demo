@@ -1,20 +1,26 @@
 # Certificate synchronisation
 
-## Current status
+## Current deployment and trigger
 
-The local importer has processed the real public repository. Generated assets are included in this checkout. Automatic production synchronisation is **not active or verified**. Public response headers identify gijshulsebos.com as Vercel; no deployment-hook secret or existing Actions workflow was found in the website repository. These files have not been published remotely.
+The current website and receiver workflow have been published to `gijs-hulsebos/ai-automation-demo` on `main` (initial commit `bd43139`). Vercel completed the automatic Git deployment. The production site now contains the carousel and `/certificates.json`.
 
-The [13 September live audit](certificate-sync-audit-2026-09-13.md) confirms that the recent Anthropic upload did not reach production. The prepared workflow now waits for `/certificates.json` on production and runs a browser verification of all certificates; its report and screenshot are uploaded as `live-certificate-proof`. A failed verification fails the workflow instead of reporting a deployment-hook acknowledgement as success.
+After the user's preference for pulling the public source, the active trigger is a scheduled check every five minutes (offset to minutes 2, 7, 12, etc.). GitHub may delay scheduled jobs. No additional PAT is required to read the public Certificates repository; the workflow's built-in token publishes generated files in the website repository. Runs are serialized, and a source snapshot is checked again before commit and deployment. The workflow is not triggered by its own commits.
 
-## Activate
+The existing Vercel Git integration is used first. `VERCEL_DEPLOY_HOOK` is optional and is called only if configured, after publishing generated assets. The workflow then waits for actual live data and checks every carousel card using a browser. A successful hook request or local build does not count as verification.
 
-1. Publish this website checkout (including the generated manifest, previews, scripts and `.github/workflows/sync-certificates.yml`) to the website repository's `main` branch. Enable Actions with read/write contents permission; if branch rules forbid the bot's generated-data commit, grant that automation permission or use a reviewed PR flow.
-2. In the Vercel project serving **gijshulsebos.com**, verify that Git points to `gijs-hulsebos/ai-automation-demo`, production branch `main`. Create a Deploy Hook for `main` in Settings → Git. Store its URL only as website repository Actions secret **VERCEL_DEPLOY_HOOK**.
-3. For immediate source updates, copy `docs/certificates-source-workflow.yml` to `.github/workflows/notify-portfolio.yml` in **Certificates**. Create a fine-grained token scoped only to the website repository with Contents: write (required by repository_dispatch), or use a GitHub App installation token. Store it only in Certificates Actions secret **PORTFOLIO_DISPATCH_TOKEN**. No token belongs in NEXT_PUBLIC variables or browser code. The six-hour scheduled check is a fallback if dispatch fails.
-4. Manually run **Sync certificate previews**. Confirm the build succeeds, the generated-data commit is pushed, the Vercel production deployment becomes Ready, and the live carousel loads the same manifest assets. A successful hook request alone is not proof of a successful deployment.
-5. Add, replace and remove a test PDF in the source repository, then verify each triggered run and live result. Only then call the automatic integration verified. Remove the test PDF afterward. If the deploy hook fails after a commit, manually rerun the workflow: manual runs redeploy even when data is unchanged.
+## End-to-end test in progress
 
-The explicit hook avoids relying on a GitHub Actions bot push to trigger another workflow. See [GitHub workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow) and [Vercel Deploy Hooks](https://vercel.com/docs/deploy-hooks).
+The real Anthropic PDF was renamed to `Introduction to Model Context Protocol - Coursera 0T1UB7FHM21J.pdf` in source commit `2a33de6967a6a60cfe51496d183d56a0b1112213`; its PDF blob is unchanged. This is the test change, with no fictitious certificate. No manual synchronization workflow was started. Until a **schedule-triggered** run succeeds and produces the live-certificate-proof artifact for that source snapshot, automatic synchronization remains unverified.
+
+## Optional immediate push notification
+
+For immediate `repository_dispatch`, install `docs/certificates-source-workflow.yml` in Certificates and provide `PORTFOLIO_DISPATCH_TOKEN` as an Actions secret there. Use a fine-grained token scoped only to the website repository with Contents: write, or a GitHub App installation token. This optional source notifier has not been installed because no scoped token was supplied. It is not needed by the active polling approach.
+
+If Vercel's Git integration does not deploy the workflow bot's commit, a Vercel administrator must create a Deploy Hook for production `main` and save it as website repository secret `VERCEL_DEPLOY_HOOK`. Never put tokens or hook URLs in chat or browser code.
+
+## Verification
+
+Successful changed-data runs publish `live-certificate-proof`: a JSON report and screenshot checking the production manifest, all certificate links/titles, provider fallback, loaded previews and sixteen fixed carousel slots. See the historical [pre-publication audit](certificate-sync-audit-2026-09-13.md).
 
 ## Local processing
 
