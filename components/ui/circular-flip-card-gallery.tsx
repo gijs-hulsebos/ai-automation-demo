@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 import { CertificateFanCard } from './certificate-fan-card';
 import type { CertificateFanItem } from './certificate-fan-card';
 
@@ -16,6 +17,7 @@ type FlipCardProps = { image: string; title: string; description: string; style:
 
 function FlipCard({ image, title, description, style, active, onActivate, onDeactivate }: FlipCardProps) {
   const { lang } = useLanguage();
+  const reducedMotion = useReducedMotion();
   const [failed, setFailed] = useState(false);
   return (
     <div className="circular-card" style={style}
@@ -32,6 +34,12 @@ function FlipCard({ image, title, description, style, active, onActivate, onDeac
               className="object-cover" onError={() => setFailed(true)} />}
         </span>
        </span>
+       <motion.span className="portrait-system-label"
+         initial={{ opacity: 0, y: reducedMotion ? 0 : 6 }}
+         whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }}
+         transition={{ duration: reducedMotion ? 0 : 0.4 }}>
+         {lang === 'NL' ? 'VAN CONCEPT NAAR SYSTEEM' : lang === 'DE' ? 'VOM KONZEPT ZUM SYSTEM' : 'FROM CONCEPT TO SYSTEM'}
+       </motion.span>
        {active && <button type="button" className="card-close" aria-label={INTERFACE[lang].closePortrait}
          onClick={event => { event.stopPropagation(); onDeactivate(); }}>×</button>}
       </span>

@@ -295,7 +295,7 @@ body.menu-open .chat-widget-button {
 }
 
 /* Allow the hackathon information to extend beyond the tile without clipping. */
-.tarvos-project-block:has(.tarvos-hackathon-badge > button[aria-expanded="true"]) { overflow: visible; z-index: 10; }
+.bento-tile:has(.tarvos-hackathon-badge > button[aria-expanded="true"]) { overflow: visible; z-index: 10; }
 
 .landing-project-grid-frame { position: relative; max-width: 1280px; margin: 64px auto 0; }
 .landing-project-grid-frame .landing-project-grid { margin-top: 0; }
@@ -397,3 +397,23 @@ body.menu-open .chat-widget-button {
 @media (max-width: 700px) {
   .tarvos-project-block[data-open="true"] .bento-detail-region { right: 4px; padding-right: 8px; }
 }
+
+.aegix-collapsed { position: absolute; inset: 0; pointer-events: none; background: #090909; }
+.bento-tile[data-project-id="aegix"] .bento-detail-region { position: absolute; inset: 8px; margin: 0; max-height: none; }
+.bento-tile[data-project-id="aegix"] .bento-detail-content { height: 100%; }
+.aegix-expanded { position: relative; height: 100%; min-height: 0; background: #090909; }
+
+
+
+.aegix-collapsed, .aegix-expanded { background: transparent; }
+.aegix-collapsed { inset: 16px; }
+
+/* The supplied wordmark is monochrome without alpha; blend away its black background. */
+.aegix-collapsed img { mix-blend-mode: screen; }
+
+.aegix-collapsed { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+.aegix-wordmark { position: relative; width: 76%; height: 55%; max-height: 100px; }
+.aegix-tagline { color: #a1a1aa; font-size: 12px; line-height: 1.4; text-align: center; }
+@container (max-width: 150px) { .aegix-tagline { font-size: 10px; } .aegix-collapsed { gap: 6px; } }
+
+.portrait-system-label { position: absolute; z-index: 2; left: 5%; right: 5%; bottom: 4%; padding: 7% 4%; border: 1px solid #ffffff26; border-radius: 10px; background: rgb(0 0 0 / 75%); backdrop-filter: blur(6px); color: #fff; text-align: center; font-size: clamp(5px, .7vw, 9px); line-height: 1.4; font-weight: 500; letter-spacing: .06em; pointer-events: none; }

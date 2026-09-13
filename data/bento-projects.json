@@ -89,7 +89,8 @@
       "OpenAI",
       "Google Gemini",
       "Google Sheets",
-      "Gmail"
+      "Gmail",
+      "Python"
     ],
     "sources": [
       "README.md",
@@ -122,7 +123,8 @@
       "OpenRouter",
       "Google Calendar",
       "Google Sheets",
-      "Gmail"
+      "Gmail",
+      "Python"
     ],
     "sources": [
       "readme.md",
@@ -155,7 +157,8 @@
       "Google Docs",
       "Google Drive",
       "Gmail",
-      "MailerLite"
+      "MailerLite",
+      "Python"
     ],
     "sources": [
       "README.md",
@@ -252,7 +255,8 @@
       "React",
       "TypeScript",
       "n8n",
-      "React Flow"
+      "React Flow",
+      "Python"
     ],
     "sources": [
       "components/views/AboutView.tsx",

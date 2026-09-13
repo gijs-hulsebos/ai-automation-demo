@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -12,6 +13,7 @@ import { ProjectTechStack } from './ProjectTechStack';
 import { expandedLayout } from './bento-layouts';
 
 // IDs follow the existing sketch. Empty positions retain their identity.
+const aegixSlot = 'g';
 const slots = ['tarvos', ...'abcdefrgshixjklmnoptquvw'];
 const subscribeTablet = (onChange: () => void) => {
   const query = window.matchMedia('(max-width: 1100px)');
@@ -42,7 +44,7 @@ export default function ProjectBento() {
   const mobile = useSyncExternalStore(subscribeMobile, getMobile, getServerMobile);
   const tablet = useSyncExternalStore(subscribeTablet, getTablet, getServerMobile);
   const transition = { layout: { duration: reducedMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] as const } };
-  const [hackathonOpen, setHackathonOpen] = useState(false);
+  const [hackathonOpen, setHackathonOpen] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [details, setDetails] = useState<string | null>(null);
@@ -126,7 +128,8 @@ export default function ProjectBento() {
           const isExpanded = expanded === id;
           const sourceProject = projectsBySlot[id];
           const project = sourceProject ? localizeProject(sourceProject, lang) : undefined;
-          const interactive = id === 'tarvos' || !!project;
+          const isAegix = id === aegixSlot;
+          const interactive = id === 'tarvos' || isAegix || !!project;
           return (
             <motion.article
               key={id}
@@ -137,7 +140,7 @@ export default function ProjectBento() {
               onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHovered(null); }}
               layout={!reducedMotion}
               data-tile-id={id}
-              data-project-id={project?.id || (id === 'tarvos' ? 'tarvos' : undefined)}
+              data-project-id={isAegix ? 'aegix' : project?.id || (id === 'tarvos' ? 'tarvos' : undefined)}
               data-project-size={project?.size}
               data-open={isExpanded || undefined}
               className={`${id === 'tarvos' ? 'tarvos-project-block' : `project-grid-space project-space-${id}`} bento-tile`}
@@ -169,6 +172,12 @@ export default function ProjectBento() {
                       <p>{lang === 'NL' ? 'Solana-integraties voor n8n' : lang === 'DE' ? 'Solana-Integrationen für n8n' : 'Solana integrations for n8n'}</p>
                     </motion.div>
                   )}
+                  {isAegix && <motion.div className="aegix-collapsed" aria-hidden={isExpanded}
+                    initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
+                    transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
+                    <div className="aegix-wordmark"><Image src="/projects/aegix-wordmark-cat.png" alt="Aegix" fill sizes="(max-width: 600px) 70vw, 260px" className="object-contain" /></div>
+                    <p className="aegix-tagline">{lang === 'NL' ? 'Private x402-betalingen door agents' : lang === 'DE' ? 'Private x402-Zahlungen durch Agenten' : 'Private x402 Agent Payments'}</p>
+                  </motion.div>}
                   {project && (
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
@@ -179,15 +188,15 @@ export default function ProjectBento() {
                       </div>
                     </motion.div>
                   )}
-                  {interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n']} tileId={id} id={`tech-${id}`} />}
-                  {id === 'tarvos' && <TarvosHackathonBadge open={hackathonOpen} onOpenChange={setHackathonOpen} />}
+                  {!isAegix && interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
+                  {(id === 'tarvos' || isAegix) && <TarvosHackathonBadge project={isAegix ? 'Aegix' : 'Tarvos'} open={hackathonOpen === id} onOpenChange={open => setHackathonOpen(current => open ? id : current === id ? null : current)} />}
                   <motion.div layout={reducedMotion ? false : 'position'} transition={transition} className="bento-tile-heading">
                     {interactive && <button
                       ref={node => { openingButtons.current[id] = node; }}
                       className="bento-open"
-                      title={id === 'tarvos' ? 'Tarvos' : project?.name}
-                      aria-label={`${id === 'tarvos' ? 'Tarvos' : project?.name} ${isExpanded ? ui.close : ui.open}`}
-                      aria-describedby={hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
+                      title={id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name}
+                      aria-label={`${id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name} ${isExpanded ? ui.close : ui.open}`}
+                      aria-describedby={!isAegix && hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
                       aria-expanded={isExpanded}
                       aria-controls={`bento-details-${id}`}
                       onClick={() => toggle(id)}
@@ -203,6 +212,9 @@ export default function ProjectBento() {
                           transition={{ duration: reducedMotion ? 0 : 0.1 }}
                         >
                           {project && <BentoProjectDetails project={project} />}
+                          {isAegix && <div className="aegix-expanded">
+                            <Image src="/projects/aegix-shield.png" alt={lang === 'NL' ? 'Aegix: kat met schild' : lang === 'DE' ? 'Aegix: Katze mit Schild' : 'Aegix: cat with shield'} fill sizes="(max-width: 600px) 100vw, 500px" className="object-contain" />
+                          </div>}
                           {id === 'tarvos' && (
                             <>
                             <div className="tarvos-project-details">
