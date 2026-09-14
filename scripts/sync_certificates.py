@@ -1,4 +1,5 @@
 """Transactional, content-addressed certificate importer. No credentials reach the browser."""
+from contextlib import closing
 import hashlib
 import json
 import os
@@ -26,12 +27,12 @@ def fetch(url):
 def render(data):
     if not data.lstrip().startswith(b'%PDF-'):
         raise ValueError('Missing PDF signature')
-    with pdfium.PdfDocument(data) as document:
+    with closing(pdfium.PdfDocument(data)) as document:
         if len(document) == 0:
             raise ValueError('No pages')
-        page = document[0]
-        bitmap = page.render(scale=1000 / max(page.get_size()))
-        image = bitmap.to_pil().convert('RGB')
+        with closing(document[0]) as page:
+            with closing(page.render(scale=1000 / max(page.get_size()))) as bitmap:
+                image = bitmap.to_pil().convert('RGB')
         if all(low == high for low, high in image.getextrema()):
             raise ValueError('Blank first page')
         return image
