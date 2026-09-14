@@ -6,6 +6,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import { BorderBeamPanel } from '@/components/ui/border-beam-panel';
+import { AegixProjectInfo } from './AegixProjectInfo';
 import { TarvosProjectInfo } from './TarvosProjectInfo';
 import { TarvosHackathonBadge } from './TarvosHackathonBadge';
 import { BentoProjectDetails, ProjectMark, projectsBySlot, localizeProject } from './BentoProjectContent';
@@ -202,7 +203,7 @@ export default function ProjectBento() {
                       onClick={() => toggle(id)}
                     />}
                   </motion.div>
-                  <motion.div layout={reducedMotion ? false : 'position'} transition={transition} id={`bento-details-${id}`} className="bento-detail-region" tabIndex={id === 'tarvos' && details === id ? 0 : undefined} aria-label={id === 'tarvos' ? (lang === 'NL' ? 'Tarvos-projectdetails' : lang === 'DE' ? 'Tarvos-Projektdetails' : 'Tarvos project details') : undefined} inert={details !== id}>
+                  <motion.div layout={reducedMotion ? false : 'position'} transition={transition} id={`bento-details-${id}`} className="bento-detail-region" tabIndex={(id === 'tarvos' || isAegix) && details === id ? 0 : undefined} aria-label={id === 'tarvos' ? (lang === 'NL' ? 'Tarvos-projectdetails' : lang === 'DE' ? 'Tarvos-Projektdetails' : 'Tarvos project details') : undefined} inert={details !== id}>
                     <AnimatePresence>
                       {details === id && (
                         <motion.div
@@ -212,12 +213,26 @@ export default function ProjectBento() {
                           transition={{ duration: reducedMotion ? 0 : 0.1 }}
                         >
                           {project && <BentoProjectDetails project={project} />}
-                          {isAegix && <div className="aegix-expanded">
-                            <Image src="/projects/aegix-shield.png" alt={lang === 'NL' ? 'Aegix: kat met schild' : lang === 'DE' ? 'Aegix: Katze mit Schild' : 'Aegix: cat with shield'} fill sizes="(max-width: 600px) 100vw, 500px" className="object-contain" />
-                          </div>}
+                          {isAegix && <><div className="aegix-expanded">
+                            <div className="aegix-expanded-logo">
+                              <Image src="/projects/aegix-shield.png" alt={lang === 'NL' ? 'Aegix: kat met schild' : lang === 'DE' ? 'Aegix: Katze mit Schild' : 'Aegix: cat with shield'} fill sizes="64px" className="object-contain" />
+                            </div>
+                            <h2 className="font-display text-xl font-medium">Aegix</h2>
+                            <div className="tarvos-project-media">
+                              <video className="tarvos-project-video" src="/projects/aegix-explainer-1080p.mp4" controls playsInline preload="metadata"
+                                aria-label={lang === 'NL' ? 'Aegix-uitlegvideo' : lang === 'DE' ? 'Aegix-Erklärvideo' : 'Aegix explainer video'} />
+                            </div>
+                            <div className="tarvos-project-information">
+                              <div className="flex flex-wrap justify-center gap-3">
+                                <a href="https://aegix-restored-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-white px-3 py-2 text-xs text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">Website ↗</a>
+                                <a href="https://github.com/gijs-hulsebos/aegix-restored" target="_blank" rel="noopener noreferrer" title={lang === 'NL' ? 'Private repository' : lang === 'DE' ? 'Privates Repository' : 'Private repository'} className="rounded-xl border border-white/20 px-3 py-2 text-xs text-zinc-200 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">GitHub ↗</a>
+                              </div>
+                            </div>
+                          </div><AegixProjectInfo /></>}
                           {id === 'tarvos' && (
                             <>
                             <div className="tarvos-project-details">
+                              <span className="tarvos-expanded-logo" role="img" aria-label="Tarvos" />
                               <div className="tarvos-project-video-heading">
                                 <h2 className="font-display text-xl sm:text-2xl font-medium">Tarvos</h2>
                                 <button

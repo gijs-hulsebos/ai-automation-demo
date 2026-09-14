@@ -416,4 +416,29 @@ body.menu-open .chat-widget-button {
 .aegix-tagline { color: #a1a1aa; font-size: 12px; line-height: 1.4; text-align: center; }
 @container (max-width: 150px) { .aegix-tagline { font-size: 10px; } .aegix-collapsed { gap: 6px; } }
 
-.portrait-system-label { position: absolute; z-index: 2; left: 5%; right: 5%; bottom: 4%; padding: 7% 4%; border: 1px solid #ffffff26; border-radius: 10px; background: rgb(0 0 0 / 75%); backdrop-filter: blur(6px); color: #fff; text-align: center; font-size: clamp(5px, .7vw, 9px); line-height: 1.4; font-weight: 500; letter-spacing: .06em; pointer-events: none; }
+.portrait-system-label { position: absolute; z-index: 2; left: 1px; right: 1px; bottom: 1px; min-height: 24%; display: flex; align-items: center; justify-content: center; padding: 6% 8%; border-top: 1px solid rgb(255 255 255 / 10%); border-radius: 0 0 9px 9px; background: rgb(0 0 0 / 75%); backdrop-filter: blur(4px); color: #fff; text-align: center; font-size: clamp(8px, 1cqw, 12px); line-height: 1.3; font-weight: 600; letter-spacing: .02em; pointer-events: none; }
+
+/* Expanded video branding stays in the side gutter, clear of media controls. */
+.tarvos-expanded-logo { position: absolute; top: 38px; left: 0; width: 64px; height: 64px; background: #fafaf9; mask-image: url('/projects/tarvos-brand.png'); mask-mode: luminance; mask-size: 96px auto; mask-position: center -19px; mask-repeat: no-repeat; }
+.aegix-expanded { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 6px; padding: 4px 64px; text-align: center; }
+.aegix-expanded-logo { position: absolute; top: 8px; left: 4px; width: 56px; height: 56px; }
+@media (max-width: 1100px) {
+  .tarvos-expanded-logo { top: 0; width: 32px; height: 32px; mask-size: 48px auto; mask-position: center -9px; }
+  .tarvos-project-video-heading { max-width: calc(100% - 80px); }
+  .aegix-expanded { padding-inline: 40px; }
+  .aegix-expanded-logo { width: 36px; height: 36px; left: 0; }
+}
+
+.bento-tile[data-project-id="aegix"][data-open="true"] .bento-detail-region { overflow-y: auto; overflow-x: hidden; overscroll-behavior-y: contain; pointer-events: auto; scrollbar-width: thin; scrollbar-color: #52525b transparent; padding-right: 8px; }
+.aegix-project-info { padding: 20px 12px 12px; }
+
+.aegix-expanded .tarvos-project-information { position: absolute; inset: auto 0 0; }
+.aegix-expanded .tarvos-project-information > div { justify-content: space-between; gap: 4px; }
+.aegix-expanded .tarvos-project-information a { pointer-events: auto; }
+.aegix-expanded { padding-inline: 76px; }
+@media (max-width: 600px) {
+  .aegix-expanded { padding-inline: 0; padding-bottom: 38px; }
+}
+
+/* Keep the badge clear of Aegix branding in the compact takeover layout. */
+.interactive-bento[data-expanded="tarvos"] [data-project-id="aegix"] .tarvos-hackathon-badge { top: 4px; right: 4px; }

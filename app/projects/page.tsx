@@ -1,5 +1,5 @@
-import { PortfolioSubpage } from '@/components/PortfolioSubpage';
+import { ProjectsOverview } from '@/components/ProjectsOverview';
 
 export default function ProjectsPage() {
-  return <PortfolioSubpage section="projects" />;
+  return <ProjectsOverview />;
 }
