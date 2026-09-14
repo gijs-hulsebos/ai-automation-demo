@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { ProjectCategoryBadge } from './ProjectCategoryBadge';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -15,6 +16,18 @@ import { expandedLayout } from './bento-layouts';
 
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
+const categoryByProject: Record<string, string> = {
+ tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
+ calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
+ pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
+ registry: 'experiments', hermes: 'experiments',
+};
+const categoryLabels = {
+ NL: { projects: 'Projecten', apps: 'Losse Apps', workflows: 'Workflows', tools: 'Tools', experiments: 'Experimenten' },
+ EN: { projects: 'Projects', apps: 'Standalone Apps', workflows: 'Workflows', tools: 'Tools', experiments: 'Experiments' },
+ DE: { projects: 'Projekte', apps: 'Eigenständige Apps', workflows: 'Workflows', tools: 'Tools', experiments: 'Experimente' },
+};
 const slots = ['tarvos', ...'abcdefrgshixjklmnoptquvw'];
 const subscribeTablet = (onChange: () => void) => {
   const query = window.matchMedia('(max-width: 1100px)');
@@ -46,6 +59,7 @@ export default function ProjectBento() {
   const tablet = useSyncExternalStore(subscribeTablet, getTablet, getServerMobile);
   const transition = { layout: { duration: reducedMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] as const } };
   const [hackathonOpen, setHackathonOpen] = useState<string | null>(null);
+  const [categoryOpen, setCategoryOpen] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [details, setDetails] = useState<string | null>(null);
@@ -131,6 +145,7 @@ export default function ProjectBento() {
           const project = sourceProject ? localizeProject(sourceProject, lang) : undefined;
           const isAegix = id === aegixSlot;
           const interactive = id === 'tarvos' || isAegix || !!project;
+          const category = categoryByProject[isAegix ? 'aegix' : project?.id || id] as keyof typeof categoryLabels.NL | undefined;
           return (
             <motion.article
               key={id}
@@ -156,6 +171,7 @@ export default function ProjectBento() {
                 toggle(id);
               }}
             >
+                  {category && !isExpanded && <ProjectCategoryBadge category={category} label={categoryLabels[lang][category]} id={`category-${id}`} open={categoryOpen === id} onOpenChange={open => { setCategoryOpen(open ? id : null); if (open) setHackathonOpen(null); }} />}
                   {(expanded === id || (!expanded && id === 'tarvos')) && (
                     <BorderBeamPanel
                       colors={id === 'tarvos' ? ['#34d399', '#a855f7'] : undefined}
@@ -188,7 +204,7 @@ export default function ProjectBento() {
                       </div>
                     </motion.div>
                   )}
-                  {(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={isAegix ? ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'React Flow', 'Express', 'Solana'] : sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
+                  {(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && interactive && hovered === id && !isExpanded && !hackathonOpen && !categoryOpen && <ProjectTechStack stack={isAegix ? ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'React Flow', 'Express', 'Solana'] : sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
                   {(id === 'tarvos' || isAegix) && <TarvosHackathonBadge project={isAegix ? 'Aegix' : 'Tarvos'} open={hackathonOpen === id} onOpenChange={open => setHackathonOpen(current => open ? id : current === id ? null : current)} />}
                   <motion.div layout={reducedMotion ? false : 'position'} transition={transition} className="bento-tile-heading">
                     {interactive && <button
@@ -196,7 +212,7 @@ export default function ProjectBento() {
                       className="bento-open"
                       title={id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name}
                       aria-label={`${id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name} ${isExpanded ? ui.close : ui.open}`}
-                      aria-describedby={(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
+                      aria-describedby={(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && hovered === id && !isExpanded && !hackathonOpen && !categoryOpen ? `tech-${id}` : undefined}
                       aria-expanded={isExpanded}
                       aria-controls={`bento-details-${id}`}
                       onClick={() => toggle(id)}

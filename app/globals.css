@@ -508,3 +508,46 @@ body.menu-open .chat-widget-button {
 @media (max-width: 600px) {
  .bento-project-brand p { white-space: normal; text-wrap: pretty; }
 }
+
+/* Category marks use a dedicated corner, separate from project branding. */
+.bento-category-icon { position: absolute; top: 10px; left: 16px; width: 16px; height: 16px; z-index: 2; background: #92929d; mask-size: contain; mask-position: center; mask-repeat: no-repeat; pointer-events: none; }
+.bento-tile:has(> .bento-category-icon) .bento-project-brand { top: 34px; bottom: 10px; }
+@container (max-width: 150px) { .bento-category-icon { left: 14px; } }
+@container (max-width: 100px) { .bento-category-icon { left: 10px; width: 14px; height: 14px; } }
+@container (max-width: 65px) { .bento-category-icon { left: 6px; } }
+@container (max-height: 140px) {
+ .bento-tile[data-project-id="aegix"] .aegix-collapsed { top: 30px; }
+}
+
+button.bento-category-icon { z-index: 5; pointer-events: auto; background: transparent; cursor: help; border: 0; padding: 0; }
+button.bento-category-icon > span { display: block; width: 100%; height: 100%; background: #92929d; mask-size: contain; mask-position: center; mask-repeat: no-repeat; }
+button.bento-category-icon:hover > span, button.bento-category-icon:focus-visible > span { background: #f4f4f5; }
+button.bento-category-icon:focus-visible { outline: 2px solid #a78bfa; outline-offset: 4px; border-radius: 2px; }
+.bento-category-tooltip { position: fixed; z-index: 90; pointer-events: none; padding: 8px 12px; border: 1px solid #ffffff20; border-radius: 8px; background: #18181b; color: #e4e4e7; font-size: 12px; line-height: 1.4; box-shadow: 0 6px 20px #0005; }
+
+/* Mirror the category mark in the opposite corner of collapsed cards. */
+.interactive-bento .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge { top: 10px; right: 16px; }
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge > button { width: 16px; height: 16px; border-radius: 3px; }
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge img { width: 16px; height: 16px; opacity: .58; }
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-info { top: 24px; }
+@container (max-width: 150px) {
+ .interactive-bento .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge { right: 14px; }
+}
+@container (max-width: 100px) {
+ .interactive-bento .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge { right: 10px; }
+ .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge > button,
+ .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge img { width: 14px; height: 14px; }
+}
+
+/* Slightly larger corner marks; hackathons stay bright white. */
+button.bento-category-icon { width: 20px; height: 20px; }
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge > button,
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge img { width: 20px; height: 20px; }
+.tarvos-hackathon-badge img,
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge img { filter: brightness(0) invert(1); opacity: 1; }
+.bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-info { top: 28px; }
+@container (max-width: 100px) {
+ button.bento-category-icon,
+ .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge > button,
+ .bento-tile:not([data-open="true"]):has(> .bento-category-icon) .tarvos-hackathon-badge img { width: 18px; height: 18px; }
+}
