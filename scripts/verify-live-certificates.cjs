@@ -25,7 +25,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const seen = new Set();
   try {
     await page.goto(base, { waitUntil: 'networkidle' });
-    await page.locator('.circular-gallery').scrollIntoViewIfNeeded();
+    await page.locator('.circular-gallery').evaluate(element => element.scrollIntoView({ block: 'start' }));
     if (await page.locator('.circular-gallery-center-card').count() !== 1) throw new Error('Fixed introduction card missing');
     for (let batch = 0; batch < Math.ceil(expected.certificates.length / 16); batch++) {
       const links = page.locator('.certificate-hit-link');
@@ -40,7 +40,11 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
         fit: getComputedStyle(element.querySelector('.certificate-preview img')).objectFit,
       })));
       for (const card of cards) {
-        const source = expected.certificates.find(item => item.credential === card.href);
+        const destination = new URL(card.href);
+        const source = expected.certificates.find(item => item.id === destination.searchParams.get('certificate'));
+        if (destination.origin !== new URL(base).origin || destination.pathname !== '/certificates') {
+          throw new Error(`Invalid certificate destination: ${card.href}`);
+        }
         if (!source || card.preview !== source.image || !card.title.includes(source.title) || card.fit !== 'contain' || !(card.provider || card.logo)) {
           throw new Error(`Invalid live certificate card: ${JSON.stringify(card)}`);
         }
@@ -54,7 +58,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     fs.writeFileSync('verification/live-certificates.json', JSON.stringify({
       verifiedAt: new Date().toISOString(), url: page.url(), sourceCommit: expected.commit,
       visibleCertificateIds: [...seen], count: seen.size,
-      checks: ['production manifest matches', 'all certificates reachable in carousel', 'all previews loaded', 'provider logo or text present', 'titles and PDF links match'],
+      checks: ['production manifest matches', 'all certificates reachable in carousel', 'all previews loaded', 'provider logo or text present', 'titles and certificate detail links match'],
     }, null, 2));
     console.log(`Verified ${seen.size} certificates on ${page.url()} at source commit ${expected.commit}`);
   } finally {
