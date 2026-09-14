@@ -1,1 +1,2 @@
-export { default, metadata } from '../leertraject/page';
+import { PortfolioSubpage } from '@/components/PortfolioSubpage';
+export default function LearningTrajectoryPage() { return <PortfolioSubpage section="learning" />; }
