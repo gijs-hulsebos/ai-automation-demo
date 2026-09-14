@@ -322,27 +322,29 @@ body.menu-open .chat-widget-button {
 
 /* One collapsed visual system, adapting to actual available tile space. */
 .project-grid-space[data-project-id] { container-type: size; }
-.bento-project-brand { position: absolute; inset: 16px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 12px; pointer-events: none; }
-.bento-project-mark { flex-shrink: 0; color: #a1a1aa; transition: transform 200ms ease, color 200ms ease; }
-.bento-project-brand h2 { font-size: 16px; line-height: 1.25; font-weight: 500; letter-spacing: -.02em; color: #f4f4f5; overflow-wrap: anywhere; }
-.bento-project-brand p { margin-top: 8px; font-size: 12px; line-height: 1.45; color: #71717a; }
-.bento-tile:not([data-open="true"]):hover .bento-project-mark,
-.bento-tile:not([data-open="true"]):has(.bento-open:focus-visible) .bento-project-mark { transform: translateY(-2px); color: #d4d4d8; }
-@container (max-height: 125px) {
-  .bento-project-brand { inset: 12px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; }
-  .bento-project-brand h2 { font-size: 14px; }
-  .bento-project-brand p { display: none; }
-  .bento-project-mark { width: 18px; height: 18px; }
-}
+.bento-project-brand { position: absolute; inset: 16px; display: flex; align-items: center; justify-content: flex-start; text-align: left; pointer-events: none; }
+.bento-project-brand > div { width: 100%; min-width: 0; }
+.bento-project-brand h2 { margin: 0; font-size: 15px; line-height: 1.3; font-weight: 500; letter-spacing: -.015em; color: #f4f4f5; word-break: normal; overflow-wrap: anywhere; text-wrap: pretty; }
+.bento-project-brand p { display: block; margin: 6px 0 0; font-size: 11px; line-height: 1.45; color: #85858f; white-space: nowrap; }
+.bento-project-mark { flex-shrink: 0; color: #a1a1aa; }
 @container (max-width: 150px) {
-  .bento-project-brand { inset: 12px; gap: 8px; flex-direction: column; align-items: flex-start; justify-content: center; }
-  .bento-project-brand h2 { font-size: 13px; }
-  .bento-project-brand p { display: none; }
+ .bento-project-brand { inset: 14px; }
+ .bento-project-brand h2 { font-size: 13px; line-height: 1.35; }
+ .bento-project-brand p { display: none; }
 }
-@container (max-width: 90px) {
-  .bento-project-brand { inset: 8px; gap: 5px; }
-  .bento-project-brand h2 { font-size: 11px; }
-  .bento-project-mark { width: 16px; height: 16px; }
+@container (max-width: 179px) {
+ .bento-project-brand p { display: none; }
+}
+@container (max-height: 84px) {
+ .bento-project-brand p { display: none; }
+}
+@container (max-width: 100px) {
+ .bento-project-brand { inset: 10px; }
+ .bento-project-brand h2 { font-size: 12px; line-height: 1.3; }
+}
+@container (max-width: 65px) {
+ .bento-project-brand { inset: 6px; }
+ .bento-project-brand h2 { font-size: 10px; }
 }
 .project-grid-space[data-open="true"] .bento-detail-region { position: absolute; inset: 16px; margin: 0; max-height: none; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #52525b transparent; }
 .bento-project-details { min-width: 0; font-size: 13px; line-height: 1.6; color: #a1a1aa; overflow-wrap: anywhere; padding-bottom: 8px; }
@@ -363,15 +365,6 @@ body.menu-open .chat-widget-button {
   .bento-project-mark { transition: none; }
   .bento-tile:not([data-open="true"]):hover .bento-project-mark,
   .bento-tile:not([data-open="true"]):has(.bento-open:focus-visible) .bento-project-mark { transform: none; }
-}
-
-@container (min-width: 240px) and (min-height: 85px) and (max-height: 125px) {
-  .bento-project-brand p { display: block; margin-top: 4px; font-size: 11px; line-height: 1.35; }
-}
-
-@container (max-width: 75px) {
-  .bento-project-brand { align-items: center; }
-  .bento-project-brand > div { display: none; }
 }
 
 .bento-tech-tooltip { position: fixed; z-index: 80; pointer-events: none; padding: 12px 14px; border: 1px solid #3f3f46; border-radius: 12px; background: #18181bf5; color: #d4d4d8; box-shadow: 0 8px 28px #0006; animation: tech-appear 160ms ease-out; }
@@ -442,3 +435,76 @@ body.menu-open .chat-widget-button {
 
 /* Keep the badge clear of Aegix branding in the compact takeover layout. */
 .interactive-bento[data-expanded="tarvos"] [data-project-id="aegix"] .tarvos-hackathon-badge { top: 4px; right: 4px; }
+
+/* Project catalogue: featured brands followed by compact visual project cards. */
+.projects-page-heading { max-width: 720px; margin-bottom: 56px; }
+.projects-page-heading h1 { font-size: clamp(44px, 6vw, 80px); letter-spacing: -.055em; }
+.projects-page-heading p { max-width: 560px; font-size: 17px; }
+.projects-catalog { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.catalog-project { grid-column: span 2; border: 1px solid #ffffff12; background: #101012; border-radius: 20px; overflow: hidden; scroll-margin-top: 130px; transition: border-color 200ms ease; }
+.catalog-project:hover { border-color: #ffffff30; }
+.catalog-featured { grid-column: span 3; }
+.catalog-art { height: 176px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #24242b, #111114 75%); border-bottom: 1px solid #ffffff0a; }
+.catalog-art > .bento-project-mark { width: 44px; height: 44px; color: #a1a1aa; }
+.catalog-brand-art { height: 240px; background: radial-gradient(ellipse at 50% 100%, #211c30, #101014 75%); }
+.catalog-brand-art .tarvos-collapsed-logo { flex: none; width: 220px; height: 100px; }
+.catalog-aegix-logo { width: 240px; height: auto; mix-blend-mode: screen; }
+.catalog-number { position: absolute; left: 18px; top: 16px; font-size: 11px; letter-spacing: .08em; color: #a1a1aa; background: #09090bb3; border: 1px solid #ffffff12; padding: 4px 7px; border-radius: 6px; }
+.catalog-body { padding: 24px 24px 18px; }
+.catalog-body h2 { font-size: 20px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; }
+.catalog-featured .catalog-body h2 { font-size: 28px; }
+.catalog-description { color: #a1a1aa; font-size: 14px; line-height: 1.7; margin-top: 12px; min-height: 96px; }
+.catalog-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 20px; min-height: 24px; }
+.catalog-actions a { display: inline-flex; gap: 5px; align-items: center; font-size: 13px; color: #e4e4e7; }
+.catalog-actions a:hover { color: #c4b5fd; }
+.catalog-actions span { font-size: 11px; color: #71717a; }
+.catalog-details > summary { padding: 16px 24px; border-top: 1px solid #ffffff0a; display: flex; align-items: center; justify-content: space-between; list-style: none; color: #a1a1aa; font-size: 12px; cursor: pointer; }
+.catalog-details > summary::-webkit-details-marker { display: none; }
+.catalog-details > summary:hover { color: white; background: #ffffff03; }
+.catalog-details[open] > summary svg { transform: rotate(180deg); }
+.catalog-project:has(.catalog-details[open]) { grid-column: 1 / -1; }
+.catalog-project:has(.catalog-details[open]) .catalog-art { height: 200px; }
+.catalog-project:has(.catalog-details[open]) .catalog-art > img.object-cover { object-fit: contain; }
+.catalog-project:has(.catalog-details[open]) .catalog-description { min-height: 0; max-width: 780px; }
+.catalog-details-content { padding: 24px; max-width: 900px; }
+.catalog-details-content .bento-project-details > header, .catalog-details-content .bento-project-summary, .catalog-details-content .bento-project-visual { display: none; }
+.catalog-details-content .tarvos-project-info, .catalog-details-content .aegix-project-info { padding: 0; }
+.catalog-project a:focus-visible, .catalog-details summary:focus-visible { outline: 2px solid #a78bfa; outline-offset: -2px; }
+@media(max-width:1000px) { .catalog-project { grid-column: span 3; } }
+@media(max-width:640px) { .projects-catalog { grid-template-columns: minmax(0,1fr); gap: 20px; } .catalog-project, .catalog-featured { grid-column: 1; } .catalog-description { min-height: 0; } .catalog-brand-art { height: 200px; } .projects-page-heading { margin-bottom: 32px; } }
+@media(prefers-reduced-motion:reduce) { .catalog-project { transition: none; } }
+
+.category-nav { display: flex; gap: 10px; flex-wrap: wrap; margin: -20px 0 52px; }
+.category-nav a { padding: 9px 16px; border: 1px solid #ffffff20; border-radius: 999px; color: #a1a1aa; font-size: 13px; }
+.category-nav a:hover { background: #ffffff09; color: white; }
+.project-category { margin-bottom: 72px; scroll-margin-top: 140px; }
+.category-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.category-heading h2 { font-size: 25px; font-weight: 500; letter-spacing: -.03em; }
+.category-heading > span { color: #71717a; font-size: 13px; }
+.project-category-stage { height: 520px !important; border: 1px solid #ffffff14; border-radius: 20px; }
+.hero-project-fallback { display: flex; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 10px; background: #18181b; }
+.hero-project-fallback svg { width: 28px; height: 28px; flex-shrink: 0; color: #a1a1aa; }
+.hero-project-fallback > span { font-size: 10px; line-height: 1.3; }
+.hero-arrow { width: 40px; height: 40px; border: 1px solid #ffffff30; border-radius: 50%; background: #09090b80; }
+.hero-arrow:disabled { opacity: .3; cursor: default; }
+.hero-arrow:focus-visible, .category-nav a:focus-visible { outline: 2px solid #a78bfa; outline-offset: 3px; }
+.category-project-info { padding: 22px 4px 0; }
+.category-project-info > p { max-width: 780px; color: #a1a1aa; font-size: 15px; line-height: 1.7; }
+.category-project-details { margin-top: 22px; border-top: 1px solid #ffffff14; }
+.category-project-details > summary { cursor: pointer; padding: 18px 0; color: #d4d4d8; font-size: 13px; }
+@media(max-width:640px) { .project-category-stage { height: 430px !important; } .project-category { margin-bottom: 48px; } .category-nav { gap: 8px; } .category-nav a { font-size: 12px; padding: 8px 12px; } }
+
+.category-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.category-static-card { border: 1px solid #ffffff14; border-radius: 18px; padding: 26px; background: #101012; scroll-margin-top: 140px; }
+.category-static-card:hover { border-color: #ffffff28; }
+.static-card-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; }
+.static-card-heading h3 { font-size: 22px; line-height: 1.25; font-weight: 500; letter-spacing: -.025em; }
+.static-brand-logo.tarvos-collapsed-logo { flex: 0 0 96px; width: 96px; height: 44px; mask-size: 96px auto; mask-position: center -19px; }
+.static-aegix-logo { width: 116px; height: 44px; object-fit: contain; mix-blend-mode: screen; }
+.static-card-description { margin-top: 14px; color: #a1a1aa; font-size: 14px; line-height: 1.75; }
+.category-static-card .catalog-details-content { padding: 8px 0; }
+@media(max-width:700px) { .category-card-grid { grid-template-columns: minmax(0, 1fr); } .category-static-card { padding: 22px; } .static-card-heading h3 { font-size: 20px; } }
+
+@media (max-width: 600px) {
+ .bento-project-brand p { white-space: normal; text-wrap: pretty; }
+}

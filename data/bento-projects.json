@@ -5,7 +5,7 @@
     "name": "Acquisition Gap Analyzer",
     "displayName": "Acquisition Gap Analyzer",
     "size": "large",
-    "tagline": "Evidence-based acquisition analysis",
+    "tagline": "Website analysis",
     "repository": "https://github.com/gijs-hulsebos/acquisition-gap-analyzer",
     "summary": "A website-analysis MVP that ranks acquisition gaps using observable evidence from public pages.",
     "problem": "SMEs need specific, traceable website improvements rather than an unexplained AI score.",
@@ -38,7 +38,7 @@
     "name": "StayAI",
     "displayName": "StayAI",
     "size": "large",
-    "tagline": "Conversational hotel discovery",
+    "tagline": "Hotel search",
     "repository": "https://github.com/gijs-hulsebos/stayai",
     "summary": "A conversational hotel-discovery app with saved stays and explicitly simulated reservations.",
     "problem": "Hotel search, saved choices and reservation planning are usually split across separate interfaces.",
@@ -72,7 +72,7 @@
     "name": "Insurance Triage System",
     "displayName": "Insurance Triage System",
     "size": "wide",
-    "tagline": "AI-assisted insurance processing",
+    "tagline": "Claim assessment",
     "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/Insurance-Demo",
     "summary": "An n8n workflow for visual and textual insurance-claim assessment, triage and human review.",
     "problem": "Claim intake needs structured processing while sensitive personal data and consequential decisions require care.",
@@ -97,7 +97,7 @@
       "Setup.md",
       "Insurance demo (5).json"
     ],
-    "live": null,
+    "live": "https://insurance-demo-website-and-backend.vercel.app/",
     "image": "/projects/insurance-workflow.jpeg",
     "private": false
   },
@@ -107,7 +107,7 @@
     "name": "AI Calendar Assistant",
     "displayName": "AI Calendar Assistant",
     "size": "tall",
-    "tagline": "Conversational scheduling agent",
+    "tagline": "Calendar tasks",
     "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/chatbot-calendar",
     "summary": "An n8n assistant that uses conversational tool calls for scheduling and email.",
     "problem": "Scheduling requires context, availability checks and coordinated follow-up across calendar and email tools.",
@@ -140,7 +140,7 @@
     "name": "AI Newsletter Engine",
     "displayName": "AI Newsletter Engine",
     "size": "wide",
-    "tagline": "Autonomous intelligence delivery",
+    "tagline": "News collection",
     "repository": "https://github.com/gijs-hulsebos/n8n-automation/tree/main/AI-Newsletter",
     "summary": "A scheduled workflow that curates AI news and distributes a document or email summary.",
     "problem": "Turning a stream of AI news into a consistent, readable newsletter involves repetitive filtering and formatting.",
@@ -174,7 +174,7 @@
     "name": "Security Audit Checker",
     "displayName": "Security Audit Checker",
     "size": "wide",
-    "tagline": "Automated application security analysis",
+    "tagline": "Security checks",
     "repository": "https://github.com/gijs-hulsebos/Security-Audit-Checker",
     "summary": "A web application that scans publicly accessible application assets for security findings.",
     "problem": "Potential secret exposure and weak application settings need structured evidence and prioritisation.",
@@ -207,7 +207,7 @@
     "name": "Custom Donation Alerts",
     "displayName": "Custom Donation Alerts",
     "size": "tall",
-    "tagline": "Custom donation alerts for OBS",
+    "tagline": "Donation alerts",
     "repository": null,
     "summary": "A private client project that turns donations on an unsupported donation website into OBS streaming alerts.",
     "problem": "The client needed OBS alerts for website donations that standard services such as Streamlabs and StreamYard did not support.",
@@ -239,7 +239,7 @@
     "name": "MediaGen Orchestrator",
     "displayName": "MediaGen Orchestrator",
     "size": "wide",
-    "tagline": "AI media workflow orchestration",
+    "tagline": "AI media creation",
     "repository": "https://github.com/gijs-hulsebos/Media-Generation-Demo",
     "summary": "A conceptual media-workflow demo that connects a creative brief to research, creation and review stages.",
     "problem": "AI media workflows need a coherent interface for intake, progress and human feedback.",
@@ -419,6 +419,63 @@
       "context/LanguageContext.tsx"
     ],
     "live": "https://gijshulsebos.com",
+    "image": null,
+    "private": false
+  },
+  {
+    "slot": "o",
+    "id": "hermes",
+    "name": "Hermes Oracle",
+    "displayName": "Oracle Gateway",
+    "size": "small",
+    "tagline": "A gateway for Hermes agents",
+    "summary": "A website gateway that gave Hermes agents a JSON task with instructions for joining Discord: an experiment with Moltbook on Discord.",
+    "problem": "Give Hermes agents a defined task for joining a shared Discord environment.",
+    "implementation": "Built a website gateway that publishes the joining instructions as a JSON task.",
+    "highlights": [
+      "Instructions published as a JSON task.",
+      "A joining task for Hermes agents.",
+      "An experiment with Moltbook on Discord."
+    ],
+    "stack": [
+      "Hermes (Nous Research)",
+      "React",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Discord"
+    ],
+    "sources": [
+      "Project description supplied by the owner"
+    ],
+    "repository": "https://github.com/gijs-hulsebos/oracle-gateway",
+    "live": "https://oracle-gateway-ten.vercel.app/",
+    "image": null,
+    "private": false
+  },
+  {
+    "slot": "u",
+    "id": "registry",
+    "name": "AI Integration Registry",
+    "displayName": "Integration Registry",
+    "size": "wide",
+    "tagline": "AI services",
+    "summary": "A structured registry of AI providers and services, documenting integrations, capabilities, prompts and practical notes.",
+    "problem": "AI integration knowledge is scattered across provider documentation and individual workflows.",
+    "implementation": "Organized providers by service with a consistent set of Markdown documents and reusable templates.",
+    "highlights": [
+      "A provider/service directory structure.",
+      "Separate capabilities, integration, prompts and notes documents.",
+      "Reusable templates for consistent service documentation."
+    ],
+    "stack": [
+      "Markdown"
+    ],
+    "sources": [
+      "README.md"
+    ],
+    "repository": "https://github.com/gijs-hulsebos/Integration-Registry",
+    "live": null,
     "image": null,
     "private": false
   }

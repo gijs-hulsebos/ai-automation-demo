@@ -1,7 +1,7 @@
 {
   "acquisition": {
     "NL": {
-      "tagline": "Acquisitieanalyse op basis van bewijs",
+      "tagline": "Websiteanalyse",
       "summary": "Een MVP dat acquisitieknelpunten rangschikt op basis van waarneembaar bewijs op openbare webpagina’s.",
       "problem": "Mkb-bedrijven hebben concrete, herleidbare websiteverbeteringen nodig in plaats van een onverklaarde AI-score.",
       "implementation": "Het analysedashboard, de begrensde crawlverwerking, deterministische scoring en onderbouwde bevindingen gebouwd.",
@@ -13,7 +13,7 @@
       ]
     },
     "DE": {
-      "tagline": "Evidenzbasierte Akquisitionsanalyse",
+      "tagline": "Webseitenanalyse",
       "summary": "Ein MVP, das Akquisitionslücken anhand beobachtbarer Belege auf öffentlichen Webseiten priorisiert.",
       "problem": "Kleine und mittlere Unternehmen benötigen konkrete, nachvollziehbare Websiteverbesserungen statt eines unerklärten KI-Scores.",
       "implementation": "Das Analyse-Dashboard, die begrenzte Crawling-Pipeline, deterministische Bewertung und beleggestützte Ergebnisse entwickelt.",
@@ -27,7 +27,7 @@
   },
   "stayai": {
     "NL": {
-      "tagline": "Hotels ontdekken via een gesprek",
+      "tagline": "Hotels zoeken",
       "summary": "Een conversationele hotelapp met opgeslagen verblijven en expliciet gesimuleerde reserveringen.",
       "problem": "Hotels zoeken, keuzes bewaren en reserveringen plannen gebeurt vaak in afzonderlijke interfaces.",
       "implementation": "De gespreks- en hoteldatadiensten verbonden met de interface, authenticatie, favorieten en reserveringsgegevens.",
@@ -39,7 +39,7 @@
       ]
     },
     "DE": {
-      "tagline": "Hotels im Gespräch entdecken",
+      "tagline": "Hotelsuche",
       "summary": "Eine dialogbasierte Hotel-App mit gespeicherten Aufenthalten und ausdrücklich simulierten Reservierungen.",
       "problem": "Hotelsuche, gespeicherte Auswahl und Reservierungsplanung verteilen sich häufig auf getrennte Oberflächen.",
       "implementation": "Gesprächs- und Hoteldatendienste mit der Oberfläche, Authentifizierung, Favoriten und Reservierungsdaten verbunden.",
@@ -53,7 +53,7 @@
   },
   "insurance": {
     "NL": {
-      "tagline": "AI-ondersteunde schadeverwerking",
+      "tagline": "Schade beoordelen",
       "summary": "Een n8n-workflow voor visuele en tekstuele schadebeoordeling, triage en menselijke controle.",
       "problem": "Schademeldingen vragen om gestructureerde verwerking en zorgvuldige omgang met persoonsgegevens en ingrijpende beslissingen.",
       "implementation": "Webhookinvoer, scheiding van gevoelige gegevens, AI-beoordeling, gestructureerde uitvoer en beoordelingsroutes in n8n ontworpen.",
@@ -66,7 +66,7 @@
       ]
     },
     "DE": {
-      "tagline": "KI-gestützte Schadenbearbeitung",
+      "tagline": "Schadenprüfung",
       "summary": "Ein n8n-Workflow für visuelle und textuelle Schadenbewertung, Triage und menschliche Prüfung.",
       "problem": "Schadenmeldungen erfordern strukturierte Verarbeitung sowie einen sorgfältigen Umgang mit personenbezogenen Daten und folgenreichen Entscheidungen.",
       "implementation": "Webhook-Eingang, Trennung sensibler Daten, KI-Bewertung, strukturierte Ausgabe und Prüfpfade in n8n entworfen.",
@@ -81,7 +81,7 @@
   },
   "calendar": {
     "NL": {
-      "tagline": "Agenda beheren via een gesprek",
+      "tagline": "Agenda beheren",
       "summary": "Een n8n-assistent die agenda en e-mail bedient met gereedschapsaanroepen vanuit gesprekken.",
       "problem": "Afspraken plannen vereist context, beschikbaarheidscontroles en afgestemde opvolging via agenda en e-mail.",
       "implementation": "De agentworkflow, agendafuncties, het gespreksgeheugen, modelterugval en de nabewerking van antwoorden ontworpen.",
@@ -93,7 +93,7 @@
       ]
     },
     "DE": {
-      "tagline": "Terminplanung im Gespräch",
+      "tagline": "Terminverwaltung",
       "summary": "Ein n8n-Assistent, der Kalender und E-Mail durch dialogbasierte Werkzeugaufrufe bedient.",
       "problem": "Terminplanung benötigt Kontext, Verfügbarkeitsprüfungen und abgestimmte Nachbereitung über Kalender und E-Mail.",
       "implementation": "Agentenworkflow, Kalenderwerkzeuge, Gesprächsspeicher, Ersatzmodell und Antwortnachbearbeitung entworfen.",
@@ -107,7 +107,7 @@
   },
   "newsletter": {
     "NL": {
-      "tagline": "Automatische nieuwsvoorziening",
+      "tagline": "Nieuws verzamelen",
       "summary": "Een geplande workflow die AI-nieuws selecteert en verspreidt als document of e-mailsamenvatting.",
       "problem": "Een stroom AI-nieuws omzetten in een consistente, leesbare nieuwsbrief vraagt herhaaldelijk filteren en opmaken.",
       "implementation": "De workflow voor RSS-verzameling, ontdubbeling, modelsynthese, documentgeneratie en distributie gebouwd.",
@@ -119,7 +119,7 @@
       ]
     },
     "DE": {
-      "tagline": "Automatische Nachrichtenversorgung",
+      "tagline": "Nachrichtensuche",
       "summary": "Ein zeitgesteuerter Workflow, der KI-Nachrichten auswählt und als Dokument oder E-Mail-Zusammenfassung verteilt.",
       "problem": "Aus laufenden KI-Nachrichten einen einheitlichen, lesbaren Newsletter zu erstellen erfordert wiederholtes Filtern und Formatieren.",
       "implementation": "RSS-Sammlung, Duplikatbereinigung, Modellsynthese, Dokumenterstellung und Verteilung entwickelt.",
@@ -133,7 +133,7 @@
   },
   "security": {
     "NL": {
-      "tagline": "Automatische analyse van applicatiebeveiliging",
+      "tagline": "Beveiligingscheck",
       "summary": "Een webapplicatie die openbaar toegankelijke applicatiebestanden controleert op beveiligingsbevindingen.",
       "problem": "Mogelijk gelekte geheimen en zwakke instellingen moeten met gestructureerd bewijs worden geprioriteerd.",
       "implementation": "De scanner, classificatiefuncties, het audit-eindpunt en rapportagedashboard gebouwd.",
@@ -145,7 +145,7 @@
       ]
     },
     "DE": {
-      "tagline": "Automatische Analyse der Anwendungssicherheit",
+      "tagline": "Sicherheitscheck",
       "summary": "Eine Webanwendung, die öffentlich zugängliche Anwendungsdateien auf Sicherheitsbefunde untersucht.",
       "problem": "Möglicherweise offengelegte Geheimnisse und schwache Einstellungen müssen anhand strukturierter Belege priorisiert werden.",
       "implementation": "Scanner, Klassifizierungsfunktionen, Audit-Endpunkt und Berichts-Dashboard entwickelt.",
@@ -159,7 +159,7 @@
   },
   "donation": {
     "NL": {
-      "tagline": "Donatiealerts op maat voor OBS",
+      "tagline": "Donatiealerts",
       "summary": "Een privéklantproject dat donaties via een niet-ondersteunde donatiewebsite omzet in streamingalerts voor OBS.",
       "problem": "De klant had OBS-alerts nodig voor websitedonaties die standaarddiensten zoals Streamlabs en StreamYard niet ondersteunden.",
       "implementation": "Een koppeling op maat gebouwd tussen de donatiestroom en streamingalerts voor de OBS-opstelling van de klant.",
@@ -170,7 +170,7 @@
       ]
     },
     "DE": {
-      "tagline": "Individuelle Spendenalerts für OBS",
+      "tagline": "Spendenmeldungen",
       "summary": "Ein privates Kundenprojekt, das Spenden über eine nicht unterstützte Spendenwebsite in OBS-Streamingalerts umwandelt.",
       "problem": "Der Kunde benötigte OBS-Alerts für Website-Spenden, die Standarddienste wie Streamlabs und StreamYard nicht unterstützten.",
       "implementation": "Eine individuelle Verbindung zwischen dem Spendenablauf und Streamingalerts für die OBS-Einrichtung des Kunden entwickelt.",
@@ -183,7 +183,7 @@
   },
   "mediagen": {
     "NL": {
-      "tagline": "Orkestratie van AI-mediaworkflows",
+      "tagline": "AI-media maken",
       "summary": "Een conceptuele mediaworkflowdemo die een creatieve briefing verbindt met onderzoek, creatie en beoordeling.",
       "problem": "AI-mediaworkflows hebben een samenhangende interface nodig voor invoer, voortgang en menselijke feedback.",
       "implementation": "De briefinginterface, workflowweergaven en beoordelingsschermen rond een n8n-voorbeeld gebouwd.",
@@ -195,7 +195,7 @@
       ]
     },
     "DE": {
-      "tagline": "Orchestrierung von KI-Medienworkflows",
+      "tagline": "KI-Medien erstellen",
       "summary": "Eine konzeptionelle Medienworkflow-Demo, die ein Kreativbriefing mit Recherche, Erstellung und Prüfung verbindet.",
       "problem": "KI-Medienworkflows benötigen eine zusammenhängende Oberfläche für Eingaben, Fortschritt und menschliches Feedback.",
       "implementation": "Briefing-Oberfläche, Workflow-Ansichten und Prüfbildschirme um ein n8n-Beispiel entwickelt.",
@@ -334,6 +334,54 @@
         "Ein Zertifikatskarussell mit festen Positionen verlinkt einzelne Zertifikate in einer durchsuchbaren Bibliothek.",
         "Eine Python-Pipeline validiert GitHub-PDFs, entfernt Duplikate und erzeugt WebP-Vorschauen und ein Manifest.",
         "Tastaturbedienung und Unterstützung für reduzierte Bewegung ergänzen Hover- und Touch-Bedienung."
+      ]
+    }
+  },
+  "hermes": {
+    "NL": {
+      "tagline": "Een gateway voor Hermes-agents",
+      "summary": "Een websitegateway die Hermes-agents via een JSON-taak instrueerde hoe ze Discord konden joinen: een experiment met Moltbook op Discord.",
+      "problem": "Hermes-agents een afgebakende taak geven om een gedeelde Discord-omgeving te joinen.",
+      "implementation": "Een websitegateway gebouwd die de instructies voor deelname als JSON-taak publiceert.",
+      "highlights": [
+        "Instructies gepubliceerd als JSON-taak.",
+        "Een deelnametaak voor Hermes-agents.",
+        "Een experiment met Moltbook op Discord."
+      ]
+    },
+    "DE": {
+      "tagline": "Ein Gateway für Hermes-Agenten",
+      "summary": "Ein Website-Gateway, das Hermes-Agenten über eine JSON-Aufgabe Anweisungen zum Beitritt zu Discord gab: ein Experiment mit Moltbook auf Discord.",
+      "problem": "Hermes-Agenten eine definierte Aufgabe zum Beitritt zu einer gemeinsamen Discord-Umgebung geben.",
+      "implementation": "Ein Website-Gateway entwickelt, das die Beitrittsanweisungen als JSON-Aufgabe veröffentlicht.",
+      "highlights": [
+        "Anweisungen als JSON-Aufgabe veröffentlicht.",
+        "Eine Beitrittsaufgabe für Hermes-Agenten.",
+        "Ein Experiment mit Moltbook auf Discord."
+      ]
+    }
+  },
+  "registry": {
+    "NL": {
+      "tagline": "AI-diensten",
+      "summary": "Een gestructureerd register van AI-aanbieders en diensten, met documentatie voor integraties, mogelijkheden, prompts en praktijknotities.",
+      "problem": "Kennis over AI-integraties is verspreid over aanbiedersdocumentatie en losse workflows.",
+      "implementation": "Aanbieders per dienst georganiseerd met een vaste set Markdown-documenten en herbruikbare templates.",
+      "highlights": [
+        "Een mapstructuur per aanbieder en dienst.",
+        "Afzonderlijke documenten voor mogelijkheden, integratie, prompts en notities.",
+        "Herbruikbare templates voor consistente dienstdocumentatie."
+      ]
+    },
+    "DE": {
+      "tagline": "KI-Dienste",
+      "summary": "Ein strukturiertes Verzeichnis von KI-Anbietern und Diensten mit Dokumentation zu Integrationen, Funktionen, Prompts und Praxiserfahrungen.",
+      "problem": "Wissen über KI-Integrationen ist auf Anbieterdokumentationen und einzelne Workflows verteilt.",
+      "implementation": "Anbieter nach Diensten mit einheitlichen Markdown-Dokumenten und wiederverwendbaren Vorlagen organisiert.",
+      "highlights": [
+        "Eine Verzeichnisstruktur nach Anbieter und Dienst.",
+        "Separate Dokumente für Funktionen, Integration, Prompts und Notizen.",
+        "Wiederverwendbare Vorlagen für eine einheitliche Dienstdokumentation."
       ]
     }
   }

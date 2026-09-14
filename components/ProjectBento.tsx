@@ -9,7 +9,7 @@ import { BorderBeamPanel } from '@/components/ui/border-beam-panel';
 import { AegixProjectInfo } from './AegixProjectInfo';
 import { TarvosProjectInfo } from './TarvosProjectInfo';
 import { TarvosHackathonBadge } from './TarvosHackathonBadge';
-import { BentoProjectDetails, ProjectMark, projectsBySlot, localizeProject } from './BentoProjectContent';
+import { BentoProjectDetails, projectsBySlot, localizeProject } from './BentoProjectContent';
 import { ProjectTechStack } from './ProjectTechStack';
 import { expandedLayout } from './bento-layouts';
 
@@ -183,13 +183,12 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <ProjectMark project={project} />
                       <div><h2 className="font-display">{project.displayName}</h2>
                         {project.size !== 'small' && <p>{project.tagline}</p>}
                       </div>
                     </motion.div>
                   )}
-                  {!isAegix && interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
+                  {(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && interactive && hovered === id && !isExpanded && !hackathonOpen && <ProjectTechStack stack={isAegix ? ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'React Flow', 'Express', 'Solana'] : sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
                   {(id === 'tarvos' || isAegix) && <TarvosHackathonBadge project={isAegix ? 'Aegix' : 'Tarvos'} open={hackathonOpen === id} onOpenChange={open => setHackathonOpen(current => open ? id : current === id ? null : current)} />}
                   <motion.div layout={reducedMotion ? false : 'position'} transition={transition} className="bento-tile-heading">
                     {interactive && <button
@@ -197,7 +196,7 @@ export default function ProjectBento() {
                       className="bento-open"
                       title={id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name}
                       aria-label={`${id === 'tarvos' ? 'Tarvos' : isAegix ? 'Aegix' : project?.name} ${isExpanded ? ui.close : ui.open}`}
-                      aria-describedby={!isAegix && hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
+                      aria-describedby={(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && hovered === id && !isExpanded && !hackathonOpen ? `tech-${id}` : undefined}
                       aria-expanded={isExpanded}
                       aria-controls={`bento-details-${id}`}
                       onClick={() => toggle(id)}

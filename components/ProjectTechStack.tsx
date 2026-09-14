@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 // Compact brand marks without the padding of the header wordmarks.
 const icons: Record<string, string> = {
+  'Hermes (Nous Research)': '/tech/hermes.svg',
   Motion: '/tech/framer.svg', Python: '/tech/python.svg',
   Astro: '/tech/astro.svg', 'Framer Motion': '/tech/framer.svg', 'Three.js': '/tech/threedotjs.svg', D3: '/tech/d3.svg',
   'React Flow': '/tech/reactflow.svg', Firecrawl: '/tech/firecrawl.svg', Xotelo: '/tech/xotelo.svg', MailerLite: '/tech/mailerlite.svg',
