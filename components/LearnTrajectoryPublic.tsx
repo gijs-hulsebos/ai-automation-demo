@@ -1,0 +1,24 @@
+'use client';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+type Part = { id: string; part: string; title: string; status: string; completedAt: string | null; criteriaDone: number; criteriaTotal: number; links: { label: string; url: string }[]; evidence: { id: string; title: string; links: {label:string;url:string}[] }[] };
+type PublicData = { name: string; updatedAt: string; totals: { parts: number; completed: number; active: number }; trajectories: { id: string; title: string; horizon: string; page: number; parts: Part[] }[] };
+const labels: Record<string,string> = { week:'Week',kort:'Maand',mid:'Kwartaal',lang:'Semester',leren:'Leren',toepassen:'Toepassen',toetsen:'Toetsen',verdiepen:'Verdiepen',opleveren:'Opleveren' };
+function safeLink(url: string) { try { return ['http:','https:'].includes(new URL(url).protocol); } catch { return false; } }
+export function LearnTrajectoryPublic({ compact = false }: { compact?: boolean }) {
+  const [data,setData]=useState<PublicData|null>(null),[loaded,setLoaded]=useState(false),[error,setError]=useState(''),[days,setDays]=useState(0);
+  useEffect(()=>{const controller=new AbortController(); fetch('/api/leertraject',{signal:controller.signal,cache:'no-store'}).then(async r=>{if(!r.ok)throw new Error('Voortgang is tijdelijk niet beschikbaar.');setData(await r.json());setLoaded(true);}).catch(e=>{if(e.name!=='AbortError'){setError(e.message);setLoaded(true);}});return()=>controller.abort();},[]);
+  const recent=data ? [...new Map(data.trajectories.flatMap(t=>t.parts).filter(p=>p.status==='afgerond'&&p.completedAt).map(p=>[p.id,p])).values()].sort((a,b)=>Date.parse(b.completedAt!)-Date.parse(a.completedAt!)) : [];
+  const filtered=recent.filter(p=>!days||Date.parse(p.completedAt!)>=Date.now()-days*86400000);
+  return <section className="space-y-5 text-sm text-zinc-200" aria-label="Openbaar Leertraject">
+    <header><p className="text-xs uppercase tracking-widest text-emerald-300">Skillmax</p><h2 className="font-display text-2xl">Leertraject</h2><p className="mt-2 text-zinc-400">Wat ik leer, maak en afrond — rechtstreeks uit mijn eigen dashboard.</p></header>
+    {!loaded?<p role="status">Voortgang laden…</p>:error?<p role="status">{error}</p>:!data?<p>Er zijn nog geen resultaten gepubliceerd.</p>:<>
+      <div className="grid grid-cols-3 gap-3">{[[data.totals.completed,'Afgerond'],[data.totals.active,'Actief'],[data.trajectories.length,'Trajecten']].map(([value,label])=><div key={label} className="rounded-xl border border-white/10 p-3"><strong className="block text-2xl">{value}</strong><span className="text-xs text-zinc-400">{label}</span></div>)}</div>
+      {!compact&&<label className="flex items-center gap-3">Afgerond in<select value={days} onChange={e=>setDays(Number(e.target.value))} className="rounded-lg border border-white/20 bg-zinc-900 p-2"><option value={0}>Alle tijd</option><option value={7}>7 dagen</option><option value={30}>30 dagen</option><option value={90}>90 dagen</option></select></label>}
+      <div><h3 className="mb-2 font-semibold">Recente resultaten</h3>{filtered.length?<ul className="space-y-2">{filtered.slice(0,compact?3:100).map(p=><li key={p.id} className="border-l-2 border-emerald-400 pl-3">{p.title}<small className="block text-zinc-400">{new Date(p.completedAt!).toLocaleDateString('nl-NL')} · {labels[p.part]}</small></li>)}</ul>:<p className="text-zinc-400">Nog geen gedateerde afrondingen in deze periode.</p>}</div>
+      {!compact&&<div className="grid gap-4 sm:grid-cols-2">{data.trajectories.map(t=><article key={t.id} className="rounded-2xl border border-white/15 bg-white/[.03] p-5"><p className="text-xs text-emerald-300">{labels[t.horizon]} {t.page}</p><h3 className="mb-3 text-lg font-semibold">{t.title}</h3>{t.parts.map(p=><div key={p.id} className="my-3 space-y-2"><p>{labels[p.part]} · {p.title}</p><p className="text-xs text-zinc-400">{p.status}</p>{p.criteriaTotal>0&&<p className="text-xs">{p.criteriaDone}/{p.criteriaTotal} criteria afgevinkt</p>}<div className="flex flex-wrap gap-3">{p.links.filter(l=>safeLink(l.url)).map(l=><a key={l.url} className="text-emerald-300 underline" href={l.url} target="_blank" rel="noopener noreferrer">{l.label} ↗</a>)}</div>{p.evidence.map(e=><div key={e.id}><strong>{e.title}</strong>{e.links.filter(l=>safeLink(l.url)).map(l=><a className="ml-3 text-emerald-300 underline" key={l.url} href={l.url} target="_blank" rel="noopener noreferrer">{l.label} ↗</a>)}</div>)}</div>)}</article>)}</div>}
+      <p className="text-xs text-zinc-500">Bijgewerkt: {new Date(data.updatedAt).toLocaleString('nl-NL')}. Planning telt niet als afgerond werk.</p>
+    </>}
+    {compact&&<Link className="inline-block rounded-lg border border-white/20 px-4 py-2" href="/leertraject">Volledig Leertraject bekijken ↗</Link>}
+  </section>;
+}

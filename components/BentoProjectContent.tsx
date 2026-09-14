@@ -5,10 +5,11 @@ import { ChartNoAxesCombined, BedDouble, ShieldCheck, CalendarDays, Newspaper, S
 import projects from '@/data/bento-projects.json';
 import translations from '@/data/bento-translations.json';
 import { useLanguage } from '@/context/LanguageContext';
+import { LearnTrajectoryPublic } from './LearnTrajectoryPublic';
 
 export type BentoProject = { slot: string; id: string; name: string; displayName: string; size: string; tagline: string; summary: string; problem: string; implementation: string; highlights: string[]; stack: string[]; sources: string[]; repository: string | null; live: string | null; image: string | null; private: boolean };
 export function localizeProject(project: BentoProject, lang: 'EN' | 'NL' | 'DE'): BentoProject {
-  if (lang === 'EN') return project;
+  if (lang === 'EN' || project.id === 'skillmax') return project;
   return { ...project, ...translations[project.id as keyof typeof translations][lang], stack: project.stack.map(item => item === 'Curated regulatory sources' ? (lang === 'NL' ? 'Samengestelde regelgevingsbronnen' : 'Kuratierte regulatorische Quellen') : item) };
 }
 export const projectsBySlot = Object.fromEntries(projects.map(project => [project.slot, project]));
@@ -26,6 +27,7 @@ const labels = {
 export function BentoProjectDetails({ project }: { project: BentoProject }) {
   const { lang } = useLanguage();
   const text = labels[lang];
+  if (project.id === 'skillmax') return <LearnTrajectoryPublic compact />;
   project = localizeProject(project, lang);
   return <div className="bento-project-details">
     <header><h2 className="font-display">{project.name}</h2></header>

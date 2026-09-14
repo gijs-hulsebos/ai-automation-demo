@@ -1,5 +1,8 @@
 [
   {
+    "slot": "a", "id": "skillmax", "name": "Skillmax · Leertraject", "displayName": "Leertraject", "size": "large", "tagline": "Wat ik leer, maak en afrond", "summary": "Openbare voortgang uit mijn persoonlijke Skillmax-dashboard.", "problem": "", "implementation": "", "highlights": [], "stack": ["Next.js", "Firebase", "Firestore", "Google Cloud"], "sources": [], "repository": null, "live": "/leertraject", "image": null, "private": false
+  },
+  {
     "slot": "i",
     "id": "acquisition",
     "name": "Acquisition Gap Analyzer",
