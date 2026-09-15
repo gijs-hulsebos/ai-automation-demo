@@ -183,7 +183,7 @@ body.menu-open .chat-widget-button {
 .circular-gallery-center-card { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
 .circular-gallery-orbit > .circular-card,
 .circular-gallery-center-card > .circular-card { pointer-events: auto; }
-.gallery-pause { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 12px; padding: 4px 8px; color: #a1a1aa; font-size: clamp(9px, 1.3cqw, 13px); cursor: pointer; }
+.gallery-pause { position: absolute; z-index: 5; top: 73%; left: 50%; transform: translate(-50%, -50%); margin-top: 0; padding: 4px 8px; color: #a1a1aa; font-size: clamp(9px, 1.3cqw, 13px); cursor: pointer; }
 .circular-card { position: absolute; width: calc(var(--gallery-size) * 0.14); height: calc(var(--gallery-size) * 0.18); perspective: 1000px; cursor: pointer; border-radius: 12px; }
 .circular-card:hover, .circular-card:focus-visible { z-index: 3; }
 .circular-card-inner { display: block; position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 700ms; }
@@ -253,7 +253,7 @@ body.menu-open .chat-widget-button {
 .certificate-card-caption > a:first-child { text-decoration: none; }
 .certificate-card-caption strong { font-size: clamp(9px, 1.05cqw, 12px); }
 .certificate-card-caption > span { display: none; }
-.gallery-next-certificates { position: absolute; top: calc(100% + 36px); left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; padding: 8px; }
+.gallery-next-certificates { position: absolute; z-index: 5; top: 23%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; white-space: nowrap; padding: 8px; }
 .gallery-next-certificates:focus-visible { outline: 2px solid #818cf8; }
 
 .certificate-destination { scroll-margin-block: 150px 24px; }
