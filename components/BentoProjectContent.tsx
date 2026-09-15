@@ -19,9 +19,9 @@ export function ProjectMark({ project }: { project: BentoProject }) {
   return <Icon className="bento-project-mark" size={22} strokeWidth={1.5} aria-hidden="true" />;
 }
 const labels = {
-  NL: { problem: 'Het probleem', implementation: 'Mijn implementatie', highlights: 'Technische highlights', stack: 'Technologie', demo: 'Website', private: 'privé', image: 'Projectpreview' },
-  EN: { problem: 'The problem', implementation: 'My implementation', highlights: 'Technical highlights', stack: 'Technology', demo: 'Website', private: 'private', image: 'Project preview' },
-  DE: { problem: 'Das Problem', implementation: 'Meine Umsetzung', highlights: 'Technische Highlights', stack: 'Technologie', demo: 'Website', private: 'privat', image: 'Projektvorschau' },
+  NL: { problem: 'Het probleem', implementation: 'Mijn implementatie', highlights: 'Technische highlights', stack: 'Tech-Stack', demo: 'Website', private: 'privé', image: 'Projectpreview' },
+  EN: { problem: 'The problem', implementation: 'My implementation', highlights: 'Technical highlights', stack: 'Tech-Stack', demo: 'Website', private: 'private', image: 'Project preview' },
+  DE: { problem: 'Das Problem', implementation: 'Meine Umsetzung', highlights: 'Technische Highlights', stack: 'Tech-Stack', demo: 'Website', private: 'privat', image: 'Projektvorschau' },
 };
 export function BentoProjectDetails({ project }: { project: BentoProject }) {
   const { lang } = useLanguage();

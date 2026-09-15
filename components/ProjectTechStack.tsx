@@ -43,7 +43,7 @@ export function ProjectTechStack({ stack, tileId, id }: { stack: string[]; tileI
   }, [tileId, stack.length]);
   if (!position) return null;
   return createPortal(<div id={id} role="tooltip" className="bento-tech-tooltip" style={position}>
-    <span className="bento-tech-title">{lang === 'NL' ? 'Technologieën' : lang === 'DE' ? 'Technologien' : 'Technologies'}</span>
+    <span className="bento-tech-title">Tech-Stack</span>
     <ul>{stack.map(name => {
       const label = name === 'Curated regulatory sources' ? (lang === 'NL' ? 'Regelgevingsbronnen' : lang === 'DE' ? 'Regulatorische Quellen' : 'Regulatory sources') : name;
       return <li key={name}>{icons[name] && <span className="bento-tech-logo"><Image src={icons[name]} width={24} height={24} alt="" className={name === 'React Flow' || name === 'MailerLite' ? 'bento-tech-multitone' : undefined} unoptimized /></span>}<span>{label}</span></li>;

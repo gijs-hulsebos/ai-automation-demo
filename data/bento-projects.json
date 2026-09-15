@@ -16,10 +16,17 @@
       "Internal synchronization records GitHub commit activity and successful Vercel production deployments as evidence of practice."
     ],
     "stack": [
-      "Google Cloud",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Google Cloud Run",
+      "Firebase Authentication",
+      "Cloud Firestore",
+      "Google OAuth",
       "REST API",
-      "GitHub Actions",
-      "Vercel"
+      "Cloud Scheduler",
+      "GitHub REST API",
+      "Vercel API"
     ],
     "sources": [],
     "repository": null,
@@ -438,6 +445,11 @@
       "TypeScript",
       "Tailwind CSS",
       "Motion",
+      "Vercel",
+      "OpenRouter",
+      "Google Gemini",
+      "SkillMax+ REST API",
+      "Google Cloud (via SkillMax+)",
       "Python"
     ],
     "sources": [
