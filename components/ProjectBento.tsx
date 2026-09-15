@@ -212,7 +212,7 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                      <div>{project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
                         {project.size !== 'small' && <p>{project.tagline}</p>}
                       </div>
                     </motion.div>
@@ -292,3 +292,4 @@ export default function ProjectBento() {
     </LayoutGroup>
   );
 }
+

@@ -567,3 +567,4 @@ button.bento-category-icon { width: 20px; height: 20px; }
 .video-brand-play .aegix-expanded-logo { inset: 0; width: 100%; height: 100%; }
 .video-side-brand { position: absolute; inset: 0; pointer-events: none; }
 .interactive-bento:has(.tarvos-project-block[data-open="true"]) .skillmax-collapsed-logo { width: 52px; max-height: 48px; margin-bottom: 4px; }
+.techevents-collapsed-logo{display:block;width:min(100%,90px);height:auto;max-height:100px;margin:0 auto 16px}.bento-tile[data-project-id="events"] .bento-project-brand{text-align:center}
