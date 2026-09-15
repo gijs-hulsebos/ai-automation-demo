@@ -18,3 +18,15 @@ export function aggregateTechnologies(records:EvidenceRecord[]):TechnologyNode[]
  return [...nodes.values()].sort((a,b)=>b.strength-a.strength||a.name.localeCompare(b.name));
 }
 export function bubbleDiameter(strength:number){return 52+12*Math.sqrt(Math.min(25,Math.max(0,strength)));}
+
+// Area totals count independent sources once, even when several tools overlap.
+export function aggregateTechnologyAreas(records:EvidenceRecord[]):TechnologyNode[]{
+ const technologies=aggregateTechnologies(records);
+ return [...new Set(technologies.map(t=>t.group))].map(group=>{
+  const members=technologies.filter(t=>t.group===group);
+  const evidenceIds=[...new Set(members.flatMap(t=>t.evidenceIds))];
+  const counts:Record<Series,number>={theory:0,practice:0,exercises:0};
+  for(const id of evidenceIds){const record=records.find(r=>r.id===id);if(record)counts[record.series]++;}
+  return {id:group,name:group,group,counts,evidenceIds,moduleIds:[...new Set(members.flatMap(t=>t.moduleIds))],versions:[],strength:evidenceIds.length};
+ });
+}

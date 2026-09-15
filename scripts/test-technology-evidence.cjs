@@ -5,3 +5,8 @@ for(const n of ['NextJS','nextjs','Next.js','Next.js 15'])assert.equal(normalize
 const rows=[{id:'project:a',series:'practice',technologies:[{name:'Next.js',raw:'Next.js'},{name:'NextJS',raw:'NextJS'}]},{id:'course:a',series:'theory',technologies:[{name:'Next.js',raw:'Next.js',moduleId:'a'},{name:'Next.js',raw:'Next.js',moduleId:'b'}]}];
 const [n]=aggregateTechnologies([...rows,rows[0]]);assert.equal(n.strength,2);assert.equal(n.counts.practice,1);assert.equal(n.counts.theory,1);assert.equal(n.moduleIds.length,2);assert.equal(n.counts.exercises,0);assert(bubbleDiameter(500)<=112);
 console.log('PASS aliases, version metadata, exact names, overlapping mentions, unique records, module dedup and bounded size');
+const {aggregateTechnologyAreas}=load('lib/technology-evidence.ts');
+const areas=aggregateTechnologyAreas([...rows,{id:'project:a',series:'practice',technologies:[{name:'React',raw:'React'}]}]);
+assert.equal(areas.find(a=>a.id==='software').counts.practice,1);
+assert.equal(areas.find(a=>a.id==='software').counts.theory,1);
+console.log('PASS area dedup across multiple technologies in the same project');

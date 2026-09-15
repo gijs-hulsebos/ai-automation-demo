@@ -34,3 +34,7 @@ Review the preview on a physical touch device and check source-to-technology ass
 ## Review revision
 
 Following visual feedback, Tech Stack now uses a radar rather than bubbles. The toggle is centered in the panel header. Each technology is an axis, with the original three series colors and linear evidence counts. Up to ten technologies appear per page; group/search filters and pagination keep labels readable. Hover/tap and accessible technology buttons select the source inspector. The original evidence aggregation remains unchanged. The former bubble diameter helper is no longer used by the UI.
+
+## Area-axis correction
+
+Tech Stack axes now represent areas (Webdevelopment, No-code & Automation, AI & LLM, Cloud & Backend, API & Integration, Data, Security, DevOps / Delivery and populated Other). Concrete tools are listed inside the selected area's inspector. Area totals union source IDs, so using React and Next.js in one project still counts as one practice record for Webdevelopment. Pagination and per-technology axes have been removed. TypeScript, area deduplication and browser selection checks pass.
