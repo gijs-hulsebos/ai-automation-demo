@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import CircularGallery from '@/components/ui/circular-flip-card-gallery';
 import ProjectBento from '@/components/ProjectBento';
+import LearningRadar from '@/components/LearningRadar';
 
 export function Hero() {
   const { lang } = useLanguage();
@@ -23,6 +24,7 @@ export function Hero() {
         <h2 className="landing-project-section-label landing-certificate-section-label font-display"><Link href="/certificates">{INTERFACE[lang].certificates}</Link></h2>
         <CircularGallery />
       </div>
+      <LearningRadar />
     </section>
   );
 }
