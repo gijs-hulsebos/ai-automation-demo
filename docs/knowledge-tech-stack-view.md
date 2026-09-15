@@ -46,3 +46,7 @@ The radar now groups related implementation concerns into six areas: AI & Agents
 ## Content evidence linked
 
 Tech areas now union explicit technology evidence with the existing reviewed project domains and curriculum/module-derived domains from the shared source records. Brand-free workflow or cloud content therefore remains visible. Security/ethics course classification is not automatically treated as cloud implementation. Sources remain unique per area. Validation with the current live dataset: Cloud 12 theory / 14 practice, Automation 13 / 11, Data 12 / 14, Integration 1 / 16, Software 3 / 18, AI 32 / 10. Overall totals remain unchanged.
+
+## Chart-only revision
+
+Removed the added profile intro and project cards and restored the surrounding panel. Knowledge itself now has six axes: software and API integration are combined with source-ID deduplication. The radial scale is square-root with actual count labels (currently 2, 8, 18, 32), keeping zero at the center and preventing the AI count from compressing other areas. The methodology discloses this scale. Overall totals and source counts are preserved; no proficiency scores are added. Verified six axes, no added section and no mobile horizontal overflow.
