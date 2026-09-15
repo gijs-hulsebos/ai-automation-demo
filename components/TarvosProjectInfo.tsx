@@ -1,5 +1,6 @@
 "use client";
 
+import {tarvosStack,tarvosWebsiteStack} from '@/data/special-project-stacks';
 import { useLanguage } from '@/context/LanguageContext';
 
 import {content} from '@/data/tarvos-content';
@@ -19,8 +20,8 @@ export function TarvosProjectInfo() {
    <div className="bento-project-links"><a href="https://tarvos.tools/nodes/triton-1/" target="_blank" rel="noopener noreferrer">{text.tritonLink} ↗</a></div>
   </section>
   <section><h3>{text.boundary}</h3><p>{text.boundaryText}</p></section>
-  <section><h3>{text.stack}</h3><p>n8n · Python · TypeScript · Solana · USDC · x402 v2 · PayAI</p></section>
-  <section><h3>{text.websiteStack}</h3><p>Astro · React · TypeScript · Tailwind CSS · Framer Motion · Three.js · D3 · Vite</p></section>
+  <section><h3>{text.stack}</h3><p>{tarvosStack.join(' · ')}</p></section>
+  <section><h3>{text.websiteStack}</h3><p>{tarvosWebsiteStack.join(' · ')}</p></section>
   <div className="bento-project-links"><a href="https://github.com/TarvosTools/n8n-nodes-Tarvos-x402" target="_blank" rel="noopener noreferrer">{text.source} ↗</a><a href="https://tarvos.tools" target="_blank" rel="noopener noreferrer">tarvos.tools ↗</a></div>
  </div>;
 }
