@@ -518,5 +518,39 @@
     "live": null,
     "image": null,
     "private": false
+  },
+  {
+    "slot": "l", "id": "events",
+    "name": "Community Events",
+    "displayName": "Community Events",
+    "size": "large",
+    "tagline": "Hackathons & AI meetups",
+    "summary": "Discover hackathons and AI meetups, online and in the Netherlands and Belgium.",
+    "problem": "Community events are spread across many calendars and platforms.",
+    "implementation": "Built a filterable event dashboard with Firestore storage, a public read-only viewer and private owner selections.",
+    "highlights": [
+      "Filter by date, language, source and location.",
+      "Open registration at the organizer’s website.",
+      "Google Calendar links prefill the event name, available dates and location.",
+      "Private selections are protected by Google sign-in; visitors need no account."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Google Cloud Run",
+      "Cloud Firestore",
+      "Firebase Authentication",
+      "Google OAuth",
+      "REST API",
+      "Google Calendar"
+    ],
+    "sources": [],
+    "repository": null,
+    "live": "https://skillmax-135087328412.europe-west4.run.app/events/viewer",
+    "image": null,
+    "private": true
   }
 ]
+
+

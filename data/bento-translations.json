@@ -410,5 +410,31 @@
         "Interne Synchronisierung erfasst GitHub-Commits und erfolgreiche Vercel-Produktionsdeployments als Praxisnachweise."
       ]
     }
+  },
+  "events": {
+    "NL": {
+      "tagline": "Hackathons & AI-meetups",
+      "summary": "Ontdek hackathons en AI-meetups, online en in Nederland en België.",
+      "problem": "Community-evenementen staan verspreid over verschillende agenda’s en platforms.",
+      "implementation": "Een filterbaar evenementendashboard gebouwd met Firestore-opslag, een openbare viewer en privéselecties voor de eigenaar.",
+      "highlights": [
+        "Filter op datum, taal, bron en locatie.",
+        "Open de aanmelding op de website van de organisator.",
+        "Google Agenda-links vullen naam, beschikbare datums en locatie vooraf in.",
+        "Privéselecties zijn beschermd met Google-login; bezoekers hebben geen account nodig."
+      ]
+    },
+    "DE": {
+      "tagline": "Hackathons & KI-Meetups",
+      "summary": "Entdecke Hackathons und KI-Meetups, online sowie in den Niederlanden und Belgien.",
+      "problem": "Community-Veranstaltungen sind über verschiedene Kalender und Plattformen verteilt.",
+      "implementation": "Ein filterbares Veranstaltungsdashboard mit Firestore, öffentlicher Leseansicht und privaten Auswahlen erstellt.",
+      "highlights": [
+        "Nach Datum, Sprache, Quelle und Ort filtern.",
+        "Anmeldung auf der Website des Veranstalters öffnen.",
+        "Google-Kalender-Links füllen Namen, verfügbare Daten und Ort vorab aus.",
+        "Private Auswahlen sind durch Google-Anmeldung geschützt; Besucher benötigen kein Konto."
+      ]
+    }
   }
 }

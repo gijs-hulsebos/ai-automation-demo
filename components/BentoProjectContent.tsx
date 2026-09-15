@@ -12,7 +12,7 @@ export function localizeProject(project: BentoProject, lang: 'EN' | 'NL' | 'DE')
   return { ...project, ...translations[project.id as keyof typeof translations][lang], stack: project.stack.map(item => item === 'Curated regulatory sources' ? (lang === 'NL' ? 'Samengestelde regelgevingsbronnen' : 'Kuratierte regulatorische Quellen') : item) };
 }
 export const projectsBySlot = Object.fromEntries(projects.map(project => [project.slot, project]));
-const marks = { portfolio: Globe, acquisition: ChartNoAxesCombined, stayai: BedDouble, insurance: ShieldCheck, calendar: CalendarDays, newsletter: Newspaper, security: ScanSearch, donation: Wallet, mediagen: Workflow, pr: GitPullRequest, audio: FileAudio, compliance: Scale, repo: FolderTree };
+const marks = { events: CalendarDays, portfolio: Globe, acquisition: ChartNoAxesCombined, stayai: BedDouble, insurance: ShieldCheck, calendar: CalendarDays, newsletter: Newspaper, security: ScanSearch, donation: Wallet, mediagen: Workflow, pr: GitPullRequest, audio: FileAudio, compliance: Scale, repo: FolderTree };
 export function ProjectMark({ project }: { project: BentoProject }) {
   const Icon = marks[project.id as keyof typeof marks];
   if (!Icon) return null;
