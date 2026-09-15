@@ -11,7 +11,8 @@ import { DICTIONARY } from '@/data/dictionary';
 type Message = { 
   role: 'user' | 'assistant'; 
   content: string; 
-  unavailable?: boolean; 
+  unavailable?: boolean;
+  sources?: {label:string;url:string}[]; 
 };
 
 export function ChatWidget() {
@@ -22,6 +23,8 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: '', unavailable: true }
   ]);
+  const [busy,setBusy]=useState(false);
+  const copy={NL:{hello:'Vraag me naar Gijs zijn projecten, certificaten of leertraject. Ik gebruik openbare portfolio- en SkillMax+ gegevens.',status:'Portfolio-assistent · AI',loading:'Bronnen raadplegen…',error:'Het antwoorden is niet gelukt. Probeer het zo nog eens.'},EN:{hello:'Ask me about Gijs’s projects, certificates or learning journey. I use public portfolio and SkillMax+ data.',status:'Portfolio assistant · AI',loading:'Checking sources…',error:'Unable to answer right now. Please try again shortly.'},DE:{hello:'Frage mich nach Gijs’ Projekten, Zertifikaten oder Lernplan. Ich nutze öffentliche Portfolio- und SkillMax+ Daten.',status:'Portfolio-Assistent · KI',loading:'Quellen werden geprüft…',error:'Die Antwort ist momentan nicht verfügbar. Bitte versuche es erneut.'}}[lang];
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -37,14 +40,15 @@ export function ChatWidget() {
     }
   }, [messages, isOpen]);
 
-  // Local UI only: no network requests, session IDs or agent integration.
-  const handleSend = (text: string) => {
-    if (!text.trim()) return;
-    setMessages(previous => [...previous,
-      { role: 'user', content: text.trim() },
-      { role: 'assistant', content: '', unavailable: true },
-    ]);
-    setInput('');
+  const handleSend = async (text: string) => {
+    if (!text.trim() || busy) return;
+    const history=[...messages.filter(m=>!m.unavailable).map(({role,content})=>({role,content:content.slice(0,2000)})),{role:'user' as const,content:text.trim()}].slice(-5);
+    setMessages(previous=>[...previous,{role:'user',content:text.trim()}]);setInput('');setBusy(true);
+    try {
+      const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history}),signal:AbortSignal.timeout(60000)});
+      const data=await r.json();if(!r.ok)throw Error(data.error);
+      setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources}]);
+    }catch{setMessages(previous=>[...previous,{role:'assistant',content:copy.error,unavailable:true}])}finally{setBusy(false)}
   };
 
   return (
@@ -81,8 +85,8 @@ export function ChatWidget() {
                 <div>
                   <h3 className="text-sm font-medium text-white">{t.title}</h3>
                   <p className="text-xs text-zinc-400 flex items-center gap-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
-                    {ui.chatOfflineStatus}
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    {copy.status}
                   </p>
                 </div>
               </div>
@@ -109,12 +113,14 @@ export function ChatWidget() {
                       ? 'bg-white text-zinc-950 rounded-tr-sm' 
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
-                    {i === 0 || msg.unavailable ? ui.chatUnavailable : msg.content}
+                    <div className="whitespace-pre-wrap break-words">{i===0?copy.hello:msg.content}</div>
+                    {msg.sources&&<div className="mt-3 flex flex-wrap gap-2">{msg.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="underline text-xs text-sky-300">{source.label}</a>)}</div>}
 
 
                   </div>
                 </div>
               ))}
+              {busy&&<p role="status" className="text-sm text-zinc-400">{copy.loading}</p>}
               <div ref={messagesEndRef} />
             </div>
 
@@ -126,6 +132,8 @@ export function ChatWidget() {
               >
                 <input
                   type="text"
+                  maxLength={2000}
+                  disabled={busy}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={t.placeholder}
@@ -134,7 +142,7 @@ export function ChatWidget() {
                 <button
                   type="submit"
                   aria-label={ui.chatSend}
-                  disabled={!input.trim()}
+                  disabled={busy||!input.trim()}
                   className="absolute right-2 w-9 h-9 bg-white text-zinc-950 rounded-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:bg-zinc-200"
                 >
                   <Send size={14} className="ml-0.5" />
