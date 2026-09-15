@@ -18,5 +18,5 @@ assert.equal(result.totals.theory,34);
 assert.equal(result.totals.exercises,0);
 assert(result.axes.find(a=>a.key==='integration').evidence.some(e=>e.title==='Introduction to Model Context Protocol'&&e.detail.includes('Python')));
 assert(!result.axes.flatMap(a=>a.evidence).some(e=>e.series==='theory'&&e.title.includes('Specialization')));
-assert(!result.axes.find(a=>a.key==='cloud').evidence.some(e=>e.series==='theory'&&e.title==='Gemini in Gmail'));
+assert(result.axes.find(a=>a.key==='cloud').evidence.some(e=>e.series==='theory'&&e.title==='Gemini in Gmail'));
 console.log('PASS repository modules, exact completion dates, incomplete programs and no parent double counting');

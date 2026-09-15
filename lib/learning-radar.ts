@@ -39,14 +39,14 @@ export function buildRadar(input:PublicChart,catalog?:LearningCatalog):RadarData
  }
  if(catalog){
   // Course counts stay unique; modules supply classification evidence, not extra completions.
-  const rules:Record<Domain,RegExp>={cloud:/cloud infrastructure|cloud computing|cloud services|application modernization|containers|serverless|virtual machines|cloud storage/i,automation:/automat|workflow|productivity|workspace|gmail|google docs|google sheets|google drive|google meet|google slides/i,ai:/generative|language model|machine learning|neural|prompt|\bAI\b|artificial intelligence|MCP/i,integration:/MCP|model context protocol|client.server|\bAPI\b|SDK|tool calling|defining tools|application integration/i,software:/python|programming|code|coding|software|debug|application development|testing/i,data:/data|analytics|analysis|spreadsheets|machine learning|research/i,security:/security|privacy|governance|responsible|ethic|bias|fairness|regulat|risk|compliance|safety/i};
+  const rules:Record<Domain,RegExp>={cloud:/cloud infrastructure|cloud computing|cloud services|application modernization|containers|serverless|virtual machines|cloud storage|google workspace|gmail|google docs|google drive|google meet|google sheets|google slides|google vids/i,automation:/automat|workflow|productivity|workspace|gmail|google docs|google sheets|google drive|google meet|google slides/i,ai:/generative|language model|machine learning|neural|prompt|\bAI\b|artificial intelligence|MCP/i,integration:/MCP|model context protocol|client.server|\bAPI\b|SDK|tool calling|defining tools|application integration/i,software:/python|programming|code|coding|software|debug|application development|testing/i,data:/data|analytics|analysis|spreadsheets|machine learning|research/i,security:/security|privacy|governance|responsible|ethic|bias|fairness|regulat|risk|compliance|safety/i};
   for(const course of catalog.entries){
    if(course.kind!=='course'||course.status!=='completed'||!course.completedAt||course.completedAt<window.from||course.completedAt>window.to)continue;
    totals.theory++;
    const content=[...course.skills,...course.modules.flatMap(m=>[m.title,...m.topics])].join(' ');
    const targets=domains.filter(d=>rules[d].test(content));
    if(!targets.length)unclassifiedTheory++;
-   add(targets,{title:course.title,series:'theory',count:1,detail:'Behaald '+course.completedAt+' · '+course.modules.length+' modules. '+course.modules.map(m=>m.title+': '+m.topics.join(', ')).join('; '),url:course.url});
+   add(targets,{title:course.title,series:'theory',count:1,detail:(targets.includes('cloud')&&/workspace/i.test(content)?'Cloudplatform (Google Workspace / SaaS). ':'')+'Behaald '+course.completedAt+' · '+course.modules.length+' modules. '+course.modules.map(m=>m.title+': '+m.topics.join(', ')).join('; '),url:course.url});
   }
  }
  return {generatedAt:input.generatedAt,from:window.from,to:window.to,totals,unclassifiedTheory,axes};
