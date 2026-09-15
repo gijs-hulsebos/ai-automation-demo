@@ -46,7 +46,7 @@ export function buildRadar(input:PublicChart,catalog?:LearningCatalog):RadarData
    const content=[...course.skills,...course.modules.flatMap(m=>[m.title,...m.topics])].join(' ');
    const targets=domains.filter(d=>rules[d].test(content));
    if(!targets.length)unclassifiedTheory++;
-   add(targets,{title:course.title,series:'theory',count:1,detail:(targets.includes('cloud')&&/workspace/i.test(content)?'Cloudplatform (Google Workspace / SaaS). ':'')+'Behaald '+course.completedAt+' · '+course.modules.length+' modules. '+course.modules.map(m=>m.title+': '+m.topics.join(', ')).join('; '),url:course.url});
+   add(targets,{title:course.title,series:'theory',count:1,detail:(targets.includes('cloud')&&/workspace|gmail|google docs|google drive|google meet|google sheets|google slides|google vids/i.test(content)?'Cloudplatform (Google Workspace / SaaS). ':'')+'Behaald '+course.completedAt+' · '+course.modules.length+' modules. '+course.modules.map(m=>m.title+': '+m.topics.join(', ')).join('; '),url:course.url});
   }
  }
  return {generatedAt:input.generatedAt,from:window.from,to:window.to,totals,unclassifiedTheory,axes};
