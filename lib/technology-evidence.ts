@@ -19,9 +19,11 @@ export function aggregateTechnologies(records:EvidenceRecord[]):TechnologyNode[]
 }
 export function bubbleDiameter(strength:number){return 52+12*Math.sqrt(Math.min(25,Math.max(0,strength)));}
 
+// Portfolio-oriented areas combine related implementation concerns.
+export const technologyArea=(group:string,name?:string)=>({software:'software',ai:'ai',cloud:'cloud',delivery:'cloud',security:'cloud',automation:'automation',integration:'integration',data:'data',}[group]||(name&&['USDC','x402','PayAI'].includes(name)?'integration':'other'));
 // Area totals count independent sources once, even when several tools overlap.
 export function aggregateTechnologyAreas(records:EvidenceRecord[]):TechnologyNode[]{
- const technologies=aggregateTechnologies(records);
+ const technologies=aggregateTechnologies(records).map(t=>({...t,group:technologyArea(t.group,t.name)}));
  return [...new Set(technologies.map(t=>t.group))].map(group=>{
   const members=technologies.filter(t=>t.group===group);
   const evidenceIds=[...new Set(members.flatMap(t=>t.evidenceIds))];

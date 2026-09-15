@@ -38,3 +38,7 @@ Following visual feedback, Tech Stack now uses a radar rather than bubbles. The 
 ## Area-axis correction
 
 Tech Stack axes now represent areas (Webdevelopment, No-code & Automation, AI & LLM, Cloud & Backend, API & Integration, Data, Security, DevOps / Delivery and populated Other). Concrete tools are listed inside the selected area's inspector. Area totals union source IDs, so using React and Next.js in one project still counts as one practice record for Webdevelopment. Pagination and per-technology axes have been removed. TypeScript, area deduplication and browser selection checks pass.
+
+## Portfolio areas
+
+The radar now groups related implementation concerns into six areas: AI & Agents, Web & Apps, Cloud & Deployment, No-code & Workflows, API & Integrations, and Data & Tooling. Cloud includes deployment and authentication tools. Documented payment integration tools (USDC, x402, PayAI) join integrations; unknown tools remain unclassified rather than receiving inferred expertise. Unique source deduplication is unchanged.

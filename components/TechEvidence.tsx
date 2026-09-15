@@ -1,14 +1,14 @@
 'use client';
 import {useMemo,useState} from 'react';
 import type {EvidenceRecord,Series} from '@/lib/learning-radar';
-import {aggregateTechnologies,aggregateTechnologyAreas,type TechnologyNode} from '@/lib/technology-evidence';
+import {aggregateTechnologies,aggregateTechnologyAreas,technologyArea,type TechnologyNode} from '@/lib/technology-evidence';
 import './tech-evidence.css';
 const keys:Series[]=['theory','practice','exercises'];
 const colors=['#b69af5','#5b91f5','#59d6ca'];
-const groups:Record<string,string>={software:'Webdevelopment',ai:'AI & LLM',cloud:'Cloud & Backend',automation:'No-code & Automation',integration:'API & Integration',data:'Data',security:'Security',delivery:'DevOps / Delivery',other:'Other'};
+const groups:Record<string,string>={ai:'AI & Agents',software:'Web & Apps',cloud:'Cloud & Deployment',automation:'No-code & Workflows',integration:'API & Integrations',data:'Data & Tooling'};
 export default function TechEvidence({records,lang}:{records:EvidenceRecord[];lang:'NL'|'EN'|'DE'}){
- const technologies=useMemo(()=>aggregateTechnologies(records),[records]);
- const nodes=useMemo(()=>aggregateTechnologyAreas(records).map(n=>({...n,name:groups[n.group]||n.group})),[records]);
+ const technologies=useMemo(()=>aggregateTechnologies(records).map(t=>({...t,group:technologyArea(t.group,t.name)})),[records]);
+ const nodes=useMemo(()=>aggregateTechnologyAreas(records).sort((a,b)=>Object.keys(groups).indexOf(a.group)-Object.keys(groups).indexOf(b.group)).map(n=>({...n,name:groups[n.group]||n.group})),[records]);
  const [selected,setSelected]=useState<string|null>(null);
  const nl=lang==='NL',de=lang==='DE';const series=nl?['Theorie','Praktijk','Oefenen']:de?['Theorie','Praxis','Übungen']:['Theory','Practice','Exercises'];
  const axes=nodes;
