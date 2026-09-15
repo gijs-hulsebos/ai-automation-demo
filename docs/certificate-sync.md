@@ -39,3 +39,8 @@ Assets are written first, the manifest is atomically replaced last, and unrefere
 Provider branding is centralized in `data/provider-logos.ts`. Verified local logo paths can be added there. Until supplied, providers display as text; no logos or individual certificate cards are invented.
 
 Sixteen stable animation slots remain. At the invisible end of each orbit, the next certificate is assigned; the fixed portrait is separate. Pause/focus/touch stops both movement and replacement. Reduced-motion users can browse every certificate with the next-certificates button.
+
+## Curriculum metadata (September 15, 2026)
+The same immutable source snapshot now produces `public/learning-catalog.json`. README completion dates are parsed explicitly; only validated certificate PDFs can mark an entry completed. Program, course and module relationships retain the repository hierarchy. Module topics and outcomes are public source summaries, not inferred exercise completions. Missing dates remain unknown. A failed source read or date parse aborts publication.
+
+The existing SkillMax+ activity scheduler retrieves this published catalog and stores its version in Firestore (`skillmaxPrivate/learningCatalog`, compressed transactional storage). `/api/public/learning-catalog` serves only that public repository catalog. The dashboard and embedded overview include a searchable learning library. The annual radar classifies completed courses using their module topics and skills; program credentials are not counted a second time. Chart history uses README completion dates for repository certificates; original imported history is preserved in storage.

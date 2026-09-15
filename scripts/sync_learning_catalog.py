@@ -1,5 +1,6 @@
 """Import public curriculum metadata from the same immutable snapshot as certificates."""
 import json, re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import PurePosixPath
 from urllib.parse import quote
@@ -39,10 +40,11 @@ def build_catalog(commit, files, certificates):
     return {'schemaVersion':1,'repository':'gijs-hulsebos/Certificates','commit':commit,'entries':entries}
 
 def sync_catalog(root, commit, tree, certificates, fetch):
-    files=[]
-    for e in tree['tree']:
-        if e['type']=='blob' and e['path'].lower().endswith('.md'):
-            files.append({'path':e['path'],'text':fetch('https://raw.githubusercontent.com/gijs-hulsebos/Certificates/'+commit+'/'+quote(e['path'],safe='/')).decode('utf-8')})
+    paths=[e['path'] for e in tree['tree'] if e['type']=='blob' and e['path'].lower().endswith('.md')]
+    def read(path):
+        return {'path':path,'text':fetch('https://raw.githubusercontent.com/gijs-hulsebos/Certificates/'+commit+'/'+quote(path,safe='/')).decode('utf-8')}
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        files=list(pool.map(read,paths))
     result=build_catalog(commit,files,certificates)
     target=root/'public/learning-catalog.json'
     target.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

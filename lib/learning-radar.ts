@@ -1,3 +1,4 @@
+import type {LearningCatalog} from './learning-catalog';
 import projects from '@/data/bento-projects.json';
 import {profileDomains,projectProfile,profileReviewedOn,curriculumFor,type ProfileDomain} from '@/data/learning-profile';
 export const domains=profileDomains;
@@ -11,7 +12,7 @@ export type RadarData={generatedAt:string;from:string;to:string;totals:Record<Se
 export const theoryDomains=(title:string):Domain[]=>curriculumFor(title)?.domains||[];
 const count=(n:unknown)=>typeof n==='number'&&Number.isFinite(n)&&n>=0?n:0;
 const deploymentProject:Record<string,string>={'ai-automation-demo':'portfolio','repo-explorer':'repo','video-audio-extractor':'audio','insurance-demo-website-and-backend-workflow':'insurance','git-hub-pr-changes-extractor':'pr','security-audit-checker':'security','acquisition-gap-analyzer':'acquisition','stayai-demo':'stayai','tarvos-website':'tarvos','tarvos-website-lju1':'tarvos','aegix-restored-dashboard':'aegix','oracle-gateway':'hermes'};
-export function buildRadar(input:PublicChart):RadarData{
+export function buildRadar(input:PublicChart,catalog?:LearningCatalog):RadarData{
  if(input.schemaVersion!==1||input.audience!=='public'||!Array.isArray(input.windows?.['1Y']?.periods))throw Error('Invalid public learning source');
  const window=input.windows['1Y'],totals={theory:0,practice:0,exercises:0};
  const axes:RadarData['axes']=domains.map(key=>({key,theory:0,practice:0,exercises:0,evidence:[]}));
@@ -26,7 +27,7 @@ export function buildRadar(input:PublicChart):RadarData{
  let unclassifiedTheory=0;
  const seen=new Set<string>();
  for(const period of window.periods){
-   for(const event of period.theory.activities){
+   for(const event of catalog?[]:period.theory.activities){
      const key=event.title.trim().toLowerCase();
      if(key&&seen.has(key))continue;if(key)seen.add(key);
      const n=count(event.contributions??1),curriculum=curriculumFor(event.title);totals.theory+=n;
@@ -35,6 +36,18 @@ export function buildRadar(input:PublicChart):RadarData{
    // Public exercise records currently expose counts but no subject metadata.
    // Preserve the total; do not infer completed assignments from a syllabus.
    totals.exercises+=count(period.exercises.count);
+ }
+ if(catalog){
+  // Course counts stay unique; modules supply classification evidence, not extra completions.
+  const rules:Record<Domain,RegExp>={cloud:/cloud infrastructure|cloud computing|cloud services|application modernization|containers|serverless|virtual machines|cloud storage/i,automation:/automat|workflow|productivity|workspace|gmail|google docs|google sheets|google drive|google meet|google slides/i,ai:/generative|language model|machine learning|neural|prompt|\bAI\b|artificial intelligence|MCP/i,integration:/MCP|model context protocol|client.server|\bAPI\b|SDK|tool calling|defining tools|application integration/i,software:/python|programming|code|coding|software|debug|application development|testing/i,data:/data|analytics|analysis|spreadsheets|machine learning|research/i,security:/security|privacy|governance|responsible|ethic|bias|fairness|regulat|risk|compliance|safety/i};
+  for(const course of catalog.entries){
+   if(course.kind!=='course'||course.status!=='completed'||!course.completedAt||course.completedAt<window.from||course.completedAt>window.to)continue;
+   totals.theory++;
+   const content=[...course.skills,...course.modules.flatMap(m=>[m.title,...m.topics])].join(' ');
+   const targets=domains.filter(d=>rules[d].test(content));
+   if(!targets.length)unclassifiedTheory++;
+   add(targets,{title:course.title,series:'theory',count:1,detail:'Behaald '+course.completedAt+' · '+course.modules.length+' modules. '+course.modules.map(m=>m.title+': '+m.topics.join(', ')).join('; '),url:course.url});
+  }
  }
  return {generatedAt:input.generatedAt,from:window.from,to:window.to,totals,unclassifiedTheory,axes};
 }

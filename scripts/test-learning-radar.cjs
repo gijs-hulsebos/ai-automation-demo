@@ -10,3 +10,13 @@ assert.deepEqual(theoryDomains('Google Cloud Gemini in Google Sheets'),['ai','au
 assert.throws(()=>buildRadar({...source,audience:'owner'}));
 source.windows['1Y']={from:'2020-01-01',to:'2020-12-31',periods:[]};result=buildRadar(source);assert.equal(result.totals.practice,0);assert(result.axes.every(a=>a.theory===0&&a.practice===0&&a.exercises===0));
 console.log('PASS project deduplication, curriculum mapping, no issuer-derived cloud claims, unknown metadata, annual review window, public-only source, no synthetic exercise counts');
+
+const catalog=require('../public/learning-catalog.json');
+source.windows['1Y']={from:'2025-09-16',to:'2026-09-15',periods:[]};
+result=buildRadar(source,catalog);
+assert.equal(result.totals.theory,34);
+assert.equal(result.totals.exercises,0);
+assert(result.axes.find(a=>a.key==='integration').evidence.some(e=>e.title==='Introduction to Model Context Protocol'&&e.detail.includes('Python')));
+assert(!result.axes.flatMap(a=>a.evidence).some(e=>e.series==='theory'&&e.title.includes('Specialization')));
+assert(!result.axes.find(a=>a.key==='cloud').evidence.some(e=>e.series==='theory'&&e.title==='Gemini in Gmail'));
+console.log('PASS repository modules, exact completion dates, incomplete programs and no parent double counting');
