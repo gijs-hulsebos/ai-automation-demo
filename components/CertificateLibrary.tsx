@@ -7,6 +7,7 @@ import { Header } from '@/components/Header';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import manifest from '@/data/certificates.json';
+import curriculum from '@/public/learning-catalog.json';
 import { providerLogos } from '@/data/provider-logos';
 import { groupCertificates, type Certificate } from '@/lib/certificate-groups';
 
@@ -29,6 +30,9 @@ type Category = 'specializations' | 'courses' | 'practical';
 // Only explicit source-folder labels establish practical-course membership.
 const isPractical = (card: Certificate) => card.path.split('/').slice(1, -1).some(part => /^(practical courses?|praktijk[ -]?cursussen|praxiskurse|guided projects?)$/i.test(part.trim()));
 const grouped = groupCertificates(manifest.certificates);
+// Editorial priority requested by the portfolio owner; other groups keep their order.
+const featuredProgram='University of Pennsylvania (Wharton)/AI For Business Specialization';
+grouped.specializations.sort((a,b)=>Number(b.id===featuredProgram)-Number(a.id===featuredProgram));
 const courseEntries = [
   ...grouped.standalone.map(card => ({ card, context: '' })),
   ...grouped.specializations.flatMap(group => group.courses.map(card => ({ card, context: group.title }))),
@@ -53,7 +57,7 @@ export function CertificateLibrary() {
     const readDestination = () => {
       const id = new URLSearchParams(window.location.search).get('certificate');
       const card = manifest.certificates.find(item => item.id === id);
-      if (!card) return;
+      if (!card) { setCategory('specializations'); setRequestedId(''); return; }
       const award = grouped.specializations.some(group => group.certificates.some(item => item.id === id));
       setCategory(award ? 'specializations' : isPractical(card) ? 'practical' : 'courses');
       setQuery('');
@@ -72,7 +76,7 @@ export function CertificateLibrary() {
       target?.focus({ preventScroll: true });
     });
     return () => cancelAnimationFrame(frame);
-  }, [requestedId]);
+  }, [requestedId, category]);
   const terms = normalize(query).trim().split(/\s+/);
   const labels = groupCopy[lang];
   const matches = (card: Certificate, context = '') => (!provider || card.issuer === provider)
@@ -87,11 +91,18 @@ export function CertificateLibrary() {
   const total = categoryTotals[category];
   const clear = () => { setQuery(''); setProvider(''); };
 
+  function openCourse(card:Certificate) {
+    const url=new URL(window.location.href);url.searchParams.set('certificate',card.id);
+    window.history.pushState({},'',url);setQuery('');setProvider('');
+    setCategory(isPractical(card)?'practical':'courses');setRequestedId(card.id);
+  }
   function renderCourse(card: Certificate, context = '') {
+    const entry=curriculum.entries.find(e=>e.kind==='course'&&e.id===card.path.split('/').slice(0,-1).join('/'));
+
     const branding = providerLogos[card.issuer];
-    return <li key={card.id} id={`certificate-${card.id}`} tabIndex={-1} className="certificate-destination min-w-0 rounded-2xl">
+    return <li key={card.id} id={`certificate-${card.id}`} tabIndex={-1} className="certificate-destination flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/40">
       <a href={card.credential} target="_blank" rel="noopener noreferrer" aria-label={`${card.title} — ${card.issuer}. ${text.pdf}`}
-        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/40 transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400 motion-reduce:transition-none">
+        className="group flex flex-1 flex-col overflow-hidden transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400 motion-reduce:transition-none">
         <div className="relative aspect-[16/10] bg-[#f7f7f5]">
           <Image src={card.image} alt={card.title} fill unoptimized sizes="(max-width: 639px) 100vw, 400px" className="object-contain p-4" />
         </div>
@@ -102,6 +113,17 @@ export function CertificateLibrary() {
           <span className="mt-auto flex items-center justify-between gap-3 pt-6 text-sm text-zinc-300 group-hover:text-white">{INTERFACE[lang].viewCertificate}<ArrowUpRight aria-hidden="true" size={18} /></span>
         </div>
       </a>
+      {entry?.modules.length ? <details className="border-t border-white/10" open={requestedId===card.id?true:undefined}>
+        <summary className="cursor-pointer px-5 py-4 text-xs font-medium text-zinc-200 hover:bg-white/5">{lang==='NL'?'Onderliggende modules':lang==='DE'?'Kursmodule':'Course modules'} ({entry.modules.length})</summary>
+        <div className="space-y-4 px-5 pb-5">
+          {entry.completedAt&&<p className="text-xs text-zinc-400">{lang==='NL'?'Behaald':lang==='DE'?'Abgeschlossen':'Completed'}: {entry.completedAt.split('-').reverse().join('/')}</p>}
+          {entry.modules.map(module=><details key={module.id} className="rounded-lg border border-white/10 p-3">
+            <summary className="cursor-pointer text-sm text-zinc-200">{module.title}</summary>
+            <ul className="mt-3 list-disc space-y-1 pl-4 text-xs leading-relaxed text-zinc-400">{module.topics.map((topic,i)=><li key={i}>{topic}</li>)}</ul>
+            <a href={module.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex text-xs text-violet-300 hover:text-white">{lang==='NL'?'Modulebron':lang==='DE'?'Modulquelle':'Module source'} ↗</a>
+          </details>)}
+        </div>
+      </details>:null}
     </li>;
   }
 
@@ -168,7 +190,7 @@ export function CertificateLibrary() {
                 {group.visibleCourses.length > 0 && <details key={`${group.id}-${query}-${provider}`} open={query.trim() ? true : undefined} className="border-t border-white/10">
                   <summary className="cursor-pointer px-5 py-4 text-xs font-medium text-zinc-200 hover:bg-white/5 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-violet-400">{labels.courses} ({group.visibleCourses.length})</summary>
                   <ul className="space-y-3 px-5 pb-5">
-                    {group.visibleCourses.map(card => <li key={card.id}><a href={card.credential} target="_blank" rel="noopener noreferrer" aria-label={`${card.title}. ${text.pdf}`} className="flex items-start justify-between gap-3 text-sm leading-relaxed text-zinc-300 hover:text-white focus-visible:outline-2 focus-visible:outline-violet-400">{card.title}<ArrowUpRight size={14} className="mt-1 shrink-0" aria-hidden="true" /></a></li>)}
+                    {group.visibleCourses.map(card => <li key={card.id}><a href={`?certificate=${card.id}`} onClick={event=>{if(event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){event.preventDefault();openCourse(card)}}} aria-label={card.title} className="flex items-start justify-between gap-3 text-sm leading-relaxed text-zinc-300 hover:text-white focus-visible:outline-2 focus-visible:outline-violet-400">{card.title}<ArrowUpRight size={14} className="mt-1 shrink-0" aria-hidden="true" /></a></li>)}
                   </ul>
                 </details>}
               </li>;
