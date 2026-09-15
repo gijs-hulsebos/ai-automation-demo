@@ -173,9 +173,9 @@ export default function ProjectBento() {
               }}
             >
                   {category && !isExpanded && <ProjectCategoryBadge category={category} label={categoryLabels[lang][category]} id={`category-${id}`} open={categoryOpen === id} onOpenChange={open => { setCategoryOpen(open ? id : null); if (open) setHackathonOpen(null); }} />}
-                  {(isAegix || project?.id === 'skillmax') ? (
+                  {(isAegix || project?.id === 'skillmax' || project?.id === 'events') ? (
                     <BorderBeamPanel
-                      colors={[isAegix ? '#a5d8ff' : '#ef6b73']}
+                      colors={[project?.id === 'events' ? '#facc15' : isAegix ? '#a5d8ff' : '#ef6b73']}
                       beams={1}
                       thickness={2}
                       glow={false}

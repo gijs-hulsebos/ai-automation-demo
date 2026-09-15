@@ -3,10 +3,15 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import {Braces,BookOpen} from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 // Compact brand marks without the padding of the header wordmarks.
 const icons: Record<string, string> = {
+ 'Cloud Firestore':'/tech/firebase.svg','Firebase Authentication':'/tech/firebase.svg',
+ 'Google Cloud Run':'/tech/googlecloud.svg','Cloud Scheduler':'/tech/googlecloud.svg','Google Cloud (via SkillMax+)':'/tech/googlecloud.svg',
+ Vercel:'/tech/vercel.svg','Vercel API':'/tech/vercel.svg',Discord:'/tech/discord.svg',Markdown:'/tech/markdown.svg',
+
   'Hermes (Nous Research)': '/tech/hermes.svg',
   Motion: '/tech/framer.svg', Python: '/tech/python.svg',
   Astro: '/tech/astro.svg', 'Framer Motion': '/tech/framer.svg', 'Three.js': '/tech/threedotjs.svg', D3: '/tech/d3.svg',
@@ -46,7 +51,7 @@ export function ProjectTechStack({ stack, tileId, id }: { stack: string[]; tileI
     <span className="bento-tech-title">Tech-Stack</span>
     <ul>{stack.map(name => {
       const label = name === 'Curated regulatory sources' ? (lang === 'NL' ? 'Regelgevingsbronnen' : lang === 'DE' ? 'Regulatorische Quellen' : 'Regulatory sources') : name;
-      return <li key={name}>{icons[name] && <span className="bento-tech-logo"><Image src={icons[name]} width={24} height={24} alt="" className={name === 'React Flow' || name === 'MailerLite' ? 'bento-tech-multitone' : undefined} unoptimized /></span>}<span>{label}</span></li>;
+      return <li key={name}>{icons[name] ? <span className="bento-tech-logo"><Image src={icons[name]} width={24} height={24} alt="" className={name === 'React Flow' || name === 'MailerLite' ? 'bento-tech-multitone' : undefined} unoptimized /></span> : <span className="bento-tech-logo" aria-hidden="true">{name === 'Curated regulatory sources' ? <BookOpen size={24}/> : <Braces size={24}/>}</span>}<span>{label}</span></li>;
     })}</ul>
   </div>, document.body);
 }
