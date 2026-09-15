@@ -1,15 +1,12 @@
 const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),ts=require(path.join(root,'node_modules/typescript'));
-const code=ts.transpileModule(fs.readFileSync(path.join(root,'lib/learning-radar.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
-const m={exports:{}};new Function('exports','module',code)(m.exports,m);const {buildRadar,theoryDomain}=m.exports;
-const source={schemaVersion:1,audience:'public',generatedAt:'2026-09-15',windows:{'1Y':{from:'2025-09-16',to:'2026-09-15',periods:[{practice:{commits:5,segments:{hosting:{events:[{title:'Anonymous',contributions:3}]},cloud:{events:[{title:'Cloud setup'}]},buildmap:{events:[]}}},theory:{activities:[{title:'Google AI Fundamentals'},{title:'Unclassified course'}]},exercises:{count:2}}]}}};
-const result=buildRadar(source),get=k=>result.axes.find(a=>a.key===k);
-assert.equal(get('software').practice,5);assert.equal(get('hosting').practice,3);assert.equal(get('cloud').practice,1);assert.equal(get('ai').theory,1);assert.equal(get('other').theory,1);assert.equal(get('other').exercises,2);
-assert.equal(result.axes.reduce((n,a)=>n+a.practice,0),9);assert.equal(result.totals.practice,9);
-assert.throws(()=>buildRadar({...source,audience:'owner'}));assert.equal(theoryDomain('unknown'),'other');
-assert.equal(theoryDomain('Google Cloud Security'),'security');
-source.windows['1Y'].periods=[];assert(buildRadar(source).axes.every(a=>a.theory===0&&a.practice===0&&a.exercises===0));
-console.log('PASS: source counts, no double counting, title classification, unknown subjects, public-only projection, empty data.');
-
-source.windows['1Y'].periods=[{practice:{commits:0,segments:{hosting:{events:[{title:'security-audit-checker',contributions:4}]}}},theory:{activities:[{title:'Google Cloud Introduction to Generative AI'}]},exercises:{count:0}}];
-const overlap=buildRadar(source);assert.equal(overlap.totals.practice,4);assert.equal(overlap.totals.theory,1);assert.equal(overlap.axes.find(a=>a.key==='security').practice,4);assert.equal(overlap.axes.find(a=>a.key==='cloud').theory,1);assert.equal(overlap.axes.find(a=>a.key==='ai').theory,1);console.log('PASS overlapping directions preserve unique totals');
+function load(file){const code=ts.transpileModule(fs.readFileSync(path.join(root,file),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;const m={exports:{}};new Function('require','module','exports',code)(id=>id.startsWith('@/')?(id.endsWith('.json')?require(path.join(root,id.slice(2))):load(id.slice(2)+'.ts')):require(id),m,m.exports);return m.exports;}
+const {buildRadar,theoryDomains}=load('lib/learning-radar.ts');
+const source={schemaVersion:1,audience:'public',generatedAt:'2026-09-15',windows:{'1Y':{from:'2025-09-16',to:'2026-09-15',periods:[{practice:{commits:900,segments:{hosting:{events:Array.from({length:100},()=>({title:'security-audit-checker',contributions:1}))}}},theory:{activities:[{title:'Google AI for Data Analysis'},{title:'Google AI for Data Analysis'},{title:'Unknown course'}]},exercises:{count:2}}]}}};
+let result=buildRadar(source),get=k=>result.axes.find(a=>a.key===k);
+assert.equal(result.totals.practice,19);assert.equal(get('cloud').evidence.filter(e=>e.title==='Security Audit Checker').length,1);assert.equal(result.totals.theory,2);assert.equal(get('data').theory,1);assert.equal(result.unclassifiedTheory,1);assert.equal(result.totals.exercises,2);assert(result.axes.every(a=>a.exercises===0));
+assert(get('automation').evidence.some(e=>e.title==='AI Newsletter Engine'));assert(get('cloud').evidence.some(e=>e.title==='SkillMax+'));assert(get('integration').evidence.some(e=>e.title==='Tarvos'));
+assert.deepEqual(theoryDomains('Google Cloud Gemini in Google Sheets'),['ai','automation','data']);assert(!theoryDomains('Google Cloud Gemini in Google Sheets').includes('cloud'));
+assert.throws(()=>buildRadar({...source,audience:'owner'}));
+source.windows['1Y']={from:'2020-01-01',to:'2020-12-31',periods:[]};result=buildRadar(source);assert.equal(result.totals.practice,0);assert(result.axes.every(a=>a.theory===0&&a.practice===0&&a.exercises===0));
+console.log('PASS project deduplication, curriculum mapping, no issuer-derived cloud claims, unknown metadata, annual review window, public-only source, no synthetic exercise counts');
