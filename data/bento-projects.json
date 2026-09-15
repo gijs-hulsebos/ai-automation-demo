@@ -521,8 +521,8 @@
   },
   {
     "slot": "l", "id": "events",
-    "name": "Community Events",
-    "displayName": "Community Events",
+    "name": "TechEvents",
+    "displayName": "TechEvents",
     "size": "large",
     "tagline": "Hackathons & AI meetups",
     "summary": "Discover hackathons and AI meetups, online and in the Netherlands and Belgium.",
@@ -552,5 +552,6 @@
     "private": true
   }
 ]
+
 
 
