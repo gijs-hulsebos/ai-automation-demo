@@ -42,3 +42,7 @@ Tech Stack axes now represent areas (Webdevelopment, No-code & Automation, AI & 
 ## Portfolio areas
 
 The radar now groups related implementation concerns into six areas: AI & Agents, Web & Apps, Cloud & Deployment, No-code & Workflows, API & Integrations, and Data & Tooling. Cloud includes deployment and authentication tools. Documented payment integration tools (USDC, x402, PayAI) join integrations; unknown tools remain unclassified rather than receiving inferred expertise. Unique source deduplication is unchanged.
+
+## Content evidence linked
+
+Tech areas now union explicit technology evidence with the existing reviewed project domains and curriculum/module-derived domains from the shared source records. Brand-free workflow or cloud content therefore remains visible. Security/ethics course classification is not automatically treated as cloud implementation. Sources remain unique per area. Validation with the current live dataset: Cloud 12 theory / 14 practice, Automation 13 / 11, Data 12 / 14, Integration 1 / 16, Software 3 / 18, AI 32 / 10. Overall totals remain unchanged.

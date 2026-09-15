@@ -10,3 +10,10 @@ const areas=aggregateTechnologyAreas([...rows,{id:'project:a',series:'practice',
 assert.equal(areas.find(a=>a.id==='software').counts.practice,1);
 assert.equal(areas.find(a=>a.id==='software').counts.theory,1);
 console.log('PASS area dedup across multiple technologies in the same project');
+const contentRows=[{id:'workflow',series:'practice',domains:['automation','integration'],technologies:[]},{id:'cloud-course',series:'theory',domains:['cloud'],technologies:[]},{id:'ethics-course',series:'theory',domains:['security'],technologies:[]}];
+const contentAreas=aggregateTechnologyAreas(contentRows);
+assert.equal(contentAreas.find(a=>a.id==='automation').counts.practice,1);
+assert.equal(contentAreas.find(a=>a.id==='integration').counts.practice,1);
+assert.equal(contentAreas.find(a=>a.id==='cloud').counts.theory,1);
+assert(!contentAreas.some(a=>a.evidenceIds.includes('ethics-course')));
+console.log('PASS content without brand names, multi-area evidence, no ethics-to-cloud inference');
