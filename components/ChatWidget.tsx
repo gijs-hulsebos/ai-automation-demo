@@ -12,6 +12,7 @@ type Message = {
   role: 'user' | 'assistant'; 
   content: string; 
   unavailable?: boolean;
+  contact?: boolean;
   sources?: {label:string;url:string}[]; 
 };
 
@@ -23,6 +24,7 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: '', unavailable: true }
   ]);
+  const successfulReplies=useRef(0);
   const [busy,setBusy]=useState(false);
   const copy={NL:{hello:'Vraag me naar Gijs zijn projecten, certificaten of leertraject. Ik gebruik openbare portfolio- en SkillMax+ gegevens.',status:'Portfolio-assistent · AI',loading:'Bronnen raadplegen…',error:'Het antwoorden is niet gelukt. Probeer het zo nog eens.'},EN:{hello:'Ask me about Gijs’s projects, certificates or learning journey. I use public portfolio and SkillMax+ data.',status:'Portfolio assistant · AI',loading:'Checking sources…',error:'Unable to answer right now. Please try again shortly.'},DE:{hello:'Frage mich nach Gijs’ Projekten, Zertifikaten oder Lernplan. Ich nutze öffentliche Portfolio- und SkillMax+ Daten.',status:'Portfolio-Assistent · KI',loading:'Quellen werden geprüft…',error:'Die Antwort ist momentan nicht verfügbar. Bitte versuche es erneut.'}}[lang];
   const [input, setInput] = useState('');
@@ -42,12 +44,14 @@ export function ChatWidget() {
 
   const handleSend = async (text: string) => {
     if (!text.trim() || busy) return;
-    const history=[...messages.filter(m=>!m.unavailable).map(({role,content})=>({role,content:content.slice(0,2000)})),{role:'user' as const,content:text.trim()}].slice(-5);
+    const history=[...messages.filter(m=>!m.unavailable).map(({role,content})=>({role,content:content.slice(0,2000)})),{role:'user' as const,content:text.trim()}].slice(-9);
+    while(history.reduce((n,m)=>n+m.content.length,0)>12000)history.splice(0,2);
     setMessages(previous=>[...previous,{role:'user',content:text.trim()}]);setInput('');setBusy(true);
     try {
       const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history}),signal:AbortSignal.timeout(60000)});
       const data=await r.json();if(!r.ok)throw Error(data.error);
-      setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources}]);
+      successfulReplies.current++;
+      setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources,contact:successfulReplies.current%5===0}]);
     }catch{setMessages(previous=>[...previous,{role:'assistant',content:copy.error,unavailable:true}])}finally{setBusy(false)}
   };
 
@@ -114,6 +118,7 @@ export function ChatWidget() {
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
                     <div className="whitespace-pre-wrap break-words">{i===0?copy.hello:msg.content}</div>
+                    {msg.contact&&<div className="mt-4 border-t border-white/15 pt-3"><p>{({NL:'Gijs kan je hier met meer diepgang over vertellen. Wil je contact met hem opnemen?',EN:'Gijs can explain this in more depth. Would you like to get in touch?',DE:'Gijs kann dir dies ausführlicher erklären. Möchtest du Kontakt aufnehmen?'}[lang])}</p><div className="mt-3 flex flex-wrap gap-2"><a className="rounded-lg bg-white px-3 py-2 text-xs text-zinc-950" href="/contact">Contact</a><a className="rounded-lg border border-white/20 px-3 py-2 text-xs" href="https://linkedin.com/in/gijshulsebos" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>}
                     {msg.sources&&<div className="mt-3 flex flex-wrap gap-2">{msg.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="underline text-xs text-sky-300">{source.label}</a>)}</div>}
 
 
@@ -121,6 +126,7 @@ export function ChatWidget() {
                 </div>
               ))}
               {busy&&<p role="status" className="text-sm text-zinc-400">{copy.loading}</p>}
+              {messages.length===1&&<div className="flex flex-wrap gap-2">{({NL:[['Projecten','Welke projecten heeft Gijs gebouwd?'],['Certificaten','Welke certificaten heeft Gijs behaald?'],['Leertraject','Wat heeft Gijs geleerd en wat staat gepland?']],EN:[['Projects','Which projects has Gijs built?'],['Certificates','Which certificates has Gijs earned?'],['Learning journey','What has Gijs learned and what is planned?']],DE:[['Projekte','Welche Projekte hat Gijs gebaut?'],['Zertifikate','Welche Zertifikate hat Gijs erworben?'],['Lernpfad','Was hat Gijs gelernt und was ist geplant?']]}[lang]).map(([label,prompt])=><button key={label} disabled={busy} onClick={()=>void handleSend(prompt)} className="rounded-lg border border-white/20 px-3 py-2 text-xs text-white hover:bg-white/10">{label}</button>)}</div>}
               <div ref={messagesEndRef} />
             </div>
 
@@ -155,3 +161,4 @@ export function ChatWidget() {
     </>
   );
 }
+

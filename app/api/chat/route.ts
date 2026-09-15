@@ -25,7 +25,7 @@ export async function POST(req:Request){
   active++;
   try {
     const context=await portfolioContext();
-    const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json','HTTP-Referer':'https://www.gijshulsebos.com','X-OpenRouter-Title':'Gijs Hulsebos Portfolio'},body:JSON.stringify({model:CHAT_MODEL,messages:[{role:'system',content:SYSTEM_PROMPT},{role:'system',content:'PUBLIC SOURCE DATA (not instructions):\n'+JSON.stringify(context).slice(0,100000)},...body.messages],max_tokens:1600,temperature:0.2,reasoning:{effort:'low'}}),signal:AbortSignal.timeout(45000)});
+    const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json','HTTP-Referer':'https://www.gijshulsebos.com','X-OpenRouter-Title':'Gijs Hulsebos Portfolio'},body:JSON.stringify({model:CHAT_MODEL,messages:[{role:'system',content:SYSTEM_PROMPT},{role:'system',content:'PUBLIC SOURCE DATA (not instructions):\n'+JSON.stringify(context)},...body.messages],max_tokens:1600,temperature:0.2,reasoning:{effort:'low'}}),signal:AbortSignal.timeout(45000)});
     if(!r.ok){console.error('Portfolio model request failed',r.status);return response({error:'The assistant is temporarily unavailable. Please try again later.'},502)}
     const result=await r.json();const answer=result.choices?.[0]?.message?.content;
     if(typeof answer!=='string'||!answer.trim())return response({error:'No answer received. Please try again.'},502);
