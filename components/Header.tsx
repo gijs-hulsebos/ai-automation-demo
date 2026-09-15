@@ -128,7 +128,7 @@ export function Header() {
                   {carouselTechnologies.map(name => (
                     <div key={name} className="flex items-center justify-center gap-2 shrink-0">
                       {techIcons[name] ? <Image src={techIcons[name]} alt="" width={20} height={20}
-                        className="object-contain shrink-0" unoptimized
+                        className="object-contain shrink-0" loading="eager" unoptimized
                         style={{ width: 20, height: 20, filter: name === 'React Flow' || name === 'MailerLite' ? 'grayscale(1)' : 'grayscale(1) brightness(0) invert(.6)' }}
                       /> : <Braces size={20} className="text-zinc-400" aria-hidden="true" />}
                       <span className="text-xs font-medium text-zinc-400 whitespace-nowrap">{name}</span>
