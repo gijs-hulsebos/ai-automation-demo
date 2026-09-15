@@ -30,3 +30,7 @@ No Firestore schema, collections or writes are added. The existing cached public
 Existing radar regression tests and new technology tests pass, as does TypeScript checking. Browser checks confirmed unchanged totals across views, one initial radar request, 49 technology nodes in the current dataset, working selection and no horizontal overflow at 390px.
 
 Review the preview on a physical touch device and check source-to-technology assignments against project/course content. Dataset counts can change with the live source. Publication to main requires a separate merge decision.
+
+## Review revision
+
+Following visual feedback, Tech Stack now uses a radar rather than bubbles. The toggle is centered in the panel header. Each technology is an axis, with the original three series colors and linear evidence counts. Up to ten technologies appear per page; group/search filters and pagination keep labels readable. Hover/tap and accessible technology buttons select the source inspector. The original evidence aggregation remains unchanged. The former bubble diameter helper is no longer used by the UI.
