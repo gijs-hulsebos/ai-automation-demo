@@ -9,6 +9,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import { DICTIONARY } from '@/data/dictionary';
+import { Braces } from 'lucide-react';
+import projects from '@/data/bento-projects.json';
+import {techIcons, techAliases} from '@/data/tech-stack';
+
+// Keep established technologies and derive additions from the project records.
+const carouselTechnologies = Array.from(new Set([
+'OpenAI','Claude','Gemini','n8n','Supabase','Vercel','Python','Next.js','GitHub','Remotion',
+...projects.flatMap(project => project.stack),
+].filter(name => name !== 'Curated regulatory sources').map(name => techAliases[name] ?? name)));
 
 export function Header() {
   const pathname = usePathname();
@@ -113,37 +122,16 @@ export function Header() {
         <div aria-label={ui.technologies} className="absolute top-full inset-x-0 border-y border-white/5 bg-zinc-950/95 py-3">
           <div className="max-w-6xl mx-auto px-6">
           <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] group">
-            <div className="flex w-max animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused]">
+            <div className="flex w-max animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused]" style={{ animationDuration: `${carouselTechnologies.length * 4}s` }}>
               {[...Array(2)].map((_, i) => (
-                <div key={i} className="flex items-center gap-x-10 pr-10 shrink-0">
-                  {[
-                    { name: 'OpenAI', src: '/logo/OpenAI.svg', height: 32 },
-                    { name: 'Claude', src: '/logo/Claude.svg', height: 24 },
-                    { name: 'Gemini', src: '/logo/Gemini.svg', height: 36 },
-                    { name: 'n8n', src: '/logo/n8n.svg', height: 36 },
-                    { name: 'Supabase', src: '/logo/supabase.svg', height: 24 },
-                    { name: 'Vercel', src: '/logo/Vercel.svg', height: 24 },
-                    { name: 'Python', src: '/logo/Python.svg', height: 24 },
-                    { name: 'Next.js', src: '/logo/nextjs.svg', height: 24 },
-                    { name: 'GitHub', src: '/logo/Github.svg', height: 24 },
-                    { name: 'Remotion', src: '/logo/remotion.svg', height: 24 },
-                  ].map((logo) => (
-                    <div key={logo.name} className="flex items-center justify-center gap-2 shrink-0">
-                      <Image
-                        src={logo.src}
-                        alt={`${logo.name} logo`}
-                        width={0}
-                        height={20}
-                        sizes="100vw"
-                        className="w-auto object-contain"
-                        style={{ width: 'auto', height: '20px' }}
-                        priority
-                        unoptimized
-                        crossOrigin="anonymous"
-                      />
-                      <span className="text-xs font-medium text-zinc-400 whitespace-nowrap">
-                        {logo.name}
-                      </span>
+                <div key={i} aria-hidden={i === 1 ? true : undefined} data-tech-track={i} className="flex items-center gap-x-10 pr-10 shrink-0">
+                  {carouselTechnologies.map(name => (
+                    <div key={name} className="flex items-center justify-center gap-2 shrink-0">
+                      {techIcons[name] ? <Image src={techIcons[name]} alt="" width={20} height={20}
+                        className="object-contain shrink-0" unoptimized
+                        style={{ width: 20, height: 20, filter: name === 'React Flow' || name === 'MailerLite' ? 'grayscale(1)' : 'grayscale(1) brightness(0) invert(.6)' }}
+                      /> : <Braces size={20} className="text-zinc-400" aria-hidden="true" />}
+                      <span className="text-xs font-medium text-zinc-400 whitespace-nowrap">{name}</span>
                     </div>
                   ))}
                 </div>
