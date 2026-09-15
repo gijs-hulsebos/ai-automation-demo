@@ -32,7 +32,9 @@ export default function LearningRadar(){
   const locale=lang==='NL'?'nl-NL':lang==='DE'?'de-DE':'en-GB';
   const units=lang==='NL'?['cursusregistraties','portfolio-projecten','oefenregistraties']:lang==='DE'?['Kurseinträge','Portfolioprojekte','Übungseinträge']:['course records','portfolio projects','exercise records'];
   return <section id="learning-journey" className="learning-radar-section" aria-labelledby="learning-radar-title">
-    <div className="learning-radar-heading"><p className="learning-radar-eyebrow">SKILLMAX+ / {t.title}</p><h2 id="learning-radar-title">{t.headline}</h2><p>{t.intro}</p><Link href="/learning-trajectory">{t.open}<ArrowUpRight size={17}/></Link></div>
+    <div className="learning-radar-heading"><h2 id="learning-radar-title">{t.headline}</h2></div>
+    <div className="learning-radar-frame">
+      <h3 className="landing-project-section-label learning-radar-section-label font-display"><Link href="/learning-trajectory">{lang==='NL'?'Leerradar':lang==='DE'?'Lernradar':'Learning radar'}</Link></h3>
     <div className="learning-radar-panel">
       {!data?<p role="status" className="learning-radar-placeholder">{failed?t.error:t.loading}</p>:<>
         <div className="learning-radar-top"><span title={lang==='NL'?'Laatste geslaagde dashboardverzoek; latency is de gemeten ophaalduur, geen vertraging van GitHub/Vercel-sync.':'Last successful dashboard request; latency measures retrieval, not GitHub/Vercel sync delay.'}>{lang==='NL'?'Opgehaald':lang==='DE'?'Abgerufen':'Fetched'} {retrieval?.time.toLocaleTimeString(locale)} <span className="learning-radar-latency">· {retrieval?.ms} ms</span></span><Link href="/learning-trajectory" className="learning-radar-connected">{t.title}<ArrowUpRight size={13}/></Link></div>
@@ -47,6 +49,7 @@ export default function LearningRadar(){
         <div className="learning-radar-legend">{keys.map((k,s)=><button key={k} aria-pressed={enabled[s]} onClick={()=>setEnabled(v=>v.map((b,i)=>i===s?!b:b))}><i style={{background:colors[s]}}/>{t.series[s]}<span>{data.totals[k].toLocaleString(locale)}</span></button>)}</div>
         <div className="learning-radar-foot"><details><summary>{lang==='NL'?'Hoe wordt dit ingedeeld?':lang==='DE'?'Wie wird dies eingeordnet?':'How is this classified?'}</summary><p>{t.method}</p></details>{failed&&<p role="status">{t.stale}</p>}</div>
       </>}
+    </div>
     </div>
   </section>;
 }
