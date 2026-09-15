@@ -9,6 +9,7 @@ import urllib.request
 from urllib.parse import quote
 
 import pypdfium2 as pdfium
+from sync_learning_catalog import sync_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'gijs-hulsebos/Certificates'
@@ -86,6 +87,7 @@ def sync():
             certificates.append(record)
         if not certificates:
             raise RuntimeError('No valid certificates: preserving last successful data')
+        sync_catalog(ROOT, commit, tree, certificates, fetch)
         result = {'repository': REPO, 'commit': commit, 'rendererVersion': VERSION,
                   'certificates': certificates, 'skipped': skipped}
         # Publish previews before atomically replacing the only consumer entry point.

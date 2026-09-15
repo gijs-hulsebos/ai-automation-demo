@@ -1,0 +1,2353 @@
+{
+  "schemaVersion": 1,
+  "repository": "gijs-hulsebos/Certificates",
+  "commit": "0358851922e6c24cb8d1024d2155c04b6c2c371e",
+  "entries": [
+    {
+      "id": "Anthropic/Introduction to Model Context Protocol",
+      "title": "Introduction to Model Context Protocol",
+      "issuer": "Anthropic",
+      "kind": "course",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/README.md",
+      "summary": "Introduces the Model Context Protocol architecture and hands-on development of MCP servers and clients using tools, resources, and prompts.",
+      "skills": [
+        "Model Context Protocol",
+        "AI integrations",
+        "Tool calling",
+        "Python SDK"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Anthropic/Introduction to Model Context Protocol/Module 1 - Introduction.md",
+          "title": "Module 1 - Introduction",
+          "overview": "This module covers mcp purpose and architecture; clients and servers; client-server communication.",
+          "topics": [
+            "MCP purpose and architecture",
+            "clients and servers",
+            "client-server communication"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Module%201%20-%20Introduction.md"
+        },
+        {
+          "id": "Anthropic/Introduction to Model Context Protocol/Module 2 - Hands-on with MCP servers.md",
+          "title": "Module 2 - Hands-on with MCP servers",
+          "overview": "This module covers python project setup; defining tools; testing with mcp inspector.",
+          "topics": [
+            "Python project setup",
+            "defining tools",
+            "testing with MCP Inspector"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Module%202%20-%20Hands-on%20with%20MCP%20servers.md"
+        },
+        {
+          "id": "Anthropic/Introduction to Model Context Protocol/Module 3 - Connecting with MCP clients.md",
+          "title": "Module 3 - Connecting with MCP clients",
+          "overview": "This module covers client implementation; resources; prompts; complete application integration.",
+          "topics": [
+            "Client implementation",
+            "resources",
+            "prompts",
+            "complete application integration"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Module%203%20-%20Connecting%20with%20MCP%20clients.md"
+        },
+        {
+          "id": "Anthropic/Introduction to Model Context Protocol/Module 4 - Assessment and Wrap Up.md",
+          "title": "Module 4 - Assessment and Wrap Up",
+          "overview": "This module covers review of mcp concepts; applying client-server, tool, resource, and prompt knowledge.",
+          "topics": [
+            "Review of MCP concepts",
+            "applying client-server, tool, resource, and prompt knowledge"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Module%204%20-%20Assessment%20and%20Wrap%20Up.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Anthropic/Introduction%20to%20Model%20Context%20Protocol/Introduction%20to%20Model%20Context%20Protocol%20-%20Coursera%200T1UB7FHM21J.pdf"
+    },
+    {
+      "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization",
+      "title": "Digital Transformation Using AI and ML with Google Cloud Specialization",
+      "issuer": "Google Cloud",
+      "kind": "program",
+      "parentId": null,
+      "status": "documented",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "A program on cloud-enabled business transformation, infrastructure modernization, and application modernization.",
+      "skills": [
+        "Digital transformation",
+        "Cloud infrastructure",
+        "Application modernization",
+        "Google Cloud"
+      ],
+      "note": "The repository currently contains the two completed course credentials shown below. The overarching program certificate is not present.",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/README.md",
+      "credential": null
+    },
+    {
+      "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Digital Transformation with Google Cloud",
+      "title": "Digital Transformation with Google Cloud",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/README.md",
+      "summary": "Introduces cloud technology, digital transformation, deployment models, service models, and shared responsibility.",
+      "skills": [
+        "Digital transformation",
+        "Cloud computing",
+        "Cloud services",
+        "Google Cloud"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Digital Transformation with Google Cloud/Module 1 - Why cloud technology is transforming business.md",
+          "title": "Module 1 - Why cloud technology is transforming business",
+          "overview": "This module covers cloud and digital-transformation terms; deployment strategies; benefits and challenges.",
+          "topics": [
+            "Cloud and digital-transformation terms",
+            "deployment strategies",
+            "benefits and challenges"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/Module%201%20-%20Why%20cloud%20technology%20is%20transforming%20business.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Digital Transformation with Google Cloud/Module 2 - Fundamental cloud concepts.md",
+          "title": "Module 2 - Fundamental cloud concepts",
+          "overview": "This module covers networking; google's global infrastructure; iaas, paas, and saas; shared responsibility.",
+          "topics": [
+            "Networking",
+            "Google's global infrastructure",
+            "IaaS, PaaS, and SaaS",
+            "shared responsibility"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/Module%202%20-%20Fundamental%20cloud%20concepts.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Digital Transformation with Google Cloud/Module 3 - Course summary.md",
+          "title": "Module 3 - Course summary",
+          "overview": "This module covers review of the course's principal cloud and transformation concepts.",
+          "topics": [
+            "Review of the course's principal cloud and transformation concepts"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/Module%203%20-%20Course%20summary.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Digital Transformation with Google Cloud/Module 4 - Course resources.md",
+          "title": "Module 4 - Course resources",
+          "overview": "This module covers course study guide and supporting resources.",
+          "topics": [
+            "Course study guide and supporting resources"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/Module%204%20-%20Course%20resources.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Digital%20Transformation%20with%20Google%20Cloud/Digital%20Transformation%20with%20Google%20Cloud%20-%20Coursera%20ID5L1XRO99U4.pdf"
+    },
+    {
+      "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Modernize Infrastructure and Applications with Google Cloud",
+      "title": "Modernize Infrastructure and Applications with Google Cloud",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/README.md",
+      "summary": "Explores cloud migration, infrastructure choices, cloud-native application development, and APIs as modernization tools.",
+      "skills": [
+        "Cloud migration",
+        "Cloud infrastructure",
+        "Cloud-native applications",
+        "APIs"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Modernize Infrastructure and Applications with Google Cloud/Module 1 - Fundamentals of modernization.md",
+          "title": "Module 1 - Fundamentals of modernization",
+          "overview": "This module covers migration terminology; elastic cloud models; financial and operational impact.",
+          "topics": [
+            "Migration terminology",
+            "elastic cloud models",
+            "financial and operational impact"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/Module%201%20-%20Fundamentals%20of%20modernization.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Modernize Infrastructure and Applications with Google Cloud/Module 2 - Modernizing infrastructure in the cloud.md",
+          "title": "Module 2 - Modernizing infrastructure in the cloud",
+          "overview": "This module covers virtual machines, containers, and serverless; hybrid and multicloud management.",
+          "topics": [
+            "Virtual machines, containers, and serverless",
+            "hybrid and multicloud management"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/Module%202%20-%20Modernizing%20infrastructure%20in%20the%20cloud.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Modernize Infrastructure and Applications with Google Cloud/Module 3 - Modernizing apps in the cloud.md",
+          "title": "Module 3 - Modernizing apps in the cloud",
+          "overview": "This module covers cloud-native development; migration paths; apis and apigee.",
+          "topics": [
+            "Cloud-native development",
+            "migration paths",
+            "APIs and Apigee"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/Module%203%20-%20Modernizing%20apps%20in%20the%20cloud.md"
+        },
+        {
+          "id": "Google Cloud/Digital Transformation Using AI and ML with Google Cloud Specialization/Modernize Infrastructure and Applications with Google Cloud/Module 4 - Course summary.md",
+          "title": "Module 4 - Course summary",
+          "overview": "This module covers review of infrastructure and application modernization concepts.",
+          "topics": [
+            "Review of infrastructure and application modernization concepts"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/Module%204%20-%20Course%20summary.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Digital%20Transformation%20Using%20AI%20and%20ML%20with%20Google%20Cloud%20Specialization/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud/Modernize%20Infrastructure%20and%20Applications%20with%20Google%20Cloud%20-%20Coursera%209D8T3ZSD484R.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization",
+      "title": "Google Workspace with Gemini Specialization",
+      "issuer": "Google Cloud",
+      "kind": "program",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/README.md",
+      "summary": "A practical program for applying Gemini across Gmail, Docs, Drive, Meet, Sheets, Slides, and Google Vids.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted communication",
+        "Document and data productivity",
+        "Video creation"
+      ],
+      "note": "The archived March 2026 credential verifies the eight completed courses in this repository. Coursera later expanded the live program to nine courses, including Gemini in Google Chat, and renamed the foundations course; those later catalog changes do not alter the archived credential.",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Google%20Workspace%20with%20Gemini%20Coursera%206A9GRRBW81WM.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Create Engaging Video with Google Vids",
+      "title": "Create Engaging Video with Google Vids",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Create%20Engaging%20Video%20with%20Google%20Vids/README.md",
+      "summary": "Introduces planning, creating, and refining workplace videos with Google Vids.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Create Engaging Video with Google Vids/Module 1 - Create Engaging Video with Google Vids.md",
+          "title": "Module 1 - Create Engaging Video with Google Vids",
+          "overview": "This module covers core create engaging video with google vids workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Create Engaging Video with Google Vids workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Create%20Engaging%20Video%20with%20Google%20Vids/Module%201%20-%20Create%20Engaging%20Video%20with%20Google%20Vids.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Create%20Engaging%20Video%20with%20Google%20Vids/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Create%20Engaging%20Video%20with%20Google%20Vids/Google%20Cloud%20Create%20Engaging%20Video%20with%20Google%20Vids%20Coursera%201EI6S38PUKSM.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Gmail",
+      "title": "Gemini in Gmail",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Gmail/README.md",
+      "summary": "Applies Gemini to drafting, summarizing, and managing email work in Gmail.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Gmail/Module 1 - Gemini in Gmail.md",
+          "title": "Module 1 - Gemini in Gmail",
+          "overview": "This module covers core gemini in gmail workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Gmail workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Gmail/Module%201%20-%20Gemini%20in%20Gmail.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Gmail/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Gmail/Google%20Cloud%20Gemini%20in%20Gmail%20Coursera%20BW236SBRBY31.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Docs",
+      "title": "Gemini in Google Docs",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Docs/README.md",
+      "summary": "Applies Gemini to drafting, revising, and organizing documents in Google Docs.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Docs/Module 1 - Gemini in Google Docs.md",
+          "title": "Module 1 - Gemini in Google Docs",
+          "overview": "This module covers core gemini in google docs workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Google Docs workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Docs/Module%201%20-%20Gemini%20in%20Google%20Docs.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Docs/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Docs/Google%20Cloud%20Gemini%20in%20Google%20Docs%20Coursera%20ZKRGIO4T70KX.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Drive",
+      "title": "Gemini in Google Drive",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Drive/README.md",
+      "summary": "Uses Gemini to locate, summarize, and work with information stored in Google Drive.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Drive/Module 1 - Gemini in Google Drive.md",
+          "title": "Module 1 - Gemini in Google Drive",
+          "overview": "This module covers core gemini in google drive workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Google Drive workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Drive/Module%201%20-%20Gemini%20in%20Google%20Drive.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Drive/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Drive/Google%20Cloud%20Gemini%20in%20Google%20Drive%20Coursera%201J9LNOSBAYUB.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Meet",
+      "title": "Gemini in Google Meet",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Meet/README.md",
+      "summary": "Explores Gemini-supported meeting preparation, participation, and follow-up in Google Meet.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Meet/Module 1 - Gemini in Google Meet.md",
+          "title": "Module 1 - Gemini in Google Meet",
+          "overview": "This module covers core gemini in google meet workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Google Meet workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Meet/Module%201%20-%20Gemini%20in%20Google%20Meet.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Meet/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Meet/Google%20Cloud%20Gemini%20in%20Google%20Meet%20Coursera%20J3XWSC4VEDDG.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Sheets",
+      "title": "Gemini in Google Sheets",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Sheets/README.md",
+      "summary": "Uses Gemini to organize, analyze, and communicate spreadsheet data in Google Sheets.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Sheets/Module 1 - Gemini in Google Sheets.md",
+          "title": "Module 1 - Gemini in Google Sheets",
+          "overview": "This module covers core gemini in google sheets workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Google Sheets workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Sheets/Module%201%20-%20Gemini%20in%20Google%20Sheets.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Sheets/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Sheets/Google%20Cloud%20Gemini%20in%20Google%20Sheets%20Coursera%20YDG03S612K7V.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Slides",
+      "title": "Gemini in Google Slides",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Slides/README.md",
+      "summary": "Uses Gemini to create and refine presentation content in Google Slides.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Gemini in Google Slides/Module 1 - Gemini in Google Slides.md",
+          "title": "Module 1 - Gemini in Google Slides",
+          "overview": "This module covers core gemini in google slides workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Gemini in Google Slides workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Slides/Module%201%20-%20Gemini%20in%20Google%20Slides.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Slides/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Gemini%20in%20Google%20Slides/Google%20Cloud%20Gemini%20in%20Google%20Slides%20Coursera%20U6HCQSHQTFH4.pdf"
+    },
+    {
+      "id": "Google Cloud/Google Workspace with Gemini Specialization/Introduction to Google Workspace with Gemini",
+      "title": "Introduction to Google Workspace with Gemini",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Google Workspace with Gemini Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-28",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Introduction%20to%20Google%20Workspace%20with%20Gemini/README.md",
+      "summary": "Introduces Gemini capabilities across Google Workspace and the foundations of an AI-assisted workflow.",
+      "skills": [
+        "Google Workspace",
+        "Gemini",
+        "AI-assisted productivity"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Google Workspace with Gemini Specialization/Introduction to Google Workspace with Gemini/Module 1 - Google Workspace with Gemini - Foundations of Your AI Workflow.md",
+          "title": "Module 1 - Google Workspace with Gemini - Foundations of Your AI Workflow",
+          "overview": "This module covers core google workspace with gemini: foundations of your ai workflow workflows; ai-assisted productivity; review and refinement.",
+          "topics": [
+            "Core Google Workspace with Gemini: Foundations of Your AI Workflow workflows",
+            "AI-assisted productivity",
+            "review and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Introduction%20to%20Google%20Workspace%20with%20Gemini/Module%201%20-%20Google%20Workspace%20with%20Gemini%20-%20Foundations%20of%20Your%20AI%20Workflow.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Introduction%20to%20Google%20Workspace%20with%20Gemini/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Google%20Workspace%20with%20Gemini%20Specialization/Introduction%20to%20Google%20Workspace%20with%20Gemini/Google%20Cloud%20Introduction%20to%20Google%20Workspace%20with%20Gemini%20Coursera%20JUJWOA355KZB.pdf"
+    },
+    {
+      "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization",
+      "title": "Introduction to Generative AI Learning Path Specialization",
+      "issuer": "Google Cloud",
+      "kind": "program",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-04-05",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/README.md",
+      "summary": "A learning path covering generative AI, large language models, responsible AI, and the operational application of AI principles.",
+      "skills": [
+        "Generative AI",
+        "Large language models",
+        "Responsible AI",
+        "AI governance"
+      ],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Google%20Cloud%20Introduction%20to%20Generative%20AI%20Learning%20Path%20Coursera%20ATFILWOEJURF.pdf"
+    },
+    {
+      "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Generative AI",
+      "title": "Introduction to Generative AI",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Introduction to Generative AI Learning Path Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-31",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Generative%20AI/README.md",
+      "summary": "Introduces generative AI, how it differs from traditional machine learning, common model types, and Google Cloud tools for generative-AI development.",
+      "skills": [
+        "Generative AI",
+        "Artificial intelligence",
+        "Deep learning",
+        "Prompt engineering"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Generative AI/Module 1 - Introduction to Generative AI.md",
+          "title": "Module 1 - Introduction to Generative AI",
+          "overview": "This module covers generative ai in the ai and ml landscape; model types; transformers, prompts, and applications.",
+          "topics": [
+            "Generative AI in the AI and ML landscape",
+            "model types",
+            "transformers, prompts, and applications"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Generative%20AI/Module%201%20-%20Introduction%20to%20Generative%20AI.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Generative%20AI/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Generative%20AI/Google%20Cloud%20Introduction%20to%20Generative%20AI%20Coursera%202EZC5LHKU9KA.pdf"
+    },
+    {
+      "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Large Language Models",
+      "title": "Introduction to Large Language Models",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Introduction to Generative AI Learning Path Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-31",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Large%20Language%20Models/README.md",
+      "summary": "Explains large language models, their use cases, prompt tuning, and Google tools for generative-AI development.",
+      "skills": [
+        "Large language models",
+        "Prompt tuning",
+        "Generative AI",
+        "AI development tools"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Large Language Models/Module 1 - Introduction to Large Language Models.md",
+          "title": "Module 1 - Introduction to Large Language Models",
+          "overview": "This module covers llm foundations; use cases; prompt tuning; google generative-ai development tools.",
+          "topics": [
+            "LLM foundations",
+            "use cases",
+            "prompt tuning",
+            "Google generative-AI development tools"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Large%20Language%20Models/Module%201%20-%20Introduction%20to%20Large%20Language%20Models.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Large%20Language%20Models/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Large%20Language%20Models/Google%20Cloud%20Introduction%20to%20Large%20Language%20Models%20Coursera%20DKFPN0J87QIC.pdf"
+    },
+    {
+      "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Responsible AI",
+      "title": "Introduction to Responsible AI",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Introduction to Generative AI Learning Path Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-31",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Responsible%20AI/README.md",
+      "summary": "Introduces responsible AI, its organizational importance, and Google's approach to applying AI principles in products.",
+      "skills": [
+        "Responsible AI",
+        "AI principles",
+        "AI governance",
+        "Artificial intelligence"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Introduction to Responsible AI/Module 1 - Introduction to Responsible AI.md",
+          "title": "Module 1 - Introduction to Responsible AI",
+          "overview": "This module covers responsible-ai foundations; organizational need; google ai principles and implementation.",
+          "topics": [
+            "Responsible-AI foundations",
+            "organizational need",
+            "Google AI principles and implementation"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Responsible%20AI/Module%201%20-%20Introduction%20to%20Responsible%20AI.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Responsible%20AI/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Introduction%20to%20Responsible%20AI/Google%20Cloud%20Introduction%20to%20Responsible%20AI%20Coursera%20ZI74DZ55V74T.pdf"
+    },
+    {
+      "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud",
+      "title": "Responsible AI - Applying AI Principles with Google Cloud",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": "Google Cloud/Introduction to Generative AI Learning Path Specialization",
+      "status": "completed",
+      "completedAt": "2026-04-05",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/README.md",
+      "summary": "Presents the business case, ethical considerations, governance practices, and operational processes for responsible AI.",
+      "skills": [
+        "Responsible AI",
+        "Data ethics",
+        "Business ethics",
+        "Accountability"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 1 - Introduction.md",
+          "title": "Module 1 - Introduction",
+          "overview": "This module covers impact of ai; google's responsible-ai approach; google ai principles.",
+          "topics": [
+            "Impact of AI",
+            "Google's responsible-AI approach",
+            "Google AI Principles"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%201%20-%20Introduction.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 2 - The Business Case for Responsible AI.md",
+          "title": "Module 2 - The Business Case for Responsible AI",
+          "overview": "This module covers ethics by design; responsible innovation; business value.",
+          "topics": [
+            "Ethics by design",
+            "responsible innovation",
+            "business value"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%202%20-%20The%20Business%20Case%20for%20Responsible%20AI.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 3 - AI Technical Considerations and Ethical Concerns.md",
+          "title": "Module 3 - AI Technical Considerations and Ethical Concerns",
+          "overview": "This module covers technical considerations; ethical dilemmas; generative-ai concerns.",
+          "topics": [
+            "Technical considerations",
+            "ethical dilemmas",
+            "generative-AI concerns"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%203%20-%20AI%20Technical%20Considerations%20and%20Ethical%20Concerns.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 4 - Creating AI Principles.md",
+          "title": "Module 4 - Creating AI Principles",
+          "overview": "This module covers developing ai principles; ethical issue spotting; ethical aims.",
+          "topics": [
+            "Developing AI principles",
+            "ethical issue spotting",
+            "ethical aims"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%204%20-%20Creating%20AI%20Principles.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 5 - Operationalizing AI Principles - Setting Up and Running Reviews.md",
+          "title": "Module 5 - Operationalizing AI Principles - Setting Up and Running Reviews",
+          "overview": "This module covers ai governance; review processes; responsible-ai case studies.",
+          "topics": [
+            "AI governance",
+            "review processes",
+            "responsible-AI case studies"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%205%20-%20Operationalizing%20AI%20Principles%20-%20Setting%20Up%20and%20Running%20Reviews.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 6 - Operationalizing AI Principles - Issue Spotting and Lessons Learned.md",
+          "title": "Module 6 - Operationalizing AI Principles - Issue Spotting and Lessons Learned",
+          "overview": "This module covers issue spotting; potential benefits and harms; challenges and best practices.",
+          "topics": [
+            "Issue spotting",
+            "potential benefits and harms",
+            "challenges and best practices"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%206%20-%20Operationalizing%20AI%20Principles%20-%20Issue%20Spotting%20and%20Lessons%20Learned.md"
+        },
+        {
+          "id": "Google Cloud/Introduction to Generative AI Learning Path Specialization/Responsible AI - Applying AI Principles with Google Cloud/Module 7 - Continuing the Journey Towards Responsible AI.md",
+          "title": "Module 7 - Continuing the Journey Towards Responsible AI",
+          "overview": "This module covers next steps; responsible-ai resources; continued practice.",
+          "topics": [
+            "Next steps",
+            "responsible-AI resources",
+            "continued practice"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Module%207%20-%20Continuing%20the%20Journey%20Towards%20Responsible%20AI.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Introduction%20to%20Generative%20AI%20Learning%20Path%20Specialization/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud/Responsible%20AI%20-%20Applying%20AI%20Principles%20with%20Google%20Cloud%20-%20Coursera%201NC867P849EN.pdf"
+    },
+    {
+      "id": "Google Cloud/Misc Certificates/Introduction to Security in the World of AI",
+      "title": "Introduction to Security in the World of AI",
+      "issuer": "Google Cloud",
+      "kind": "course",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-30",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/README.md",
+      "summary": "Introduces AI-security risks and Google's Secure AI Framework for protecting data, infrastructure, and AI systems.",
+      "skills": [
+        "AI security",
+        "Security strategy",
+        "Data security",
+        "Responsible AI"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google Cloud/Misc Certificates/Introduction to Security in the World of AI/Module 1 - The What and Why of AI Security.md",
+          "title": "Module 1 - The What and Why of AI Security",
+          "overview": "This module covers why ai security matters; ai foundations; data flows and system boundaries.",
+          "topics": [
+            "Why AI security matters",
+            "AI foundations",
+            "data flows and system boundaries"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/Module%201%20-%20The%20What%20and%20Why%20of%20AI%20Security.md"
+        },
+        {
+          "id": "Google Cloud/Misc Certificates/Introduction to Security in the World of AI/Module 2 - Creating a Secure AI Framework.md",
+          "title": "Module 2 - Creating a Secure AI Framework",
+          "overview": "This module covers ai threats; secure foundations; the six elements of saif; industry use cases.",
+          "topics": [
+            "AI threats",
+            "secure foundations",
+            "the six elements of SAIF",
+            "industry use cases"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/Module%202%20-%20Creating%20a%20Secure%20AI%20Framework.md"
+        },
+        {
+          "id": "Google Cloud/Misc Certificates/Introduction to Security in the World of AI/Module 3 - Conclusion.md",
+          "title": "Module 3 - Conclusion",
+          "overview": "This module covers review of key concepts; resources for continued ai-security work.",
+          "topics": [
+            "Review of key concepts",
+            "resources for continued AI-security work"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/Module%203%20-%20Conclusion.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google%20Cloud/Misc%20Certificates/Introduction%20to%20Security%20in%20the%20World%20of%20AI/Google%20Cloud%20Introduction%20to%20Security%20in%20the%20World%20of%20AI%20Coursera%2069ZJQ4E3IT9F.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate",
+      "title": "Google AI Professional Certificate",
+      "issuer": "Google",
+      "kind": "program",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/README.md",
+      "summary": "A practical program using AI for research, analysis, communication, content creation, planning, and application building.",
+      "skills": [
+        "AI literacy",
+        "Prompt engineering",
+        "Research and data analysis",
+        "Content and app creation",
+        "Responsible AI"
+      ],
+      "note": "The archived March 2026 credential verifies the seven completed courses in this repository. Coursera later expanded the live program to eight courses, adding AI for App Deployment; that later course is not represented as completed here.",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/Google%20AI%20Coursera%20AJT88YN6XUS4.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI Fundamentals",
+      "title": "AI Fundamentals",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/README.md",
+      "summary": "Builds foundational AI literacy through practical use, prompt design, an explanation of how AI works, and responsible-use practices.",
+      "skills": [
+        "AI literacy",
+        "Prompt engineering",
+        "Responsible AI",
+        "Generative AI"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 1 - Collaborate with AI.md",
+          "title": "Module 1 - Collaborate with AI",
+          "overview": "This module covers ai collaboration; task selection; human judgment.",
+          "topics": [
+            "AI collaboration",
+            "task selection",
+            "human judgment"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%201%20-%20Collaborate%20with%20AI.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 2 - Practice using AI.md",
+          "title": "Module 2 - Practice using AI",
+          "overview": "This module covers hands-on ai use; iteration; reviewing output.",
+          "topics": [
+            "Hands-on AI use",
+            "iteration",
+            "reviewing output"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%202%20-%20Practice%20using%20AI.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 3 - Learn how AI works.md",
+          "title": "Module 3 - Learn how AI works",
+          "overview": "This module covers ai and model foundations; capabilities and limits; informed use.",
+          "topics": [
+            "AI and model foundations",
+            "capabilities and limits",
+            "informed use"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%203%20-%20Learn%20how%20AI%20works.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 4 - Design great prompts.md",
+          "title": "Module 4 - Design great prompts",
+          "overview": "This module covers prompt components; clear instructions; context and output requirements.",
+          "topics": [
+            "Prompt components",
+            "clear instructions",
+            "context and output requirements"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%204%20-%20Design%20great%20prompts.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 5 - Level up your prompts.md",
+          "title": "Module 5 - Level up your prompts",
+          "overview": "This module covers prompt iteration; advanced refinements; evaluating results.",
+          "topics": [
+            "Prompt iteration",
+            "advanced refinements",
+            "evaluating results"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%205%20-%20Level%20up%20your%20prompts.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI Fundamentals/Module 6 - Use AI responsibly.md",
+          "title": "Module 6 - Use AI responsibly",
+          "overview": "This module covers responsible use; privacy, bias, and safety; human oversight.",
+          "topics": [
+            "Responsible use",
+            "privacy, bias, and safety",
+            "human oversight"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Module%206%20-%20Use%20AI%20responsibly.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20Fundamentals/Google%20AI%20Fundamentals%20Coursera%20QQAQ6JQVLYV2.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for App Building",
+      "title": "AI for App Building",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/README.md",
+      "summary": "Introduces vibe coding and guides learners through creating an application with Google AI Studio.",
+      "skills": [
+        "Vibe coding",
+        "App development",
+        "Prototyping",
+        "Google AI Studio"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for App Building/Module 1 - Discover vibe coding.md",
+          "title": "Module 1 - Discover vibe coding",
+          "overview": "This module covers vibe-coding concepts; translating ideas into applications; ai-assisted development.",
+          "topics": [
+            "Vibe-coding concepts",
+            "translating ideas into applications",
+            "AI-assisted development"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/Module%201%20-%20Discover%20vibe%20coding.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for App Building/Module 2 - Learn how to vibe code.md",
+          "title": "Module 2 - Learn how to vibe code",
+          "overview": "This module covers iterative prompting; testing and refinement; development workflow.",
+          "topics": [
+            "Iterative prompting",
+            "testing and refinement",
+            "development workflow"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/Module%202%20-%20Learn%20how%20to%20vibe%20code.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for App Building/Module 3 - Create your app using AI Studio.md",
+          "title": "Module 3 - Create your app using AI Studio",
+          "overview": "This module covers application creation; google ai studio; testing a functional prototype.",
+          "topics": [
+            "Application creation",
+            "Google AI Studio",
+            "testing a functional prototype"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/Module%203%20-%20Create%20your%20app%20using%20AI%20Studio.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20App%20Building/Google%20AI%20for%20App%20Building%20Coursera%20M8BOQZU7MW0V.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for Brainstorming and Planning",
+      "title": "AI for Brainstorming and Planning",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/README.md",
+      "summary": "Applies Gemini to ideation, project planning, and knowledge organization.",
+      "skills": [
+        "Brainstorming",
+        "Project planning",
+        "Knowledge management",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Brainstorming and Planning/Module 1 - Brainstorm ideas in Gemini.md",
+          "title": "Module 1 - Brainstorm ideas in Gemini",
+          "overview": "This module covers idea generation; expanding and evaluating options; gemini.",
+          "topics": [
+            "Idea generation",
+            "expanding and evaluating options",
+            "Gemini"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/Module%201%20-%20Brainstorm%20ideas%20in%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Brainstorming and Planning/Module 2 - Create a project timeline in Gemini.md",
+          "title": "Module 2 - Create a project timeline in Gemini",
+          "overview": "This module covers project milestones; sequencing work; timeline creation.",
+          "topics": [
+            "Project milestones",
+            "sequencing work",
+            "timeline creation"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/Module%202%20-%20Create%20a%20project%20timeline%20in%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Brainstorming and Planning/Module 3 - Build a knowledge hub in Gemini Notebook.md",
+          "title": "Module 3 - Build a knowledge hub in Gemini Notebook",
+          "overview": "This module covers source organization; notebook-based knowledge hubs; grounded synthesis.",
+          "topics": [
+            "Source organization",
+            "notebook-based knowledge hubs",
+            "grounded synthesis"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/Module%203%20-%20Build%20a%20knowledge%20hub%20in%20Gemini%20Notebook.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Brainstorming%20and%20Planning/Google%20AI%20for%20Brainstorming%20and%20Planning%20Coursera%20PLICJTET51SZ.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for Content Creation",
+      "title": "AI for Content Creation",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/README.md",
+      "summary": "Applies Gemini to visual content, presentations, and structured creative review.",
+      "skills": [
+        "Content creation",
+        "Presentation development",
+        "Generative media",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Content Creation/Module 1 - Create images and videos with Gemini.md",
+          "title": "Module 1 - Create images and videos with Gemini",
+          "overview": "This module covers image and video generation; creative direction; responsible media creation.",
+          "topics": [
+            "Image and video generation",
+            "creative direction",
+            "responsible media creation"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/Module%201%20-%20Create%20images%20and%20videos%20with%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Content Creation/Module 2 - Develop and enhance presentations with Gemini Canvas and Slides.md",
+          "title": "Module 2 - Develop and enhance presentations with Gemini Canvas and Slides",
+          "overview": "This module covers presentation structure; drafting and enhancement; canvas and slides.",
+          "topics": [
+            "Presentation structure",
+            "drafting and enhancement",
+            "Canvas and Slides"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/Module%202%20-%20Develop%20and%20enhance%20presentations%20with%20Gemini%20Canvas%20and%20Slides.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Content Creation/Module 3 - Get a creative review from Gemini.md",
+          "title": "Module 3 - Get a creative review from Gemini",
+          "overview": "This module covers review criteria; feedback; iterative content improvement.",
+          "topics": [
+            "Review criteria",
+            "feedback",
+            "iterative content improvement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/Module%203%20-%20Get%20a%20creative%20review%20from%20Gemini.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Content%20Creation/Google%20AI%20for%20Content%20Creation%20-%20Coursera%20SSGFR6E2QNWB.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for Data Analysis",
+      "title": "AI for Data Analysis",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/README.md",
+      "summary": "Uses Gemini and Google Sheets to define metrics, extract insights, analyze performance, and explore scenarios.",
+      "skills": [
+        "Data analysis",
+        "Performance metrics",
+        "Google Sheets",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Data Analysis/Module 1 - Define key performance metrics using Gemini.md",
+          "title": "Module 1 - Define key performance metrics using Gemini",
+          "overview": "This module covers business objectives; kpi definition; measurement planning.",
+          "topics": [
+            "Business objectives",
+            "KPI definition",
+            "measurement planning"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/Module%201%20-%20Define%20key%20performance%20metrics%20using%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Data Analysis/Module 2 - Turn screenshots into data insights with Gemini in Sheets.md",
+          "title": "Module 2 - Turn screenshots into data insights with Gemini in Sheets",
+          "overview": "This module covers data extraction from screenshots; analysis in sheets; communicating insights.",
+          "topics": [
+            "Data extraction from screenshots",
+            "analysis in Sheets",
+            "communicating insights"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/Module%202%20-%20Turn%20screenshots%20into%20data%20insights%20with%20Gemini%20in%20Sheets.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Data Analysis/Module 3 - Analyze and simulate business performance with Gemini in Sheets and Canvas.md",
+          "title": "Module 3 - Analyze and simulate business performance with Gemini in Sheets and Canvas",
+          "overview": "This module covers performance analysis; scenario simulation; sheets and canvas.",
+          "topics": [
+            "Performance analysis",
+            "scenario simulation",
+            "Sheets and Canvas"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/Module%203%20-%20Analyze%20and%20simulate%20business%20performance%20with%20Gemini%20in%20Sheets%20and%20Canvas.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Data%20Analysis/Google%20AI%20for%20Data%20Analysis%20Coursera%20C0SG38AZ9WVX.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for Research and Insights",
+      "title": "AI for Research and Insights",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/README.md",
+      "summary": "Uses Gemini Deep Research and Gemini Notebook to research, synthesize, and communicate findings.",
+      "skills": [
+        "Research",
+        "Information synthesis",
+        "Insight generation",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Research and Insights/Module 1 - Build a research report with Gemini Deep Research.md",
+          "title": "Module 1 - Build a research report with Gemini Deep Research",
+          "overview": "This module covers research planning; source-based investigation; report creation.",
+          "topics": [
+            "Research planning",
+            "source-based investigation",
+            "report creation"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/Module%201%20-%20Build%20a%20research%20report%20with%20Gemini%20Deep%20Research.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Research and Insights/Module 2 - Create and share research summaries in Gemini Notebook.md",
+          "title": "Module 2 - Create and share research summaries in Gemini Notebook",
+          "overview": "This module covers grounded summaries; knowledge sharing; gemini notebook.",
+          "topics": [
+            "Grounded summaries",
+            "knowledge sharing",
+            "Gemini Notebook"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/Module%202%20-%20Create%20and%20share%20research%20summaries%20in%20Gemini%20Notebook.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Research and Insights/Module 3 - Build an expert advisor with Gemini.md",
+          "title": "Module 3 - Build an expert advisor with Gemini",
+          "overview": "This module covers expert-advisor configuration; source grounding; question answering.",
+          "topics": [
+            "Expert-advisor configuration",
+            "source grounding",
+            "question answering"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/Module%203%20-%20Build%20an%20expert%20advisor%20with%20Gemini.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Research%20and%20Insights/Google%20AI%20for%20Research%20and%20Insights%20Coursera%2094B506GPM8GH.pdf"
+    },
+    {
+      "id": "Google/Google AI Professional Certificate/AI for Writing and Communicating",
+      "title": "AI for Writing and Communicating",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google AI Professional Certificate",
+      "status": "completed",
+      "completedAt": "2026-03-27",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/README.md",
+      "summary": "Uses Gemini to coordinate teams, test ideas, draft communications, and improve spoken delivery.",
+      "skills": [
+        "Professional writing",
+        "Communication",
+        "Idea evaluation",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Writing and Communicating/Module 1 - Keep your teams on track with Gemini.md",
+          "title": "Module 1 - Keep your teams on track with Gemini",
+          "overview": "This module covers team updates; action items; coordination and clarity.",
+          "topics": [
+            "Team updates",
+            "action items",
+            "coordination and clarity"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/Module%201%20-%20Keep%20your%20teams%20on%20track%20with%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Writing and Communicating/Module 2 - Pressure test ideas in Gemini.md",
+          "title": "Module 2 - Pressure test ideas in Gemini",
+          "overview": "This module covers testing assumptions; identifying weaknesses; refining ideas.",
+          "topics": [
+            "Testing assumptions",
+            "identifying weaknesses",
+            "refining ideas"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/Module%202%20-%20Pressure%20test%20ideas%20in%20Gemini.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Writing and Communicating/Module 3 - Draft communications with Gemini Canvas.md",
+          "title": "Module 3 - Draft communications with Gemini Canvas",
+          "overview": "This module covers audience and purpose; drafting and revision; gemini canvas.",
+          "topics": [
+            "Audience and purpose",
+            "drafting and revision",
+            "Gemini Canvas"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/Module%203%20-%20Draft%20communications%20with%20Gemini%20Canvas.md"
+        },
+        {
+          "id": "Google/Google AI Professional Certificate/AI for Writing and Communicating/Module 4 - Get speech feedback from Gemini Live.md",
+          "title": "Module 4 - Get speech feedback from Gemini Live",
+          "overview": "This module covers spoken communication; rehearsal; feedback with gemini live.",
+          "topics": [
+            "Spoken communication",
+            "rehearsal",
+            "feedback with Gemini Live"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/Module%204%20-%20Get%20speech%20feedback%20from%20Gemini%20Live.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20AI%20Professional%20Certificate/AI%20for%20Writing%20and%20Communicating/Google%20AI%20for%20Writing%20and%20Communicating%20Coursera%205Q8HA8YG8WME.pdf"
+    },
+    {
+      "id": "Google/Google Prompting Essentials Specialization",
+      "title": "Google Prompting Essentials Specialization",
+      "issuer": "Google",
+      "kind": "program",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/README.md",
+      "summary": "A four-course specialization on designing, refining, and applying prompts across everyday work, analysis, presentations, and creative collaboration.",
+      "skills": [
+        "Prompt engineering",
+        "Prompt iteration",
+        "Workplace productivity",
+        "AI-assisted analysis"
+      ],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Google%20Prompting%20Essentials%20Coursera%2098XKSYTBB3GX.pdf"
+    },
+    {
+      "id": "Google/Google Prompting Essentials Specialization/Design Prompts for Everyday Work Tasks",
+      "title": "Design Prompts for Everyday Work Tasks",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google Prompting Essentials Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Design%20Prompts%20for%20Everyday%20Work%20Tasks/README.md",
+      "summary": "Applies prompting techniques to recurring workplace tasks and structured outputs.",
+      "skills": [
+        "Prompt engineering",
+        "Workplace productivity",
+        "Task design"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google Prompting Essentials Specialization/Design Prompts for Everyday Work Tasks/Module 1 - Design prompts for everyday work tasks.md",
+          "title": "Module 1 - Design prompts for everyday work tasks",
+          "overview": "This module covers task decomposition; prompt structure; useful workplace outputs.",
+          "topics": [
+            "Task decomposition",
+            "prompt structure",
+            "useful workplace outputs"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Design%20Prompts%20for%20Everyday%20Work%20Tasks/Module%201%20-%20Design%20prompts%20for%20everyday%20work%20tasks.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Design%20Prompts%20for%20Everyday%20Work%20Tasks/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Design%20Prompts%20for%20Everyday%20Work%20Tasks/Google%20Design%20Prompts%20for%20Everyday%20Work%20Tasks%20Coursera%20UW436PTF8EEO.pdf"
+    },
+    {
+      "id": "Google/Google Prompting Essentials Specialization/Speed Up Data Analysis and Presentation Building",
+      "title": "Speed Up Data Analysis and Presentation Building",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google Prompting Essentials Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building/README.md",
+      "summary": "Uses prompts to accelerate analysis and the development of presentations.",
+      "skills": [
+        "Data analysis",
+        "Presentation development",
+        "Prompt engineering"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google Prompting Essentials Specialization/Speed Up Data Analysis and Presentation Building/Module 1 - Speed up data analysis and presentation building.md",
+          "title": "Module 1 - Speed up data analysis and presentation building",
+          "overview": "This module covers analysis prompts; extracting insights; presentation planning and drafting.",
+          "topics": [
+            "Analysis prompts",
+            "extracting insights",
+            "presentation planning and drafting"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building/Module%201%20-%20Speed%20up%20data%20analysis%20and%20presentation%20building.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building/Google%20Speed%20Up%20Data%20Analysis%20and%20Presentation%20Building%20Coursera%20LM51RJ1A5A7D.pdf"
+    },
+    {
+      "id": "Google/Google Prompting Essentials Specialization/Start Writing Prompts like a Pro",
+      "title": "Start Writing Prompts like a Pro",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google Prompting Essentials Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Start%20Writing%20Prompts%20like%20a%20Pro/README.md",
+      "summary": "Introduces a reusable framework for writing clear, effective prompts.",
+      "skills": [
+        "Prompt engineering",
+        "Prompt design",
+        "Generative AI"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google Prompting Essentials Specialization/Start Writing Prompts like a Pro/Module 1 - Start writing prompts like a pro.md",
+          "title": "Module 1 - Start writing prompts like a pro",
+          "overview": "This module covers prompt goals; context and constraints; drafting and improving prompts.",
+          "topics": [
+            "Prompt goals",
+            "context and constraints",
+            "drafting and improving prompts"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Start%20Writing%20Prompts%20like%20a%20Pro/Module%201%20-%20Start%20writing%20prompts%20like%20a%20pro.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Start%20Writing%20Prompts%20like%20a%20Pro/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Start%20Writing%20Prompts%20like%20a%20Pro/Google%20Start%20Writing%20Prompts%20like%20a%20Pro%20Coursera%20YFER20XG6RI6.pdf"
+    },
+    {
+      "id": "Google/Google Prompting Essentials Specialization/Use AI as a Creative or Expert Partner",
+      "title": "Use AI as a Creative or Expert Partner",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": "Google/Google Prompting Essentials Specialization",
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner/README.md",
+      "summary": "Explores role-based prompting and iterative collaboration with AI for creative and expert tasks.",
+      "skills": [
+        "Creative collaboration",
+        "Role prompting",
+        "Prompt iteration"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Google Prompting Essentials Specialization/Use AI as a Creative or Expert Partner/Module 1 - Use AI as a creative or expert partner.md",
+          "title": "Module 1 - Use AI as a creative or expert partner",
+          "overview": "This module covers role assignment; iterative collaboration; critique and refinement.",
+          "topics": [
+            "Role assignment",
+            "iterative collaboration",
+            "critique and refinement"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner/Module%201%20-%20Use%20AI%20as%20a%20creative%20or%20expert%20partner.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Google%20Prompting%20Essentials%20Specialization/Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner/Google%20Use%20AI%20as%20a%20Creative%20or%20Expert%20Partner%20Coursera%207S5FDZXJEUPN.pdf"
+    },
+    {
+      "id": "Google/Misc Certificates/Manage Your Job Applications with AI",
+      "title": "Manage Your Job Applications with AI",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Manage%20Your%20Job%20Applications%20with%20AI/README.md",
+      "summary": "Uses AI and Google Sheets to organize applications and support effective professional networking.",
+      "skills": [
+        "Job-search organization",
+        "Professional networking",
+        "AI enablement",
+        "Google Sheets"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Misc Certificates/Manage Your Job Applications with AI/Module 1 - Understand job search platforms.md",
+          "title": "Module 1 - Understand job search platforms",
+          "overview": "This module covers job-search platforms; application tracking with google sheets and gemini; resilience.",
+          "topics": [
+            "Job-search platforms",
+            "application tracking with Google Sheets and Gemini",
+            "resilience"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Manage%20Your%20Job%20Applications%20with%20AI/Module%201%20-%20Understand%20job%20search%20platforms.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Manage Your Job Applications with AI/Module 2 - Understand the importance of networking.md",
+          "title": "Module 2 - Understand the importance of networking",
+          "overview": "This module covers networking strategy; ai-assisted outreach; maintaining professional connections.",
+          "topics": [
+            "Networking strategy",
+            "AI-assisted outreach",
+            "maintaining professional connections"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Manage%20Your%20Job%20Applications%20with%20AI/Module%202%20-%20Understand%20the%20importance%20of%20networking.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Manage%20Your%20Job%20Applications%20with%20AI/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Manage%20Your%20Job%20Applications%20with%20AI/Google%20Manage%20Your%20Job%20Applications%20with%20AI%20Coursera%20KDOXAUGRNMPH.pdf"
+    },
+    {
+      "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI",
+      "title": "Prepare and Practice for Interviews with AI",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-29",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/README.md",
+      "summary": "Builds interview preparation and practice skills using the STAR method, Gemini Notebook, Gemini Live, and structured follow-up.",
+      "skills": [
+        "Interview preparation",
+        "STAR method",
+        "Professional communication",
+        "Google Gemini"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI/Module 1 - Explore interview types and expectations.md",
+          "title": "Module 1 - Explore interview types and expectations",
+          "overview": "This module covers interview formats and best practices; professional pitches; first impressions.",
+          "topics": [
+            "Interview formats and best practices",
+            "professional pitches",
+            "first impressions"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Module%201%20-%20Explore%20interview%20types%20and%20expectations.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI/Module 2 - Prepare for interviews.md",
+          "title": "Module 2 - Prepare for interviews",
+          "overview": "This module covers star responses; gemini notebook research; questions for interviewers.",
+          "topics": [
+            "STAR responses",
+            "Gemini Notebook research",
+            "questions for interviewers"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Module%202%20-%20Prepare%20for%20interviews.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI/Module 3 - Practice interviewing.md",
+          "title": "Module 3 - Practice interviewing",
+          "overview": "This module covers mock interviews; gemini live; feedback and confidence.",
+          "topics": [
+            "Mock interviews",
+            "Gemini Live",
+            "feedback and confidence"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Module%203%20-%20Practice%20interviewing.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI/Module 4 - Plan interview follow-up steps.md",
+          "title": "Module 4 - Plan interview follow-up steps",
+          "overview": "This module covers post-interview follow-up; job offers; thank-you messages.",
+          "topics": [
+            "Post-interview follow-up",
+            "job offers",
+            "thank-you messages"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Module%204%20-%20Plan%20interview%20follow-up%20steps.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Prepare and Practice for Interviews with AI/Module 5 - Assess your learning and the course.md",
+          "title": "Module 5 - Assess your learning and the course",
+          "overview": "This module covers learning review; career next steps; course assessment.",
+          "topics": [
+            "Learning review",
+            "career next steps",
+            "course assessment"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Module%205%20-%20Assess%20your%20learning%20and%20the%20course.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Prepare%20and%20Practice%20for%20Interviews%20with%20AI/Google%20Prepare%20and%20Practice%20for%20Interviews%20with%20AI%20Coursera%204KJCH6LZRM1J.pdf"
+    },
+    {
+      "id": "Google/Misc Certificates/Stay Ahead of the AI Curve",
+      "title": "Stay Ahead of the AI Curve",
+      "issuer": "Google",
+      "kind": "course",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-03-30",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/README.md",
+      "summary": "Develops a repeatable approach for evaluating AI tools, following AI developments, and identifying future workplace opportunities.",
+      "skills": [
+        "AI literacy",
+        "Strategic thinking",
+        "AI enablement",
+        "Technology roadmaps"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "Google/Misc Certificates/Stay Ahead of the AI Curve/Module 1 - Stay informed about AI.md",
+          "title": "Module 1 - Stay informed about AI",
+          "overview": "This module covers sources for ai developments; evaluating new ai tools; keeping knowledge current.",
+          "topics": [
+            "Sources for AI developments",
+            "evaluating new AI tools",
+            "keeping knowledge current"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/Module%201%20-%20Stay%20informed%20about%20AI.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Stay Ahead of the AI Curve/Module 2 - Continue your AI journey.md",
+          "title": "Module 2 - Continue your AI journey",
+          "overview": "This module covers workplace ai innovations; continued exploration; planning future opportunities.",
+          "topics": [
+            "Workplace AI innovations",
+            "continued exploration",
+            "planning future opportunities"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/Module%202%20-%20Continue%20your%20AI%20journey.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Stay Ahead of the AI Curve/Module 3 - Google AI Professional Certificate.md",
+          "title": "Module 3 - Google AI Professional Certificate",
+          "overview": "This module covers overview of the google ai professional certificate and its ai-fundamentals curriculum.",
+          "topics": [
+            "Overview of the Google AI Professional Certificate and its AI-fundamentals curriculum"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/Module%203%20-%20Google%20AI%20Professional%20Certificate.md"
+        },
+        {
+          "id": "Google/Misc Certificates/Stay Ahead of the AI Curve/Module 4 - Review - Stay ahead of the AI curve.md",
+          "title": "Module 4 - Review - Stay ahead of the AI curve",
+          "overview": "This module covers course review; graduate resources; end-of-course assessment.",
+          "topics": [
+            "Course review",
+            "graduate resources",
+            "end-of-course assessment"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/Module%204%20-%20Review%20-%20Stay%20ahead%20of%20the%20AI%20curve.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/Google/Misc%20Certificates/Stay%20Ahead%20of%20the%20AI%20Curve/Stay%20Ahead%20of%20the%20AI%20Curve%20Coursera%2007DJMIRTM1J6.pdf"
+    },
+    {
+      "id": "Lund University/AI & Law",
+      "title": "AI & Law",
+      "issuer": "Lund University",
+      "kind": "program",
+      "parentId": null,
+      "status": "in_progress",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "This program examines the interaction between artificial intelligence, legal systems, public administration, private-sector governance, and emerging regulatory challenges.",
+      "skills": [],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Lund%20University/AI%20%26%20Law/README.md",
+      "credential": null
+    },
+    {
+      "id": "Lund University/AI & Law/Module 1 - AI & Law",
+      "title": "Module 1 - AI & Law",
+      "issuer": "Lund University",
+      "kind": "module",
+      "parentId": "Lund University/AI & Law",
+      "status": "in_progress",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "This module is still in progress, and no certificate is currently available. No placeholder PDF is stored in this folder.",
+      "skills": [],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Lund%20University/AI%20%26%20Law/Module%201%20-%20AI%20%26%20Law/README.md",
+      "credential": null
+    },
+    {
+      "id": "Lund University/AI & Law/Module 2 - Legal AI in the Public Sector",
+      "title": "Module 2 - Legal AI in the Public Sector",
+      "issuer": "Lund University",
+      "kind": "module",
+      "parentId": "Lund University/AI & Law",
+      "status": "in_progress",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "This course is part of **AI & Law** and develops practical knowledge for responsible, effective AI-enabled work.",
+      "skills": [],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Lund%20University/AI%20%26%20Law/Module%202%20-%20Legal%20AI%20in%20the%20Public%20Sector/README.md",
+      "credential": null
+    },
+    {
+      "id": "Lund University/AI & Law/Module 3 - Legal AI in the Private Sector",
+      "title": "Module 3 - Legal AI in the Private Sector",
+      "issuer": "Lund University",
+      "kind": "module",
+      "parentId": "Lund University/AI & Law",
+      "status": "in_progress",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "This course is part of **AI & Law** and develops practical knowledge for responsible, effective AI-enabled work.",
+      "skills": [],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Lund%20University/AI%20%26%20Law/Module%203%20-%20Legal%20AI%20in%20the%20Private%20Sector/README.md",
+      "credential": null
+    },
+    {
+      "id": "Lund University/AI & Law/Module 4 - Selected Challenges",
+      "title": "Module 4 - Selected Challenges",
+      "issuer": "Lund University",
+      "kind": "module",
+      "parentId": "Lund University/AI & Law",
+      "status": "in_progress",
+      "completedAt": null,
+      "dateSource": null,
+      "summary": "This course is part of **AI & Law** and develops practical knowledge for responsible, effective AI-enabled work.",
+      "skills": [],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/Lund%20University/AI%20%26%20Law/Module%204%20-%20Selected%20Challenges/README.md",
+      "credential": null
+    },
+    {
+      "id": "University of Pennsylvania (Wharton)/AI For Business Specialization",
+      "title": "AI For Business Specialization",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "kind": "program",
+      "parentId": null,
+      "status": "completed",
+      "completedAt": "2026-04-05",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/README.md",
+      "summary": "A four-course program connecting AI foundations and applications with strategy, governance, marketing, finance, and people management.",
+      "skills": [
+        "AI strategy and governance",
+        "People management",
+        "Marketing and finance",
+        "Machine-learning literacy"
+      ],
+      "note": "",
+      "modules": [],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/Wharton%20AI%20For%20Business%20Coursera%200OW7RWDG2DMO.pdf"
+    },
+    {
+      "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management",
+      "title": "AI Application in People Management",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "kind": "course",
+      "parentId": "University of Pennsylvania (Wharton)/AI For Business Specialization",
+      "status": "completed",
+      "completedAt": "2026-04-05",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/README.md",
+      "summary": "Examines how artificial intelligence can support human-resources decisions while addressing implementation challenges and emerging approaches.",
+      "skills": [
+        "Human resources",
+        "People analytics",
+        "Artificial intelligence",
+        "Organizational decision-making"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management/Module 1 - The Promise and Potential of AI in HR.md",
+          "title": "Module 1 - The Promise and Potential of AI in HR",
+          "overview": "This module covers ai capabilities in hr; the promise of data-driven people decisions; opportunities and limitations.",
+          "topics": [
+            "AI capabilities in HR",
+            "the promise of data-driven people decisions",
+            "opportunities and limitations"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Module%201%20-%20The%20Promise%20and%20Potential%20of%20AI%20in%20HR.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management/Module 2 - AI Application.md",
+          "title": "Module 2 - AI Application",
+          "overview": "This module covers applying ai across hr activities; matching methods to people-management problems; implementation considerations.",
+          "topics": [
+            "Applying AI across HR activities",
+            "matching methods to people-management problems",
+            "implementation considerations"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Module%202%20-%20AI%20Application.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management/Module 3 - Challenges With Applying AI to HR.md",
+          "title": "Module 3 - Challenges With Applying AI to HR",
+          "overview": "This module covers bias and fairness; privacy and trust; organizational and technical constraints.",
+          "topics": [
+            "Bias and fairness",
+            "privacy and trust",
+            "organizational and technical constraints"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Module%203%20-%20Challenges%20With%20Applying%20AI%20to%20HR.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Application in People Management/Module 4 - Emerging Solutions.md",
+          "title": "Module 4 - Emerging Solutions",
+          "overview": "This module covers developing approaches to responsible hr ai; governance and human oversight; future directions.",
+          "topics": [
+            "Developing approaches to responsible HR AI",
+            "governance and human oversight",
+            "future directions"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Module%204%20-%20Emerging%20Solutions.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Application%20in%20People%20Management/Wharton%20AI%20Applications%20in%20People%20Management%20Coursera%20B2FF6S83H35I.pdf"
+    },
+    {
+      "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance",
+      "title": "AI Applications in Marketing and Finance",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "kind": "course",
+      "parentId": "University of Pennsylvania (Wharton)/AI For Business Specialization",
+      "status": "completed",
+      "completedAt": "2026-04-03",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/README.md",
+      "summary": "Explores applications of artificial intelligence in customer journeys, personalization, and financial decision-making.",
+      "skills": [
+        "Marketing analytics",
+        "Personalization",
+        "Financial analysis",
+        "Artificial intelligence"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance/Module 1 - AI and the Customer Journey.md",
+          "title": "Module 1 - AI and the Customer Journey",
+          "overview": "",
+          "topics": [
+            "AI and the Customer Journey: From Segmentation to Individualization",
+            "Analysis: AI and the Customer Journey"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Module%201%20-%20AI%20and%20the%20Customer%20Journey.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance/Module 2 - Personalization.md",
+          "title": "Module 2 - Personalization",
+          "overview": "",
+          "topics": [
+            "Analysis: Personalisation at Scale"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Module%202%20-%20Personalization.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance/Module 3 - Finance.md",
+          "title": "Module 3 - Finance",
+          "overview": "",
+          "topics": [
+            "Finance: Algorithmic Intelligence in Banking, Risk & Fintech",
+            "Analysis: AI in Financial Services"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Module%203%20-%20Finance.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Applications in Marketing and Finance/Module 4 - Additional AI Applications in Finance.md",
+          "title": "Module 4 - Additional AI Applications in Finance",
+          "overview": "This module covers further finance use cases; risk and automation; implementation considerations.",
+          "topics": [
+            "Further finance use cases",
+            "risk and automation",
+            "implementation considerations"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Module%204%20-%20Additional%20AI%20Applications%20in%20Finance.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Applications%20in%20Marketing%20and%20Finance/Wharton%20AI%20Applications%20in%20Marketing%20and%20Finance%20Coursera%2070ZDPRIR6241.pdf"
+    },
+    {
+      "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance",
+      "title": "AI Strategy and Governance",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "kind": "course",
+      "parentId": "University of Pennsylvania (Wharton)/AI For Business Specialization",
+      "status": "completed",
+      "completedAt": "2026-04-01",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/README.md",
+      "summary": "Connects the economics and strategic value of AI with fairness, governance, and explainability.",
+      "skills": [
+        "AI strategy",
+        "AI governance",
+        "Algorithmic fairness",
+        "Explainable AI"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance/Module 1 - Economics of AI.md",
+          "title": "Module 1 - Economics of AI",
+          "overview": "",
+          "topics": [
+            "The Economics of AI & Organizational Transformation",
+            "Analysis: The Economics of Artificial Intelligence"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Module%201%20-%20Economics%20of%20AI.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance/Module 2 - AI Innovation.md",
+          "title": "Module 2 - AI Innovation",
+          "overview": "This module covers innovation enabled by ai; strategy and competitive advantage; organizational adoption.",
+          "topics": [
+            "Innovation enabled by AI",
+            "strategy and competitive advantage",
+            "organizational adoption"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Module%202%20-%20AI%20Innovation.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance/Module 3 - Algorithmic Bias and Fairness.md",
+          "title": "Module 3 - Algorithmic Bias and Fairness",
+          "overview": "",
+          "topics": [
+            "Algorithmic Bias, Fairness & Ethical Governance",
+            "Analysis: Managing Bias & Ethical Risks"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Module%203%20-%20Algorithmic%20Bias%20and%20Fairness.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI Strategy and Governance/Module 4 - AI Governance and Explainable AI.md",
+          "title": "Module 4 - AI Governance and Explainable AI",
+          "overview": "",
+          "topics": [
+            "AI Governance, Transparency & Explainable AI (XAI)",
+            "Analysis: Governance Frameworks & Accountability"
+          ],
+          "outcomes": [],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Module%204%20-%20AI%20Governance%20and%20Explainable%20AI.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20Strategy%20and%20Governance/Wharton%20AI%20Strategy%20and%20Governance%20Coursera%20CRS7ZY7HN0PS.pdf"
+    },
+    {
+      "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists",
+      "title": "AI for non-Data Scientists",
+      "issuer": "University of Pennsylvania (Wharton)",
+      "kind": "course",
+      "parentId": "University of Pennsylvania (Wharton)/AI For Business Specialization",
+      "status": "completed",
+      "completedAt": "2026-04-05",
+      "dateSource": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/README.md",
+      "summary": "Introduces big data, machine learning, model evaluation, emerging methods, and generative AI for business learners without a data-science background.",
+      "skills": [
+        "Machine learning",
+        "Model evaluation",
+        "Big data",
+        "Generative AI"
+      ],
+      "note": "",
+      "modules": [
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Module 1 - Big Data and Artificial Intelligence.md",
+          "title": "Module 1 - Big Data and Artificial Intelligence",
+          "overview": "This module covers big data foundations; artificial intelligence concepts; business applications.",
+          "topics": [
+            "Big data foundations",
+            "artificial intelligence concepts",
+            "business applications"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Module%201%20-%20Big%20Data%20and%20Artificial%20Intelligence.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Module 2 - Training and Evaluating Machine Learning Algorithms.md",
+          "title": "Module 2 - Training and Evaluating Machine Learning Algorithms",
+          "overview": "This module covers training data; model evaluation; performance and limitations.",
+          "topics": [
+            "Training data",
+            "model evaluation",
+            "performance and limitations"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Module%202%20-%20Training%20and%20Evaluating%20Machine%20Learning%20Algorithms.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Module 3 - ML Application and Emerging Methods.md",
+          "title": "Module 3 - ML Application and Emerging Methods",
+          "overview": "This module covers machine-learning applications; emerging approaches; selecting methods.",
+          "topics": [
+            "Machine-learning applications",
+            "emerging approaches",
+            "selecting methods"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Module%203%20-%20ML%20Application%20and%20Emerging%20Methods.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Module 4 - Industry Interview.md",
+          "title": "Module 4 - Industry Interview",
+          "overview": "This module covers industry perspectives; implementation context; practical considerations.",
+          "topics": [
+            "Industry perspectives",
+            "implementation context",
+            "practical considerations"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Module%204%20-%20Industry%20Interview.md"
+        },
+        {
+          "id": "University of Pennsylvania (Wharton)/AI For Business Specialization/AI for non-Data Scientists/Module 5 - Generative AI.md",
+          "title": "Module 5 - Generative AI",
+          "overview": "This module covers generative ai foundations; capabilities and limitations; business uses.",
+          "topics": [
+            "Generative AI foundations",
+            "capabilities and limitations",
+            "business uses"
+          ],
+          "outcomes": [
+            "Explain the module's central concepts and terminology.",
+            "Relate the covered topics to the broader course objectives.",
+            "Apply the module's framework when evaluating relevant tasks or decisions."
+          ],
+          "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Module%205%20-%20Generative%20AI.md"
+        }
+      ],
+      "url": "https://github.com/gijs-hulsebos/Certificates/blob/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/README.md",
+      "credential": "https://raw.githubusercontent.com/gijs-hulsebos/Certificates/0358851922e6c24cb8d1024d2155c04b6c2c371e/University%20of%20Pennsylvania%20%28Wharton%29/AI%20For%20Business%20Specialization/AI%20for%20non-Data%20Scientists/Wharton%20AI%20Fundamentals%20for%20Non-Data%20Scientists%20Coursera%20RPZ081YR3H0C.pdf"
+    }
+  ]
+}
