@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { BrandedProjectVideo } from './BrandedProjectVideo';
 import { ProjectCategoryBadge } from './ProjectCategoryBadge';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
@@ -17,7 +18,7 @@ import { expandedLayout } from './bento-layouts';
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
- tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
  stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
@@ -172,7 +173,19 @@ export default function ProjectBento() {
               }}
             >
                   {category && !isExpanded && <ProjectCategoryBadge category={category} label={categoryLabels[lang][category]} id={`category-${id}`} open={categoryOpen === id} onOpenChange={open => { setCategoryOpen(open ? id : null); if (open) setHackathonOpen(null); }} />}
-                  {(expanded === id || (!expanded && id === 'tarvos')) && (
+                  {(isAegix || project?.id === 'skillmax') ? (
+                    <BorderBeamPanel
+                      colors={[isAegix ? '#a5d8ff' : '#ef6b73']}
+                      beams={1}
+                      thickness={2}
+                      glow={false}
+                      travelSpeed={130}
+                      idleSpeed={24}
+                      hoverSpeed={34}
+                      style={{ opacity: 1 }}
+                      reducedMotion={reducedMotion}
+                    />
+                  ) : (expanded === id || (!expanded && id === 'tarvos')) && (
                     <BorderBeamPanel
                       colors={id === 'tarvos' ? ['#34d399', '#a855f7'] : undefined}
                       travelSpeed={isExpanded ? 80 : undefined}
@@ -199,7 +212,7 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div><h2 className="font-display">{project.displayName}</h2>
+                      <div>{project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
                         {project.size !== 'small' && <p>{project.tagline}</p>}
                       </div>
                     </motion.div>
@@ -229,14 +242,8 @@ export default function ProjectBento() {
                         >
                           {project && <BentoProjectDetails project={project} />}
                           {isAegix && <><div className="aegix-expanded">
-                            <div className="aegix-expanded-logo">
-                              <Image src="/projects/aegix-shield.png" alt={lang === 'NL' ? 'Aegix: kat met schild' : lang === 'DE' ? 'Aegix: Katze mit Schild' : 'Aegix: cat with shield'} fill sizes="64px" className="object-contain" />
-                            </div>
                             <h2 className="font-display text-xl font-medium">Aegix</h2>
-                            <div className="tarvos-project-media">
-                              <video className="tarvos-project-video" src="/projects/aegix-explainer-1080p.mp4" controls playsInline preload="metadata"
-                                aria-label={lang === 'NL' ? 'Aegix-uitlegvideo' : lang === 'DE' ? 'Aegix-Erklärvideo' : 'Aegix explainer video'} />
-                            </div>
+                            <BrandedProjectVideo brand="Aegix" src="/projects/aegix-explainer-1080p.mp4" label={lang === 'NL' ? 'Aegix-uitlegvideo' : lang === 'DE' ? 'Aegix-Erklärvideo' : 'Aegix explainer video'} />
                             <div className="tarvos-project-information">
                               <div className="flex flex-wrap justify-center gap-3">
                                 <a href="https://aegix-restored-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-white px-3 py-2 text-xs text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">Website ↗</a>
@@ -247,7 +254,6 @@ export default function ProjectBento() {
                           {id === 'tarvos' && (
                             <>
                             <div className="tarvos-project-details">
-                              <span className="tarvos-expanded-logo" role="img" aria-label="Tarvos" />
                               <div className="tarvos-project-video-heading">
                                 <h2 className="font-display text-xl sm:text-2xl font-medium">Tarvos</h2>
                                 <button
@@ -261,17 +267,9 @@ export default function ProjectBento() {
                                   <span aria-live="polite">{tarvosVideo === 0 ? '(1/2) >' : '< (2/2)'}</span>
                                 </button>
                               </div>
-                              <div className="tarvos-project-media">
-                                <video
-                                  key={tarvosVideo}
-                                  className="tarvos-project-video"
-                                  src={tarvosVideo === 0 ? '/projects/tarvos-introduction.mp4' : '/projects/tarvos-product-film.mp4'}
-                                  controls
-                                  playsInline
-                                  preload="metadata"
-                                  aria-label={tarvosVideo === 0 ? (lang === 'NL' ? 'Wat is Tarvos?' : lang === 'DE' ? 'Was ist Tarvos?' : 'What is Tarvos?') : (lang === 'NL' ? 'Tarvos-productfilm' : lang === 'DE' ? 'Tarvos-Produktfilm' : 'Tarvos Product Film')}
-                                />
-                              </div>
+                              <BrandedProjectVideo key={tarvosVideo} brand="Tarvos"
+                                src={tarvosVideo === 0 ? '/projects/tarvos-introduction.mp4' : '/projects/tarvos-product-film.mp4'}
+                                label={tarvosVideo === 0 ? (lang === 'NL' ? 'Wat is Tarvos?' : lang === 'DE' ? 'Was ist Tarvos?' : 'What is Tarvos?') : (lang === 'NL' ? 'Tarvos-productfilm' : lang === 'DE' ? 'Tarvos-Produktfilm' : 'Tarvos Product Film')} />
                               <div className="tarvos-project-information">
 
                                 <div className="flex flex-wrap justify-center gap-3">

@@ -1,5 +1,33 @@
 [
   {
+    "slot": "a",
+    "id": "skillmax",
+    "name": "SkillMax+",
+    "displayName": "SkillMax+",
+    "size": "large",
+    "tagline": "Work and learning log",
+    "summary": "My platform for tracking work, study and practice.",
+    "problem": "Work, study and practice need a shared record to make progress visible without exposing private notes.",
+    "implementation": "I built SkillMax+ and deployed it on Google Cloud with an API. It keeps the private source data separate from an authorized viewer and the public learning report on my portfolio.",
+    "highlights": [
+      "Owner access manages learning paths, logs, Buildmap, exercises, visibility and planning.",
+      "Authorized viewers get a detailed read-only view; write requests are rejected.",
+      "The public learning report exposes sanitized, aggregated data for candles, theory, exercises, milestones, public builds and lastUpdated.",
+      "Internal synchronization records GitHub commit activity and successful Vercel production deployments as evidence of practice."
+    ],
+    "stack": [
+      "Google Cloud",
+      "REST API",
+      "GitHub Actions",
+      "Vercel"
+    ],
+    "sources": [],
+    "repository": null,
+    "live": "https://skillmax-135087328412.europe-west4.run.app/skillmax/viewer",
+    "image": "/projects/skillmax-api.png",
+    "private": true
+  },
+  {
     "slot": "i",
     "id": "acquisition",
     "name": "Acquisition Gap Analyzer",

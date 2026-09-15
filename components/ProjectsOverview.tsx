@@ -8,7 +8,7 @@ import { BentoProjectDetails, localizeProject } from './BentoProjectContent';
 import { TarvosProjectInfo } from './TarvosProjectInfo';
 import { AegixProjectInfo } from './AegixProjectInfo';
 const categories = [
- { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'portfolio', 'compliance'] },
+ { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'skillmax', 'portfolio', 'compliance'] },
  { id: 'apps', names: { NL: 'Losse Apps', EN: 'Standalone Apps', DE: 'Eigenständige Apps' }, ids: ['stayai', 'acquisition', 'insurance', 'donation'] },
  { id: 'workflows', names: { NL: 'Workflows', EN: 'Workflows', DE: 'Workflows' }, ids: ['calendar', 'newsletter', 'mediagen'] },
  { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo'] },

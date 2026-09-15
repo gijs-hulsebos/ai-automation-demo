@@ -34,7 +34,8 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
       {project.repository && <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub{project.private ? ` (${text.private})` : ''}<ArrowUpRight size={14} aria-hidden="true" /></a>}
       {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">{text.demo}<ArrowUpRight size={14} aria-hidden="true" /></a>}
     </div>}
-    {project.image && <a className="bento-project-visual" href={project.live || project.repository || undefined} target="_blank" rel="noopener noreferrer" aria-label={`${text.image}: ${project.name}`}>
+    {project.id === 'skillmax' && <Image src="/projects/skillmax-api.png" alt="SkillMax+ API: owner, GitHub Actions and Vercel events feed the database; separate viewer and public APIs serve their respective views." width={860} height={218} sizes="(max-width: 600px) 90vw, 600px" className="skillmax-api-diagram" />}
+    {project.image && project.id !== 'skillmax' && <a className="bento-project-visual" href={project.live || project.repository || undefined} target="_blank" rel="noopener noreferrer" aria-label={`${text.image}: ${project.name}`}>
       <Image src={project.image} alt={`${text.image}: ${project.name}`} width={1280} height={800} sizes="(max-width: 600px) 90vw, 500px" className="object-contain" />
     </a>}
     <section><h3>{text.problem}</h3><p lang={lang.toLowerCase()}>{project.problem}</p></section>

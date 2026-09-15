@@ -384,5 +384,31 @@
         "Wiederverwendbare Vorlagen für eine einheitliche Dienstdokumentation."
       ]
     }
+  },
+  "skillmax": {
+    "NL": {
+      "tagline": "Werk en studie bijhouden",
+      "summary": "Mijn platform om werk, studie en oefeningen bij te houden.",
+      "problem": "Werk, studie en oefeningen vragen om één overzicht van voortgang, zonder privénotities openbaar te maken.",
+      "implementation": "Ik heb SkillMax+ gebouwd en gedeployed op Google Cloud met een API. De private brondata staat los van een gedetailleerde viewer voor toegelaten gebruikers en het publieke leertraject op mijn portfolio.",
+      "highlights": [
+        "Owner-toegang beheert trajecten, logs, Buildmap, oefeningen, zichtbaarheid en planning.",
+        "Toegelaten viewers krijgen een gedetailleerde alleen-lezenweergave; schrijfverzoeken worden geweigerd.",
+        "Het publieke leerrapport bevat gesaniteerde, geaggregeerde data voor candles, theorie, oefeningen, milestones, publieke builds en lastUpdated.",
+        "Interne synchronisatie legt GitHub-commits en geslaagde Vercel-productiedeployments vast als praktijkbewijs."
+      ]
+    },
+    "DE": {
+      "tagline": "Arbeit und Lernen erfassen",
+      "summary": "Meine Plattform für Arbeit, Lernen und Übungen.",
+      "problem": "Arbeit, Lernen und Übungen brauchen eine gemeinsame Fortschrittsübersicht, ohne private Notizen zu veröffentlichen.",
+      "implementation": "Ich habe SkillMax+ entwickelt und mit einer API auf Google Cloud bereitgestellt. Die privaten Quelldaten bleiben von einer detaillierten Ansicht für berechtigte Nutzer und dem öffentlichen Lernbericht auf meinem Portfolio getrennt.",
+      "highlights": [
+        "Der Owner verwaltet Lernpfade, Protokolle, Buildmap, Übungen, Sichtbarkeit und Planung.",
+        "Berechtigte Viewer erhalten eine detaillierte Leseansicht; Schreibanfragen werden abgelehnt.",
+        "Der öffentliche Lernbericht liefert bereinigte, aggregierte Daten für Candles, Theorie, Übungen, Meilensteine, öffentliche Builds und lastUpdated.",
+        "Interne Synchronisierung erfasst GitHub-Commits und erfolgreiche Vercel-Produktionsdeployments als Praxisnachweise."
+      ]
+    }
   }
 }
