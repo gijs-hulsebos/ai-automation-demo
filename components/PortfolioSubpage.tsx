@@ -1,6 +1,6 @@
 'use client';
 
-import { LearnTrajectoryPublic } from '@/components/LearnTrajectoryPublic';
+import { SkillMaxOverviewEmbed } from '@/components/SkillMaxOverviewEmbed';
 import { Header } from '@/components/Header';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
@@ -12,10 +12,10 @@ export function PortfolioSubpage({ section }: { section: 'projects' | 'certifica
     <div className="min-h-screen bg-zinc-950 text-zinc-50">
       <Header />
       <main className="max-w-[1328px] mx-auto pt-40 pb-20 px-6">
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white text-center leading-[1.15]">
+        {section !== 'learning' && <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white text-center leading-[1.15]">
           {INTERFACE[lang][section]}
-        </h1>
-        {section === 'learning' && <div className="mt-12"><LearnTrajectoryPublic embedded /></div>}
+        </h1>}
+        {section === 'learning' && <SkillMaxOverviewEmbed />}
       </main>
     </div>
   );
