@@ -8,7 +8,8 @@ export type Domain=ProfileDomain;
 export type Series='theory'|'practice'|'exercises';
 type Activity={title:string;contributions?:number};
 type Period={practice:{commits?:number;segments:Record<string,{events:Activity[]}>};theory:{activities:Activity[]};exercises:{count:number}};
-export type PublicChart={schemaVersion:number;audience:string;generatedAt:string;windows:{'1Y':{from:string;to:string;periods:Period[]}}};
+export type DiscoveredProject={key:string;name:string;url:string;createdAt:string;description:string;topics:string[];language:string|null};
+export type PublicChart={publicProjects?:DiscoveredProject[];schemaVersion:number;audience:string;generatedAt:string;windows:{'1Y':{from:string;to:string;periods:Period[]}}};
 export type Evidence={title:string;series:Series;count:number;detail:string;url:string};
 export type EvidenceRecord=Evidence & {id:string;domains:Domain[];technologies:TechnologyMention[];sourceKind:'project'|'course'|'activity';date?:string;dateKind?:'documented'|'completed';issuer?:string;credential?:string|null;parentId?:string|null};
 export type RadarData={evidence:EvidenceRecord[];generatedAt:string;from:string;to:string;totals:Record<Series,number>;unclassifiedTheory:number;axes:{key:Domain;theory:number;practice:number;exercises:number;evidence:Evidence[]}[]};
@@ -25,8 +26,23 @@ export function buildRadar(input:PublicChart,catalog?:LearningCatalog):RadarData
  // Portfolio evidence is counted once per project, never per commit or deployment.
  // The review date means documented in this annual window, not completion date.
  if(profileReviewedOn>=window.from&&profileReviewedOn<=window.to){
-   const catalog=[...projects.map(p=>({id:p.id,title:p.displayName||p.name})),{id:'tarvos',title:'Tarvos'},{id:'aegix',title:'Aegix'}];
-   for(const p of catalog){const profile=projectProfile[p.id];if(!profile)continue;totals.practice++;add([...profile.domains,...(deployed.has(p.id)?['cloud' as Domain]:[])],{title:p.title,series:'practice',count:1,detail:profile.detail+(deployed.has(p.id)?' Productiedeployment bevestigd in SkillMax+.':''),url:'/projects'},{id:'project:'+p.id,sourceKind:'project',date:profileReviewedOn,dateKind:'documented',technologies:(projects.find(entry=>entry.id===p.id)?.stack||(p.id==='tarvos'?[...tarvosStack,...tarvosWebsiteStack]:[])).map(normalizeTechnology).filter((m):m is TechnologyMention=>m!==null)});}
+   const infer=(content:string):Domain[]=>domains.filter(d=>({cloud:/cloud|vercel|firebase|supabase|serverless|hosting|deployment/i,automation:/automat|workflow|orchestrat|n8n|procedural/i,ai:/\bAI\b|LLM|agents?|generat.*(?:image|video)|machine learning|prompt/i,integration:/\bAPI\b|MCP|SDK|integration|webhook|plugin/i,software:/TypeScript|JavaScript|Python|React|Next\.js|application|website|plugin|software|frontend|HTML|CSS/i,data:/data|analysis|analytics|research|fingerprint|tags|metadata/i,security:/security|privacy|authentication|governance|compliance/i}[d].test(content)));
+   const normalized=(value:string)=>value.toLowerCase().replace(/[^a-z0-9]/g,'').replace(/website$/,'');
+   const knownRepositories=new Set(projects.flatMap(p=>[p.id,p.repository?.split('/').pop()||'']).map(normalized));
+   const portfolio=[...projects,{id:'tarvos',name:'Tarvos',displayName:'Tarvos',stack:[...tarvosStack,...tarvosWebsiteStack],summary:'',implementation:'',highlights:[]},{id:'aegix',name:'Aegix',displayName:'Aegix',stack:[],summary:'',implementation:'',highlights:[]}];
+   for(const p of portfolio){
+    const profile=projectProfile[p.id];const content=[p.summary,p.implementation,...p.highlights,...p.stack].join(' ');
+    const targets=profile?.domains||infer(content);totals.practice++;
+    add([...targets,...(deployed.has(p.id)?['cloud' as Domain]:[])],{title:p.displayName||p.name,series:'practice',count:1,detail:(profile?.detail||p.summary)+(deployed.has(p.id)?' Productiedeployment bevestigd in SkillMax+.':''),url:'/projects'},{id:'project:'+p.id,sourceKind:'project',date:profileReviewedOn,dateKind:'documented',technologies:p.stack.map(normalizeTechnology).filter((m):m is TechnologyMention=>m!==null)});
+   }
+   // Newly created public repositories become evidence without a manually maintained profile entry.
+   // A portfolio project and its website are grouped as one project, not separate skill points.
+   for(const p of input.publicProjects||[]){
+    if(!p.createdAt||p.createdAt<'2026-09-14T22:00:00Z'||p.createdAt.slice(0,10)>window.to||knownRepositories.has(normalized(p.name)))continue;
+    knownRepositories.add(normalized(p.name));
+    const content=[p.description,...p.topics,p.language||''].join(' ');totals.practice++;
+    add(infer(content),{title:p.name,series:'practice',count:1,detail:p.description||'Openbare GitHub-repository.',url:p.url},{id:'project:'+p.key,sourceKind:'project',date:p.createdAt.slice(0,10),dateKind:'documented',technologies:technologiesInText(content)});
+   }
  }
  let unclassifiedTheory=0;
  const seen=new Set<string>();
