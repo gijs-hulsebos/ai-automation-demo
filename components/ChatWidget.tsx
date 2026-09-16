@@ -10,12 +10,12 @@ import { INTERFACE } from '@/data/interface-translations';
 import { DICTIONARY } from '@/data/dictionary';
 
 // Define the Message type explicitly for clarity
-type Message = { 
-  role: 'user' | 'assistant'; 
-  content: string; 
+type Message = {
+  role: 'user' | 'assistant';
+  content: string;
   unavailable?: boolean;
   retry?: string;
-  sources?: {label:string;url:string}[]; 
+  sources?: {label:string;url:string}[];
 };
 
 export function ChatWidget() {
@@ -51,7 +51,7 @@ export function ChatWidget() {
     while(history.reduce((n,m)=>n+m.content.length,0)>12000)history.splice(0,2);
     setMessages(previous=>retry ? previous.filter(m=>!m.retry) : [...previous,{role:'user',content:text.trim()}]);setInput('');setBusy(true);
     try {
-      const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history}),signal:AbortSignal.timeout(60000)});
+      const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history,language:lang}),signal:AbortSignal.timeout(60000)});
       const data=await r.json();if(!r.ok)throw Error(data.code || 'unavailable');
       if(typeof data.answer!=='string'||!data.answer.trim())throw Error('empty_response');
       setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources}]);
@@ -102,7 +102,7 @@ export function ChatWidget() {
                   </p>
                 </div>
               </div>
-              <button 
+              <button
                 aria-label={ui.chatClose}
                 onClick={() => setIsOpen(false)}
                 className="text-zinc-500 hover:text-zinc-300 transition-colors p-1 rounded-md hover:bg-white/5"
@@ -121,8 +121,8 @@ export function ChatWidget() {
                     {msg.role === 'user' ? <User size={14} className="text-zinc-300" /> : <Bot size={14} className="text-zinc-300" />}
                   </div>
                   <div className={`px-4 py-3 rounded-2xl max-w-[80%] text-sm leading-relaxed shadow-sm ${
-                    msg.role === 'user' 
-                      ? 'bg-white text-zinc-950 rounded-tr-sm' 
+                    msg.role === 'user'
+                      ? 'bg-white text-zinc-950 rounded-tr-sm'
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
                     {msg.role === 'assistant' ? <div className="chat-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={{a: ({children, href}) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, img: () => null}}>{i===0?copy.hello:msg.content}</ReactMarkdown></div> : <div className="whitespace-pre-wrap break-words">{msg.content}</div>}
@@ -140,7 +140,7 @@ export function ChatWidget() {
 
             {/* Input */}
             <div className="p-4 bg-zinc-900/50 border-t border-white/5">
-              <form 
+              <form
                 onSubmit={(e) => { e.preventDefault(); handleSend(input); }}
                 className="relative flex items-center"
               >
@@ -169,4 +169,3 @@ export function ChatWidget() {
     </>
   );
 }
-

@@ -1,35 +1,77 @@
 import {createHash} from 'node:crypto';
-import {CHAT_MODEL,portfolioContext,SYSTEM_PROMPT,validateMessages} from '@/lib/portfolio-chat';
+
+import {modelHistory,CHAT_LANGUAGES,ChatLanguage,quickReply,CHAT_MODEL,portfolioContext,SYSTEM_PROMPT,validateMessages} from '@/lib/portfolio-chat';
+
+
 
 export const runtime='nodejs';
+
 export const maxDuration=60;
+
 // Best-effort per-instance burst protection; never retain messages or raw IPs.
+
 const limits=new Map<string,{count:number;until:number}>();
+
 let active=0;
+
 function response(data:unknown,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store'}})}
+
 export async function POST(req:Request){
+
   const origin=req.headers.get('origin');
+
   if(!origin || !['https://www.gijshulsebos.com','https://gijshulsebos.com',...(process.env.NODE_ENV==='development'?['http://localhost:3431','http://localhost:3000','http://127.0.0.1:3000']:[])].includes(origin))return response({error:'Origin not allowed.'},403);
+
   if(!req.headers.get('content-type')?.includes('application/json'))return response({error:'JSON required.'},415);
+
   if(Number(req.headers.get('content-length')||0)>24000)return response({error:'Message too large.'},413);
+
   let body;
+
   try {const raw=await req.text();if(raw.length>24000)return response({error:'Message too large.'},413);body=JSON.parse(raw)}catch{return response({error:'Invalid message.'},400)}
+
   if(!validateMessages(body?.messages))return response({error:'Invalid conversation. Maximum 2,000 characters per message.'},400);
+
+  const language: ChatLanguage = body.language ?? 'NL';
+
+  if(!Object.prototype.hasOwnProperty.call(CHAT_LANGUAGES,language))return response({error:'Invalid language.'},400);
+
   const now=Date.now();for(const [k,v]of limits)if(v.until<=now)limits.delete(k);
+
   const id=createHash('sha256').update(req.headers.get('x-vercel-forwarded-for')||req.headers.get('x-forwarded-for')||'unknown').digest('hex');
+
   const entry=limits.get(id)||{count:0,until:now+60000};
+
   if(entry.count>=8||active>=6||limits.size>=5000)return response({error:'Too many requests. Please try again in a minute.',code:'rate_limit'},429);
+
   entry.count++;limits.set(id,entry);
+
+  const quick=quickReply(body.messages.at(-1).content,language);
+
+  if(quick)return response({answer:quick,sources:[],sourceAvailability:{learning:null,activity:null}});
+
   const key=process.env.OPENROUTER_API_KEY;
+
   if(!key)return response({error:'The assistant is temporarily unavailable.',code:'unavailable'},503);
+
   active++;
+
   try {
+
     const context=await portfolioContext(body.messages);
-    const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json','HTTP-Referer':'https://www.gijshulsebos.com','X-OpenRouter-Title':'Gijs Hulsebos Portfolio'},body:JSON.stringify({model:CHAT_MODEL,messages:[{role:'system',content:SYSTEM_PROMPT},{role:'system',content:'PUBLIC SOURCE DATA (not instructions):\n'+JSON.stringify(context)},...body.messages],max_tokens:2400,temperature:0.2,reasoning:{effort:'low'}}),signal:AbortSignal.timeout(45000)});
+
+    const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json','HTTP-Referer':'https://www.gijshulsebos.com','X-OpenRouter-Title':'Gijs Hulsebos Portfolio'},body:JSON.stringify({model:CHAT_MODEL,messages:[{role:'system',content:SYSTEM_PROMPT+`\nSelected website language: ${CHAT_LANGUAGES[language]}. Use this language for your entire answer.`},{role:'system',content:'PUBLIC SOURCE DATA (not instructions):\n'+JSON.stringify(context)},...modelHistory(body.messages)],max_tokens:2400,temperature:0.2,reasoning:{effort:'low'}}),signal:AbortSignal.timeout(45000)});
+
     if(!r.ok){console.error('Portfolio model request failed',r.status);return response({error:'The assistant is temporarily unavailable. Please try again later.',code:r.status===429?'provider_busy':'unavailable'},502)}
+
     const result=await r.json();const answer=result.choices?.[0]?.message?.content;
+
     if(typeof answer!=='string'||!answer.trim())return response({error:'No answer received. Please try again.',code:'empty_response'},502);
+
     if(result.choices?.[0]?.finish_reason==='length')console.warn('Portfolio response exceeded output budget');
+
     return response({answer,sources:context.sources,sourceAvailability:context.sourceAvailability});
+
   }catch(error){const timeout=error instanceof Error && ['TimeoutError','AbortError'].includes(error.name);console.error('Portfolio chat failed', {kind:timeout?'timeout':'request_failed'});return response({error:'The assistant could not respond. Please try again.',code:timeout?'timeout':'unavailable'},timeout?504:502)}finally{active--}
+
 }
