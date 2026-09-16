@@ -14,7 +14,7 @@ type Message = {
   role: 'user' | 'assistant'; 
   content: string; 
   unavailable?: boolean;
-  contact?: boolean;
+  retry?: string;
   sources?: {label:string;url:string}[]; 
 };
 
@@ -26,9 +26,8 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: '', unavailable: true }
   ]);
-  const successfulReplies=useRef(0);
   const [busy,setBusy]=useState(false);
-  const copy={NL:{hello:'Vraag me naar Gijs zijn projecten, certificaten of leertraject. Ik gebruik openbare portfolio- en SkillMax+ gegevens.',status:'Portfolio-assistent · AI',loading:'Bronnen raadplegen…',error:'Het antwoorden is niet gelukt. Probeer het zo nog eens.'},EN:{hello:'Ask me about Gijs’s projects, certificates or learning journey. I use public portfolio and SkillMax+ data.',status:'Portfolio assistant · AI',loading:'Checking sources…',error:'Unable to answer right now. Please try again shortly.'},DE:{hello:'Frage mich nach Gijs’ Projekten, Zertifikaten oder Lernplan. Ich nutze öffentliche Portfolio- und SkillMax+ Daten.',status:'Portfolio-Assistent · KI',loading:'Quellen werden geprüft…',error:'Die Antwort ist momentan nicht verfügbar. Bitte versuche es erneut.'}}[lang];
+  const copy={NL:{hello:'Hoi! Wat wil je weten over Gijs of zijn werk?',status:'Portfolio-assistent · AI',loading:'Bronnen raadplegen…',error:'Het antwoorden is niet gelukt. Probeer het zo nog eens.'},EN:{hello:'Ask me about Gijs’s projects, certificates or learning journey. I use public portfolio and SkillMax+ data.',status:'Portfolio assistant · AI',loading:'Checking sources…',error:'Unable to answer right now. Please try again shortly.'},DE:{hello:'Frage mich nach Gijs’ Projekten, Zertifikaten oder Lernplan. Ich nutze öffentliche Portfolio- und SkillMax+ Daten.',status:'Portfolio-Assistent · KI',loading:'Quellen werden geprüft…',error:'Die Antwort ist momentan nicht verfügbar. Bitte versuche es erneut.'}}[lang];
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -44,17 +43,24 @@ export function ChatWidget() {
     }
   }, [messages, isOpen]);
 
-  const handleSend = async (text: string) => {
-    if (!text.trim() || busy) return;
-    const history=[...messages.filter(m=>!m.unavailable).map(({role,content})=>({role,content:content.slice(0,2000)})),{role:'user' as const,content:text.trim()}].slice(-9);
+  const sending = useRef(false);
+  const handleSend = async (text: string, retry = false) => {
+    if (!text.trim() || sending.current) return;
+    sending.current = true;
+    const history=[...messages.filter((m,i)=>!m.unavailable && !(retry && i===messages.length-2 && m.role==='user')).map(({role,content})=>({role,content:content.slice(0,2000)})),{role:'user' as const,content:text.trim()}].slice(-9);
     while(history.reduce((n,m)=>n+m.content.length,0)>12000)history.splice(0,2);
-    setMessages(previous=>[...previous,{role:'user',content:text.trim()}]);setInput('');setBusy(true);
+    setMessages(previous=>retry ? previous.filter(m=>!m.retry) : [...previous,{role:'user',content:text.trim()}]);setInput('');setBusy(true);
     try {
       const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history}),signal:AbortSignal.timeout(60000)});
-      const data=await r.json();if(!r.ok)throw Error(data.error);
-      successfulReplies.current++;
-      setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources,contact:successfulReplies.current%5===0}]);
-    }catch{setMessages(previous=>[...previous,{role:'assistant',content:copy.error,unavailable:true}])}finally{setBusy(false)}
+      const data=await r.json();if(!r.ok)throw Error(data.code || 'unavailable');
+      if(typeof data.answer!=='string'||!data.answer.trim())throw Error('empty_response');
+      setMessages(previous=>[...previous,{role:'assistant',content:data.answer,sources:data.sources}]);
+    }catch(error){
+      const code=error instanceof Error ? error.message : '';
+      const isTimeout=error instanceof Error && ['TimeoutError','AbortError'].includes(error.name) || code==='timeout';
+      const errorCopy=({NL:{wait:'Het is even druk. Wacht een minuut en probeer opnieuw.',timeout:'Het antwoord duurt te lang. Je vraag is bewaard; probeer opnieuw.'},EN:{wait:'The assistant is busy. Wait a minute and retry.',timeout:'The answer took too long. Your question is saved; please retry.'},DE:{wait:'Gerade ist viel los. Bitte in einer Minute erneut versuchen.',timeout:'Die Antwort dauert zu lange. Deine Frage ist gespeichert; versuche es erneut.'}}[lang]);
+      setMessages(previous=>[...previous,{role:'assistant',content:['rate_limit','provider_busy'].includes(code)?errorCopy.wait:isTimeout?errorCopy.timeout:copy.error,unavailable:true,retry:text}]);
+    }finally{sending.current=false;setBusy(false)}
   };
 
   return (
@@ -120,7 +126,7 @@ export function ChatWidget() {
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
                     {msg.role === 'assistant' ? <div className="chat-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={{a: ({children, href}) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, img: () => null}}>{i===0?copy.hello:msg.content}</ReactMarkdown></div> : <div className="whitespace-pre-wrap break-words">{msg.content}</div>}
-                    {msg.contact&&<div className="mt-4 border-t border-white/15 pt-3"><p>{({NL:'Gijs kan je hier met meer diepgang over vertellen. Wil je contact met hem opnemen?',EN:'Gijs can explain this in more depth. Would you like to get in touch?',DE:'Gijs kann dir dies ausführlicher erklären. Möchtest du Kontakt aufnehmen?'}[lang])}</p><div className="mt-3 flex flex-wrap gap-2"><a className="rounded-lg bg-white px-3 py-2 text-xs text-zinc-950" href="/contact">Contact</a><a className="rounded-lg border border-white/20 px-3 py-2 text-xs" href="https://linkedin.com/in/gijshulsebos" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>}
+                    {msg.retry&&i===messages.length-1&&<button disabled={busy} onClick={()=>void handleSend(msg.retry!,true)} className="mt-3 underline disabled:opacity-50">{({NL:'Opnieuw proberen',EN:'Try again',DE:'Erneut versuchen'}[lang])}</button>}
                     {msg.sources&&<div className="mt-3 flex flex-wrap gap-2">{msg.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="underline text-xs text-sky-300">{source.label}</a>)}</div>}
 
 
