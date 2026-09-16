@@ -1,5 +1,7 @@
 'use client';
 
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
@@ -117,7 +119,7 @@ export function ChatWidget() {
                       ? 'bg-white text-zinc-950 rounded-tr-sm' 
                       : 'bg-zinc-900/80 border border-white/5 text-zinc-200 rounded-tl-sm'
                   }`}>
-                    <div className="whitespace-pre-wrap break-words">{i===0?copy.hello:msg.content}</div>
+                    {msg.role === 'assistant' ? <div className="chat-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={{a: ({children, href}) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, img: () => null}}>{i===0?copy.hello:msg.content}</ReactMarkdown></div> : <div className="whitespace-pre-wrap break-words">{msg.content}</div>}
                     {msg.contact&&<div className="mt-4 border-t border-white/15 pt-3"><p>{({NL:'Gijs kan je hier met meer diepgang over vertellen. Wil je contact met hem opnemen?',EN:'Gijs can explain this in more depth. Would you like to get in touch?',DE:'Gijs kann dir dies ausführlicher erklären. Möchtest du Kontakt aufnehmen?'}[lang])}</p><div className="mt-3 flex flex-wrap gap-2"><a className="rounded-lg bg-white px-3 py-2 text-xs text-zinc-950" href="/contact">Contact</a><a className="rounded-lg border border-white/20 px-3 py-2 text-xs" href="https://linkedin.com/in/gijshulsebos" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>}
                     {msg.sources&&<div className="mt-3 flex flex-wrap gap-2">{msg.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer" className="underline text-xs text-sky-300">{source.label}</a>)}</div>}
 

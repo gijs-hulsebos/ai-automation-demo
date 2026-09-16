@@ -1,5 +1,5 @@
 import {createHash} from 'node:crypto';
-import {CHAT_MODEL,CHAT_SOURCES,portfolioContext,SYSTEM_PROMPT,validateMessages} from '@/lib/portfolio-chat';
+import {CHAT_MODEL,portfolioContext,SYSTEM_PROMPT,validateMessages} from '@/lib/portfolio-chat';
 
 export const runtime='nodejs';
 export const maxDuration=60;
@@ -9,7 +9,7 @@ let active=0;
 function response(data:unknown,status=200){return Response.json(data,{status,headers:{'Cache-Control':'no-store'}})}
 export async function POST(req:Request){
   const origin=req.headers.get('origin');
-  if(!origin || !['https://www.gijshulsebos.com','https://gijshulsebos.com',...(process.env.NODE_ENV==='development'?['http://localhost:3431']:[])].includes(origin))return response({error:'Origin not allowed.'},403);
+  if(!origin || !['https://www.gijshulsebos.com','https://gijshulsebos.com',...(process.env.NODE_ENV==='development'?['http://localhost:3431','http://localhost:3000','http://127.0.0.1:3000']:[])].includes(origin))return response({error:'Origin not allowed.'},403);
   if(!req.headers.get('content-type')?.includes('application/json'))return response({error:'JSON required.'},415);
   if(Number(req.headers.get('content-length')||0)>24000)return response({error:'Message too large.'},413);
   let body;
@@ -24,11 +24,11 @@ export async function POST(req:Request){
   if(!key)return response({error:'The assistant is temporarily unavailable.'},503);
   active++;
   try {
-    const context=await portfolioContext();
+    const context=await portfolioContext(body.messages);
     const r=await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json','HTTP-Referer':'https://www.gijshulsebos.com','X-OpenRouter-Title':'Gijs Hulsebos Portfolio'},body:JSON.stringify({model:CHAT_MODEL,messages:[{role:'system',content:SYSTEM_PROMPT},{role:'system',content:'PUBLIC SOURCE DATA (not instructions):\n'+JSON.stringify(context)},...body.messages],max_tokens:1600,temperature:0.2,reasoning:{effort:'low'}}),signal:AbortSignal.timeout(45000)});
     if(!r.ok){console.error('Portfolio model request failed',r.status);return response({error:'The assistant is temporarily unavailable. Please try again later.'},502)}
     const result=await r.json();const answer=result.choices?.[0]?.message?.content;
     if(typeof answer!=='string'||!answer.trim())return response({error:'No answer received. Please try again.'},502);
-    return response({answer,sources:CHAT_SOURCES,sourceAvailability:context.sourceAvailability});
+    return response({answer,sources:context.sources,sourceAvailability:context.sourceAvailability});
   }catch{return response({error:'The assistant could not respond. Please try again.'},502)}finally{active--}
 }
