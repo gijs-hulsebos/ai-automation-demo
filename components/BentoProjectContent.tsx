@@ -35,6 +35,12 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
       {project.id === 'skillmax' && <a href="/learning-trajectory">{{NL:'Leertraject',EN:'Learning Trajectory',DE:'Lernpfad'}[lang]}<ArrowUpRight size={14} aria-hidden="true" /></a>}
       {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">{text.demo}<ArrowUpRight size={14} aria-hidden="true" /></a>}
     </div>}
+    {project.id === 'fileprint' && <section>
+      <h3>{{ NL: 'Hoe FilePrint werkt', EN: 'How FilePrint works', DE: 'So funktioniert FilePrint' }[lang]}</h3>
+      <video controls playsInline preload="metadata" className="aspect-video w-full rounded-xl bg-black object-contain" aria-label="FilePrint" onClick={event => event.stopPropagation()}>
+        <source src="/projects/fileprint-explainer.mp4" type="video/mp4" />
+      </video>
+    </section>}
     {project.id === 'genreel' && <section className="genreel-project-video">
       <h3>{{ NL: 'Liftveiligheid in 3D — Blender', EN: '3D elevator safety — Blender', DE: 'Aufzugsicherheit in 3D — Blender' }[lang]}</h3>
       <video controls playsInline preload="metadata" className="w-full rounded-xl" aria-label="GenReel: 3D Blender Elevator Safety" onClick={event => event.stopPropagation()}>

@@ -590,15 +590,30 @@
     "name": "FilePrint",
     "displayName": "FilePrint",
     "size": "large",
-    "tagline": "",
-    "summary": "An experiment. More information will follow.",
-    "problem": "",
-    "implementation": "",
-    "highlights": [],
-    "stack": [],
-    "sources": [],
-    "repository": null,
-    "live": null,
+    "tagline": "Visuals and sound",
+    "summary": "An experimental Obsidian plugin that turns nested tags into visual fingerprints and procedural sound. Related notes share elements of their pattern and sound.",
+    "problem": "A tag hierarchy describes how notes relate, but that relationship is not immediately visible or audible when browsing a vault.",
+    "implementation": "I built local visual and audio generators and integrated them into an Obsidian plugin, with a sidebar, embedded note blocks and an interactive website to try the generators.",
+    "highlights": [
+      "Shared tag prefixes drive related visual and musical parameters; note metadata also shapes visual details.",
+      "Canvas renders the visuals and Web Audio generates sound on demand, without automatic playback.",
+      "Independent visual and audio blocks, with local PNG, video and WAV exports.",
+      "The plugin runs without accounts, API keys, telemetry or runtime network requests.",
+      "An MIT-licensed experimental release, installed manually rather than through the Community Plugins directory."
+    ],
+    "stack": [
+      "Obsidian",
+      "TypeScript",
+      "JavaScript",
+      "Canvas API",
+      "Web Audio API"
+    ],
+    "sources": [
+      "https://github.com/gijs-hulsebos/FilePrint",
+      "https://file-print-website.vercel.app/"
+    ],
+    "repository": "https://github.com/gijs-hulsebos/FilePrint",
+    "live": "https://file-print-website.vercel.app/",
     "image": null,
     "private": false
   },

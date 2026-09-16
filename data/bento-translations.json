@@ -465,10 +465,30 @@
   },
   "fileprint": {
     "NL": {
-      "summary": "Een experiment. Meer informatie volgt."
+      "tagline": "Beeld en geluid",
+      "summary": "Een experimentele Obsidian-plugin die geneste tags omzet in visuele vingerafdrukken en procedureel geluid. Verwante notities delen onderdelen van hun patroon en klank.",
+      "problem": "Een taghiërarchie beschrijft hoe notities samenhangen, maar die samenhang is niet direct zichtbaar of hoorbaar tijdens het bladeren.",
+      "implementation": "Ik bouwde lokale beeld- en geluidsgeneratoren en integreerde die in een Obsidian-plugin, met een zijpaneel, blokken in notities en een interactieve website om de generatoren uit te proberen.",
+      "highlights": [
+        "Gedeelde tagpaden bepalen verwante visuele en muzikale parameters; notitiemetadata beïnvloedt ook de visuele details.",
+        "Canvas tekent de patronen en Web Audio genereert geluid op aanvraag, zonder automatisch afspelen.",
+        "Losse beeld- en audioblokken, met lokale export naar PNG, video en WAV.",
+        "De plugin werkt zonder accounts, API-sleutels, telemetrie of netwerkverzoeken tijdens gebruik.",
+        "Experimentele release onder MIT-licentie, handmatig te installeren en nog niet in de Community Plugins-catalogus."
+      ]
     },
     "DE": {
-      "summary": "Ein Experiment. Weitere Informationen folgen."
+      "tagline": "Bild und Klang",
+      "summary": "Ein experimentelles Obsidian-Plugin, das verschachtelte Tags in visuelle Fingerabdrücke und prozeduralen Klang übersetzt. Verwandte Notizen teilen Elemente ihrer Muster und Klänge.",
+      "problem": "Eine Tag-Hierarchie beschreibt Beziehungen zwischen Notizen, macht diese beim Durchblättern aber nicht unmittelbar sichtbar oder hörbar.",
+      "implementation": "Ich habe lokale Bild- und Klangerzeuger entwickelt und in ein Obsidian-Plugin integriert: mit Seitenleiste, eingebetteten Notizblöcken und einer interaktiven Website zum Ausprobieren.",
+      "highlights": [
+        "Gemeinsame Tag-Pfade bestimmen verwandte visuelle und musikalische Parameter; Notizmetadaten beeinflussen visuelle Details.",
+        "Canvas zeichnet die Muster; Web Audio erzeugt Klang auf Anfrage, ohne automatische Wiedergabe.",
+        "Separate Bild- und Audioblöcke mit lokalem Export als PNG, Video und WAV.",
+        "Das Plugin benötigt keine Konten, API-Schlüssel, Telemetrie oder Netzwerkanfragen während der Nutzung.",
+        "Experimentelle Veröffentlichung unter MIT-Lizenz, manuell installierbar und noch nicht im Community-Plugins-Verzeichnis."
+      ]
     }
   },
   "yamlgen": {
