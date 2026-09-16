@@ -568,3 +568,9 @@ button.bento-category-icon { width: 20px; height: 20px; }
 .video-side-brand { position: absolute; inset: 0; pointer-events: none; }
 .interactive-bento:has(.tarvos-project-block[data-open="true"]) .skillmax-collapsed-logo { width: 52px; max-height: 48px; margin-bottom: 4px; }
 .techevents-collapsed-logo{display:block;width:min(100%,90px);height:auto;max-height:100px;margin:0 auto 16px}.bento-tile[data-project-id="events"] .bento-project-brand{text-align:center}
+
+.genreel-collapsed-logo { display: block; width: 90px; max-width: 65%; height: 65px; object-fit: contain; margin: 0 0 8px; }
+@container (max-height: 140px) { .genreel-collapsed-logo { width: 44px; height: 32px; margin-bottom: 4px; } }
+
+.bento-tile[data-project-id="genreel"] .bento-project-brand { text-align: center; }
+.bento-tile[data-project-id="genreel"] .genreel-collapsed-logo { margin-left: auto; margin-right: auto; }

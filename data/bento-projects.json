@@ -520,7 +520,8 @@
     "private": false
   },
   {
-    "slot": "l", "id": "events",
+    "slot": "l",
+    "id": "events",
     "name": "TechEvents",
     "displayName": "TechEvents",
     "size": "large",
@@ -550,8 +551,35 @@
     "live": "https://skillmax-135087328412.europe-west4.run.app/events/viewer",
     "image": null,
     "private": true
+  },
+  {
+    "slot": "k",
+    "id": "genreel",
+    "name": "GenReel",
+    "displayName": "GenReel",
+    "size": "large",
+    "tagline": "AI & Video portfolio",
+    "summary": "A portfolio of my generated media: AI images, video, voice, programmatic animations and personal creations.",
+    "problem": "Different media techniques produce separate outputs. I wanted one place to present the work and show how those techniques come together.",
+    "implementation": "I built GenReel to collect and present my media creations, combining AI generation and editing with programmatic video and Blender. The featured video demonstrates a 3D elevator safety scene.",
+    "highlights": [
+      "Image-to-video and image generation, including work with Seedance 2.5.",
+      "AI voice generation and AI-assisted editing.",
+      "Programmatic video generation and Blender workflows with MCP.",
+      "A web portfolio built with Next.js, React, TypeScript and Tailwind CSS, published on Vercel."
+    ],
+    "stack": [
+      "Blender",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    "sources": [],
+    "repository": null,
+    "live": "https://genreel-portfolio.vercel.app/",
+    "image": null,
+    "private": true
   }
 ]
-
-
-

@@ -35,6 +35,18 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
       {project.id === 'skillmax' && <a href="/learning-trajectory">{{NL:'Leertraject',EN:'Learning Trajectory',DE:'Lernpfad'}[lang]}<ArrowUpRight size={14} aria-hidden="true" /></a>}
       {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">{text.demo}<ArrowUpRight size={14} aria-hidden="true" /></a>}
     </div>}
+    {project.id === 'genreel' && <section className="genreel-project-video">
+      <h3>{{ NL: 'Liftveiligheid in 3D — Blender', EN: '3D elevator safety — Blender', DE: 'Aufzugsicherheit in 3D — Blender' }[lang]}</h3>
+      <video controls playsInline preload="metadata" className="w-full rounded-xl" aria-label="GenReel: 3D Blender Elevator Safety" onClick={event => event.stopPropagation()}>
+        <source src="/projects/genreel-blender-elevator.mp4" type="video/mp4" />
+      </video>
+    </section>}
+    {project.id === 'acquisition' && <section className="acquisition-origin-video">
+      <h3>{{ NL: 'Hoe het idee ontstond', EN: 'How the idea started', DE: 'Wie die Idee entstand' }[lang]}</h3>
+      <video controls playsInline preload="metadata" className="w-full rounded-xl" aria-label={{ NL: 'Hoe ik op het idee voor Acquisition Gap Analyzer kwam', EN: 'How I came up with Acquisition Gap Analyzer', DE: 'Wie ich auf die Idee für Acquisition Gap Analyzer kam' }[lang]} onClick={event => event.stopPropagation()}>
+        <source src="/projects/acquisition-gap-analyzer-origin.mp4" type="video/mp4" />
+      </video>
+    </section>}
     {project.id === 'skillmax' && <a className="bento-project-visual" href="/learning-trajectory" aria-label="SkillMax+ Overview"><Image src="/projects/skillmax-overview.png" alt="SkillMax+ Overview — Learning Chart" width={1500} height={850} sizes="(max-width: 600px) 90vw, 600px" className="object-contain" /></a>}
     {project.image && project.id !== 'skillmax' && <a className="bento-project-visual" href={project.live || project.repository || undefined} target="_blank" rel="noopener noreferrer" aria-label={`${text.image}: ${project.name}`}>
       <Image src={project.image} alt={`${text.image}: ${project.name}`} width={1280} height={800} sizes="(max-width: 600px) 90vw, 500px" className="object-contain" />

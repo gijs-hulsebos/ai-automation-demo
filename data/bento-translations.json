@@ -436,5 +436,31 @@
         "Private Auswahlen sind durch Google-Anmeldung geschützt; Besucher benötigen kein Konto."
       ]
     }
+  },
+  "genreel": {
+    "NL": {
+      "tagline": "AI & Video portfolio",
+      "summary": "Een portfolio van mijn gemaakte media: AI-beelden, video, stemmen, programmatische animaties en persoonlijke creaties.",
+      "problem": "Verschillende mediatechnieken leveren losse resultaten op. Ik wilde één plek om mijn werk te presenteren en te laten zien hoe die technieken samenkomen.",
+      "implementation": "Ik bouwde GenReel om mijn mediacreaties te verzamelen en te presenteren. Ik combineer AI-generatie en bewerking met programmatische video en Blender. De uitgelichte video toont een 3D-scène over liftveiligheid.",
+      "highlights": [
+        "Afbeeldingen genereren en omzetten naar video, met onder meer Seedance 2.5.",
+        "AI-stemgeneratie en AI-ondersteunde bewerking.",
+        "Programmatische videogeneratie en Blender-workflows met MCP.",
+        "Een webportfolio met Next.js, React, TypeScript en Tailwind CSS, gepubliceerd op Vercel."
+      ]
+    },
+    "DE": {
+      "tagline": "AI & Video portfolio",
+      "summary": "Ein Portfolio meiner Medienarbeiten: KI-Bilder, Videos, Stimmen, programmatische Animationen und persönliche Kreationen.",
+      "problem": "Verschiedene Medientechniken erzeugen einzelne Ergebnisse. Ich wollte einen Ort, um meine Arbeiten und das Zusammenspiel der Techniken zu präsentieren.",
+      "implementation": "Ich habe GenReel entwickelt, um meine Medienkreationen zu sammeln und zu präsentieren. Dabei kombiniere ich KI-Generierung und Bearbeitung mit programmatischen Videos und Blender. Das vorgestellte Video zeigt eine 3D-Szene zur Aufzugsicherheit.",
+      "highlights": [
+        "Bildgenerierung und Bild-zu-Video, unter anderem mit Seedance 2.5.",
+        "KI-Stimmgenerierung und KI-gestützte Bearbeitung.",
+        "Programmatische Videogenerierung und Blender-Workflows mit MCP.",
+        "Ein Webportfolio mit Next.js, React, TypeScript und Tailwind CSS, auf Vercel veröffentlicht."
+      ]
+    }
   }
 }

@@ -18,7 +18,7 @@ import { expandedLayout } from './bento-layouts';
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
- events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
  stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
@@ -212,7 +212,7 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                      <div>{project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
                         {project.size !== 'small' && <p>{project.tagline}</p>}
                       </div>
                     </motion.div>
