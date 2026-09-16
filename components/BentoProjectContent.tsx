@@ -31,7 +31,7 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
     <header><h2 className="font-display">{project.name}</h2></header>
     <p lang={lang.toLowerCase()} className="bento-project-summary">{project.summary}</p>
     {(project.repository || project.live) && <div className="bento-project-links">
-      {project.repository && <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub{project.private ? ` (${text.private})` : ''}<ArrowUpRight size={14} aria-hidden="true" /></a>}
+      {project.repository && <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub<ArrowUpRight size={14} aria-hidden="true" /></a>}
       {project.id === 'skillmax' && <a href="/learning-trajectory">{{NL:'Leertraject',EN:'Learning Trajectory',DE:'Lernpfad'}[lang]}<ArrowUpRight size={14} aria-hidden="true" /></a>}
       {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">{text.demo}<ArrowUpRight size={14} aria-hidden="true" /></a>}
     </div>}
@@ -51,9 +51,9 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
     {project.image && project.id !== 'skillmax' && <a className="bento-project-visual" href={project.live || project.repository || undefined} target="_blank" rel="noopener noreferrer" aria-label={`${text.image}: ${project.name}`}>
       <Image src={project.image} alt={`${text.image}: ${project.name}`} width={1280} height={800} sizes="(max-width: 600px) 90vw, 500px" className="object-contain" />
     </a>}
-    <section><h3>{text.problem}</h3><p lang={lang.toLowerCase()}>{project.problem}</p></section>
-    <section><h3>{text.implementation}</h3><p lang={lang.toLowerCase()}>{project.implementation}</p></section>
-    <section><h3>{text.highlights}</h3><ul lang={lang.toLowerCase()}>{project.highlights.map(item => <li key={item}>{item}</li>)}</ul></section>
+    {project.problem && <section><h3>{text.problem}</h3><p lang={lang.toLowerCase()}>{project.problem}</p></section>}
+    {project.implementation && <section><h3>{text.implementation}</h3><p lang={lang.toLowerCase()}>{project.implementation}</p></section>}
+    {project.highlights.length > 0 && <section><h3>{text.highlights}</h3><ul lang={lang.toLowerCase()}>{project.highlights.map(item => <li key={item}>{item}</li>)}</ul></section>}
     {project.stack.length > 0 && <section><h3>{text.stack}</h3><p>{project.stack.join(' · ')}</p></section>}
   </div>;
 }

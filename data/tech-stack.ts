@@ -24,3 +24,10 @@ export const techAliases: Record<string,string> = {
 'GitHub REST API':'GitHub','Vercel API':'Vercel','Google Gemini':'Gemini','Solana web3.js':'Solana','Google Cloud (via SkillMax+)':'Google Cloud Run','SkillMax+ REST API':'REST API','Framer Motion':'Motion'
 };
 Object.assign(techIcons, {GitHub:'/tech/github.svg',Gemini:'/tech/googlegemini.svg',Claude:'/logo/Claude.svg',Remotion:'/logo/remotion.svg'});
+
+export const featuredStacks: Record<string, string[]> = {
+ tarvos: ["Astro", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js", "D3", "Vite", "Solana", "n8n", "Python"],
+ aegix: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "React Flow", "Express", "Solana"],
+};
+
+Object.assign(techIcons, { Blender: "/tech/blender.svg", Higgsfield: "/tech/higgsfield.svg", "Seedance 2.5": "/tech/seedance.png" });

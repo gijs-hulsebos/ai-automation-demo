@@ -554,7 +554,7 @@ button.bento-category-icon { width: 20px; height: 20px; }
 
 .skillmax-project-logo { display: block; width: min(100%, 240px); height: 180px; object-fit: contain; margin: 12px auto 20px; }
 
-.skillmax-collapsed-logo { display: block; width: min(100%, 120px); height: auto; max-height: 110px; object-fit: contain; margin: 0 auto 12px; }
+.skillmax-collapsed-logo { display: block; width: min(100%, 138px); height: auto; max-height: 126px; object-fit: contain; margin: 0 auto 12px; }
 .bento-tile[data-project-id="skillmax"] .bento-project-brand { text-align: center; }
 
 .skillmax-api-diagram { display: block; width: 100%; height: auto; margin: 16px 0 24px; object-fit: contain; }
@@ -567,10 +567,46 @@ button.bento-category-icon { width: 20px; height: 20px; }
 .video-brand-play .aegix-expanded-logo { inset: 0; width: 100%; height: 100%; }
 .video-side-brand { position: absolute; inset: 0; pointer-events: none; }
 .interactive-bento:has(.tarvos-project-block[data-open="true"]) .skillmax-collapsed-logo { width: 52px; max-height: 48px; margin-bottom: 4px; }
-.techevents-collapsed-logo{display:block;width:min(100%,90px);height:auto;max-height:100px;margin:0 auto 16px}.bento-tile[data-project-id="events"] .bento-project-brand{text-align:center}
+.techevents-collapsed-logo{display:block;width:min(100%,104px);height:auto;max-height:115px;margin:0 auto 16px}.bento-tile[data-project-id="events"] .bento-project-brand{text-align:center}
 
-.genreel-collapsed-logo { display: block; width: 90px; max-width: 65%; height: 65px; object-fit: contain; margin: 0 0 8px; }
+.genreel-collapsed-logo { display: block; width: 104px; max-width: 75%; height: 75px; object-fit: contain; margin: 0 0 8px; }
 @container (max-height: 140px) { .genreel-collapsed-logo { width: 44px; height: 32px; margin-bottom: 4px; } }
 
 .bento-tile[data-project-id="genreel"] .bento-project-brand { text-align: center; }
 .bento-tile[data-project-id="genreel"] .genreel-collapsed-logo { margin-left: auto; margin-right: auto; }
+
+.bento-tile[data-project-id="fileprint"] .bento-project-brand { text-align: center; }
+.fileprint-collapsed-logo { display: block; width: 96px; height: 103px; max-width: 65%; object-fit: contain; margin: 0 auto 10px; }
+@container (max-height: 140px) { .fileprint-collapsed-logo { width: 36px; height: 38px; margin-bottom: 4px; } }
+
+.tarvos-project-block .tarvos-collapsed-logo { flex-basis: 115px; width: 253px; mask-size: 253px auto; mask-position: center -51px; }
+
+/* Equal preview cards; details expand below without stretching neighbouring cards. */
+.category-static-card { padding: 0; overflow: hidden; }
+.project-card-preview { position: relative; height: 360px; padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.project-card-toggle { position: absolute; inset: 0; z-index: 1; cursor: pointer; border-radius: 18px; }
+.project-card-toggle:focus-visible { outline: 2px solid #a5d8ff; outline-offset: -4px; }
+.project-card-preview .static-card-description { margin: 0; }
+.project-card-preview .static-card-heading { min-height: 60px; }
+.overview-project-logo { width: 80px; height: 60px; object-fit: contain; flex-shrink: 0; }
+.project-card-preview .catalog-actions { position: relative; z-index: 2; margin-top: auto; width: fit-content; }
+.overview-stack { display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 0; margin: 0; list-style: none; font-size: 11px; line-height: 1.4; color: #a1a1aa; }
+.overview-stack li { display: inline-flex; align-items: center; gap: 5px; }
+.overview-stack img { width: 16px; height: 16px; object-fit: contain; filter: grayscale(1); opacity: .8; }
+.overview-details-hint { font-size: 12px; color: #a1a1aa; }
+.category-static-card > .category-project-details { padding: 22px 26px; border-top: 1px solid #ffffff14; }
+@media(max-width:700px) { .category-static-card { padding: 0; } .project-card-preview { height: 400px; padding: 22px; } }
+
+.project-card-preview .catalog-actions { margin-top: 0; flex-shrink: 0; }
+.project-card-preview .overview-stack { margin-top: auto; }
+.overview-stack img, .bento-tech-logo img { filter: brightness(0) invert(.66) !important; opacity: 1; }
+.overview-stack img { width: 20px; height: 20px; flex-shrink: 0; }
+.project-card-preview { height: 430px; }
+@media(max-width:700px) { .project-card-preview { height: 490px; } }
+
+.bento-alpha-label { position: absolute; inset: 12px; display: flex; flex-direction: column; justify-content: center; gap: 6px; pointer-events: none; }
+.bento-alpha-label h2 { color: #ef6b73; font-size: 13px; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere; }
+.bento-alpha-label p { color: #85858f; font-size: 11px; line-height: 1.4; }
+
+.bento-tile:is([data-project-id="yamlgen"], [data-project-id="crawlclaw"]) .bento-project-brand h2 { color: #ef6b73; }
+.bento-alpha-status { display: block; margin-top: 6px; color: #85858f; font-size: 11px; line-height: 1.4; }

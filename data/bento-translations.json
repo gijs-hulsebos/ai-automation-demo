@@ -462,5 +462,29 @@
         "Ein Webportfolio mit Next.js, React, TypeScript und Tailwind CSS, auf Vercel veröffentlicht."
       ]
     }
+  },
+  "fileprint": {
+    "NL": {
+      "summary": "Een experiment. Meer informatie volgt."
+    },
+    "DE": {
+      "summary": "Ein Experiment. Weitere Informationen folgen."
+    }
+  },
+  "yamlgen": {
+    "NL": {
+      "summary": "Deze tool is in ontwikkeling en wordt op dit moment nog niet gedeeld."
+    },
+    "DE": {
+      "summary": "Dieses Tool befindet sich in Entwicklung und wird derzeit noch nicht geteilt."
+    }
+  },
+  "crawlclaw": {
+    "NL": {
+      "summary": "Deze tool is in ontwikkeling en wordt op dit moment nog niet gedeeld."
+    },
+    "DE": {
+      "summary": "Dieses Tool befindet sich in Entwicklung und wird derzeit noch nicht geteilt."
+    }
   }
 }

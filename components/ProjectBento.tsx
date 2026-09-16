@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { featuredStacks } from '@/data/tech-stack';
 import { BrandedProjectVideo } from './BrandedProjectVideo';
 import { ProjectCategoryBadge } from './ProjectCategoryBadge';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
@@ -18,7 +19,7 @@ import { expandedLayout } from './bento-layouts';
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
- genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
  stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
@@ -212,12 +213,13 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
-                        {project.size !== 'small' && <p>{project.tagline}</p>}
+                      <div>{project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                        {project.size !== 'small' && project.tagline && <p>{project.tagline}</p>}
+                        {(project.id === 'yamlgen' || project.id === 'crawlclaw') && <span className="bento-alpha-status">Alpha</span>}
                       </div>
                     </motion.div>
                   )}
-                  {(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && interactive && hovered === id && !isExpanded && !hackathonOpen && !categoryOpen && <ProjectTechStack stack={isAegix ? ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'React Flow', 'Express', 'Solana'] : sourceProject?.stack ?? ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'D3', 'Vite', 'Solana', 'n8n', 'Python']} tileId={id} id={`tech-${id}`} />}
+                  {(isAegix || id === 'tarvos' || !!sourceProject?.stack.length) && interactive && hovered === id && !isExpanded && !hackathonOpen && !categoryOpen && <ProjectTechStack stack={isAegix ? featuredStacks.aegix : sourceProject?.stack ?? featuredStacks.tarvos} tileId={id} id={`tech-${id}`} />}
                   {(id === 'tarvos' || isAegix) && <TarvosHackathonBadge project={isAegix ? 'Aegix' : 'Tarvos'} open={hackathonOpen === id} onOpenChange={open => setHackathonOpen(current => open ? id : current === id ? null : current)} />}
                   <motion.div layout={reducedMotion ? false : 'position'} transition={transition} className="bento-tile-heading">
                     {interactive && <button
@@ -247,7 +249,7 @@ export default function ProjectBento() {
                             <div className="tarvos-project-information">
                               <div className="flex flex-wrap justify-center gap-3">
                                 <a href="https://aegix-restored-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-white px-3 py-2 text-xs text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">Website ↗</a>
-                                <a href="https://github.com/gijs-hulsebos/aegix-restored" target="_blank" rel="noopener noreferrer" title={lang === 'NL' ? 'Private repository' : lang === 'DE' ? 'Privates Repository' : 'Private repository'} className="rounded-xl border border-white/20 px-3 py-2 text-xs text-zinc-200 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">GitHub ↗</a>
+                                <a href="https://github.com/gijs-hulsebos/aegix-restored" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-white/20 px-3 py-2 text-xs text-zinc-200 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">GitHub ↗</a>
                               </div>
                             </div>
                           </div><AegixProjectInfo /></>}

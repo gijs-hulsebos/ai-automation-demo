@@ -1,5 +1,7 @@
 "use client";
 import Image from 'next/image';
+import { useState } from 'react';
+import { featuredStacks, techIcons } from '@/data/tech-stack';
 import { Header } from './Header';
 import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
@@ -9,10 +11,10 @@ import { TarvosProjectInfo } from './TarvosProjectInfo';
 import { AegixProjectInfo } from './AegixProjectInfo';
 const categories = [
  { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'skillmax', 'genreel', 'portfolio', 'compliance'] },
- { id: 'apps', names: { NL: 'Losse Apps', EN: 'Standalone Apps', DE: 'Eigenständige Apps' }, ids: ['stayai', 'acquisition', 'insurance', 'donation'] },
+ { id: 'apps', names: { NL: 'Losse Apps', EN: 'Standalone Apps', DE: 'Eigenständige Apps' }, ids: ['events', 'stayai', 'acquisition', 'insurance', 'donation'] },
  { id: 'workflows', names: { NL: 'Workflows', EN: 'Workflows', DE: 'Workflows' }, ids: ['calendar', 'newsletter', 'mediagen'] },
  { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo'] },
- { id: 'experiments', names: { NL: 'Experimenten', EN: 'Experiments', DE: 'Experimente' }, ids: ['registry', 'hermes'] },
+ { id: 'experiments', names: { NL: 'Experimenten', EN: 'Experiments', DE: 'Experimente' }, ids: ['registry', 'hermes', 'fileprint'] },
 ];
 const extra = {
  NL: { registry: 'Een gestructureerd register van AI-aanbieders en diensten, met documentatie voor integraties, mogelijkheden, prompts en praktijknotities.', hermes: 'Een websitegateway met een JSON-taak die Hermes-agents exact instrueerde hoe ze Discord konden joinen: een experiment met Moltbook op Discord.', previous: 'Vorig project', next: 'Volgend project' },
@@ -28,11 +30,13 @@ const copy = {
 function ProjectCategory({ category }: { category: typeof categories[number] }) {
  const { lang } = useLanguage();
  const text = copy[lang];
+ const [expanded, setExpanded] = useState<string | null>(null);
+ const logos: Record<string, string> = { aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
  const entries = category.ids.map(id => {
   const source = projects.find(project => project.id === id);
   const project = source ? localizeProject(source, lang) : undefined;
   const name = project?.name ?? ({ tarvos: 'Tarvos', aegix: 'Aegix', registry: 'AI Integration Registry', hermes: 'Hermes Oracle' }[id] ?? id);
-  return { id, project, name,
+  return { id, project, name, stack: source?.stack ?? featuredStacks[id] ?? [],
    summary: project?.summary ?? (id === 'tarvos' ? text.tarvos : id === 'aegix' ? text.aegix : id === 'registry' ? extra[lang].registry : extra[lang].hermes),
    image: project?.image ?? (id === 'tarvos' ? '/projects/tarvos-brand.png' : id === 'aegix' ? '/projects/aegix-wordmark-cat.png' : undefined),
    website: project?.live ?? (id === 'tarvos' ? 'https://tarvos.tools/' : id === 'aegix' ? 'https://aegix-restored-dashboard.vercel.app/' : id === 'hermes' ? 'https://oracle-gateway-ten.vercel.app/' : undefined),
@@ -41,21 +45,25 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
  });
  return <section id={category.id} className="project-category">
   <header className="category-heading"><h2 className="font-display">{category.names[lang]}</h2><span>{String(entries.length).padStart(2, '0')}</span></header>
-  <div className="category-card-grid">{entries.map(active => <article className="category-static-card" key={active.id} id={`project-${active.id}`}>
+  <div className="category-card-grid">{entries.map(active => <article className="category-static-card" key={active.id} id={`project-${active.id}`} data-expanded={expanded === active.id}>
+   <div className="project-card-preview">
+   <button className="project-card-toggle" aria-label={`${active.name}: ${text.details}`} aria-expanded={expanded === active.id} aria-controls={`overview-details-${active.id}`} onClick={() => setExpanded(expanded === active.id ? null : active.id)} />
    <div className="static-card-heading">
     <h3 className="font-display">{active.name}</h3>
     {active.id === 'tarvos' && <span className="tarvos-collapsed-logo static-brand-logo" aria-hidden="true" />}
-    {active.id === 'aegix' && <Image src="/projects/aegix-wordmark-cat.png" alt="" width={116} height={44} className="static-aegix-logo" />}
+    {logos[active.id] && <Image src={logos[active.id]} alt="" width={80} height={60} className="overview-project-logo" />}
    </div>
-   <p className="static-card-description">{active.summary}</p>
    <div className="catalog-actions">
     {active.website && <a href={active.website} target="_blank" rel="noopener noreferrer">Website ↗</a>}
-    {active.repository && <a href={active.repository} target="_blank" rel="noopener noreferrer">GitHub{active.id === 'aegix' ? ` · ${text.private}` : ''} ↗</a>}
+    {active.repository && <a href={active.repository} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
    </div>
-   {(active.project || active.id === 'tarvos' || active.id === 'aegix') && <details className="category-project-details"><summary>{text.details}</summary><div className="catalog-details-content">
-    {(active.id === 'tarvos' || active.id === 'aegix') && <video className="mb-6 w-full max-w-2xl rounded-xl bg-black" src={active.id === 'tarvos' ? '/projects/tarvos-introduction.mp4' : '/projects/aegix-explainer-1080p.mp4'} controls playsInline preload="none" aria-label={active.name} />}
+   <p className="static-card-description">{active.summary}</p>
+   <ul className="overview-stack" aria-label="Tech-Stack">{active.stack.map(name => <li key={name}>{techIcons[name] && <Image src={techIcons[name]} width={16} height={16} alt="" unoptimized />}<span>{name}</span></li>)}</ul>
+   </div>
+   {expanded === active.id && <div id={`overview-details-${active.id}`} className="category-project-details"><div className="catalog-details-content">
+    {(active.id === 'tarvos' || active.id === 'aegix') && <video className="mb-6 aspect-video w-full max-w-2xl rounded-xl bg-black object-contain" src={active.id === 'tarvos' ? '/projects/tarvos-introduction.mp4' : '/projects/aegix-explainer-1080p.mp4'} controls playsInline preload="metadata" aria-label={active.name} />}
     {active.project ? <BentoProjectDetails project={active.project} /> : active.id === 'tarvos' ? <TarvosProjectInfo /> : <AegixProjectInfo />}
-   </div></details>}
+   </div></div>}
   </article>)}</div>
  </section>;
 }
