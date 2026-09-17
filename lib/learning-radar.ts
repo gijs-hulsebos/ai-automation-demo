@@ -73,5 +73,5 @@ export function buildRadar(input:PublicChart,catalog?:LearningCatalog):RadarData
  }
  if(input.activityTotals)totals.exercises=input.activityTotals.exercises;
  for(const e of input.radarExercises||[]){if(e.date>input.generatedAt.slice(0,10))continue;const content=[e.title,...e.topics].join(' ');add(infer(content),{title:e.title,series:'exercises',count:1,detail:e.topics.join(' · '),url:e.url},{id:e.id,sourceKind:'activity',date:e.date,technologies:technologiesInText(content)});}
- return {scope:'lifetime',sourceSync:input.sourceSync,evidence,generatedAt:input.generatedAt,from:window.from,to:window.to,totals,unclassifiedTheory,axes};
+ return {scope:'lifetime',sourceSync:input.sourceSync,evidence,generatedAt:input.generatedAt,from:evidence.flatMap(e=>e.date?[e.date]:[]).sort()[0]||'',to:input.generatedAt.slice(0,10),totals,unclassifiedTheory,axes};
 }
