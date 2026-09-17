@@ -8,7 +8,7 @@ assert.equal(result.totals.practice,require('../data/bento-projects.json').lengt
 assert(get('automation').evidence.some(e=>e.title==='AI Newsletter Engine'));assert(get('cloud').evidence.some(e=>e.title==='SkillMax+'));assert(get('integration').evidence.some(e=>e.title==='Tarvos'));
 assert.deepEqual(theoryDomains('Google Cloud Gemini in Google Sheets'),['ai','automation','data']);assert(!theoryDomains('Google Cloud Gemini in Google Sheets').includes('cloud'));
 assert.throws(()=>buildRadar({...source,audience:'owner'}));
-source.windows['1Y']={from:'2020-01-01',to:'2020-12-31',periods:[]};result=buildRadar(source);assert.equal(result.totals.practice,0);assert(result.axes.every(a=>a.theory===0&&a.practice===0&&a.exercises===0));
+source.windows['1Y']={from:'2020-01-01',to:'2020-12-31',periods:[]};result=buildRadar(source);assert.equal(result.totals.practice,require('../data/bento-projects.json').length+2);assert.equal(result.scope,'lifetime');
 console.log('PASS project deduplication, curriculum mapping, no issuer-derived cloud claims, unknown metadata, annual review window, public-only source, no synthetic exercise counts');
 
 const catalog=require('../public/learning-catalog.json');
@@ -22,6 +22,13 @@ assert(result.axes.find(a=>a.key==='cloud').evidence.some(e=>e.series==='theory'
 console.log('PASS repository modules, exact completion dates, incomplete programs and no parent double counting');
 
 source.windows['1Y']={from:'2025-09-17',to:'2026-09-16',periods:[]};
-source.publicProjects=[{key:'github:123',name:'new-automation',url:'https://github.com/gijs-hulsebos/new-automation',createdAt:'2026-09-16T12:00:00Z',description:'Python workflow automation',topics:[],language:'Python'},{key:'github:456',name:'FilePrint-website',createdAt:'2026-09-16T12:00:00Z',description:'Website',topics:[],language:'TypeScript'}];
+source.generatedAt='2026-09-17';source.publicProjects=[{key:'github:123',name:'new-automation',url:'https://github.com/gijs-hulsebos/new-automation',createdAt:'2026-09-16T12:00:00Z',description:'Python workflow automation',topics:[],language:'Python'},{key:'github:456',name:'FilePrint-website',createdAt:'2026-09-16T12:00:00Z',description:'Website',topics:[],language:'TypeScript'}];
 result=buildRadar(source,catalog);assert.equal(result.evidence.filter(e=>e.title==='new-automation').length,1);assert(!result.evidence.some(e=>e.title==='FilePrint-website'));assert(result.axes.find(a=>a.key==='automation').evidence.some(e=>e.title==='new-automation'));
 console.log('PASS automatic new projects and portfolio website deduplication');
+
+assert(result.evidence.find(e=>e.title==='Aegix').technologies.length>0);
+assert(result.evidence.find(e=>e.title==='YamlGen').technologies.length===0);
+assert(result.evidence.find(e=>e.title==='CrawlClaw').domains.length===0);
+assert(result.evidence.find(e=>e.title==='AI for Brainstorming and Planning').domains.includes('ai'));
+const before=result.totals;source.windows['1Y']={from:'2030-01-01',to:'2030-12-31',periods:[]};source.generatedAt='2030-12-31';result=buildRadar(source,catalog);assert.deepEqual(result.totals,before);
+console.log('PASS lifetime stability, Aegix technology, complete module mapping and intentional withheld projects');
