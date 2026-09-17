@@ -620,8 +620,8 @@
   {
     "slot": "h",
     "id": "yamlgen",
-    "name": "YamlGen",
-    "displayName": "YamlGen",
+    "name": "YAMLGen",
+    "displayName": "YAMLGen",
     "size": "small",
     "tagline": "Alpha",
     "summary": "This tool is in development and is not being shared at this time.",
@@ -675,5 +675,25 @@
     "live": "https://meta-clean-wo8w.vercel.app/",
     "image": null,
     "private": false
+  },
+  {
+    "slot": "j",
+    "id": "flowmesh",
+    "name": "FlowMesh",
+    "displayName": "FlowMesh",
+    "size": "small",
+    "tagline": "n8n workflow portfolio",
+    "summary": "FlowMesh is where I showcase my portfolio of n8n workflows. The project is in alpha.",
+    "problem": "",
+    "implementation": "",
+    "highlights": [],
+    "stack": [
+      "n8n"
+    ],
+    "sources": [],
+    "repository": null,
+    "live": null,
+    "image": null,
+    "private": true
   }
 ]

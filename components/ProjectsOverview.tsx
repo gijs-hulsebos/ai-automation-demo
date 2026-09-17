@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import { toolLogos } from '@/data/tool-logos';
 import { useState } from 'react';
 import { featuredStacks, techIcons } from '@/data/tech-stack';
 import { Header } from './Header';
@@ -10,10 +11,10 @@ import { BentoProjectDetails, localizeProject } from './BentoProjectContent';
 import { TarvosProjectInfo } from './TarvosProjectInfo';
 import { AegixProjectInfo } from './AegixProjectInfo';
 const categories = [
- { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'skillmax', 'genreel', 'portfolio', 'compliance'] },
+ { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'skillmax', 'genreel', 'portfolio', 'compliance', 'flowmesh'] },
  { id: 'apps', names: { NL: 'Losse Apps', EN: 'Standalone Apps', DE: 'Eigenständige Apps' }, ids: ['events', 'stayai', 'acquisition', 'insurance', 'donation'] },
  { id: 'workflows', names: { NL: 'Workflows', EN: 'Workflows', DE: 'Workflows' }, ids: ['calendar', 'newsletter', 'mediagen'] },
- { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo', 'metaclean'] },
+ { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo', 'metaclean', 'yamlgen', 'crawlclaw'] },
  { id: 'experiments', names: { NL: 'Experimenten', EN: 'Experiments', DE: 'Experimente' }, ids: ['registry', 'hermes', 'fileprint'] },
 ];
 const extra = {
@@ -31,7 +32,7 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
  const { lang } = useLanguage();
  const text = copy[lang];
  const [expanded, setExpanded] = useState<string | null>(null);
- const logos: Record<string, string> = { aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
+ const logos: Record<string, string> = { ...toolLogos, aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
  const entries = category.ids.map(id => {
   const source = projects.find(project => project.id === id);
   const project = source ? localizeProject(source, lang) : undefined;
@@ -49,7 +50,7 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
    <div className="project-card-preview">
    <button className="project-card-toggle" aria-label={`${active.name}: ${text.details}`} aria-expanded={expanded === active.id} aria-controls={`overview-details-${active.id}`} onClick={() => setExpanded(expanded === active.id ? null : active.id)} />
    <div className="static-card-heading">
-    <h3 className="font-display">{active.name}</h3>
+    <h3 className="font-display" style={['flowmesh', 'yamlgen', 'crawlclaw'].includes(active.id) ? {color: '#b86d73'} : undefined}>{active.name}{['flowmesh', 'yamlgen', 'crawlclaw'].includes(active.id) && <span className="bento-alpha-status">Alpha</span>}</h3>
     {active.id === 'tarvos' && <span className="tarvos-collapsed-logo static-brand-logo" aria-hidden="true" />}
     {logos[active.id] && <Image src={logos[active.id]} alt="" width={80} height={60} className="overview-project-logo" />}
    </div>

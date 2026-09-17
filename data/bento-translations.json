@@ -532,5 +532,15 @@
         "Unterstützung für PNG, WebP, HEIC, PDF und Office ist geplant."
       ]
     }
+  },
+  "flowmesh": {
+    "NL": {
+      "tagline": "n8n-workflowportfolio",
+      "summary": "In FlowMesh plaats ik mijn portfolio van n8n-workflows. Het project is in alpha."
+    },
+    "DE": {
+      "tagline": "n8n-Workflow-Portfolio",
+      "summary": "In FlowMesh präsentiere ich mein Portfolio an n8n-Workflows. Das Projekt befindet sich in der Alpha-Phase."
+    }
   }
 }

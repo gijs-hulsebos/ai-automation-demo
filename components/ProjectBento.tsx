@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { toolLogos, toolDescriptions } from '@/data/tool-logos';
+import { ProjectZoom } from './ProjectZoom';
 import { featuredStacks } from '@/data/tech-stack';
 import { BrandedProjectVideo } from './BrandedProjectVideo';
 import { ProjectCategoryBadge } from './ProjectCategoryBadge';
@@ -19,7 +21,7 @@ import { expandedLayout } from './bento-layouts';
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
- metaclean: 'tools', yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ flowmesh: 'projects', metaclean: 'tools', yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
  stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
@@ -53,7 +55,18 @@ const subscribeReducedMotion = (onChange: () => void) => {
 };
 const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
 
-export default function ProjectBento() {
+// Split available space proportionally; every category fills the same canvas.
+function categoryLayout(ids:string[], x=1,y=1,w=24,h=14): Record<string,string> {
+  if(!ids.length)return {};
+  if(ids.length===1)return {[ids[0]]:`${y} / ${x} / span ${h} / span ${w}`};
+  const half=Math.ceil(ids.length/2);
+  const horizontal=w/24*1.82>=h/14;
+  const size=horizontal?w:h;
+  const cut=Math.max(1,Math.min(size-1,Math.round(size*half/ids.length)));
+  return {...categoryLayout(ids.slice(0,half),x,y,horizontal?cut:w,horizontal?h:cut),...categoryLayout(ids.slice(half),horizontal?x+cut:x,horizontal?y:y+cut,horizontal?w-cut:w,horizontal?h:h-cut)};
+}
+
+export default function ProjectBento({onZoomChange,category:filter="all"}: {onZoomChange?: (zoom:number)=>void;category?:string}) {
   const { lang } = useLanguage();
   const ui = INTERFACE[lang];
   const reducedMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, getServerMobile);
@@ -138,10 +151,14 @@ export default function ProjectBento() {
     }, reducedMotion ? 0 : 450));
   }
 
+  const filtered=filter!=='all';
+  const visibleSlots=filtered?slots.filter(id=>categoryByProject[id===aegixSlot?'aegix':projectsBySlot[id]?.id||id]===filter):slots;
+  const positions=filtered?categoryLayout(expanded?[expanded]:visibleSlots):{};
   return (
     <LayoutGroup>
-      <div id="projects" className="landing-project-grid interactive-bento" data-expanded={expanded ?? undefined} style={expanded ? expandedLayout(expanded, mobile ? 'mobile' : tablet ? 'tablet' : 'desktop') : undefined} aria-label={ui.projects}>
-        {slots.map(id => {
+      <ProjectZoom key="zoom-disabled" layerCount={1} locked onZoomChange={onZoomChange}>
+      <div id="projects" className={`landing-project-grid interactive-bento ${filtered?'category-bento':''}`} data-expanded={expanded ?? undefined} style={!filtered && expanded ? expandedLayout(expanded, mobile ? 'mobile' : tablet ? 'tablet' : 'desktop') : undefined} aria-label={ui.projects}>
+        {visibleSlots.map(id => {
           const isExpanded = expanded === id;
           const sourceProject = projectsBySlot[id];
           const project = sourceProject ? localizeProject(sourceProject, lang) : undefined;
@@ -162,7 +179,7 @@ export default function ProjectBento() {
               data-project-size={project?.size}
               data-open={isExpanded || undefined}
               className={`${id === 'tarvos' ? 'tarvos-project-block' : `project-grid-space project-space-${id}`} bento-tile`}
-              style={{ borderRadius: mobile ? 14 : 22 }}
+              style={{ borderRadius: mobile ? 14 : 22, ...(filtered?{gridArea:positions[id],display:expanded && expanded!==id?'none':undefined}:{} ) }}
               transition={transition}
               onClick={event => {
                 if (!interactive) return;
@@ -174,7 +191,7 @@ export default function ProjectBento() {
               }}
             >
                   {category && !isExpanded && <ProjectCategoryBadge category={category} label={categoryLabels[lang][category]} id={`category-${id}`} open={categoryOpen === id} onOpenChange={open => { setCategoryOpen(open ? id : null); if (open) setHackathonOpen(null); }} />}
-                  {(isAegix || project?.id === 'skillmax' || project?.id === 'events') ? (
+                  {(!expanded || isExpanded) && ((isAegix || project?.id === 'skillmax' || project?.id === 'events') ? (
                     <BorderBeamPanel
                       colors={[project?.id === 'events' ? '#facc15' : isAegix ? '#a5d8ff' : '#ef6b73']}
                       beams={1}
@@ -193,7 +210,7 @@ export default function ProjectBento() {
                       hoverSpeed={isExpanded ? 42 : 240}
                       reducedMotion={reducedMotion}
                     />
-                  )}
+                  ))}
                   {id === 'tarvos' && (
                     <motion.div className="tarvos-collapsed-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
@@ -213,9 +230,9 @@ export default function ProjectBento() {
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
-                        {project.size !== 'small' && project.tagline && <p>{project.tagline}</p>}
-                        {(project.id === 'yamlgen' || project.id === 'crawlclaw') && <span className="bento-alpha-status">Alpha</span>}
+                      <div>{filter === 'tools' && toolLogos[project.id] && <Image src={toolLogos[project.id]} alt="" width={160} height={160} className="tool-collapsed-logo" sizes="160px" />} {project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                        {filter === 'tools' ? <p className="tool-description">{toolDescriptions[lang][project.id]}</p> : project.size !== 'small' && project.tagline && <p>{project.tagline}</p>}
+                        {(project.id === 'yamlgen' || project.id === 'crawlclaw' || project.id === 'flowmesh') && <span className="bento-alpha-status">Alpha</span>}
                       </div>
                     </motion.div>
                   )}
@@ -291,6 +308,7 @@ export default function ProjectBento() {
           );
         })}
       </div>
+      </ProjectZoom>
     </LayoutGroup>
   );
 }
