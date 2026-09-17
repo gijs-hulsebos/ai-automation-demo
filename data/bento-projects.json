@@ -652,5 +652,28 @@
     "live": null,
     "image": null,
     "private": true
+  },
+  {
+    "slot": "x",
+    "id": "metaclean",
+    "name": "MetaClean",
+    "displayName": "MetaClean",
+    "size": "small",
+    "tagline": "Remove file metadata",
+    "summary": "A browser tool for removing hidden metadata before sharing files. The first version focuses on JPEG images and EXIF data.",
+    "problem": "Shared photos can reveal GPS locations, camera details, dates and other information you did not intend to share.",
+    "implementation": "Files stay in the browser: select a file, scan its metadata, review the findings, clean it, verify the result and download. Files are not uploaded to or processed on a MetaClean server.",
+    "highlights": [
+      "Initial focus: JPEG/JPG and EXIF metadata.",
+      "Removes supported metadata such as GPS location, camera details, dates, author information and software identifiers.",
+      "Lossless cleaning where possible, followed by verification.",
+      "PNG, WebP, HEIC, PDF and Office support is planned."
+    ],
+    "stack": [],
+    "sources": [],
+    "repository": null,
+    "live": "https://meta-clean-wo8w.vercel.app/",
+    "image": null,
+    "private": false
   }
 ]

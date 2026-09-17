@@ -19,7 +19,7 @@ import { expandedLayout } from './bento-layouts';
 // IDs follow the existing sketch. Empty positions retain their identity.
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
- yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
+ metaclean: 'tools', yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
  stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',

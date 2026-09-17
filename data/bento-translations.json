@@ -506,5 +506,31 @@
     "DE": {
       "summary": "Dieses Tool befindet sich in Entwicklung und wird derzeit noch nicht geteilt."
     }
+  },
+  "metaclean": {
+    "NL": {
+      "tagline": "Metadata verwijderen",
+      "summary": "Een browsertool om verborgen metadata te verwijderen voordat je bestanden deelt. De eerste versie richt zich op JPEG-afbeeldingen en EXIF-data.",
+      "problem": "Gedeelde foto’s kunnen GPS-locaties, cameragegevens, datums en andere informatie prijsgeven die je niet wilde delen.",
+      "implementation": "Bestanden blijven in je browser: selecteer een bestand, scan de metadata, bekijk de bevindingen, schoon het op, controleer het resultaat en download. Bestanden worden niet geüpload naar of verwerkt op een MetaClean-server.",
+      "highlights": [
+        "Eerste versie: JPEG/JPG en EXIF-metadata.",
+        "Verwijdert ondersteunde metadata zoals GPS-locatie, cameragegevens, datums, auteurinformatie en gebruikte software.",
+        "Opschonen zonder kwaliteitsverlies waar mogelijk, met verificatie achteraf.",
+        "Ondersteuning voor PNG, WebP, HEIC, PDF en Office staat gepland."
+      ]
+    },
+    "DE": {
+      "tagline": "Metadaten entfernen",
+      "summary": "Ein Browsertool zum Entfernen versteckter Metadaten vor dem Teilen von Dateien. Die erste Version konzentriert sich auf JPEG-Bilder und EXIF-Daten.",
+      "problem": "Geteilte Fotos können GPS-Standorte, Kameradaten, Datumsangaben und weitere unbeabsichtigte Informationen offenlegen.",
+      "implementation": "Dateien bleiben im Browser: Datei auswählen, Metadaten scannen, Ergebnisse ansehen, bereinigen, überprüfen und herunterladen. Dateien werden weder hochgeladen noch auf einem MetaClean-Server verarbeitet.",
+      "highlights": [
+        "Erste Version: JPEG/JPG und EXIF-Metadaten.",
+        "Entfernt unterstützte Metadaten wie GPS-Standort, Kameradaten, Datumsangaben, Autoren und Software.",
+        "Verlustfreie Bereinigung, soweit möglich, mit anschließender Überprüfung.",
+        "Unterstützung für PNG, WebP, HEIC, PDF und Office ist geplant."
+      ]
+    }
   }
 }

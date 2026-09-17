@@ -13,7 +13,7 @@ const categories = [
  { id: 'projects', names: { NL: 'Projecten', EN: 'Projects', DE: 'Projekte' }, ids: ['tarvos', 'aegix', 'skillmax', 'genreel', 'portfolio', 'compliance'] },
  { id: 'apps', names: { NL: 'Losse Apps', EN: 'Standalone Apps', DE: 'Eigenständige Apps' }, ids: ['events', 'stayai', 'acquisition', 'insurance', 'donation'] },
  { id: 'workflows', names: { NL: 'Workflows', EN: 'Workflows', DE: 'Workflows' }, ids: ['calendar', 'newsletter', 'mediagen'] },
- { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo'] },
+ { id: 'tools', names: { NL: 'Tools', EN: 'Tools', DE: 'Tools' }, ids: ['pr', 'security', 'audio', 'repo', 'metaclean'] },
  { id: 'experiments', names: { NL: 'Experimenten', EN: 'Experiments', DE: 'Experimente' }, ids: ['registry', 'hermes', 'fileprint'] },
 ];
 const extra = {
