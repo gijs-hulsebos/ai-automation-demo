@@ -56,8 +56,15 @@ export function RulerCarousel({originalItems,label,previous,next,zoom=0,layerCou
   useEffect(()=>{
     const element=windowRef.current;
     if(!element || visibleItems!==3)return;
-    const measure=()=>{setSpacing(element.clientHeight/3);setCurveHeight(curved && window.innerWidth>1500?element.clientHeight:0);};
+    const measure=()=>{
+      const desktop=window.matchMedia('(min-width:1501px)').matches;
+      const height=desktop?Math.max(0,(root.current?.getBoundingClientRect().height ?? 0)-32):0;
+      setSpacing(height>0?height/3:210);
+      setCurveHeight(curved && desktop?height:0);
+    };
+    measure();
     const observer=new ResizeObserver(measure);
+    if(root.current)observer.observe(root.current);
     observer.observe(element);
     window.addEventListener('resize',measure);
     return ()=>{observer.disconnect();window.removeEventListener('resize',measure);};
@@ -73,7 +80,7 @@ export function RulerCarousel({originalItems,label,previous,next,zoom=0,layerCou
     if(!element || !count)return;
     let last=0;
     const wheel=(event:WheelEvent)=>{
-      if(event.ctrlKey || event.metaKey || !event.deltaY)return;
+      if(window.matchMedia('(max-width:1500px)').matches || event.ctrlKey || event.metaKey || !event.deltaY)return;
       event.preventDefault();event.stopPropagation();
       const now=performance.now();
       if(now-last>250)setActive(index=>(index+(event.deltaY>0?1:-1)+count)%count);
@@ -84,7 +91,15 @@ export function RulerCarousel({originalItems,label,previous,next,zoom=0,layerCou
   },[count]);
   if(!count)return null;
   return <div ref={root} className={`category-ruler${curveHeight?' category-ruler-curved':''}`} data-layer={zoom>0?2:1} role="group" aria-label={label} onKeyDown={event=>{if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();move(event.key==='ArrowDown'?1:-1);}}}>
-    <button className="ruler-arrow" style={{transform:`translateX(${curveX(-1)}px) rotate(${curveAngle(-1)}deg)`}} aria-label={previous} onClick={()=>move(-1)}><ChevronUp size={16}/></button>
+    <div className="ruler-mobile-options" aria-label={label}>
+      {originalItems.map((item,index)=><button key={item.id} type="button" aria-pressed={index===active} onClick={event=>{
+        setActive(index);
+        const button=event.currentTarget;
+        const list=button.parentElement;
+        if(list)list.scrollTo({left:button.offsetLeft-(list.clientWidth-button.offsetWidth)/2,behavior:reduced?'instant':'smooth'});
+      }}>{item.title}</button>)}
+    </div>
+    <button className="ruler-arrow ruler-arrow-previous" style={{transform:`translateX(${curveX(-1)}px) rotate(${curveAngle(-1)}deg)`}} aria-label={previous} onClick={()=>move(-1)}><ChevronUp size={16}/></button>
     <div ref={windowRef} className="ruler-window">
       <div className="ruler-ticks" aria-hidden="true">{Array.from({length:81},(_,index)=>{
         const major=(index-40)%5===0;
@@ -104,6 +119,6 @@ export function RulerCarousel({originalItems,label,previous,next,zoom=0,layerCou
     {showPagination && <div className="ruler-pagination" style={{translate:`${curveX(1)}px 0`}} aria-label={lockLabel || `${label}: ${displayedLayer} / ${layerCount}`} aria-live="polite">
       {lockLabel?<span className="ruler-locked-layer"><span className="ruler-locked-count">1/2</span><svg width="16" height="18" viewBox="0 0 24 28" role="img" aria-label={lockLabel} className="text-red-600"><title>{lockLabel}</title><path fill="currentColor" fillRule="evenodd" d="M5 11V8a7 7 0 0 1 14 0v3h2a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V14a3 3 0 0 1 3-3h2Zm3 0h8V8a4 4 0 0 0-8 0v3Zm4 5a2.5 2.5 0 0 0-1 4.79V24h2v-3.21A2.5 2.5 0 0 0 12 16Z"/></svg></span>:<>{displayedLayer}<span>/{layerCount}</span></>}
     </div>}
-    <button className="ruler-arrow" style={{transform:`translateX(${curveX(1)}px) rotate(${curveAngle(1)}deg)`}} aria-label={next} onClick={()=>move(1)}><ChevronDown size={16}/></button>
+    <button className="ruler-arrow ruler-arrow-next" style={{transform:`translateX(${curveX(1)}px) rotate(${curveAngle(1)}deg)`}} aria-label={next} onClick={()=>move(1)}><ChevronDown size={16}/></button>
   </div>;
 }
