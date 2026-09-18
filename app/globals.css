@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  --font-sans: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-clash-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer utilities {
@@ -779,3 +779,32 @@ button.bento-category-icon { width: 20px; height: 20px; }
  .category-bento .tool-collapsed-logo { width:64px; height:64px; }
  .landing-gallery-position > .landing-certificate-section-label { order:-2; }
 }
+
+
+/* Shared text roles: dimensions and spacing remain component-owned. */
+:root {
+ --font-ui:var(--font-general-sans),ui-sans-serif,system-ui,sans-serif;
+ --weight-regular:400;
+ --weight-ui-medium:500;
+ --weight-display:500;
+ --weight-project:550;
+ --tracking-display:-.025em;
+ --tracking-heading:-.025em;
+ --tracking-project:-.02em;
+ --tracking-label:.08em;
+ --leading-heading:1.2;
+}
+body { font-family:var(--font-ui); font-weight:var(--weight-regular); }
+button, input, textarea, select { font-family:inherit; }
+h1,h2,h3,.font-display { font-family:var(--font-clash-display),sans-serif; }
+h1,h2 { font-weight:var(--weight-display); letter-spacing:var(--tracking-heading); }
+.landing-gallery-title { font-weight:var(--weight-display); letter-spacing:var(--tracking-display); }
+.bento-project-brand h2,.tarvos-collapsed-brand h2,.bento-project-details h2,.static-card-heading h3,.catalog-body h2 { font-weight:var(--weight-project); letter-spacing:var(--tracking-project); }
+.category-heading h2,.gallery-center-title { font-weight:var(--weight-display); letter-spacing:var(--tracking-heading); }
+.landing-project-section-label,.ruler-category,.ruler-curved-label text { font-family:var(--font-clash-display),sans-serif; font-weight:var(--weight-display); }
+.landing-project-section-label,.ruler-category span { letter-spacing:var(--tracking-label); }
+.ruler-curved-label text { letter-spacing:var(--tracking-label); }
+nav,button,.catalog-actions,.bento-project-links,.overview-stack,.bento-tech-tooltip { font-weight:var(--weight-ui-medium); }
+.bento-project-brand p,.static-card-description,.bento-project-summary,.bento-alpha-status { font-family:var(--font-ui); font-weight:var(--weight-regular); letter-spacing:normal; }
+.certificate-provider span,.portrait-system-label { font-family:var(--font-ui); font-weight:550; }
+.ruler-pagination { font-family:var(--font-ui); font-variant-numeric:tabular-nums; }

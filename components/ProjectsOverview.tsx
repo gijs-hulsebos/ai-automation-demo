@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image';
+import { categoryLogos } from '@/data/category-logos';
 import { toolLogos } from '@/data/tool-logos';
 import { useState } from 'react';
 import { featuredStacks, techIcons } from '@/data/tech-stack';
@@ -32,7 +33,7 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
  const { lang } = useLanguage();
  const text = copy[lang];
  const [expanded, setExpanded] = useState<string | null>(null);
- const logos: Record<string, string> = { ...toolLogos, aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
+ const logos: Record<string, string> = { ...categoryLogos, ...toolLogos, aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
  const entries = category.ids.map(id => {
   const source = projects.find(project => project.id === id);
   const project = source ? localizeProject(source, lang) : undefined;

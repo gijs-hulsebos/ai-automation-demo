@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { categoryLogos } from '@/data/category-logos';
 import { toolLogos, toolDescriptions } from '@/data/tool-logos';
 import { ProjectZoom } from './ProjectZoom';
 import { featuredStacks } from '@/data/tech-stack';
@@ -230,7 +231,7 @@ export default function ProjectBento({onZoomChange,category:filter="all"}: {onZo
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{filter === 'tools' && toolLogos[project.id] && <Image src={toolLogos[project.id]} alt="" width={160} height={160} className="tool-collapsed-logo" sizes="160px" />} {project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                      <div>{filter !== 'all' && (toolLogos[project.id] || categoryLogos[project.id]) && <Image src={toolLogos[project.id] || categoryLogos[project.id]} alt="" width={160} height={160} className="tool-collapsed-logo" sizes="160px" />} {project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
                         {filter === 'tools' ? <p className="tool-description">{toolDescriptions[lang][project.id]}</p> : project.size !== 'small' && project.tagline && <p>{project.tagline}</p>}
                         {(project.id === 'yamlgen' || project.id === 'crawlclaw' || project.id === 'flowmesh') && <span className="bento-alpha-status">Alpha</span>}
                       </div>

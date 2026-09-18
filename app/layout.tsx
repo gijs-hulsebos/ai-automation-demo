@@ -1,18 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { ChatWidget } from '@/components/ChatWidget';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
+const generalSans = localFont({ src: './fonts/general-sans.woff2', weight: '200 700', display: 'swap',
+  variable: '--font-general-sans',
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
+const clashDisplay = localFont({ src: './fonts/clash-display.woff2', weight: '200 700', display: 'swap',
+  variable: '--font-clash-display',
 });
 
 export const metadata: Metadata = {
@@ -22,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
+    <html lang="en" className={`${generalSans.variable} ${clashDisplay.variable} dark scroll-smooth`}>
       <body className="bg-zinc-950 text-zinc-50 font-sans antialiased selection:bg-indigo-500/30" suppressHydrationWarning>
         <LanguageProvider>
           {children}
