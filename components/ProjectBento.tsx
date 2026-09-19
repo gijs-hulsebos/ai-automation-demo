@@ -231,7 +231,7 @@ export default function ProjectBento({onZoomChange,category:filter="all"}: {onZo
                     <motion.div className="bento-project-brand" aria-hidden={isExpanded}
                       initial={false} animate={{ opacity: isExpanded ? 0 : 1 }}
                       transition={{ duration: reducedMotion ? 0 : 0.15, delay: isExpanded || reducedMotion ? 0 : 0.15 }}>
-                      <div>{filter !== 'all' && (toolLogos[project.id] || categoryLogos[project.id]) && <Image src={toolLogos[project.id] || categoryLogos[project.id]} alt="" width={160} height={160} className="tool-collapsed-logo" sizes="160px" />} {project.id === 'fileprint' && <Image src="/projects/fileprint-logo.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
+                      <div>{filter !== 'all' && (toolLogos[project.id] || categoryLogos[project.id]) && <Image src={toolLogos[project.id] || categoryLogos[project.id]} alt="" width={160} height={160} className="tool-collapsed-logo" sizes="160px" />} {project.id === 'fileprint' && <Image src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/fileprint-logo.874c65a0b757f8cc.png" alt="" width={1248} height={1280} className="fileprint-collapsed-logo" sizes="90px" />} {project.id === 'genreel' && <Image src="/projects/genreel-logo.png" alt="" width={1392} height={1122} className="genreel-collapsed-logo" sizes="100px" />} {project.id === 'events' && <Image src="/projects/techevents-logo.svg" alt="" width={128} height={128} className="techevents-collapsed-logo" />} {project.id === 'skillmax' && <Image src="/projects/skillmax-logo-v1.png" alt="" width={1280} height={1280} className="skillmax-collapsed-logo" sizes="120px" />}<h2 className="font-display">{project.displayName}</h2>
                         {filter === 'tools' ? <p className="tool-description">{toolDescriptions[lang][project.id]}</p> : project.size !== 'small' && project.tagline && <p>{project.tagline}</p>}
                         {(project.id === 'yamlgen' || project.id === 'crawlclaw' || project.id === 'flowmesh') && <span className="bento-alpha-status">Alpha</span>}
                       </div>
@@ -263,7 +263,7 @@ export default function ProjectBento({onZoomChange,category:filter="all"}: {onZo
                           {project && <BentoProjectDetails project={project} />}
                           {isAegix && <><div className="aegix-expanded">
                             <h2 className="font-display text-xl font-medium">Aegix</h2>
-                            <BrandedProjectVideo brand="Aegix" src="/projects/aegix-explainer-1080p.mp4" label={lang === 'NL' ? 'Aegix-uitlegvideo' : lang === 'DE' ? 'Aegix-Erklärvideo' : 'Aegix explainer video'} />
+                            <BrandedProjectVideo brand="Aegix" src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/aegix-explainer-1080p.05f17fb4b82c7d06.mp4" label={lang === 'NL' ? 'Aegix-uitlegvideo' : lang === 'DE' ? 'Aegix-Erklärvideo' : 'Aegix explainer video'} />
                             <div className="tarvos-project-information">
                               <div className="flex flex-wrap justify-center gap-3">
                                 <a href="https://aegix-restored-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-white px-3 py-2 text-xs text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">Website ↗</a>
@@ -288,7 +288,7 @@ export default function ProjectBento({onZoomChange,category:filter="all"}: {onZo
                                 </button>
                               </div>
                               <BrandedProjectVideo key={tarvosVideo} brand="Tarvos"
-                                src={tarvosVideo === 0 ? '/projects/tarvos-introduction.mp4' : '/projects/tarvos-product-film.mp4'}
+                                src={tarvosVideo === 0 ? 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/tarvos-introduction.a2c256e1d9e68980.mp4' : 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/tarvos-product-film.27b7d67258ed293f.mp4'}
                                 label={tarvosVideo === 0 ? (lang === 'NL' ? 'Wat is Tarvos?' : lang === 'DE' ? 'Was ist Tarvos?' : 'What is Tarvos?') : (lang === 'NL' ? 'Tarvos-productfilm' : lang === 'DE' ? 'Tarvos-Produktfilm' : 'Tarvos Product Film')} />
                               <div className="tarvos-project-information">
 

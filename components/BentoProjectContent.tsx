@@ -38,19 +38,19 @@ export function BentoProjectDetails({ project }: { project: BentoProject }) {
     {project.id === 'fileprint' && <section>
       <h3>{{ NL: 'Hoe FilePrint werkt', EN: 'How FilePrint works', DE: 'So funktioniert FilePrint' }[lang]}</h3>
       <video controls playsInline preload="metadata" className="aspect-video w-full rounded-xl bg-black object-contain" aria-label="FilePrint" onClick={event => event.stopPropagation()}>
-        <source src="/projects/fileprint-explainer.mp4" type="video/mp4" />
+        <source src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/fileprint-explainer.892f4017fd8804af.mp4" type="video/mp4" />
       </video>
     </section>}
     {project.id === 'genreel' && <section className="genreel-project-video">
       <h3>{{ NL: 'Liftveiligheid in 3D — Blender', EN: '3D elevator safety — Blender', DE: 'Aufzugsicherheit in 3D — Blender' }[lang]}</h3>
       <video controls playsInline preload="metadata" className="w-full rounded-xl" aria-label="GenReel: 3D Blender Elevator Safety" onClick={event => event.stopPropagation()}>
-        <source src="/projects/genreel-blender-elevator.mp4" type="video/mp4" />
+        <source src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/genreel-blender-elevator.9e9e6de99bf664f9.mp4" type="video/mp4" />
       </video>
     </section>}
     {project.id === 'acquisition' && <section className="acquisition-origin-video">
       <h3>{{ NL: 'Hoe het idee ontstond', EN: 'How the idea started', DE: 'Wie die Idee entstand' }[lang]}</h3>
       <video controls playsInline preload="metadata" className="w-full rounded-xl" aria-label={{ NL: 'Hoe ik op het idee voor Acquisition Gap Analyzer kwam', EN: 'How I came up with Acquisition Gap Analyzer', DE: 'Wie ich auf die Idee für Acquisition Gap Analyzer kam' }[lang]} onClick={event => event.stopPropagation()}>
-        <source src="/projects/acquisition-gap-analyzer-origin.mp4" type="video/mp4" />
+        <source src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/acquisition-gap-analyzer-origin.ca0969f38375c3d0.mp4" type="video/mp4" />
       </video>
     </section>}
     {project.id === 'skillmax' && <a className="bento-project-visual" href="/learning-trajectory" aria-label="SkillMax+ Overview"><Image src="/projects/skillmax-overview.png" alt="SkillMax+ Overview — Learning Chart" width={1500} height={850} sizes="(max-width: 600px) 90vw, 600px" className="object-contain" /></a>}

@@ -10,7 +10,8 @@ base = 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/'
 items = json.loads((root / 'infra/media/manifest.json').read_text())
 
 def fetch(url, method='GET', headers=None):
-    request = urllib.request.Request(url, method=method, headers=headers or {})
+    # workers.dev rejects Python's default agent (1010); check browser delivery.
+    request = urllib.request.Request(url, method=method, headers={'User-Agent': 'Mozilla/5.0', **(headers or {})})
     try:
         return urllib.request.urlopen(request, timeout=120)
     except urllib.error.HTTPError as error:

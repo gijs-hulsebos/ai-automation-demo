@@ -33,7 +33,7 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
  const { lang } = useLanguage();
  const text = copy[lang];
  const [expanded, setExpanded] = useState<string | null>(null);
- const logos: Record<string, string> = { ...categoryLogos, ...toolLogos, aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: '/projects/fileprint-logo.png' };
+ const logos: Record<string, string> = { ...categoryLogos, ...toolLogos, aegix: '/projects/aegix-wordmark-cat.png', skillmax: '/projects/skillmax-logo-v1.png', genreel: '/projects/genreel-logo.png', events: '/projects/techevents-logo.svg', fileprint: 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/fileprint-logo.874c65a0b757f8cc.png' };
  const entries = category.ids.map(id => {
   const source = projects.find(project => project.id === id);
   const project = source ? localizeProject(source, lang) : undefined;
@@ -63,7 +63,7 @@ function ProjectCategory({ category }: { category: typeof categories[number] }) 
    <ul className="overview-stack" aria-label="Tech-Stack">{active.stack.map(name => <li key={name}>{techIcons[name] && <Image src={techIcons[name]} width={16} height={16} alt="" unoptimized />}<span>{name}</span></li>)}</ul>
    </div>
    {expanded === active.id && <div id={`overview-details-${active.id}`} className="category-project-details"><div className="catalog-details-content">
-    {(active.id === 'tarvos' || active.id === 'aegix') && <video className="mb-6 aspect-video w-full max-w-2xl rounded-xl bg-black object-contain" src={active.id === 'tarvos' ? '/projects/tarvos-introduction.mp4' : '/projects/aegix-explainer-1080p.mp4'} controls playsInline preload="metadata" aria-label={active.name} />}
+    {(active.id === 'tarvos' || active.id === 'aegix') && <video className="mb-6 aspect-video w-full max-w-2xl rounded-xl bg-black object-contain" src={active.id === 'tarvos' ? 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/tarvos-introduction.a2c256e1d9e68980.mp4' : 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/aegix-explainer-1080p.05f17fb4b82c7d06.mp4'} controls playsInline preload="metadata" aria-label={active.name} />}
     {active.project ? <BentoProjectDetails project={active.project} /> : active.id === 'tarvos' ? <TarvosProjectInfo /> : <AegixProjectInfo />}
    </div></div>}
   </article>)}</div>

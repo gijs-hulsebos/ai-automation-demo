@@ -10,9 +10,15 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Allow access to remote image placeholder.
+  // Media lives in R2; Next.js keeps its existing responsive image optimization.
   images: {
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'gijshulsebos-media.ai-automation-workflow-demo.workers.dev',
+        port: '',
+        pathname: '/**',
+      },
       {
         protocol: 'https',
         hostname: 'picsum.photos',

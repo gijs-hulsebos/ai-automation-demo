@@ -10,7 +10,7 @@ export function BrandedProjectVideo({ brand, src, label }: { brand: 'Tarvos' | '
   const { lang } = useLanguage();
   const logo = brand === 'Tarvos'
     ? <span className="tarvos-expanded-logo" aria-hidden="true" />
-    : <span className="aegix-expanded-logo"><Image src="/projects/aegix-shield.png" alt="" fill sizes="160px" className="object-contain" /></span>;
+    : <span className="aegix-expanded-logo"><Image src="https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/aegix-shield.334e7ae2943644a5.png" alt="" fill sizes="160px" className="object-contain" /></span>;
   return <>
     {started && <div className="video-side-brand" aria-label={brand}>{logo}</div>}
     <div className="tarvos-project-media branded-project-media">

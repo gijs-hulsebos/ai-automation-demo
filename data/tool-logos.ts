@@ -1,7 +1,7 @@
 export const toolLogos: Record<string, string> = {
-  pr: '/projects/tools/PR-extractor.png',
+  pr: 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/tools/PR-extractor.44a5d1d4391aacfc.png',
   audio: '/projects/tools/Audio-Extractor.png',
-  crawlclaw: '/projects/tools/CrawlClaw.png',
+  crawlclaw: 'https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/tools/CrawlClaw.790fa70fb6c85460.png',
   metaclean: '/projects/tools/MetaClean.png',
   repo: '/projects/tools/Repo-Explorer.png',
   security: '/projects/tools/Security-Audit-Checker.png',
