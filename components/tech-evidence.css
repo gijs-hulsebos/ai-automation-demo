@@ -9,3 +9,13 @@
 .tech-sources::-webkit-scrollbar-thumb{background:#595565;border:2px solid #141419;border-radius:8px;min-height:36px}
 .tech-sources::-webkit-scrollbar-thumb:hover{background:#82798f}
 .tech-sources::-webkit-scrollbar-button{display:none}
+
+/* Bound the tool list independently of the evidence list. */
+.tech-area-tools{max-height:144px;overflow-y:auto;align-content:flex-start;flex-shrink:0;padding-right:10px;scrollbar-gutter:stable;overscroll-behavior:contain;color-scheme:dark;scrollbar-width:thin;scrollbar-color:#595565 #141419}
+.tech-area-tools span{flex-shrink:0}
+.tech-area-tools:focus-visible{outline:2px solid #b69af5;outline-offset:4px;border-radius:6px}
+.tech-area-tools::-webkit-scrollbar{width:8px}
+.tech-area-tools::-webkit-scrollbar-track{background:#141419;border-radius:8px}
+.tech-area-tools::-webkit-scrollbar-thumb{background:#595565;border:2px solid #141419;border-radius:8px}
+.tech-area-tools::-webkit-scrollbar-thumb:hover{background:#82798f}
+.tech-area-tools::-webkit-scrollbar-button{display:none}
