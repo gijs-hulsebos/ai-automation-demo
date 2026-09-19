@@ -1,0 +1,177 @@
+[
+  {
+    "local": "public/projects/acquisition-gap-analyzer-origin.mp4",
+    "key": "projects/acquisition-gap-analyzer-origin.ca0969f38375c3d0.mp4",
+    "bytes": 19265321,
+    "sha256": "ca0969f38375c3d0d2b45537c8aeba2c0cfb546cbb7e7cc10df5e82605d25dc5",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/aegix-explainer-1080p.mp4",
+    "key": "projects/aegix-explainer-1080p.05f17fb4b82c7d06.mp4",
+    "bytes": 5947727,
+    "sha256": "05f17fb4b82c7d0641f5e86fdb9df946e908c34d5afba5c3998bd86ccbd3121a",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/aegix-shield.png",
+    "key": "projects/aegix-shield.334e7ae2943644a5.png",
+    "bytes": 582236,
+    "sha256": "334e7ae2943644a52e540a7aa16f417b393336beebabd45143522fe1a4e51841",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/category-logos/acquisition-mark.svg",
+    "key": "projects/category-logos/acquisition-mark.fcc55e53279ffc1e.svg",
+    "bytes": 523068,
+    "sha256": "fcc55e53279ffc1e0ccf5635b7b48b96e6a389365cb039306a6ddc909bec7fa9",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/donation-mark.svg",
+    "key": "projects/category-logos/donation-mark.2856f210147d0e9d.svg",
+    "bytes": 1723701,
+    "sha256": "2856f210147d0e9dbcdcf0f148b839105aacc207bb090a096f14b217ab443c9b",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/donation.png",
+    "key": "projects/category-logos/donation.064a5da153434a04.png",
+    "bytes": 1292646,
+    "sha256": "064a5da153434a04eeaaa386e6b7ad446db79330d05760cda844135d47a990f3",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/category-logos/hermes-mark.svg",
+    "key": "projects/category-logos/hermes-mark.e6994eff9204eb9b.svg",
+    "bytes": 632704,
+    "sha256": "e6994eff9204eb9ba0f9ab7b52ee6b8ba6da7815a65deb04308dc098e783292c",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/insurance-mark.svg",
+    "key": "projects/category-logos/insurance-mark.ac2b1fe9b5865837.svg",
+    "bytes": 559478,
+    "sha256": "ac2b1fe9b586583729e1580365872c83fde1f86f82a3df14b3928957f18e3346",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/mediagen-mark.svg",
+    "key": "projects/category-logos/mediagen-mark.bbcae16e249eb334.svg",
+    "bytes": 809949,
+    "sha256": "bbcae16e249eb334703c3ecfa60fc16dcfe3b16b5e31072831a866db99920e9e",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/mediagen.png",
+    "key": "projects/category-logos/mediagen.470e5c392e3afd47.png",
+    "bytes": 607348,
+    "sha256": "470e5c392e3afd473a0c7c5e3620ec838f0517cb88a55825b9aacbdfe5947cda",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/category-logos/newsletter-mark.svg",
+    "key": "projects/category-logos/newsletter-mark.bb0cadfaa13ae564.svg",
+    "bytes": 1385982,
+    "sha256": "bb0cadfaa13ae564063db3d7f397f3b89fd3bb22e572fff8a19603a3c3c12320",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/newsletter.png",
+    "key": "projects/category-logos/newsletter.f6ebeb5660f27ea3.png",
+    "bytes": 1039372,
+    "sha256": "f6ebeb5660f27ea3dfd966f4734fd35a4f9b8d319a9d8d86f7ce068ba858c601",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/category-logos/portfolio-mark.svg",
+    "key": "projects/category-logos/portfolio-mark.3f61658ab987b08d.svg",
+    "bytes": 539076,
+    "sha256": "3f61658ab987b08de2d7200f4f2fb35cbba40b084293d3820869dca584895317",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/registry-mark.svg",
+    "key": "projects/category-logos/registry-mark.1ec1deb968e0468f.svg",
+    "bytes": 1545661,
+    "sha256": "1ec1deb968e0468f285ec6ca665a913cd3dc6b28184b26e25051fe80004f0253",
+    "contentType": "image/svg+xml"
+  },
+  {
+    "local": "public/projects/category-logos/registry.png",
+    "key": "projects/category-logos/registry.ed39a1bd1d580304.png",
+    "bytes": 1159132,
+    "sha256": "ed39a1bd1d58030465ce56f8cb72e837003eb29c2fba826542e53731e676917a",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/fileprint-explainer.mp4",
+    "key": "projects/fileprint-explainer.892f4017fd8804af.mp4",
+    "bytes": 7521796,
+    "sha256": "892f4017fd8804afa7b770349585784eff37f4744bd479dde7368f77d50fc991",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/fileprint-logo.png",
+    "key": "projects/fileprint-logo.874c65a0b757f8cc.png",
+    "bytes": 890780,
+    "sha256": "874c65a0b757f8cc7b558dc8c623688fbf3faf400d5f24d15512474f04f75f75",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/genreel-blender-elevator.mp4",
+    "key": "projects/genreel-blender-elevator.9e9e6de99bf664f9.mp4",
+    "bytes": 26559854,
+    "sha256": "9e9e6de99bf664f9e11d1c7fb5af74d9bf090bd77da1b47ee89ff956cbe090b3",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/stayai-preview.png",
+    "key": "projects/stayai-preview.01ac75c388e1050c.png",
+    "bytes": 2159430,
+    "sha256": "01ac75c388e1050ca4853258a64dc323edb8d708ac88947e37b818b21f09af03",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/tarvos-introduction.mp4",
+    "key": "projects/tarvos-introduction.a2c256e1d9e68980.mp4",
+    "bytes": 11678650,
+    "sha256": "a2c256e1d9e68980c48e00bcf9b7ca2bead972e37b7f602800cf7a143389b0d1",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/tarvos-product-film.mp4",
+    "key": "projects/tarvos-product-film.27b7d67258ed293f.mp4",
+    "bytes": 15934480,
+    "sha256": "27b7d67258ed293ff4d777c161f2940aae7c17e6678381abaf8dc55d92eef868",
+    "contentType": "video/mp4"
+  },
+  {
+    "local": "public/projects/tools/CrawlClaw.png",
+    "key": "projects/tools/CrawlClaw.790fa70fb6c85460.png",
+    "bytes": 678607,
+    "sha256": "790fa70fb6c85460cb670acdb0d194acc28a46917a58c7d110cd8074de194002",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/projects/tools/PR-extractor.png",
+    "key": "projects/tools/PR-extractor.44a5d1d4391aacfc.png",
+    "bytes": 585111,
+    "sha256": "44a5d1d4391aacfc60ff1256c138848807c6796fdebea8911274f3a5ff524e1d",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/tech/claude-generated.png",
+    "key": "tech/claude-generated.716cf5d4de53ade9.png",
+    "bytes": 1406319,
+    "sha256": "716cf5d4de53ade9f46f8dfc0070c0964940d3826851ed03840c69e4eebdc1bc",
+    "contentType": "image/png"
+  },
+  {
+    "local": "public/tech/higgsfield-generated.png",
+    "key": "tech/higgsfield-generated.29f7ffa0277e3ac7.png",
+    "bytes": 1367911,
+    "sha256": "29f7ffa0277e3ac7f4b36fff104eab239c308f97479754868fed89db4018ae79",
+    "contentType": "image/png"
+  }
+]

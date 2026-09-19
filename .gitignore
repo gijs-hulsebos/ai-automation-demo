@@ -11,3 +11,4 @@ __pycache__/
 data/certificates.json.tmp
 verification/
 .vercel
+.wrangler/

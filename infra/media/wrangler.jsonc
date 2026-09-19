@@ -1,0 +1,8 @@
+{
+  "name": "gijshulsebos-media",
+  "account_id": "818174b3f3f6943ba01fa64511d5a156",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-19",
+  "workers_dev": true,
+  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "gijshulsebos-media" }]
+}
