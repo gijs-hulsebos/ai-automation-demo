@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { BentoProjectDetails, localizeProject, type BentoProject } from './BentoProjectContent';
 import { useLanguage } from '@/context/LanguageContext';
 
 // A second asymmetric layer, ready to receive future project cards.
@@ -17,14 +18,19 @@ const copy = {
   EN: {hint:'Scroll to zoom out',out:'Zoom out',back:'Return to layer 1',layer:'Layer',space:'Room for new projects'},
   DE: {hint:'Scrollen zum Herauszoomen',out:'Herauszoomen',back:'Zurück zu Ebene 1',layer:'Ebene',space:'Platz für neue Projekte'},
 };
-export function ProjectZoom({children, locked, onZoomChange, layerCount=2}: {children:ReactNode; locked:boolean; layerCount?:number; onZoomChange?: (zoom:number)=>void}) {
+export function ProjectZoom({children, locked, onZoomChange, layerCount=2, secondaryProject}: {secondaryProject?:BentoProject; children:ReactNode; locked:boolean; layerCount?:number; onZoomChange?: (zoom:number)=>void}) {
   const {lang}=useLanguage();
   const text=copy[lang];
   const frame=useRef<HTMLDivElement>(null);
   const position=useRef(0);
   const [zoom,setZoom]=useState(0);
+  const [detailOpen,setDetailOpen]=useState(false);
+  const pageButton=useRef<HTMLButtonElement>(null);
+  const project=secondaryProject ? localizeProject(secondaryProject,lang) : undefined;
   useEffect(()=>{onZoomChange?.(zoom);},[zoom,onZoomChange]);
   function change(value:number) {
+    setDetailOpen(false);
+    pageButton.current?.focus({preventScroll:true});
     position.current=Math.max(0,Math.min(1,value));
     setZoom(position.current);
   }
@@ -33,8 +39,8 @@ export function ProjectZoom({children, locked, onZoomChange, layerCount=2}: {chi
     if(!element)return;
     let lastEvent=0, switchedAt=0;
     const wheel=(event:WheelEvent)=>{
-      if(layerCount<2 || locked || event.ctrlKey || event.metaKey || Math.abs(event.deltaX)>Math.abs(event.deltaY) || window.matchMedia('(pointer: coarse)').matches)return;
-      if(event.target instanceof Element && event.target.closest('video,audio,input,textarea,.bento-detail-region'))return;
+      if(layerCount<2 || locked || detailOpen || event.ctrlKey || event.metaKey || Math.abs(event.deltaX)>Math.abs(event.deltaY) || window.matchMedia('(pointer: coarse)').matches)return;
+      if(event.target instanceof Element && event.target.closest('video,audio,input,textarea,.bento-detail-region,.project-secondary-details'))return;
       const now=performance.now();
       const quiet=now-lastEvent>180;
       lastEvent=now;
@@ -49,14 +55,18 @@ export function ProjectZoom({children, locked, onZoomChange, layerCount=2}: {chi
     };
     element.addEventListener('wheel',wheel,{passive:false});
     return ()=>element.removeEventListener('wheel',wheel);
-  },[locked,layerCount]);
+  },[locked,layerCount,detailOpen]);
   const zoomed=zoom>0.02;
   return <div className="project-zoom" ref={frame} data-zoomed={zoomed} data-zoom={zoom.toFixed(3)} onKeyDown={event=>{if(event.key==='Escape' && zoomed){change(0);event.stopPropagation();}}}>
     <div className="project-zoom-core" inert={zoomed} style={{transform:`scale(${1-zoom*0.51})`,opacity:1-zoom*0.18}}>{children}</div>
-    <div className="project-zoom-ring" aria-hidden="true" style={{opacity:zoom,transform:`scale(${1.08-zoom*0.08})`}}>
-      {ring.map(([column,row,width,height],index)=><div key={index} className="project-ring-tile" style={{gridColumn:`${column} / span ${width}`,gridRow:`${row} / span ${height}`}} />)}
+    <div className="project-zoom-ring" inert={!zoomed} aria-hidden={!zoomed} style={{opacity:zoom,transform:`scale(${1.08-zoom*0.08})`}}>
+      {ring.map(([column,row,width,height],index)=>index===0 && project ? <article key={index} data-project-id={project.id} className={`project-ring-tile project-secondary-card ${detailOpen?'is-open':''}`}>
+        <button type="button" className="project-secondary-toggle" aria-expanded={detailOpen} aria-controls="secondary-project-details" onClick={()=>setDetailOpen(!detailOpen)}><h2>{project.name}</h2><span>{detailOpen ? {NL:'Sluiten',EN:'Close',DE:'Schließen'}[lang] : project.tagline}</span></button>
+        {detailOpen && <div id="secondary-project-details" className="project-secondary-details"><BentoProjectDetails project={project}/></div>}
+      </article> : <div key={index} className="project-ring-tile" aria-hidden="true" style={{gridColumn:`${column} / span ${width}`,gridRow:`${row} / span ${height}`}} />)}
     </div>
-    {zoomed && <button className="project-zoom-return" style={{width:`${(1-zoom*0.51)*100}%`,height:`${(1-zoom*0.51)*100}%`}} onClick={()=>change(0)} aria-label={text.back}></button>}
+    {zoomed && !detailOpen && <button className="project-zoom-return" style={{width:`${(1-zoom*0.51)*100}%`,height:`${(1-zoom*0.51)*100}%`}} onClick={()=>change(0)} aria-label={text.back}></button>}
 
+    {layerCount>1 && <div className="project-zoom-controls"><span aria-live="polite">{lang==='NL'?'Pagina':lang==='DE'?'Seite':'Page'} {zoomed?2:1} / 2</span><button ref={pageButton} type="button" disabled={locked} onClick={()=>change(zoomed?0:1)}>{zoomed?{NL:'Terug naar pagina 1',EN:'Back to page 1',DE:'Zurück zu Seite 1'}[lang]:{NL:'Meer projecten · pagina 2',EN:'More projects · page 2',DE:'Mehr Projekte · Seite 2'}[lang]}</button></div>}
   </div>;
 }

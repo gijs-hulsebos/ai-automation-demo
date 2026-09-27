@@ -542,5 +542,29 @@
       "tagline": "n8n-Workflow-Portfolio",
       "summary": "In FlowMesh präsentiere ich mein Portfolio an n8n-Workflows. Das Projekt befindet sich in der Alpha-Phase."
     }
+  },
+  "techer": {
+    "NL": {
+      "tagline": "Tinder voor tech",
+      "summary": "Een swipebare techfeed om originele X-posts te ontdekken. Like, sla over en bewaar posts terwijl je een persoonlijk leesprofiel opbouwt.",
+      "problem": "Op X moet je door veel berichten heen om relevante technologieposts te vinden.",
+      "implementation": "Een mobile-first feed met originele X-embeds, swipebediening, categoriefilters, bladwijzers en persoonlijke ontdekking.",
+      "highlights": [
+        "Swipe of gebruik knoppen om posts te liken en over te slaan.",
+        "Bewaar posts in een aparte leeslijst.",
+        "Verken categoriefilters en Blind Spot-aanbevelingen."
+      ]
+    },
+    "DE": {
+      "tagline": "Tinder für Tech",
+      "summary": "Ein Tech-Feed zum Entdecken originaler X-Posts per Swipe. Beiträge liken, überspringen und speichern und dabei ein persönliches Leseprofil aufbauen.",
+      "problem": "Relevante Technologiebeiträge gehen in einem überfüllten X-Feed leicht unter.",
+      "implementation": "Ein Mobile-first-Feed mit originalen X-Einbettungen, Swipe-Steuerung, Kategorien, Lesezeichen und personalisierter Entdeckung.",
+      "highlights": [
+        "Beiträge per Swipe oder Schaltflächen bewerten.",
+        "Beiträge in einer separaten Leseliste speichern.",
+        "Kategorien und Blind-Spot-Empfehlungen erkunden."
+      ]
+    }
   }
 }

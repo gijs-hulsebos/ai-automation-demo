@@ -237,7 +237,7 @@
     "private": false
   },
   {
-    "slot": "m",
+    "slot": "donation-secondary",
     "id": "donation",
     "name": "Custom Donation Alerts",
     "displayName": "Custom Donation Alerts",
@@ -695,5 +695,36 @@
     "live": null,
     "image": null,
     "private": true
+  },
+  {
+    "slot": "m",
+    "id": "techer",
+    "name": "Techer",
+    "displayName": "Techer",
+    "size": "tall",
+    "tagline": "Tinder for tech",
+    "summary": "A swipe-based tech feed for discovering original X posts. Like, skip and save posts while building a personal reading profile.",
+    "problem": "Keeping up with technology on X means sorting through a crowded feed to find relevant posts.",
+    "implementation": "Built a mobile-first feed with original X embeds, swipe controls, category filters, bookmarks and personalized discovery.",
+    "highlights": [
+      "Swipe or use buttons to like and skip posts.",
+      "Save posts to a separate reading list.",
+      "Explore category filters and Blind Spot recommendations."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "OpenRouter"
+    ],
+    "sources": [
+      "README-TECHER.md",
+      "package.json"
+    ],
+    "repository": null,
+    "live": "https://techer-three.vercel.app/",
+    "image": null,
+    "private": false
   }
 ]

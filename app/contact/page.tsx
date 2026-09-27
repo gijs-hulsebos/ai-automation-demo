@@ -35,11 +35,11 @@ export default function ContactPage() {
                   <div className="text-sm text-zinc-400">gijs@gijshulsebos.com</div>
                 </div>
               </a>
-              <a href="https://linkedin.com/in/gijshulsebos" className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-zinc-900/30 hover:bg-zinc-900/50 transition-colors">
+              <a href="https://www.linkedin.com/in/gijs-hulsebos-ai/" className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-zinc-900/30 hover:bg-zinc-900/50 transition-colors">
                 <Linkedin className="w-6 h-6 text-indigo-400" />
                 <div>
                   <div className="text-sm font-medium text-white">{t.linkedin}</div>
-                  <div className="text-sm text-zinc-400">linkedin.com/in/gijshulsebos</div>
+                  <div className="text-sm text-zinc-400">linkedin.com/in/gijs-hulsebos-ai</div>
                 </div>
               </a>
               <a href="https://github.com/gijshulsebos" className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-zinc-900/30 hover:bg-zinc-900/50 transition-colors">

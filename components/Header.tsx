@@ -91,7 +91,7 @@ export function Header() {
                   <Github className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/in/gijs-hulsebos-ai/"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"
@@ -194,7 +194,7 @@ export function Header() {
                 <Github className="w-6 h-6" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/gijs-hulsebos-ai/"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-[#FF7F11] transition-colors duration-300"

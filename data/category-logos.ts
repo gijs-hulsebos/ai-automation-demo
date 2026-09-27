@@ -1,5 +1,6 @@
 // Cropped SVG viewports preserve the original transparent artwork.
 export const categoryLogos: Record<string,string> = {
+  "techer": "/projects/techer-logo.png",
   "acquisition": "https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/category-logos/acquisition-mark.fcc55e53279ffc1e.svg",
   "donation": "https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/category-logos/donation-mark.2856f210147d0e9d.svg",
   "insurance": "https://gijshulsebos-media.ai-automation-workflow-demo.workers.dev/projects/category-logos/insurance-mark.ac2b1fe9b5865837.svg",

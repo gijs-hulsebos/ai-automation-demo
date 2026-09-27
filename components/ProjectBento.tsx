@@ -23,7 +23,7 @@ import { expandedLayout } from './bento-layouts';
 const aegixSlot = 'g';
 const categoryByProject: Record<string, string> = {
  flowmesh: 'projects', metaclean: 'tools', yamlgen: 'tools', crawlclaw: 'tools', fileprint: 'experiments', genreel: 'projects', events: 'apps', skillmax: 'projects', tarvos: 'projects', aegix: 'projects', portfolio: 'projects', compliance: 'projects',
- stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
+ techer: 'apps', stayai: 'apps', acquisition: 'apps', insurance: 'apps', donation: 'apps',
  calendar: 'workflows', newsletter: 'workflows', mediagen: 'workflows',
  pr: 'tools', security: 'tools', audio: 'tools', repo: 'tools',
  registry: 'experiments', hermes: 'experiments',
@@ -153,11 +153,11 @@ export default function ProjectBento({onZoomChange,category:filter="all"}: {onZo
   }
 
   const filtered=filter!=='all';
-  const visibleSlots=filtered?slots.filter(id=>categoryByProject[id===aegixSlot?'aegix':projectsBySlot[id]?.id||id]===filter):slots;
+  const visibleSlots=filtered?[...slots, 'donation-secondary'].filter(id=>categoryByProject[id===aegixSlot?'aegix':projectsBySlot[id]?.id||id]===filter):slots;
   const positions=filtered?categoryLayout(expanded?[expanded]:visibleSlots):{};
   return (
     <LayoutGroup>
-      <ProjectZoom key="zoom-disabled" layerCount={1} locked onZoomChange={onZoomChange}>
+      <ProjectZoom key={filter} layerCount={1} locked onZoomChange={onZoomChange} secondaryProject={projectsBySlot['donation-secondary']}>
       <div id="projects" className={`landing-project-grid interactive-bento ${filtered?'category-bento':''}`} data-expanded={expanded ?? undefined} style={!filtered && expanded ? expandedLayout(expanded, mobile ? 'mobile' : tablet ? 'tablet' : 'desktop') : undefined} aria-label={ui.projects}>
         {visibleSlots.map(id => {
           const isExpanded = expanded === id;

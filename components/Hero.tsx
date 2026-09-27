@@ -26,7 +26,7 @@ export function Hero() {
         <div className="landing-project-grid-frame">
           <h2 className="landing-project-section-label font-display"><Link href="/projects">{INTERFACE[lang].projects}</Link></h2>
           <aside className="landing-category-ruler">
-            <RulerCarousel layerCount={1} lockLabel={{NL:'Zoomen tijdelijk vergrendeld',EN:'Zoom temporarily locked',DE:'Zoom vorübergehend gesperrt'}[lang]} onCategoryChange={setCategory} zoom={gridZoom} label={{NL:'Projectcategorieën',EN:'Project categories',DE:'Projektkategorien'}[lang]} previous={{NL:'Vorige categorie',EN:'Previous category',DE:'Vorherige Kategorie'}[lang]} next={{NL:'Volgende categorie',EN:'Next category',DE:'Nächste Kategorie'}[lang]} originalItems={[
+            <RulerCarousel layerCount={1} lockLabel={category === 'all' ? {NL:'Pagina 2 is vergrendeld',EN:'Page 2 is locked',DE:'Seite 2 ist gesperrt'}[lang] : undefined} onCategoryChange={setCategory} zoom={gridZoom} label={{NL:'Projectcategorieën',EN:'Project categories',DE:'Projektkategorien'}[lang]} previous={{NL:'Vorige categorie',EN:'Previous category',DE:'Vorherige Kategorie'}[lang]} next={{NL:'Volgende categorie',EN:'Next category',DE:'Nächste Kategorie'}[lang]} originalItems={[
               {id:'all',title:'ALL'},
               {id:'projects',title:{NL:'Projecten',EN:'Projects',DE:'Projekte'}[lang]},
               {id:'apps',title:'Apps'},
