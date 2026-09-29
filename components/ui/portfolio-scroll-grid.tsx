@@ -5,7 +5,26 @@ import {Children,useEffect,useRef,useState,type CSSProperties,type ReactNode} fr
 export function PortfolioScrollGrid({title,children,replies}:{title:string;children:ReactNode;replies?:ReactNode}){
  const root=useRef<HTMLDivElement>(null),trigger=useRef<HTMLAnchorElement>(null);const [revealed,setRevealed]=useState(false);
  const [loading,setLoading]=useState({ready:0,total:0,failed:0});
- useEffect(()=>{const el=root.current;if(!el)return;const check=()=>{const cards=Array.from(el.querySelectorAll<HTMLElement>('.social-post-card'));const next={ready:cards.filter(c=>c.dataset.status==='ready').length,total:cards.length,failed:cards.filter(c=>c.dataset.status==='failed').length};el.dataset.prepared=String(next.total>0&&next.ready===next.total);const visible=cards.filter(c=>{const box=c.getBoundingClientRect(),lane=c.closest('.social-loop-column')!.getBoundingClientRect();return box.bottom>lane.top&&box.top<lane.bottom});el.dataset.preview=String(visible.length>0&&visible.every(c=>c.dataset.status==='ready'));setLoading(previous=>previous.ready===next.ready&&previous.total===next.total&&previous.failed===next.failed?previous:next)};const observer=new MutationObserver(check);observer.observe(el,{subtree:true,childList:true,attributes:true,attributeFilter:['data-status']});check();return()=>observer.disconnect()},[]);
+ useEffect(()=>{
+ const el=root.current;if(!el)return;
+ const check=()=>{
+ const cards=Array.from(el.querySelectorAll<HTMLElement>('.social-post-card'));
+ const next={ready:cards.filter(c=>c.dataset.status==='ready').length,total:cards.length,failed:cards.filter(c=>c.dataset.status==='failed').length};
+ let anyReady=false;
+ el.querySelectorAll<HTMLElement>('.social-loop-column').forEach(lane=>{
+ const bounds=lane.getBoundingClientRect();
+ const upcoming=Array.from(lane.querySelectorAll<HTMLElement>('.social-post-card')).filter(card=>{const box=card.getBoundingClientRect();return box.bottom>bounds.top-100&&box.top<bounds.bottom+100});
+ const ready=upcoming.length>0&&upcoming.every(card=>card.dataset.status==='ready');
+ lane.dataset.ready=String(ready);if(ready)lane.dataset.shown='true';
+ anyReady=anyReady||lane.dataset.shown==='true';
+ });
+ el.dataset.preview=String(anyReady);el.dataset.prepared=String(next.total>0&&next.ready===next.total);
+ setLoading(previous=>previous.ready===next.ready&&previous.total===next.total&&previous.failed===next.failed?previous:next);
+ };
+ const observer=new MutationObserver(check);observer.observe(el,{subtree:true,childList:true,attributes:true,attributeFilter:['data-status']});check();
+ const timer=setInterval(()=>{if(el.dataset.prepared!=='true'&&el.dataset.running==='true')check()},250);
+ return()=>{observer.disconnect();clearInterval(timer)};
+ },[]);
  useEffect(()=>{const el=root.current;if(!el)return;let visible=false;const sync=()=>{el.dataset.running=String(visible&&!document.hidden)};const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync()});observer.observe(el);document.addEventListener('visibilitychange',sync);return()=>{observer.disconnect();document.removeEventListener('visibilitychange',sync)}},[]);
  function reveal(active:boolean){setRevealed(active);const area=root.current,button=trigger.current;if(!area||!button)return;
  // Freeze the loop before measuring so all lanes share exact reveal edges.
