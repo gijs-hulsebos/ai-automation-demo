@@ -47,3 +47,7 @@
 .social-scroll-grid::before,.social-scroll-grid::after{content:"";position:absolute;left:0;right:0;height:32px;z-index:2;pointer-events:none}
 .social-scroll-grid::before{top:0;background:linear-gradient(#080808,transparent)}
 .social-scroll-grid::after{bottom:0;background:linear-gradient(transparent,#080808)}
+
+.social-loop-column{contain:layout paint;isolation:isolate}
+.social-loop-slot{backface-visibility:hidden}
+.social-post-card[data-status=idle] .social-embed{visibility:hidden}
