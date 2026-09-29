@@ -53,7 +53,9 @@
 .social-post-card[data-status=idle] .social-embed{visibility:hidden}
 
 .social-scroll-grid:not([data-prepared=true]) .social-loop-track{animation-play-state:paused}
-.social-scroll-grid:not([data-prepared=true]) .social-columns,.social-scroll-grid:not([data-prepared=true]) .social-title-layer,.social-scroll-grid:not([data-prepared=true]) .social-name-trigger{opacity:0;pointer-events:none}
+.social-scroll-grid:not([data-preview=true]) .social-columns,.social-scroll-grid:not([data-preview=true]) .social-title-layer,.social-scroll-grid:not([data-prepared=true]) .social-name-trigger{opacity:0;pointer-events:none}
 .social-columns{transition:opacity .3s ease}
 .social-preparing{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#aaa7b3}
 .social-preparing small{font-variant-numeric:tabular-nums}.social-preparing button{text-decoration:underline}
+
+.social-scroll-grid[data-preview=true] .social-preparing{inset:auto 0 0;flex-direction:row;font-size:12px;background:#080808;padding:6px;pointer-events:auto}

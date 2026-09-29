@@ -8,8 +8,8 @@ type Post={id:string;url:string;pinned:boolean;reply?:boolean};
 type XWindow=Window&{twttr?:{widgets:{createTweet:(id:string,target:HTMLElement,options:Record<string,unknown>)=>Promise<HTMLElement|undefined>}}};
 const copy={NL:{loading:'Posts laden…',error:'De posts zijn tijdelijk niet beschikbaar.',empty:'Binnenkort meer posts.',open:'Bekijk op X',more:'Meer posts',less:'Minder posts'},EN:{loading:'Loading posts…',error:'Posts are temporarily unavailable.',empty:'More posts coming soon.',open:'View on X',more:'More posts',less:'Fewer posts'},DE:{loading:'Beiträge werden geladen…',error:'Die Beiträge sind vorübergehend nicht verfügbar.',empty:'Weitere Beiträge folgen bald.',open:'Auf X ansehen',more:'Mehr Beiträge',less:'Weniger Beiträge'}};
 // Limit widget initialization work so X cannot flood the main thread at once.
-const embedQueue:Array<()=>Promise<void>>=[];let loadingEmbeds=0;
-function drainEmbeds(){while(loadingEmbeds<3&&embedQueue.length){const job=embedQueue.shift()!;loadingEmbeds++;void job().finally(()=>{loadingEmbeds--;setTimeout(drainEmbeds,60)})}}
+const embedQueue:Array<{run:()=>Promise<void>;priority:()=>number}>=[];let loadingEmbeds=0;
+function drainEmbeds(){while(loadingEmbeds<3&&embedQueue.length){embedQueue.sort((a,b)=>a.priority()-b.priority());const job=embedQueue.shift()!;loadingEmbeds++;void job.run().finally(()=>{loadingEmbeds--;setTimeout(drainEmbeds,60)})}}
 function Embed({post,ready}:{post:Post;ready:boolean}){
  const host=useRef<HTMLDivElement>(null);
  const [attempt,setAttempt]=useState(0),[status,setStatus]=useState<'loading'|'ready'|'failed'>('loading');
@@ -26,8 +26,9 @@ function Embed({post,ready}:{post:Post;ready:boolean}){
  if(active)setStatus(result?'ready':'failed');
  }catch{if(active)setStatus('failed')}finally{clearTimeout(timeout)}
  };
- embedQueue.push(job);drainEmbeds();
- return()=>{active=false;const index=embedQueue.indexOf(job);if(index>=0)embedQueue.splice(index,1);mount.remove()};
+ const queued={run:job,priority:()=>{const card=target.closest('.social-post-card')!.getBoundingClientRect(),column=target.closest('.social-loop-column')!.getBoundingClientRect();return Math.max(column.top-card.bottom,card.top-column.bottom,0)}};
+ embedQueue.push(queued);const start=setTimeout(drainEmbeds,0);
+ return()=>{active=false;clearTimeout(start);const index=embedQueue.indexOf(queued);if(index>=0)embedQueue.splice(index,1);mount.remove()};
  },[post.id,attempt,ready]);
  return <article className="social-post-card" data-status={status}><div ref={host} className="social-embed"/>{status!=='ready'&&<div className="social-embed-status" role="status">{status==='loading'?'Loading X post…':<>X embed unavailable. <button onClick={()=>setAttempt(n=>n+1)}>Retry</button></>}</div>}</article>;
 }
