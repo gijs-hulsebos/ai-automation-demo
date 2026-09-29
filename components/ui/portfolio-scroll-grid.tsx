@@ -1,9 +1,10 @@
 'use client';
 import {MorphingText} from './morphing-text';
-import {Children,useRef,useState,type ReactNode} from 'react';
+import {Children,useEffect,useRef,useState,type ReactNode} from 'react';
 /** Posts loop in the outer lanes; compact replies scroll over the background name. */
 export function PortfolioScrollGrid({title,children,replies}:{title:string;children:ReactNode;replies?:ReactNode}){
  const root=useRef<HTMLDivElement>(null),trigger=useRef<HTMLAnchorElement>(null);const [revealed,setRevealed]=useState(false);
+ useEffect(()=>{const el=root.current;if(!el)return;let visible=false;const sync=()=>{el.dataset.running=String(visible&&!document.hidden)};const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync()});observer.observe(el);document.addEventListener('visibilitychange',sync);return()=>{observer.disconnect();document.removeEventListener('visibilitychange',sync)}},[]);
  function reveal(active:boolean){setRevealed(active);const area=root.current,button=trigger.current;if(!area||!button)return;
  // Freeze the loop before measuring so all lanes share exact reveal edges.
  area.dataset.reveal=String(active);

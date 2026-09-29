@@ -40,3 +40,5 @@
 @media(prefers-reduced-motion:reduce){.social-loop-slot,.social-title-layer>div{transition:none}}
 
 .social-morph{position:relative;display:inline-block}.social-morph-size{visibility:hidden}.social-morph-words{position:absolute;inset:0}.social-morph-words>span{position:absolute;inset:0;text-align:center;white-space:nowrap}
+
+.social-scroll-grid:not([data-running=true]) .social-loop-track{animation-play-state:paused}.social-post-card{contain:layout paint}
