@@ -27,30 +27,32 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
     await page.goto(base, { waitUntil: 'networkidle' });
     await page.locator('.circular-gallery').evaluate(element => element.scrollIntoView({ block: 'start' }));
     if (await page.locator('.circular-gallery-center-card').count() !== 1) throw new Error('Fixed introduction card missing');
-    for (let batch = 0; batch < Math.ceil(expected.certificates.length / 16); batch++) {
-      const links = page.locator('.certificate-hit-link');
-      if (await links.count() !== 16) throw new Error('Expected sixteen fixed slots');
-      await page.waitForFunction(() => [...document.querySelectorAll('.certificate-preview img')].every(image => image.complete && image.naturalWidth > 0));
-      const cards = await page.locator('.certificate-hit-area').evaluateAll(elements => elements.map(element => ({
+    await page.waitForFunction(() => [...document.querySelectorAll('.certificate-preview img')].every(image => image.complete && image.naturalWidth > 0));
+    const cards = await page.locator('.certificate-hit-area').evaluateAll(elements => elements.map(element => ({
         href: element.querySelector('.certificate-hit-link').href,
         title: element.querySelector('.certificate-hit-link').getAttribute('aria-label'),
         provider: element.querySelector('.certificate-provider').textContent.trim(),
         logo: element.querySelector('.certificate-provider img')?.getAttribute('alt'),
         preview: new URL(element.querySelector('.certificate-preview img').src).pathname,
         fit: getComputedStyle(element.querySelector('.certificate-preview img')).objectFit,
-      })));
-      for (const card of cards) {
-        const destination = new URL(card.href);
-        const source = expected.certificates.find(item => item.id === destination.searchParams.get('certificate'));
-        if (destination.origin !== new URL(base).origin || destination.pathname !== '/certificates') {
-          throw new Error(`Invalid certificate destination: ${card.href}`);
-        }
-        if (!source || card.preview !== source.image || !card.title.includes(source.title) || card.fit !== 'contain' || !(card.provider || card.logo)) {
-          throw new Error(`Invalid live certificate card: ${JSON.stringify(card)}`);
-        }
-        seen.add(source.id);
+    })));
+    const awards = await page.locator('.specialization-anchor').evaluateAll(elements => elements.map(element => ({
+      href: element.querySelector('.specialization-provider').href,
+      title: element.querySelector('.specialization-preview').getAttribute('aria-label'),
+      provider: element.querySelector('.specialization-provider').textContent.trim(),
+      preview: new URL(element.querySelector('.specialization-preview img').src).pathname,
+    })));
+    for (const card of [...cards, ...awards]) {
+      const destination = new URL(card.href);
+      const source = expected.certificates.find(item => item.id === destination.searchParams.get('certificate'));
+      if (destination.origin !== new URL(base).origin || destination.pathname !== '/certificates') {
+        throw new Error(`Invalid certificate destination: ${card.href}`);
       }
-      if (batch + 1 < Math.ceil(expected.certificates.length / 16)) await page.locator('.gallery-next-certificates').click();
+      if (!source || card.preview !== source.image || !card.title.includes(source.title) || !(card.provider || card.logo)) {
+        throw new Error(`Invalid live certificate card: ${JSON.stringify(card)}`);
+      }
+      if ('fit' in card && card.fit !== 'contain') throw new Error(`Invalid preview fit: ${JSON.stringify(card)}`);
+      seen.add(source.id);
     }
     if (seen.size !== expected.certificates.length) throw new Error(`Only ${seen.size}/${expected.certificates.length} certificates reached the live carousel`);
     fs.mkdirSync('verification', { recursive: true });

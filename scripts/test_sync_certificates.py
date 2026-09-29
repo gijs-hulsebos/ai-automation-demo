@@ -3,7 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+import urllib.error
 from reportlab.pdfgen import canvas
 import sync_certificates as sync
 
@@ -17,6 +18,33 @@ def pdf(text):
 
 
 class SyncTests(unittest.TestCase):
+    @patch.object(sync.time, 'sleep')
+    @patch.object(sync.urllib.request, 'urlopen')
+    def test_fetch_retries_transient_network_errors(self, urlopen, sleep):
+        response = Mock()
+        response.read.return_value = b'certificate data'
+        response.__enter__ = Mock(return_value=response)
+        response.__exit__ = Mock(return_value=False)
+        urlopen.side_effect = [
+            urllib.error.URLError(ConnectionResetError(104, 'Connection reset by peer')),
+            response,
+        ]
+
+        self.assertEqual(sync.fetch('https://example.test/certificate.pdf'), b'certificate data')
+        self.assertEqual(urlopen.call_count, 2)
+        sleep.assert_called_once_with(sync.FETCH_BACKOFF_SECONDS)
+
+    @patch.object(sync.time, 'sleep')
+    @patch.object(sync.urllib.request, 'urlopen')
+    def test_fetch_stops_after_bounded_retries(self, urlopen, sleep):
+        urlopen.side_effect = urllib.error.URLError('network unavailable')
+
+        with self.assertRaises(urllib.error.URLError):
+            sync.fetch('https://example.test/certificate.pdf')
+
+        self.assertEqual(urlopen.call_count, sync.FETCH_ATTEMPTS)
+        self.assertEqual(sleep.call_count, sync.FETCH_ATTEMPTS - 1)
+
     def test_lifecycle_cache_dedup_and_failure(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

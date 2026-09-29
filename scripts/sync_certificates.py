@@ -5,6 +5,8 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import tempfile
+import time
+import urllib.error
 import urllib.request
 from urllib.parse import quote
 
@@ -14,6 +16,8 @@ from sync_learning_catalog import sync_catalog
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'gijs-hulsebos/Certificates'
 VERSION = 1
+FETCH_ATTEMPTS = 5
+FETCH_BACKOFF_SECONDS = 1
 
 
 def fetch(url):
@@ -21,8 +25,15 @@ def fetch(url):
     token = os.environ.get('CERTIFICATES_TOKEN')
     if token:
         headers['Authorization'] = f'Bearer {token}'
-    with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as response:
-        return response.read()
+    request = urllib.request.Request(url, headers=headers)
+    for attempt in range(FETCH_ATTEMPTS):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return response.read()
+        except (urllib.error.URLError, ConnectionError, TimeoutError, OSError):
+            if attempt == FETCH_ATTEMPTS - 1:
+                raise
+            time.sleep(FETCH_BACKOFF_SECONDS * (2 ** attempt))
 
 
 def render(data):
