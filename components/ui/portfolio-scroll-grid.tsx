@@ -1,6 +1,6 @@
 'use client';
 import {MorphingText} from './morphing-text';
-import {Children,useEffect,useRef,useState,type ReactNode} from 'react';
+import {Children,useEffect,useRef,useState,type CSSProperties,type ReactNode} from 'react';
 /** Posts loop in the outer lanes; compact replies scroll over the background name. */
 export function PortfolioScrollGrid({title,children,replies}:{title:string;children:ReactNode;replies?:ReactNode}){
  const root=useRef<HTMLDivElement>(null),trigger=useRef<HTMLAnchorElement>(null);const [revealed,setRevealed]=useState(false);
@@ -26,7 +26,7 @@ export function PortfolioScrollGrid({title,children,replies}:{title:string;child
  });
  }
  const cards=Children.toArray(children),replyCards=Children.toArray(replies);
- function track(items:ReactNode[],key:string){const sequence=items.length===1?[...items,...items]:items;return <div className="social-loop-track">{[0,1].map(copy=><div className="social-loop-group" key={copy} data-repeat={copy===1}>{sequence.map((card,index)=><div className="social-loop-slot" key={key+index}>{card}</div>)}</div>)}</div>}
+ function track(items:ReactNode[],key:string){const sequence=items.length===1?[...items,...items]:items;return <div className="social-loop-track" style={{'--social-duration':`${sequence.length*(key==='replies'?318:598)/24}s`} as CSSProperties}>{[0,1].map(copy=><div className="social-loop-group" key={copy} data-repeat={copy===1}>{sequence.map((card,index)=><div className="social-loop-slot" key={key+index}>{card}</div>)}</div>)}</div>}
  return <div ref={root} className="social-scroll-grid social-infinite-grid" data-reveal={revealed}><div className="social-title-layer" aria-hidden="true"><div className="font-display"><MorphingText active={revealed} title={title}/></div></div><a ref={trigger} href="https://x.com/Gijs_Hulsebos" target="_blank" rel="noopener noreferrer" className="social-name-trigger font-display" aria-label={`Open ${title} on X`} onPointerEnter={e=>{if(e.pointerType!=='touch')reveal(true)}} onPointerLeave={e=>{if(e.pointerType!=='touch'&&document.activeElement!==trigger.current)reveal(false)}} onFocus={()=>reveal(true)} onBlur={()=>reveal(false)}>{title}</a><div className="social-columns">{[0,1,2].map(column=>{
  if(column===1)return <div className="social-reply-column" key={column}>{replyCards.length>0&&<div className="social-loop-column social-reply-window" tabIndex={0} aria-label="Replies">{track(replyCards,'replies')}</div>}</div>;
  const selected=cards.filter((_,i)=>i%2===(column===0?0:1));const items=selected.length?selected:cards.slice(0,1);return <div className="social-loop-column" key={column} tabIndex={0} aria-label={`Social Mesh ${column+1}`}>{track(items,'posts-'+column)}</div>;

@@ -5,12 +5,12 @@
 .social-scroll-grid{position:relative;isolation:isolate;height:780px;overflow:hidden}
 .social-title-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;pointer-events:none}
 .social-title-layer>div{position:relative;top:auto;isolation:isolate;white-space:nowrap;text-align:center;font-size:clamp(36px,7vw,108px);line-height:1;letter-spacing:-.05em;color:#73737c66}
-.social-columns{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:50px;height:100%;mask-image:linear-gradient(transparent,#000 4%,#000 96%,transparent)}
+.social-columns{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:50px;height:100%}
 .social-loop-column,.social-reply-column{min-width:0;height:100%;overflow:hidden}
 .social-loop-column{padding:0 3px;box-sizing:border-box}
-.social-loop-track{animation:social-column-loop 65s linear infinite;will-change:transform}
-.social-reply-window .social-loop-track{animation-duration:52s;animation-direction:reverse}
-.social-columns>.social-loop-column:last-child .social-loop-track{animation-duration:72s;animation-delay:-12s}
+.social-loop-track{animation:social-column-loop var(--social-duration,65s) linear infinite;will-change:transform;transform:translate3d(0,0,0)}
+.social-reply-window .social-loop-track{animation-direction:reverse}
+.social-columns>.social-loop-column:last-child .social-loop-track{animation-delay:-12s}
 .social-loop-group{display:flex;flex-direction:column;gap:58px;padding-bottom:58px}
 .social-loop-slot{height:540px;flex:none;min-width:0}
 .social-reply-window .social-loop-slot{height:260px}
@@ -23,7 +23,7 @@
 .social-loop-column:hover .social-loop-track,.social-loop-column:focus-within .social-loop-track{animation-play-state:paused}
 .social-placeholder{border:1px solid #ffffff16;border-radius:24px;padding:100px 24px;text-align:center;color:#93939f}
 .social-mesh-section a:focus-visible,.social-mesh-section button:focus-visible{outline:2px solid #a78bfa;outline-offset:4px}
-@keyframes social-column-loop{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes social-column-loop{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
 @media(min-width:1480px){.social-section-label{display:block;position:absolute;left:-66px;top:50%;transform:translate(-50%,-50%) rotate(-90deg);margin:0}}
 @media(max-width:900px){.social-columns{gap:28px;overflow-x:auto;grid-template-columns:repeat(3,minmax(280px,1fr));scroll-snap-type:x mandatory}.social-loop-column{scroll-snap-align:center}.social-scroll-grid{height:700px}.social-title-layer>div{font-size:clamp(24px,4vw,40px)}}
 @media(max-width:600px){.social-mesh-section{padding:0 20px;margin-bottom:64px}}
@@ -42,3 +42,8 @@
 .social-morph{position:relative;display:inline-block}.social-morph-size{visibility:hidden}.social-morph-words{position:absolute;inset:0}.social-morph-words>span{position:absolute;inset:0;text-align:center;white-space:nowrap}
 
 .social-scroll-grid:not([data-running=true]) .social-loop-track{animation-play-state:paused}.social-post-card{contain:layout paint}
+
+/* Stationary fades avoid masking three moving iframe layers every frame. */
+.social-scroll-grid::before,.social-scroll-grid::after{content:"";position:absolute;left:0;right:0;height:32px;z-index:2;pointer-events:none}
+.social-scroll-grid::before{top:0;background:linear-gradient(#080808,transparent)}
+.social-scroll-grid::after{bottom:0;background:linear-gradient(transparent,#080808)}
