@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { INTERFACE } from '@/data/interface-translations';
 import CircularGallery from '@/components/ui/circular-flip-card-gallery';
 import ProjectBento from '@/components/ProjectBento';
+import SocialMesh from '@/components/SocialMesh';
 import LearningRadar from '@/components/LearningRadar';
 import { certificateLayerCount } from '@/lib/certificate-layers';
 
@@ -55,6 +56,7 @@ export function Hero() {
         </aside>
       </div>
       <LearningRadar />
+      <SocialMesh />
     </section>
   );
 }
